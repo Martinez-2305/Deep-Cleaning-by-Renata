@@ -1,9 +1,47 @@
-// Before/after sliders, and the quote form: validation, real submission to the
-// configured endpoint, and honest success/error states. Also pre-selects the
-// service when a service card's "Get a quote" link is used, and hides the
-// mobile action bar while the hero buttons, quote form or footer are on screen.
+// Menu button, before/after sliders, and the quote form: validation, real
+// submission to the configured endpoint, and honest success/error states. Also
+// pre-selects the service when a service card's "Get a quote" link is used, and
+// hides the mobile action bar while the hero buttons, quote form or footer are on screen.
 (function () {
   'use strict';
+
+  // Menu button (below 1024px): rolls the nav down from the header. Closes on
+  // Escape, on choosing a link, on a click outside, and when widening to desktop.
+  var toggle = document.querySelector('.menu-toggle');
+  var menu = document.getElementById('site-menu');
+  if (toggle && menu) {
+    var setMenu = function (open, returnFocus) {
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menu.classList.toggle('is-open', open);
+      document.body.classList.toggle('menu-open', open);
+      if (!open && returnFocus) toggle.focus();
+    };
+    toggle.addEventListener('click', function () { setMenu(toggle.getAttribute('aria-expanded') !== 'true'); });
+    // In-page links: roll the menu up first, then scroll. Scrolling while the
+    // header is still collapsing makes the browser abandon the smooth scroll.
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    menu.addEventListener('click', function (e) {
+      var a = e.target.closest('a');
+      if (!a || !menu.classList.contains('is-open')) return;
+      var hash = a.hash, target = hash && a.pathname === location.pathname && document.getElementById(hash.slice(1));
+      setMenu(false);
+      if (!target) return;
+      e.preventDefault();
+      setTimeout(function () {
+        if (location.hash !== hash) location.hash = hash;
+        else target.scrollIntoView({ behavior: reduced.matches ? 'auto' : 'smooth' });
+      }, reduced.matches ? 0 : 360);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menu.classList.contains('is-open')) setMenu(false, true);
+    });
+    document.addEventListener('click', function (e) {
+      if (menu.classList.contains('is-open') && !e.target.closest('.site-header')) setMenu(false);
+    });
+    var desktop = window.matchMedia('(min-width: 1024px)');
+    var onChange = function () { if (desktop.matches) setMenu(false); };
+    if (desktop.addEventListener) desktop.addEventListener('change', onChange); else desktop.addListener(onChange);
+  }
 
   // Before/after comparison: the range input sets how much of the "before" layer shows.
   Array.prototype.forEach.call(document.querySelectorAll('.ba'), function (ba) {

@@ -22,7 +22,7 @@
   --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
   --radius: 6px;
   --gutter: 16px;
-  --header-h: 0px;
+  --header-h: 65px;      /* sticky header height, for anchor offsets */
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -113,8 +113,10 @@ mark.ph {
 .btn[disabled], .btn[aria-disabled="true"] { opacity: .7; cursor: progress; }
 .icon { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
 
-/* Header */
+/* Header — sticky at every size. Below 1024px (phones, iPads in portrait) the
+   nav collapses behind a menu button and rolls down from the header. */
 .site-header {
+  position: sticky; top: 0; z-index: 20;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
 }
@@ -123,38 +125,100 @@ mark.ph {
   grid-template-columns: auto 1fr;
   grid-template-areas: "brand actions" "nav nav";
   align-items: center;
-  column-gap: var(--s4);
-  padding-block: var(--s3) 0;
+  column-gap: var(--s3);
+  padding-block: var(--s2);
 }
 .brand { grid-area: brand; display: block; border-radius: var(--radius); }
-.brand img { width: 92px; border-radius: var(--radius); }
-.header-actions { grid-area: actions; display: flex; justify-content: flex-end; align-items: center; gap: var(--s5); }
+.brand img { width: 84px; border-radius: var(--radius); }
+.header-actions { grid-area: actions; display: flex; justify-content: flex-end; align-items: center; gap: var(--s2); }
+.header-actions .btn { padding-inline: 14px; }
 .header-phone { display: none; }
-.main-nav { grid-area: nav; }
-.main-nav ul { display: flex; flex-wrap: wrap; column-gap: var(--s4); row-gap: 0; margin: 0; padding: 0; list-style: none; }
+
+.menu-toggle {
+  display: inline-grid; place-items: center; flex: none;
+  width: 44px; height: 44px; padding: 0;
+  background: transparent; color: var(--text);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  cursor: pointer;
+}
+.menu-toggle:hover { border-color: var(--green-700); color: var(--green-700); }
+.menu-icon, .menu-icon::before, .menu-icon::after, .menu-icon > span {
+  display: block; width: 20px; height: 2px; border-radius: 2px; background: currentColor;
+}
+.menu-icon { position: relative; background: transparent; }
+.menu-icon::before, .menu-icon::after { content: ""; position: absolute; left: 0; transition: transform .3s ease; }
+.menu-icon::before { transform: translateY(-6px); }
+.menu-icon::after { transform: translateY(6px); }
+.menu-icon > span { transition: opacity .2s ease; }
+.menu-toggle[aria-expanded="true"] .menu-icon::before { transform: rotate(45deg); }
+.menu-toggle[aria-expanded="true"] .menu-icon::after { transform: rotate(-45deg); }
+.menu-toggle[aria-expanded="true"] .menu-icon > span { opacity: 0; }
+
+/* Collapsible panel: animating grid rows 0fr → 1fr gives a smooth height
+   transition to the content's natural height. visibility keeps closed links
+   out of the tab order, and switches only after the roll-up finishes. */
+.main-nav {
+  grid-area: nav;
+  display: grid; grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows .35s ease, visibility 0s linear .35s;
+}
+.main-nav.is-open {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition: grid-template-rows .35s ease, visibility 0s;
+}
+.nav-inner {
+  min-height: 0; overflow: hidden;
+  opacity: 0; transform: translateY(-8px);
+  transition: opacity .25s ease, transform .35s ease;
+}
+.main-nav.is-open .nav-inner { opacity: 1; transform: none; overflow-y: auto; max-height: calc(100dvh - 120px); }
+.main-nav ul { margin: var(--s2) 0 0; padding: 0; list-style: none; border-top: 1px solid var(--border); }
+.main-nav li { border-bottom: 1px solid var(--border); }
 .main-nav a {
-  display: inline-flex; align-items: center; min-height: 44px;
-  color: var(--text); font-weight: 600; font-size: 0.9375rem; text-decoration: none;
+  display: flex; align-items: center; min-height: 52px;
+  color: var(--text); font-weight: 600; font-size: 1.0625rem; text-decoration: none;
 }
 .main-nav a:hover { color: var(--green-700); text-decoration: underline; }
+.nav-contact { display: grid; gap: var(--s2); padding-block: var(--s4) var(--s3); }
+.main-nav .nav-contact a { justify-content: center; min-height: 48px; font-size: 1rem; color: var(--green-700); }
+@media (min-width: 600px) {
+  .brand img { width: 96px; }
+  .header-actions { gap: var(--s3); }
+  .nav-contact { grid-template-columns: 1fr 1fr; }
+}
 
-@media (min-width: 900px) {
+@media (min-width: 1024px) {
   :root { --header-h: 89px; }
-  .site-header { position: sticky; top: 0; z-index: 20; }
   .header-inner {
     grid-template-columns: auto 1fr auto;
     grid-template-areas: "brand nav actions";
     padding-block: var(--s3);
     column-gap: var(--s6);
   }
+  .brand { width: 112px; flex: none; }
   .brand img { width: 112px; }
-  .main-nav ul { gap: var(--s6); }
+  .header-actions { gap: var(--s5); }
+  .header-actions .btn { padding-inline: 18px; white-space: nowrap; }
+  .header-phone span { white-space: nowrap; }
+  .menu-toggle, .nav-contact { display: none; }
+  .main-nav, .main-nav.is-open { display: block; visibility: visible; transition: none; }
+  .nav-inner, .main-nav.is-open .nav-inner { opacity: 1; transform: none; overflow: visible; max-height: none; }
+  .main-nav ul { display: flex; gap: var(--s5); margin: 0; border: 0; }
+  .main-nav li { border: 0; }
+  .main-nav a { min-height: 44px; font-size: 0.9375rem; }
   .header-phone {
-    display: inline-flex; align-items: center; gap: var(--s2); min-height: 44px;
+    display: none; align-items: center; gap: var(--s2); min-height: 44px;
     color: var(--text); font-weight: 600; text-decoration: none;
   }
   .header-phone .icon { color: var(--green-700); }
   .header-phone:hover span { text-decoration: underline; }
+}
+/* Room for the phone number in the header only from 1200px */
+@media (min-width: 1200px) {
+  .main-nav ul { gap: var(--s6); }
+  .header-phone { display: inline-flex; }
 }
 
 section[id], [id="top"], .service-card { scroll-margin-top: calc(var(--header-h) + var(--s4)); }
@@ -544,7 +608,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px
   background: var(--surface); border-top: 1px solid var(--border);
   transition: transform .2s ease;
 }
-.mobile-bar.is-hidden { transform: translateY(110%); visibility: hidden; transition: transform .2s ease, visibility 0s .2s; }
+.mobile-bar.is-hidden, .menu-open .mobile-bar { transform: translateY(110%); visibility: hidden; transition: transform .2s ease, visibility 0s .2s; }
 @media (min-width: 900px) {
   .mobile-bar { display: none; }
 }
