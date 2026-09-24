@@ -41,5 +41,20 @@ fs.mkdirSync(path.dirname(out('x')), { recursive: true });
   await icon.clone().png().toFile(out('apple-touch-icon.png'));
   await icon.clone().resize(48, 48).png().toFile(out('favicon-48.png'));
 
+  // Job photos: every file in images/photos → <name>-480/720/1000.webp|jpg, ready to
+  // reference by <name> in site.config.json photo slots (hero, founder, results, tackle).
+  // Cropping to the slot's shape happens in CSS, so keep the subject near the centre.
+  const photoDir = path.join(root, 'images', 'photos');
+  const photos = fs.existsSync(photoDir) ? fs.readdirSync(photoDir).filter((f) => /\.(jpe?g|png|webp|heic)$/i.test(f)) : [];
+  for (const file of photos) {
+    const name = path.parse(file).name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    for (const w of [480, 720, 1000]) {
+      const img = sharp(path.join(photoDir, file)).rotate().resize({ width: w, withoutEnlargement: true });
+      await img.clone().webp({ quality: 78 }).toFile(out(`${name}-${w}.webp`));
+      await img.clone().jpeg({ quality: 80, mozjpeg: true }).toFile(out(`${name}-${w}.jpg`));
+    }
+    console.log(`  photo "${name}"`);
+  }
+
   console.log('Images written to src/assets/img');
 })();

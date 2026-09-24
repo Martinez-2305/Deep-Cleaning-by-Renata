@@ -1,99 +1,177 @@
 {
-  "_readme": "Edit this file, then run `node build.js`. Anything written inside [[double brackets]] is a placeholder: it is highlighted on the page, listed by the build, and blocks LocalBusiness schema until replaced. Leave a list empty ([]) to hide it.",
+  "_readme": "Edit this file, then run `node build.js`. Anything written inside [[double brackets]] is a placeholder: it is highlighted on the page, listed by the build, and blocks LocalBusiness schema until replaced. Photo slots with an empty \"name\" show a labelled 'Photo to come' frame; see NOTES.md → Photos for how to add a real one. Leave a list empty ([]) to hide it.",
 
   "business": {
     "name": "Deep Cleaning by Renata",
     "owner": "Renata",
     "phoneDisplay": "[[Phone number, e.g. 07700 900123]]",
     "phoneLink": "[[Phone in international format, e.g. +447700900123]]",
+    "whatsapp": "[[WhatsApp number, digits only in international format, e.g. 447700900123]]",
+    "whatsappMessage": "Hi Renata, I’d like a quote for a deep clean.",
     "email": "[[Email address]]",
-    "location": "[[Town or area]]",
-    "coverage": "[[Areas covered, e.g. towns or postcode districts]]",
+    "location": "[[Primary area]]",
     "companyDetails": "[[Trading details, e.g. sole trader / company number and registered address]]"
   },
+
+  "areas": ["[[Area 1]]", "[[Area 2]]", "[[Area 3]]", "[[Area 4]]"],
 
   "site": {
     "url": "[[Production URL, e.g. https://www.example.co.uk]]",
     "privacyPath": "privacy.html"
   },
 
+  "hero": {
+    "photo": {
+      "_help": "Currently Renata's portrait. Best replacement: Renata actively deep cleaning a real kitchen or bathroom, portrait (4:5) orientation.",
+      "name": "renata",
+      "width": 1000,
+      "height": 1250,
+      "alt": "Renata, owner of Deep Cleaning by Renata, wearing a green apron with the business logo",
+      "brief": "Renata deep cleaning a kitchen or bathroom"
+    }
+  },
+
+  "trust": [
+    { "_help": "Four short items. Swap in stronger verified signals (Google rating, years of experience, certifications) once confirmed." },
+    { "title": "[[Fully insured]]", "detail": "[[Confirm public liability cover before launch]]" },
+    { "title": "Owner-led service", "detail": "You deal directly with Renata, from enquiry to finished clean" },
+    { "title": "[[All equipment supplied]]", "detail": "[[Confirm products and equipment are brought to every job]]" },
+    { "title": "Clear quote before work begins", "detail": "Scope and price agreed before you book" }
+  ],
+
   "founder": {
-    "bio": "[[One or two sentences from Renata about herself and how she works]]"
+    "bio": "[[Two or three sentences from Renata: how she started, how long she has been cleaning, and what she takes pride in]]",
+    "photo": {
+      "_help": "A different shot from the hero: Renata at work, or a relaxed portrait on a job.",
+      "name": "",
+      "width": 1000,
+      "height": 1250,
+      "alt": "Renata at work on a deep clean",
+      "brief": "Renata at work, e.g. cleaning a bathroom or kitchen"
+    }
   },
 
   "form": {
-    "_help": "POST endpoint that accepts form data and returns JSON (e.g. Formspree, Basin, Getform, or your own). Leave as a placeholder and the form will tell visitors to call or email instead.",
+    "_help": "POST endpoint that accepts form data and returns JSON (e.g. Formspree, Basin, Getform, or your own). Leave as a placeholder and the form will tell visitors to use WhatsApp, phone or email instead. Set fileUploads to false if the provider's plan doesn't accept file uploads.",
     "endpoint": "[[Form endpoint URL]]",
-    "processor": "[[Name of the form service that receives enquiries]]"
+    "processor": "[[Name of the form service that receives enquiries]]",
+    "fileUploads": true
   },
 
   "eco": {
-    "_help": "The business's main selling point. UK Green Claims Code: keep claims specific and provable, never 'chemical-free' or '100% natural'.",
-    "products": "[[Which products or brands Renata uses, and any eco certifications, e.g. EU Ecolabel]]",
-    "strongerProducts": "[[Whether a stronger product is ever needed, e.g. heavy limescale, and how customers are told first]]"
+    "_help": "UK Green Claims Code: keep claims specific and provable. Never 'chemical-free', 'non-toxic' or '100% eco-friendly' unless the products prove it.",
+    "products": "[[Which products or brands Renata uses]]",
+    "strongerProducts": "[[When a stronger specialist product is needed, e.g. heavy limescale, and how customers are told first]]",
+    "credentials": "[[Any eco certifications for those products, e.g. EU Ecolabel — only if proven]]"
   },
 
   "privacy": {
     "processorDetails": "[[Where the form provider stores data, with a link to its privacy policy]]",
-    "retention": "[[How long enquiries are kept, e.g. deleted after 12 months if no booking follows]]"
+    "retention": "[[How long enquiries and photos are kept, e.g. deleted after 12 months if no booking follows]]"
   },
 
   "services": [
     {
-      "id": "end-of-tenancy",
-      "name": "End-of-tenancy clean",
-      "suitedTo": "Tenants moving out, landlords and letting agents between tenancies.",
-      "summary": "A thorough clean of the property before checkout or the next tenancy. If you have the inventory or check-in report, mention it so the quote reflects what will be checked.",
-      "inclusions": []
+      "_help": "id doubles as the future page URL (/id/). Set \"page\": true once src/<id>/index.html exists to link to it. Confirm the three points with Renata.",
+      "id": "end-of-tenancy-cleaning",
+      "name": "End of tenancy cleaning",
+      "outcome": "Leave the property ready for checkout",
+      "summary": "For tenants moving out, landlords and letting agents between tenancies. If you have the inventory or check-in report, mention it so the quote reflects what will be checked.",
+      "points": ["Kitchens and bathrooms", "Inside accessible cupboards", "Detailed surfaces, edges and skirting"],
+      "page": false
     },
     {
-      "id": "after-builders",
-      "name": "After-builders clean",
-      "suitedTo": "Homeowners after a renovation, extension or refurbishment, and builders handing a property back.",
-      "summary": "Cleaning the fine dust and residue left once building work has finished. Tell us what work was done and whether any trades are still on site.",
-      "inclusions": []
+      "id": "after-builders-cleaning",
+      "name": "After-builders cleaning",
+      "outcome": "Remove the dust and residue left behind after renovation",
+      "summary": "Post-renovation and post-construction cleaning once an extension, refurbishment or new kitchen is finished. Tell us what work was done and whether any trades are still on site.",
+      "points": ["Fine building dust", "Floors, fixtures and surfaces", "Light plaster and paint residue, where it can be safely removed"],
+      "page": false
     },
     {
-      "id": "one-off",
-      "name": "One-off deep clean",
-      "suitedTo": "Homes that need a thorough reset — before a sale, after moving in, or simply overdue.",
-      "summary": "A single, top-to-bottom clean for a home that needs more than a routine tidy. This is a one-off job, not a regular cleaning schedule.",
-      "inclusions": []
+      "id": "deep-cleaning",
+      "name": "One-off deep cleaning",
+      "outcome": "A full reset for homes that need more than regular cleaning",
+      "summary": "Before a sale, after moving in, or when a home is simply overdue. A single top-to-bottom clean, not a regular cleaning schedule.",
+      "points": ["Built-up grease and grime", "Limescale and detailed bathroom cleaning", "Hard-to-reach areas and neglected surfaces"],
+      "page": false
     }
   ],
 
   "extrasNote": "Oven interiors, carpet cleaning and rubbish removal are not assumed to be included. Mention them in your enquiry and we’ll confirm whether they can be added.",
 
-  "reviews": [],
+  "tackle": [
+    { "_help": "photo: base name of a processed image in src/assets/img (see NOTES.md → Photos). Close-up, real job photos work best." },
+    { "label": "Built-up grease", "detail": "Hobs, splashbacks, tiles and cupboard fronts", "photo": "" },
+    { "label": "Limescale", "detail": "Taps, shower screens, tiles and toilets", "photo": "" },
+    { "label": "Fine renovation dust", "detail": "The layer that settles on every surface after building work", "photo": "" },
+    { "label": "Skirting and edges", "detail": "Skirting boards, door frames and the corners a quick clean misses", "photo": "" },
+    { "label": "Inside cupboards", "detail": "Accessible kitchen and bathroom cupboards, wiped out", "photo": "" },
+    { "label": "Hard-to-reach surfaces", "detail": "Tops of units, high ledges and behind fixtures", "photo": "" }
+  ],
+
+  "results": [
+    { "_help": "Genuine before/after pairs from Renata's jobs only, taken from the same angle. before/after: base names of processed images. Hide the section by emptying this list." },
+    { "service": "End of tenancy clean", "job": "[[Job, e.g. Kitchen, 2-bed flat]]", "area": "[[Area]]", "alt": "[[Describe the photo, e.g. kitchen hob and splashback]]", "before": "", "after": "" },
+    { "service": "End of tenancy clean", "job": "[[Job, e.g. Bathroom, 1-bed flat]]", "area": "[[Area]]", "alt": "[[Describe the photo, e.g. bath and shower screen]]", "before": "", "after": "" },
+    { "service": "After-builders clean", "job": "[[Job, e.g. Kitchen after an extension]]", "area": "[[Area]]", "alt": "[[Describe the photo, e.g. new kitchen worktops and floor]]", "before": "", "after": "" },
+    { "service": "After-builders clean", "job": "[[Job, e.g. Floors after replastering]]", "area": "[[Area]]", "alt": "[[Describe the photo, e.g. hallway floor and skirting]]", "before": "", "after": "" },
+    { "service": "One-off deep clean", "job": "[[Job, e.g. Oven hob and extractor]]", "area": "[[Area]]", "alt": "[[Describe the photo, e.g. gas hob and extractor hood]]", "before": "", "after": "" },
+    { "service": "One-off deep clean", "job": "[[Job, e.g. Shower with heavy limescale]]", "area": "[[Area]]", "alt": "[[Describe the photo, e.g. shower tray, tiles and glass]]", "before": "", "after": "" }
+  ],
+
+  "reviews": {
+    "_help": "Genuine reviews only, word for word, with the customer's permission. stars: a number 1–5.",
+    "rating": "[[Google rating, e.g. 5.0]]",
+    "count": "[[Number of Google reviews]]",
+    "url": "[[Link to the Google Business Profile reviews]]",
+    "items": [
+      { "quote": "[[Paste a genuine customer review here, word for word]]", "name": "[[First name]]", "area": "[[Area]]", "service": "[[Service, e.g. End of tenancy clean]]", "stars": "[[Stars, 1–5]]" },
+      { "quote": "[[Paste a genuine customer review here, word for word]]", "name": "[[First name]]", "area": "[[Area]]", "service": "[[Service, e.g. After-builders clean]]", "stars": "[[Stars, 1–5]]" },
+      { "quote": "[[Paste a genuine customer review here, word for word]]", "name": "[[First name]]", "area": "[[Area]]", "service": "[[Service, e.g. One-off deep clean]]", "stars": "[[Stars, 1–5]]" }
+    ]
+  },
 
   "faqs": [
     {
-      "q": "Which areas do you cover?",
-      "a": "[[Confirm the towns or postcode districts covered, and whether travel outside them is possible]]"
+      "q": "What’s included in a deep clean?",
+      "a": "It depends on the type of clean and the property, so the room-by-room checklist is agreed with your quote before anything is booked. As a guide, a deep clean goes further than a regular clean: built-up grease, limescale, inside accessible cupboards, skirting, edges and hard-to-reach surfaces. Oven interiors, carpets and rubbish removal are only included if we’ve confirmed them."
     },
     {
-      "q": "Do I need to be there during the clean?",
+      "q": "Do you provide cleaning products and equipment?",
+      "a": "[[Confirm whether all products and equipment are brought to every job, and anything the customer needs to provide]] Gentler products are used wherever they’ll do the job. If anyone in the home has allergies or sensitivities, mention it when you enquire."
+    },
+    {
+      "q": "How long does a clean take?",
+      "a": "It depends on the size of the property, its condition and the type of clean, so you’ll get a time estimate with your quote. [[Typical example, e.g. an end-of-tenancy clean of a 2-bed flat usually takes around X hours]]"
+    },
+    {
+      "q": "Can you guarantee I’ll get my tenancy deposit back?",
+      "a": "No cleaner can honestly promise that. Deposit decisions are made by your landlord or letting agent and cover more than cleanliness, such as damage and wear. What we can do is clean to the checklist agreed with you, so share the inventory or check-in report if you have it."
+    },
+    {
+      "q": "Can I book after-builders cleaning?",
+      "a": "Yes. It works best once building work has finished and trades are off site, so dust doesn’t settle again. Tell us what work was done and send a few photos if you can. [[Confirm anything excluded, e.g. rubble removal or paint on carpets]]"
+    },
+    {
+      "q": "Do I need to be home during the clean?",
       "a": "[[Confirm how access works, e.g. meeting on site, key safe, or collecting keys from the agent]]"
+    },
+    {
+      "q": "Which areas do you cover?",
+      "a": "[[Confirm the towns or postcode districts covered, and whether travel outside them is possible]] Not sure? Send your postcode with your enquiry and we’ll confirm."
+    },
+    {
+      "q": "How are quotes calculated?",
+      "a": "Each quote is based on the property’s size, its condition and the type of clean, plus any extras you ask for. There are no set packages. Photos help: send a few on WhatsApp or with the form and the quote will be more accurate."
     },
     {
       "q": "How should I prepare the property?",
       "a": "[[Confirm preparation, e.g. whether the property should be empty and electricity and hot water left on]]"
     },
     {
-      "q": "What cleaning products do you use?",
-      "a": "Eco-friendly products, with strong chemicals kept to a minimum. If anyone in the home has allergies or sensitivities, mention it when you enquire. [[Name the products or brands used, and when anything stronger is needed]]"
-    },
-    {
-      "q": "What exactly is included?",
-      "a": "It depends on the type of clean and the property, so the checklist is agreed with your quote before anything is booked. Oven interiors, carpets and rubbish removal are only included if we’ve confirmed them."
-    },
-    {
-      "q": "Will an end-of-tenancy clean get my deposit back?",
-      "a": "No cleaner can promise that — deposit decisions are made by your landlord or letting agent and cover more than cleanliness. What we can do is clean to the checklist we agree with you."
-    },
-    {
       "q": "How do I book?",
-      "a": "Send the quote form or give us a call. Once you’re happy with the quote and scope, we’ll arrange a date. [[Confirm payment terms, e.g. deposit on booking or payment on completion]]"
+      "a": "Send the quote form or a message on WhatsApp. Once you’re happy with the scope and price, we’ll arrange a date. [[Confirm payment terms, e.g. deposit on booking or payment on completion]]"
     }
   ]
 }
