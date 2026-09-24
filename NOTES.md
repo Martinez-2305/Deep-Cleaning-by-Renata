@@ -5,6 +5,7 @@
 - `node build.js` → writes the finished site to `dist/` and lists any placeholders still to confirm. No npm install needed.
 - Preview: open `dist/index.html` in a browser, or serve `dist/` with any static server.
 - Deploy: upload the contents of `dist/`.
+- GitHub Pages (temporary): the live copy is served from the repo root (`index.html`, `privacy.html`, `main.js`, `styles.css`, `assets/`). After `node build.js`, copy the contents of `dist/` over those root files and commit. `dist/` itself is gitignored. Don't point `build.js` at the root: it deletes its output folder before rebuilding.
 - Images: `tools/images.js` crops/compresses `images/*` into `src/assets/img`. Only rerun it if the source photos change (it needs `npm i -D sharp`).
 
 ## Structure
