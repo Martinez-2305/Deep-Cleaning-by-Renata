@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy notice | {{attr:business.name}}</title>
+  <meta name="description" content="How {{attr:business.name}} uses the details you send through the quote form.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700&family=Public+Sans:wght@400;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { padding-bottom: 0; }
+    .legal { max-width: 44rem; padding-block: var(--s7) var(--s8); }
+    .legal h2 { font-size: 1.375rem; margin-top: var(--s6); }
+    .legal ul { padding-left: 1.2em; }
+  </style>
+</head>
+<body>
+  {{#if draft}}
+  <p class="draft-bar" role="note">Draft — this notice must be completed and checked before launch. <mark class="ph">[highlighted]</mark> details are placeholders.</p>
+  {{/if draft}}
+  <header class="site-header">
+    <div class="wrap header-inner" style="grid-template-areas: 'brand actions'; padding-block: 12px;">
+      <a class="brand" href="index.html">
+        <img src="assets/img/logo-360.jpg" width="360" height="205" alt="{{attr:business.name}} — home">
+      </a>
+      <div class="header-actions"><a class="btn btn-secondary" href="index.html#quote">Back to quote form</a></div>
+    </div>
+  </header>
+
+  <main id="main" class="wrap legal">
+    <h1>Privacy notice</h1>
+    <p>This notice explains how {{business.name}} uses the details you give us when you ask for a quote.</p>
+
+    <h2>Who we are</h2>
+    <p>{{business.name}} is responsible for your information. {{business.companyDetails}}</p>
+    <p>Contact: <a href="{{attr:mailHref}}">{{business.email}}</a> or <a href="{{attr:phoneHref}}">{{business.phoneDisplay}}</a>.</p>
+
+    <h2>What we collect</h2>
+    <ul>
+      <li>Your name and the phone number and/or email address you give us</li>
+      <li>The postcode of the property</li>
+      <li>The type of clean, your description of the job and any preferred date</li>
+    </ul>
+
+    <h2>Why we use it</h2>
+    <p>Only to reply to your enquiry, prepare a quote and, if you go ahead, arrange the clean. The lawful basis is taking steps at your request before entering into a contract.</p>
+
+    <h2>Who receives it</h2>
+    <p>The quote form is delivered to us by {{form.processor}}, which processes it on our behalf. {{privacy.processorDetails}}</p>
+
+    <h2>How long we keep it</h2>
+    <p>{{privacy.retention}}</p>
+
+    <h2>Your rights</h2>
+    <p>You can ask to see, correct or delete the information we hold about you by contacting us using the details above. If you’re unhappy with how we’ve handled your data, you can complain to the Information Commissioner’s Office at <a href="https://ico.org.uk/make-a-complaint/">ico.org.uk</a>.</p>
+
+    <p><a href="index.html">Return to the home page</a></p>
+  </main>
+</body>
+</html>
