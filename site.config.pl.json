@@ -1,0 +1,149 @@
+{
+  "_readme": "Polish overrides for site.config.json, used for the /pl/ pages. Only translated fields go here; anything left out falls back to the English config. Objects merge by key; lists of objects merge item by item (same order as site.config.json); lists of text replace the English list. Keep the order of services, tackle, results and faqs in step with site.config.json.",
+
+  "business": {
+    "whatsappMessage": "Dzień dobry, proszę o wycenę sprzątania.",
+    "location": "Wimbledon i południowo-zachodni Londyn",
+    "companyDetails": "Deep Cleaning by Renata prowadzi Renata jako osoba samozatrudniona (sole trader)."
+  },
+
+  "coverageNote": "i okolice",
+
+  "hero": {
+    "photo": {
+      "alt": "Renata, właścicielka Deep Cleaning by Renata, w zielonym fartuchu z logo firmy",
+      "brief": "Renata podczas gruntownego sprzątania kuchni lub łazienki"
+    }
+  },
+
+  "trust": [
+    { "title": "Prawie 15 lat doświadczenia", "detail": "Firma prowadzona przez właścicielkę: od zapytania do końca sprzątania kontaktujesz się bezpośrednio z Renatą" },
+    { "title": "Weryfikacja DBS", "detail": "Sprawdzona przez brytyjską służbę Disclosure and Barring Service" },
+    { "title": "Własne środki i sprzęt", "detail": "Odkurzacz, mop, ściereczki i środki czystości na każdym zleceniu" },
+    { "title": "Jasna wycena przed rozpoczęciem", "detail": "Zakres i cena ustalone przed rezerwacją" }
+  ],
+
+  "founder": {
+    "_help": "bio and more are Renata's own Polish translations from the September 2026 questionnaire.",
+    "bio": [
+      "Cześć, jestem Renata, właścicielka Deep Cleaning by Renata. Od prawie 15 lat zajmuję się sprzątaniem domów w Londynie. Zawsze pracowałam samodzielnie, zdobywając doświadczenie i budując swoją reputację dzięki ciężkiej pracy oraz poleceniom zadowolonych klientów, którzy przekazywali mój kontakt swoim rodzinom i znajomym.",
+      "Przez te lata sprzątanie stało się dla mnie czymś więcej niż tylko pracą — czymś, co naprawdę lubię robić. Wkładam serce w swoją pracę, a największą radość sprawia mi zadowolenie klientów z jej efektów."
+    ],
+    "more": [
+      "Poza pracą jestem szczęśliwą mamą i babcią. Jestem ciepłą, uśmiechniętą i pozytywną osobą. Uwielbiam spędzać czas z rodziną, podróżować, jeździć na rowerze, spacerować na łonie natury i odkrywać nowe miejsca.",
+      "Od pięciu lat bardzo interesuję się rozwojem osobistym i zdrowiem psychicznym. Jednym z moich marzeń jest wspieranie kobiet, które straciły wiarę w siebie lub zapomniały o własnych potrzebach, i pomaganie im w odnalezieniu na nowo swojej siły i radości życia."
+    ],
+    "moreClosing": "Wierzę, że nigdy nie jest za późno, żeby zacząć od nowa.",
+    "photo": {
+      "alt": "Renata podczas gruntownego sprzątania",
+      "brief": "Renata przy pracy, np. sprzątając łazienkę lub kuchnię"
+    }
+  },
+
+  "eco": {
+    "products": "Renata przynosi własne środki czystości i sprzęt, w tym odkurzacz, mop i ściereczki. Używa środków zawierających składniki pochodzenia naturalnego, starannie dobranych z myślą o domach, w których mieszkają ludzie i zwierzęta, i zawsze stosowanych zgodnie z instrukcją."
+  },
+
+  "services": [
+    {
+      "name": "Sprzątanie po zakończeniu najmu",
+      "outcome": "Nieruchomość gotowa do zdania",
+      "summary": "Dla najemców, którzy się wyprowadzają, oraz dla właścicieli i agencji między najmami. Dokładna lista prac jest ustalana w wycenie; jeśli masz inwentarz lub protokół zdawczo-odbiorczy, wspomnij o nim.",
+      "points": ["Blaty i szafki kuchenne, w środku i na zewnątrz (jeśli są puste)", "Łazienki umyte i odkamienione", "Listwy przypodłogowe, drzwi, włączniki i dostępne okna od wewnątrz", "Podłogi odkurzone i umyte"]
+    },
+    {
+      "name": "Sprzątanie po remoncie",
+      "outcome": "Usunięcie pyłu pozostałego po remoncie",
+      "summary": "Dla właścicieli domów po rozbudowie, remoncie lub montażu nowej kuchni oraz dla firm budowlanych przekazujących nieruchomość. Napisz, jakie prace zostały wykonane. Usuwanie farby lub kleju jest wyceniane osobno.",
+      "points": ["Usunięcie drobnego pyłu budowlanego z dostępnych powierzchni, armatury i listew", "Sprzątanie kuchni i łazienek", "Podłogi odkurzone i umyte", "Szyby od wewnątrz, jeśli są bezpiecznie dostępne"]
+    },
+    {
+      "name": "Jednorazowe sprzątanie gruntowne",
+      "outcome": "Gruntowne odświeżenie domu, któremu nie wystarczy zwykłe sprzątanie",
+      "summary": "Przed sprzedażą, po przeprowadzce lub gdy dom po prostu tego potrzebuje. Dopasowane do nieruchomości, z listą prac ustaloną w wycenie.",
+      "points": ["Dokładne sprzątanie kuchni i łazienki", "Dostępne powierzchnie, listwy przypodłogowe, drzwi i włączniki", "Okna od wewnątrz i podłogi"]
+    },
+    {
+      "name": "Regularne sprzątanie",
+      "outcome": "Porządek w domu na co dzień",
+      "summary": "Wizyty co tydzień lub co dwa tygodnie, z planem sprzątania dopasowanym do Twojego domu.",
+      "points": ["Wizyty co tydzień lub co dwa tygodnie", "Plan sprzątania ustalony z Tobą", "Środki czystości i sprzęt na każdej wizycie"]
+    }
+  ],
+
+  "extrasNote": "Czyszczenie piekarnika w środku, czyszczenie lodówki/zamrażarki, pranie dywanów i wywóz śmieci to usługi dodatkowe, zależne od dostępności i wyceniane osobno. Nie wykonujemy: mycia okien z zewnątrz, prac z materiałami niebezpiecznymi, wywozu ciężkich odpadów ani prac na wysokości.",
+
+  "tackle": [
+    { "label": "Tłuszcz w kuchni", "detail": "Blaty, ściana nad blatem i fronty szafek" },
+    { "label": "Kamień", "detail": "Krany, kabiny prysznicowe, płytki i toalety – odkamienione" },
+    { "label": "Drobny pył po remoncie", "detail": "Warstwa, która po pracach budowlanych osiada na każdej powierzchni" },
+    { "label": "Listwy i krawędzie", "detail": "Listwy przypodłogowe i zakamarki pomijane przy szybkim sprzątaniu" },
+    { "label": "Wnętrza szafek", "detail": "Szafki kuchenne w środku i na zewnątrz, po opróżnieniu" },
+    { "label": "Drzwi i włączniki", "detail": "Drzwi, framugi i włączniki światła – dokładnie przetarte" }
+  ],
+
+  "results": [
+    { "_help": "Translate job, area and alt here too once the real photos and captions are in site.config.json." },
+    { "service": "Sprzątanie po najmie" },
+    { "service": "Sprzątanie po najmie" },
+    { "service": "Sprzątanie po remoncie" },
+    { "service": "Sprzątanie po remoncie" },
+    { "service": "Sprzątanie gruntowne" },
+    { "service": "Sprzątanie gruntowne" }
+  ],
+
+  "faqs": [
+    {
+      "q": "Co obejmuje sprzątanie?",
+      "a": "Każde sprzątanie jest wyceniane indywidualnie, w zależności od wielkości i stanu nieruchomości oraz zakresu prac, a lista prac i cena są potwierdzane przed rezerwacją. Orientacyjnie sprzątanie gruntowne obejmuje dokładne sprzątanie kuchni i łazienek, dostępnych powierzchni, listew przypodłogowych, drzwi, włączników, okien od wewnątrz i podłóg. Czyszczenie piekarnika w środku, lodówki/zamrażarki, dywanów oraz wywóz śmieci to usługi dodatkowe, wyceniane osobno."
+    },
+    {
+      "q": "Kto zapewnia środki czystości i sprzęt?",
+      "a": "Renata przynosi własne środki czystości i sprzęt, w tym odkurzacz, mop, ściereczki i inne potrzebne akcesoria. Używa środków zawierających składniki pochodzenia naturalnego, dobranych z myślą o domach, w których mieszkają ludzie i zwierzęta, i zawsze stosowanych zgodnie z instrukcją. Przed sprzątaniem daj znać o alergiach, nadwrażliwościach lub zwierzętach."
+    },
+    {
+      "q": "Czy można zamówić regularne sprzątanie?",
+      "a": "Tak. Dostępne jest sprzątanie co tydzień lub co dwa tygodnie, z planem dopasowanym do Twojego domu."
+    },
+    {
+      "q": "Ile trwa sprzątanie?",
+      "a": "To zależy od wielkości i stanu nieruchomości oraz rodzaju sprzątania, dlatego szacowany czas podamy razem z wyceną."
+    },
+    {
+      "q": "Czy sprzątanie gwarantuje zwrot kaucji za najem?",
+      "a": "Żadna firma sprzątająca nie może tego uczciwie obiecać. O zwrocie kaucji decyduje właściciel lub agencja, biorąc pod uwagę nie tylko czystość, ale też np. uszkodzenia i zużycie. Możemy natomiast posprzątać zgodnie z ustaloną z Tobą listą prac – dlatego jeśli masz inwentarz lub protokół zdawczo-odbiorczy, prześlij go."
+    },
+    {
+      "q": "Czy mogę zamówić sprzątanie po remoncie?",
+      "a": "Tak. Najlepiej po zakończeniu prac budowlanych, gdy ekipy opuszczą już budynek, żeby pył nie osiadał ponownie. Napisz, jakie prace zostały wykonane, i jeśli możesz, wyślij kilka zdjęć. Usuwanie farby lub kleju jest wyceniane osobno, a wywozu ciężkich odpadów i gruzu nie oferujemy."
+    },
+    {
+      "q": "Czego nie obejmuje usługa?",
+      "a": "Nie oferujemy mycia okien z zewnątrz, prac z materiałami niebezpiecznymi, wywozu ciężkich odpadów ani prac na wysokości."
+    },
+    {
+      "q": "Czy muszę być w domu podczas sprzątania?",
+      "a": "Twoja obecność przez cały czas sprzątania nie jest konieczna, o ile dostęp do nieruchomości i przekazanie kluczy zostaną ustalone wcześniej."
+    },
+    {
+      "q": "Jakie okolice obsługujecie?",
+      "a": "Wimbledon i okolice, w tym Putney, Richmond i Barnes, a także miejsca położone w ich pobliżu. Obecnie nie dojeżdżamy dalej. Nie masz pewności? Podaj kod pocztowy w zapytaniu, a potwierdzimy."
+    },
+    {
+      "q": "Jak obliczana jest wycena?",
+      "a": "Każda wycena zależy od wielkości i stanu nieruchomości, rodzaju sprzątania oraz wybranych usług dodatkowych. Nie ma gotowych pakietów. Zdjęcia pomagają: wyślij kilka na WhatsAppie lub przez formularz, a wycena będzie dokładniejsza."
+    },
+    {
+      "q": "Jak przygotować nieruchomość?",
+      "a": "Zapewnij bezpieczny dostęp do nieruchomości, działający prąd i ciepłą wodę oraz zabierz rzeczy osobiste z miejsc, które mają być sprzątane. Przy sprzątaniu po zakończeniu najmu najlepiej, aby nieruchomość była pusta."
+    },
+    {
+      "q": "Z jakim wyprzedzeniem rezerwować?",
+      "a": "Skontaktuj się jak najwcześniej, aby sprawdzić dostępność terminów."
+    },
+    {
+      "q": "Jak zarezerwować i zapłacić?",
+      "a": "Wyślij formularz lub wiadomość na WhatsAppie. Gdy zaakceptujesz zakres i cenę, ustalimy termin. Nowi klienci przy rezerwacji wpłacają zaliczkę w wysokości 10%, a resztę po wykonaniu usługi; stali klienci nie wpłacają zaliczki. Płatność przelewem lub gotówką."
+    }
+  ]
+}

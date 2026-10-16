@@ -1,0 +1,199 @@
+{
+  "_readme": "Interface text for the Polish pages (/pl/). Same keys as en.json. Polish declines names, so Renata's name and the area are written out in each sentence rather than inserted from the config.",
+  "lang": "pl",
+  "ogLocale": "pl_PL",
+  "meta": {
+    "title": "Sprzątanie po zakończeniu najmu i sprzątanie gruntowne – Wimbledon | {{business.name}}",
+    "description": "Sprzątanie po zakończeniu najmu, po remoncie, jednorazowe sprzątanie gruntowne i regularne sprzątanie w Wimbledonie i południowo-zachodnim Londynie. Zakres i cenę ustalasz bezpośrednio z Renatą przed rezerwacją."
+  },
+  "skip": "Przejdź do treści",
+  "draft": "Wersja robocza — <mark class=\"ph\">[wyróżnione]</mark> informacje i ramki „Zdjęcie wkrótce” to elementy do uzupełnienia w <code>site.config.json</code> / <code>site.config.pl.json</code> przed publikacją.",
+  "langSwitch": { "code": "EN", "hreflang": "en-GB", "label": "English — English version of this page" },
+  "nav": {
+    "label": "Menu główne",
+    "home": "strona główna",
+    "services": "Usługi",
+    "results": "Efekty",
+    "about": "O mnie",
+    "reviews": "Opinie",
+    "faqs": "Pytania",
+    "quote": "Poproś o wycenę",
+    "menu": "Menu",
+    "whatsapp": "Napisz na WhatsAppie",
+    "call": "Zadzwoń do Renaty"
+  },
+  "photo": {
+    "toCome": "Zdjęcie wkrótce",
+    "before": "Zdjęcie przed",
+    "after": "Zdjęcie po",
+    "beforeAlt": "Przed: ",
+    "afterAlt": "Po: "
+  },
+  "hero": {
+    "title": "Gruntowne sprzątanie dla domów, którym nie wystarczy zwykłe sprzątanie",
+    "seo": "Profesjonalne sprzątanie po zakończeniu najmu, po remoncie, jednorazowe sprzątanie gruntowne i regularne sprzątanie w Wimbledonie i południowo-zachodnim Londynie.",
+    "lede": "Wyprowadzasz się, kończysz remont albo Twój dom potrzebuje gruntownego odświeżenia? Renata planuje każde sprzątanie z uwzględnieniem stanu nieruchomości i ustala z Tobą zakres oraz cenę, zanim rozpocznie pracę. Dostępne jest też sprzątanie co tydzień lub co dwa tygodnie.",
+    "note": "Każda wycena zależy od wielkości nieruchomości, jej stanu i zakresu prac.",
+    "caption": "<strong>Renata</strong>, właścicielka {{business.name}}"
+  },
+  "trustLabel": "Zanim zarezerwujesz",
+  "services": {
+    "title": "Sprzątanie po najmie, po remoncie, gruntowne i regularne",
+    "intro": "Jednorazowe sprzątanie i regularne wizyty – każda usługa wyceniana indywidualnie. Nie wiesz, co wybrać? Opisz, czego potrzebujesz, a Renata doradzi.",
+    "cta": "Poproś o wycenę<span class=\"sr-only\">: {{.name}}</span>",
+    "more": "Więcej: {{.name}}",
+    "tackle": "Z czym radzi sobie gruntowne sprzątanie"
+  },
+  "results": {
+    "title": "Prawdziwe sprzątanie. Prawdziwe efekty.",
+    "intro": "Zdjęcia przed i po z prawdziwych zleceń Renaty, zrobione z tego samego miejsca. Przeciągnij suwak lub użyj strzałek, aby porównać.",
+    "before": "Przed",
+    "after": "Po",
+    "compare": "Porównaj przed i po:"
+  },
+  "why": {
+    "title": "Dlaczego Renata?",
+    "h1": "Dokładnie, a nie w pośpiechu",
+    "p1": "Każde sprzątanie jest planowane z uwzględnieniem stanu nieruchomości i ustalonego zakresu, a nie według ogólnej listy odhaczanej na czas.",
+    "h2": "Wiesz, kto sprząta",
+    "p2": "Osobista obsługa prowadzona przez właścicielkę – od pierwszej wiadomości do zakończonego sprzątania.",
+    "h3": "Wszystko jasne przed rozpoczęciem",
+    "p3": "Zakres i wycena są ustalane przed rezerwacją, więc dokładnie wiesz, co jest wliczone."
+  },
+  "meet": {
+    "eyebrow": "Właścicielka, {{business.name}}",
+    "title": "Poznaj Renatę",
+    "contact": "Kontaktując się, rozmawiasz z osobą, która planuje sprzątanie, ustala z Tobą zakres i cenę oraz odpowiada za efekt."
+  },
+  "process": {
+    "title": "Jak to działa",
+    "h1": "Opowiedz Renacie o nieruchomości",
+    "p1": "Rodzaj sprzątania, wielkość i stan nieruchomości, kod pocztowy oraz preferowany termin.",
+    "h2": "Otrzymaj wycenę",
+    "p2": "Zakres i cena są potwierdzane, zanim cokolwiek zostanie zarezerwowane.",
+    "h3": "Zarezerwuj sprzątanie",
+    "p3": "Termin zostaje potwierdzony, a sprzątanie wykonane zgodnie z ustaleniami.",
+    "pricingTitle": "Wycena dopasowana do Twojej nieruchomości, a nie gotowy pakiet",
+    "pricingText": "Podaj wielkość i stan nieruchomości oraz rodzaj sprzątania. Renata potwierdzi, co obejmuje usługa, i poda jasną cenę przed rezerwacją."
+  },
+  "reviews": {
+    "title": "Opinie klientów",
+    "summary": "<strong>{{reviews.rating}}</strong> w Google · liczba opinii: {{reviews.count}}",
+    "readAll": "Przeczytaj wszystkie opinie w Google",
+    "draft": "Układ przykładowy. Opinie pojawią się dopiero po dodaniu prawdziwych opinii do <code>site.config.json</code>.",
+    "stars": "{{attr:.stars}} na 5 gwiazdek"
+  },
+  "eco": {
+    "title": "Przemyślane środki, skuteczne efekty",
+    "p1": "Tam, gdzie to wystarczy, używane są łagodniejsze środki. Przy mocno zapieczonym tłuszczu, kamieniu lub uporczywym osadzie może być potrzebny mocniejszy środek specjalistyczny, aby porządnie doczyścić powierzchnię.",
+    "p2": "Przed sprzątaniem daj znać Renacie o alergiach, nadwrażliwościach lub zwierzętach w domu.",
+    "products": "Czego używamy",
+    "stronger": "Kiedy potrzebny jest mocniejszy środek",
+    "credentials": "Certyfikaty środków"
+  },
+  "more": {
+    "eyebrow": "Od Renaty",
+    "title": "Trochę więcej o mnie"
+  },
+  "areas": {
+    "title": "Sprzątanie w Wimbledonie i południowo-zachodnim Londynie",
+    "intro": "Sprzątanie po najmie, po remoncie, gruntowne i regularne w Wimbledonie i okolicach, m.in.:",
+    "note": "Obsługujemy też miejsca położone w pobliżu. Nie wiesz, czy obsługujemy Twój kod pocztowy? Podaj go w zapytaniu, a potwierdzimy.",
+    "link": "Zapytaj o swój kod pocztowy"
+  },
+  "faqs": {
+    "title": "Pytania przed rezerwacją",
+    "intro": "Nie ma tu odpowiedzi na Twoje pytanie? Napisz do <a href=\"{{attr:whatsappHref}}\">Renaty na WhatsAppie</a>, zadzwoń pod numer <a href=\"{{attr:phoneHref}}\">{{business.phoneDisplay}}</a> lub wyślij e-mail na adres <a href=\"{{attr:mailHref}}\">{{business.email}}</a>."
+  },
+  "quote": {
+    "title": "Napisz Renacie, co trzeba posprzątać",
+    "intro": "Podaj kilka informacji o nieruchomości. Renata odpowie, potwierdzając zakres i jasną cenę. Nic nie zostanie zarezerwowane bez Twojej zgody.",
+    "waText": "<strong>Chcesz szybciej dostać wycenę?</strong> Wyślij kilka zdjęć nieruchomości na WhatsAppie.",
+    "phone": "Telefon",
+    "email": "E-mail",
+    "areas": "Obsługiwany obszar"
+  },
+  "form": {
+    "language": "polski",
+    "intro": "Wszystkie pola są wymagane, chyba że oznaczono je jako opcjonalne.",
+    "name": "Imię i nazwisko",
+    "contactLegend": "Jak mamy się z Tobą skontaktować?",
+    "contactHint": "Podaj numer telefonu, adres e-mail lub oba.",
+    "phone": "Telefon",
+    "email": "E-mail",
+    "postcode": "Kod pocztowy nieruchomości",
+    "postcodeHint": "Abyśmy mogli sprawdzić, czy obsługujemy ten obszar.",
+    "propertyType": "Rodzaj nieruchomości",
+    "propertySize": "Wielkość nieruchomości",
+    "choose": "Wybierz…",
+    "propertyTypes": "<option>Mieszkanie</option><option>Dom</option><option>Mieszkanie dwupoziomowe (maisonette)</option><option>Dom parterowy (bungalow)</option><option>Inne</option>",
+    "propertySizes": "<option>Kawalerka (studio)</option><option>1 sypialnia</option><option>2 sypialnie</option><option>3 sypialnie</option><option>4 sypialnie</option><option>5+ sypialni</option>",
+    "service": "Rodzaj usługi",
+    "notSure": "Jeszcze nie wiem",
+    "date": "Preferowany termin",
+    "optional": "(opcjonalnie)",
+    "dateHint": "Dostępność potwierdzimy w odpowiedzi.",
+    "details": "Stan nieruchomości i inne ważne informacje",
+    "detailsHint": "Na przykład: 2 łazienki, bez mebli, dużo kamienia pod prysznicem, wyprowadzka w piątek.",
+    "photos": "Zdjęcia nieruchomości",
+    "photosHint": "Do 5 zdjęć, łącznie do 20 MB. Zdjęcia pomagają przygotować dokładną wycenę.",
+    "honeypot": "Zostaw to pole puste",
+    "submit": "Wyślij zapytanie",
+    "privacy": "Sprawdź, jak wykorzystujemy Twoje dane, w <a href=\"{{attr:site.privacyPath}}\">informacji o prywatności</a>."
+  },
+  "footer": {
+    "contact": "Kontakt",
+    "services": "Usługi",
+    "privacy": "Informacja o prywatności",
+    "mobileQuote": "Wycena"
+  },
+  "privacy": {
+    "title": "Informacja o prywatności",
+    "description": "Jak {{business.name}} wykorzystuje dane przesłane przez formularz wyceny.",
+    "draft": "Wersja robocza — tę informację trzeba uzupełnić i sprawdzić przed publikacją. <mark class=\"ph\">[Wyróżnione]</mark> informacje to elementy do uzupełnienia.",
+    "back": "Wróć do formularza",
+    "intro": "Ta informacja wyjaśnia, jak {{business.name}} wykorzystuje dane podane przy prośbie o wycenę.",
+    "whoTitle": "Kim jesteśmy",
+    "responsible": "Renata odpowiada za Twoje dane.",
+    "ico": "Rejestracja w ICO:",
+    "contact": "Kontakt:",
+    "or": "lub",
+    "collectTitle": "Jakie dane zbieramy",
+    "collectList": "<li>Imię i nazwisko oraz podany numer telefonu i/lub adres e-mail</li><li>Kod pocztowy nieruchomości</li><li>Rodzaj i wielkość nieruchomości, wybraną usługę, opis zlecenia i ewentualny preferowany termin</li><li>Zdjęcia nieruchomości, jeśli zdecydujesz się je dołączyć</li>",
+    "whatsapp": "Jeśli zamiast tego napiszesz na WhatsAppie, Twoje wiadomości i zdjęcia są również przetwarzane przez WhatsApp zgodnie z jego polityką prywatności.",
+    "whyTitle": "Do czego je wykorzystujemy",
+    "why": "Wyłącznie do odpowiedzi na zapytanie, przygotowania wyceny i – jeśli zdecydujesz się na usługę – umówienia sprzątania. Podstawą prawną jest podjęcie działań na Twoje żądanie przed zawarciem umowy.",
+    "receiveTitle": "Kto otrzymuje dane",
+    "receive": "Formularz wyceny dostarcza nam {{form.processor}}, który przetwarza dane w naszym imieniu.",
+    "keepTitle": "Jak długo przechowujemy dane",
+    "rightsTitle": "Twoje prawa",
+    "rights": "Możesz poprosić o wgląd, poprawienie lub usunięcie danych, które o Tobie przechowujemy, korzystając z powyższych danych kontaktowych. Jeśli masz zastrzeżenia do tego, jak postępujemy z Twoimi danymi, możesz złożyć skargę do brytyjskiego organu ochrony danych (Information Commissioner’s Office) na stronie <a href=\"https://ico.org.uk/make-a-complaint/\">ico.org.uk</a>.",
+    "home": "Wróć na stronę główną"
+  },
+  "js": {
+    "name": "Podaj imię i nazwisko.",
+    "contactMissing": "Podaj numer telefonu lub adres e-mail, abyśmy mogli odpowiedzieć.",
+    "emailInvalid": "Podaj adres e-mail w formacie imie@przyklad.co.uk.",
+    "phoneShort": "Podaj numer telefonu składający się z co najmniej 10 cyfr.",
+    "postcodeMissing": "Podaj kod pocztowy nieruchomości.",
+    "postcodeInvalid": "Podaj pełny brytyjski kod pocztowy, np. SW19 1AA.",
+    "propertyType": "Wybierz rodzaj nieruchomości.",
+    "propertySize": "Wybierz wielkość nieruchomości.",
+    "service": "Wybierz usługę lub „Jeszcze nie wiem”.",
+    "details": "Napisz kilka słów o stanie nieruchomości i zakresie prac.",
+    "photosCount": "Możesz wybrać maksymalnie {n} zdjęć.",
+    "photosType": "Zdjęcia muszą być plikami graficznymi, np. JPEG lub PNG.",
+    "photosSize": "Wybrane zdjęcia mają łącznie {mb} MB. Wybierz mniej – maksymalnie 20 MB łącznie.",
+    "sliderValue": "{before}% przed, {after}% po",
+    "sending": "Wysyłanie…",
+    "waPrefix": "napisz ",
+    "waText": "na WhatsAppie",
+    "callPrefix": "zadzwoń pod numer ",
+    "emailPrefix": "wyślij e-mail na adres ",
+    "or": " lub ",
+    "contactFallback": "skontaktuj się z nami bezpośrednio",
+    "notConnected": "<h3>Formularz nie jest jeszcze podłączony</h3><p>Twoje zapytanie <strong>nie</strong> zostało wysłane. Zamiast tego {contact}. Wpisane informacje nadal są w formularzu.</p>",
+    "success": "<h3>Dziękujemy, zapytanie zostało wysłane</h3><p>Odpowiemy, korzystając z podanych danych kontaktowych, aby potwierdzić zakres prac i wycenę. W pilnej sprawie {contact}.</p>",
+    "failed": "<h3>Nie udało się wysłać zapytania</h3><p>Nic nie zostało utracone. Sprawdź połączenie i ponownie naciśnij „{label}” albo {contact}.</p>"
+  }
+}

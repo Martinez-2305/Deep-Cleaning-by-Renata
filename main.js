@@ -5,6 +5,13 @@
 (function () {
   'use strict';
 
+  // Interface text for the page's language, rendered by build.js from src/_i18n/<lang>.json.
+  var T = {};
+  try { T = JSON.parse(document.getElementById('i18n').textContent); } catch (e) { /* page without strings */ }
+  function msg(key, vars) {
+    return (T[key] || key).replace(/\{(\w+)\}/g, function (m, k) { return vars && k in vars ? vars[k] : m; });
+  }
+
   // Menu button (below 1024px): rolls the nav down from the header. Closes on
   // Escape, on choosing a link, on a click outside, and when widening to desktop.
   var toggle = document.querySelector('.menu-toggle');
@@ -49,7 +56,7 @@
     if (!range) return;
     var update = function () {
       ba.style.setProperty('--pos', range.value + '%');
-      range.setAttribute('aria-valuetext', range.value + '% before, ' + (100 - range.value) + '% after');
+      range.setAttribute('aria-valuetext', msg('sliderValue', { before: range.value, after: 100 - range.value }));
     };
     range.addEventListener('input', update);
     update();
@@ -87,22 +94,24 @@
     var link = function (a) { return '<a href="' + esc(a.getAttribute('href')) + '">' + esc(a.textContent.trim()) + '</a>'; };
     var parts = [];
     var wa = find('a[href^="https://wa.me/"]'), phone = find('a[href^="tel:"]'), email = find('a[href^="mailto:"]');
-    if (wa) parts.push('message ' + link(wa).replace(/>[^<]*</, '>on WhatsApp<'));
-    if (phone) parts.push('call ' + link(phone));
-    if (email) parts.push('email ' + link(email));
-    return parts.length ? parts.join(', ').replace(/, ([^,]*)$/, ' or $1') : 'contact us directly';
+    if (wa) parts.push(msg('waPrefix') + link(wa).replace(/>[^<]*</, '>' + esc(msg('waText')) + '<'));
+    if (phone) parts.push(msg('callPrefix') + link(phone));
+    if (email) parts.push(msg('emailPrefix') + link(email));
+    if (!parts.length) return msg('contactFallback');
+    var last = parts.pop();
+    return parts.length ? parts.join(', ') + msg('or') + last : last;
   })();
 
   // Each rule returns an error message, or '' when valid.
   var rules = [
-    { el: 'f-name', check: function () { return val('name') ? '' : 'Enter your name.'; } },
+    { el: 'f-name', check: function () { return val('name') ? '' : msg('name'); } },
     {
       el: 'f-contact', focus: 'f-phone',
       check: function () {
         var phone = val('phone'), email = val('email');
-        if (!phone && !email) return 'Enter a phone number or an email address so we can reply.';
-        if (email && !EMAIL.test(email)) return 'Enter an email address like name@example.co.uk.';
-        if (phone && phone.replace(/[^0-9]/g, '').length < 10) return 'Enter a phone number with at least 10 digits.';
+        if (!phone && !email) return msg('contactMissing');
+        if (email && !EMAIL.test(email)) return msg('emailInvalid');
+        if (phone && phone.replace(/[^0-9]/g, '').length < 10) return msg('phoneShort');
         return '';
       }
     },
@@ -110,19 +119,19 @@
       el: 'f-postcode',
       check: function () {
         var pc = val('postcode');
-        if (!pc) return 'Enter the postcode of the property.';
-        return POSTCODE.test(pc) ? '' : 'Enter a full UK postcode, for example SW1A 1AA.';
+        if (!pc) return msg('postcodeMissing');
+        return POSTCODE.test(pc) ? '' : msg('postcodeInvalid');
       }
     },
-    { el: 'f-property', check: function () { return val('property_type') ? '' : 'Choose the type of property.'; } },
-    { el: 'f-size', check: function () { return val('property_size') ? '' : 'Choose the size of the property.'; } },
+    { el: 'f-property', check: function () { return val('property_type') ? '' : msg('propertyType'); } },
+    { el: 'f-size', check: function () { return val('property_size') ? '' : msg('propertySize'); } },
     {
       el: 'f-type', focus: 'f-type',
-      check: function () { return form.querySelector('input[name="service"]:checked') ? '' : 'Choose the service you need, or “Not sure yet”.'; }
+      check: function () { return form.querySelector('input[name="service"]:checked') ? '' : msg('service'); }
     },
     {
       el: 'f-details',
-      check: function () { return val('details').length >= 10 ? '' : 'Tell us a little about the property’s condition and the job.'; }
+      check: function () { return val('details').length >= 10 ? '' : msg('details'); }
     }
   ];
 
@@ -132,10 +141,10 @@
       el: 'f-photos',
       check: function () {
         var files = Array.prototype.slice.call(photos.files || []);
-        if (files.length > MAX_PHOTOS) return 'Choose up to ' + MAX_PHOTOS + ' photos.';
-        if (files.some(function (f) { return !/^image\//.test(f.type); })) return 'Photos must be image files, such as JPEG or PNG.';
+        if (files.length > MAX_PHOTOS) return msg('photosCount', { n: MAX_PHOTOS });
+        if (files.some(function (f) { return !/^image\//.test(f.type); })) return msg('photosType');
         var total = files.reduce(function (sum, f) { return sum + f.size; }, 0);
-        if (total > MAX_BYTES) return 'Those photos add up to ' + (total / 1048576).toFixed(1) + ' MB. Choose fewer, up to 20 MB in total.';
+        if (total > MAX_BYTES) return msg('photosSize', { mb: (total / 1048576).toFixed(1) });
         return '';
       }
     });
@@ -204,7 +213,7 @@
 
   function setBusy(busy) {
     submitBtn.disabled = busy;
-    submitBtn.textContent = busy ? 'Sending…' : submitLabel;
+    submitBtn.textContent = busy ? msg('sending') : submitLabel;
     form.setAttribute('aria-busy', busy ? 'true' : 'false');
   }
 
@@ -222,9 +231,7 @@
 
     var endpoint = form.getAttribute('data-endpoint');
     if (!endpoint) {
-      showStatus('error',
-        '<h3>This form isn’t connected yet</h3><p>Your enquiry has <strong>not</strong> been sent. Please ' +
-        contactLinks + ' instead. What you’ve typed is still in the form.</p>');
+      showStatus('error', msg('notConnected', { contact: contactLinks }));
       return;
     }
 
@@ -241,15 +248,11 @@
       .then(function (res) {
         if (!res.ok) throw new Error('HTTP ' + res.status);
         form.hidden = true;
-        showStatus('success',
-          '<h3>Thank you, your enquiry has been sent</h3><p>We’ll reply using the contact details you gave to confirm the scope and quote. If it’s urgent, ' +
-          contactLinks + '.</p>');
+        showStatus('success', msg('success', { contact: contactLinks }));
       })
       .catch(function () {
         setBusy(false);
-        showStatus('error',
-          '<h3>Your enquiry didn’t send</h3><p>Nothing has been lost. Check your connection and press “' + esc(submitLabel) + '” again, or ' +
-          contactLinks + '.</p>');
+        showStatus('error', msg('failed', { label: esc(submitLabel), contact: contactLinks }));
       })
       .then(function () { if (timer) clearTimeout(timer); });
   });

@@ -1,0 +1,199 @@
+{
+  "_readme": "Interface text for the English pages. Values are trusted HTML template fragments: they may use {{business.owner}}, {{.field}} inside loops, etc. Business facts live in site.config.json; Polish versions in pl.json and site.config.pl.json.",
+  "lang": "en-GB",
+  "ogLocale": "en_GB",
+  "meta": {
+    "title": "End of Tenancy &amp; Deep Cleaning in {{business.locality}} | {{business.name}}",
+    "description": "End-of-tenancy, after-builders, one-off deep and regular cleaning across {{business.location}}. Owner-led by {{business.owner}}, with the scope and price agreed before you book."
+  },
+  "skip": "Skip to main content",
+  "draft": "Draft preview — <mark class=\"ph\">[highlighted]</mark> details and “Photo to come” frames are placeholders to replace in <code>site.config.json</code> before launch.",
+  "langSwitch": { "code": "PL", "hreflang": "pl", "label": "Polski — polska wersja strony" },
+  "nav": {
+    "label": "Main",
+    "home": "home",
+    "services": "Services",
+    "results": "Results",
+    "about": "About",
+    "reviews": "Reviews",
+    "faqs": "FAQs",
+    "quote": "Request a quote",
+    "menu": "Menu",
+    "whatsapp": "WhatsApp {{business.owner}}",
+    "call": "Call {{business.owner}}"
+  },
+  "photo": {
+    "toCome": "Photo to come",
+    "before": "Before photo",
+    "after": "After photo",
+    "beforeAlt": "Before: ",
+    "afterAlt": "After: "
+  },
+  "hero": {
+    "title": "Deep cleaning for homes that need more than a standard clean",
+    "seo": "Professional end-of-tenancy, after-builders, one-off deep and regular cleaning across {{business.location}}.",
+    "lede": "Moving out, finishing renovation work, or living with a home that needs a full reset? {{business.owner}} plans each clean around the property’s condition, and agrees the scope and price with you before any work starts. Weekly and fortnightly cleaning is available too.",
+    "note": "Every quote is based on the property’s size, its condition and what you need done.",
+    "caption": "<strong>{{business.owner}}</strong>, owner of {{business.name}}"
+  },
+  "trustLabel": "Before you book",
+  "services": {
+    "title": "End of tenancy, after-builders, deep and regular cleaning",
+    "intro": "One-off cleans and regular visits, each quoted individually. Not sure which fits? Describe the job and {{business.owner}} will advise.",
+    "cta": "Get a quote<span class=\"sr-only\"> for {{.name}}</span>",
+    "more": "More about {{.name}}",
+    "tackle": "What a deep clean tackles"
+  },
+  "results": {
+    "title": "Real cleaning. Real results.",
+    "intro": "Before-and-after photos from {{business.owner}}’s own jobs, taken from the same angle. Drag the handle, or use the arrow keys, to compare.",
+    "before": "Before",
+    "after": "After",
+    "compare": "Compare before and after:"
+  },
+  "why": {
+    "title": "Why choose {{business.owner}}?",
+    "h1": "Detailed rather than rushed",
+    "p1": "Each clean is planned around the property’s condition and the scope you’ve agreed, not a generic checklist worked through against the clock.",
+    "h2": "You know who is doing the work",
+    "p2": "An owner-led, personal service, from your first message through to the finished clean.",
+    "h3": "Clear before the clean starts",
+    "p3": "The scope and quote are agreed before booking, so you know exactly what’s included."
+  },
+  "meet": {
+    "eyebrow": "Owner, {{business.name}}",
+    "title": "Meet {{business.owner}}",
+    "contact": "When you get in touch, you’re talking to the person who plans your clean, agrees the scope and price with you, and is accountable for the result."
+  },
+  "process": {
+    "title": "How it works",
+    "h1": "Tell {{business.owner}} about the property",
+    "p1": "The type of clean, property size, its condition, your postcode and a preferred date.",
+    "h2": "Receive your quote",
+    "p2": "The scope and price are confirmed before anything is booked.",
+    "h3": "Book your clean",
+    "p3": "The date is confirmed and the clean is completed as agreed.",
+    "pricingTitle": "A quote based on your property, not an arbitrary package",
+    "pricingText": "Send the property size, its condition and the type of clean. {{business.owner}} will confirm what’s included and give you a clear price before you book."
+  },
+  "reviews": {
+    "title": "What customers say",
+    "summary": "<strong>{{reviews.rating}}</strong> on Google · {{reviews.count}} reviews",
+    "readAll": "Read all reviews on Google",
+    "draft": "Placeholder layout. No reviews are shown until genuine ones are added to <code>site.config.json</code>.",
+    "stars": "{{attr:.stars}} out of 5 stars"
+  },
+  "eco": {
+    "title": "Thoughtful products, strong results",
+    "p1": "Gentler products are used wherever they’ll do the job. For heavy grease, limescale or stubborn build-up, a stronger specialist product may be needed to get the surface properly clean.",
+    "p2": "Please let {{business.owner}} know about any allergies, sensitivities or pets before the clean.",
+    "products": "What we use",
+    "stronger": "When something stronger is needed",
+    "credentials": "Product credentials"
+  },
+  "more": {
+    "eyebrow": "From {{business.owner}}",
+    "title": "A little more about me"
+  },
+  "areas": {
+    "title": "Deep cleaning across {{business.location}}",
+    "intro": "End-of-tenancy, after-builders, deep and regular cleans in {{business.locality}} and the surrounding areas, including:",
+    "note": "We also cover areas close to these. Not sure whether your postcode is covered? Send it with your enquiry and we’ll confirm.",
+    "link": "Ask about your postcode"
+  },
+  "faqs": {
+    "title": "Questions before you book",
+    "intro": "Something not covered here? Message <a href=\"{{attr:whatsappHref}}\">{{business.owner}} on WhatsApp</a>, call <a href=\"{{attr:phoneHref}}\">{{business.phoneDisplay}}</a> or email <a href=\"{{attr:mailHref}}\">{{business.email}}</a>."
+  },
+  "quote": {
+    "title": "Tell {{business.owner}} what needs cleaning",
+    "intro": "Share a few details about the property. {{business.owner}} will reply to confirm the scope and a clear price. Nothing is booked until you agree.",
+    "waText": "<strong>Want a quicker quote?</strong> Send a few photos of the property on WhatsApp.",
+    "phone": "Phone",
+    "email": "Email",
+    "areas": "Areas covered"
+  },
+  "form": {
+    "language": "English",
+    "intro": "All fields are required unless marked optional.",
+    "name": "Your name",
+    "contactLegend": "How should we reply?",
+    "contactHint": "Give a phone number, an email address, or both.",
+    "phone": "Phone",
+    "email": "Email",
+    "postcode": "Postcode of the property",
+    "postcodeHint": "So we can check it’s in the area we cover.",
+    "propertyType": "Property type",
+    "propertySize": "Property size",
+    "choose": "Choose…",
+    "propertyTypes": "<option>Flat or apartment</option><option>House</option><option>Maisonette</option><option>Bungalow</option><option>Other</option>",
+    "propertySizes": "<option>Studio</option><option>1 bedroom</option><option>2 bedrooms</option><option>3 bedrooms</option><option>4 bedrooms</option><option>5+ bedrooms</option>",
+    "service": "Service required",
+    "notSure": "Not sure yet",
+    "date": "Preferred date",
+    "optional": "(optional)",
+    "dateHint": "We’ll confirm availability when we reply.",
+    "details": "Property condition and anything else we should know",
+    "detailsHint": "For example: 2 bathrooms, unfurnished, heavy limescale in the shower, checkout on Friday.",
+    "photos": "Photos of the property",
+    "photosHint": "Up to 5 photos, 20 MB in total. Photos help give an accurate quote.",
+    "honeypot": "Leave this empty",
+    "submit": "Get my quote",
+    "privacy": "Read how we use your details in our <a href=\"{{attr:site.privacyPath}}\">privacy notice</a>."
+  },
+  "footer": {
+    "contact": "Contact",
+    "services": "Services",
+    "privacy": "Privacy notice",
+    "mobileQuote": "Get a quote"
+  },
+  "privacy": {
+    "title": "Privacy notice",
+    "description": "How {{business.name}} uses the details you send through the quote form.",
+    "draft": "Draft — this notice must be completed and checked before launch. <mark class=\"ph\">[highlighted]</mark> details are placeholders.",
+    "back": "Back to quote form",
+    "intro": "This notice explains how {{business.name}} uses the details you give us when you ask for a quote.",
+    "whoTitle": "Who we are",
+    "responsible": "{{business.owner}} is responsible for your information.",
+    "ico": "ICO registration:",
+    "contact": "Contact:",
+    "or": "or",
+    "collectTitle": "What we collect",
+    "collectList": "<li>Your name and the phone number and/or email address you give us</li><li>The postcode of the property</li><li>The property type and size, the service you need, your description of the job and any preferred date</li><li>Any photos of the property you choose to attach</li>",
+    "whatsapp": "If you message us on WhatsApp instead, your messages and photos are also handled by WhatsApp under its own privacy policy.",
+    "whyTitle": "Why we use it",
+    "why": "Only to reply to your enquiry, prepare a quote and, if you go ahead, arrange the clean. The lawful basis is taking steps at your request before entering into a contract.",
+    "receiveTitle": "Who receives it",
+    "receive": "The quote form is delivered to us by {{form.processor}}, which processes it on our behalf.",
+    "keepTitle": "How long we keep it",
+    "rightsTitle": "Your rights",
+    "rights": "You can ask to see, correct or delete the information we hold about you by contacting us using the details above. If you’re unhappy with how we’ve handled your data, you can complain to the Information Commissioner’s Office at <a href=\"https://ico.org.uk/make-a-complaint/\">ico.org.uk</a>.",
+    "home": "Return to the home page"
+  },
+  "js": {
+    "name": "Enter your name.",
+    "contactMissing": "Enter a phone number or an email address so we can reply.",
+    "emailInvalid": "Enter an email address like name@example.co.uk.",
+    "phoneShort": "Enter a phone number with at least 10 digits.",
+    "postcodeMissing": "Enter the postcode of the property.",
+    "postcodeInvalid": "Enter a full UK postcode, for example SW1A 1AA.",
+    "propertyType": "Choose the type of property.",
+    "propertySize": "Choose the size of the property.",
+    "service": "Choose the service you need, or “Not sure yet”.",
+    "details": "Tell us a little about the property’s condition and the job.",
+    "photosCount": "Choose up to {n} photos.",
+    "photosType": "Photos must be image files, such as JPEG or PNG.",
+    "photosSize": "Those photos add up to {mb} MB. Choose fewer, up to 20 MB in total.",
+    "sliderValue": "{before}% before, {after}% after",
+    "sending": "Sending…",
+    "waPrefix": "message ",
+    "waText": "on WhatsApp",
+    "callPrefix": "call ",
+    "emailPrefix": "email ",
+    "or": " or ",
+    "contactFallback": "contact us directly",
+    "notConnected": "<h3>This form isn’t connected yet</h3><p>Your enquiry has <strong>not</strong> been sent. Please {contact} instead. What you’ve typed is still in the form.</p>",
+    "success": "<h3>Thank you, your enquiry has been sent</h3><p>We’ll reply using the contact details you gave to confirm the scope and quote. If it’s urgent, {contact}.</p>",
+    "failed": "<h3>Your enquiry didn’t send</h3><p>Nothing has been lost. Check your connection and press “{label}” again, or {contact}.</p>"
+  }
+}

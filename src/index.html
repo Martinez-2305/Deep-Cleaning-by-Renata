@@ -1,16 +1,16 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="{{t:lang}}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{attr:meta.title}}</title>
-  <meta name="description" content="{{attr:meta.description}}">
+  <title>{{t:meta.title}}</title>
+  <meta name="description" content="{{t:meta.description}}">
   <meta name="theme-color" content="#076719">
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale" content="{{t:ogLocale}}">
   <meta property="og:site_name" content="{{attr:business.name}}">
-  <meta property="og:title" content="{{attr:meta.title}}">
-  <meta property="og:description" content="{{attr:meta.description}}">
+  <meta property="og:title" content="{{t:meta.title}}">
+  <meta property="og:description" content="{{t:meta.description}}">
   <meta property="og:image" content="{{attr:meta.image}}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -32,27 +32,27 @@
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <h1 id="hero-title">Deep cleaning for homes that need more than a standard clean</h1>
-          <p class="hero-seo">End-of-tenancy, after-builders and one-off deep cleaning across {{business.location}} and surrounding areas.</p>
-          <p class="lede">Moving out, finishing renovation work, or living with a home that needs a full reset? {{business.owner}} plans each clean around the property’s condition, and agrees the scope and price with you before any work starts.</p>
+          <h1 id="hero-title">{{t:hero.title}}</h1>
+          <p class="hero-seo">{{t:hero.seo}}</p>
+          <p class="lede">{{t:hero.lede}}</p>
           <div class="actions">
-            <a class="btn btn-primary btn-lg" href="#quote">Request a quote</a>
+            <a class="btn btn-primary btn-lg" href="#quote">{{t:nav.quote}}</a>
             <a class="btn btn-secondary btn-lg" href="{{attr:whatsappHref}}">
               <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg>
-              WhatsApp {{business.owner}}
+              {{t:nav.whatsapp}}
             </a>
           </div>
-          <p class="hero-note">Every quote is based on the property’s size, its condition and what you need done.</p>
+          <p class="hero-note">{{t:hero.note}}</p>
         </div>
         <figure class="hero-photo">
           {{img:hero.photo "(min-width: 900px) 460px, (min-width: 720px) 300px, 100vw" eager}}
-          <figcaption><strong>{{business.owner}}</strong>, owner of {{business.name}}</figcaption>
+          <figcaption>{{t:hero.caption}}</figcaption>
         </figure>
       </div>
     </section>
 
     <!-- 2. Trust strip -->
-    <section class="trust" aria-label="Before you book">
+    <section class="trust" aria-label="{{t:trustLabel}}">
       <ul class="wrap trust-list">
         {{#each trust}}
         <li><strong>{{.title}}</strong><span>{{.detail}}</span></li>
@@ -64,8 +64,8 @@
     <section class="section services" id="services" aria-labelledby="services-title">
       <div class="wrap">
         <div class="section-head">
-          <h2 id="services-title">End of tenancy, after-builders and deep cleaning</h2>
-          <p>Three types of clean, each quoted individually. Not sure which fits? Describe the job and {{business.owner}} will advise.</p>
+          <h2 id="services-title">{{t:services.title}}</h2>
+          <p>{{t:services.intro}}</p>
         </div>
         <ul class="service-grid">
           {{#each services}}
@@ -76,8 +76,8 @@
               {{#each .points}}<li>{{.}}</li>{{/each .points}}
             </ul>
             <div class="service-links">
-              <a class="btn btn-secondary" href="#quote" data-service="{{attr:.id}}">Get a quote<span class="sr-only"> for {{.name}}</span></a>
-              {{#if .page}}<a class="text-link" href="{{base}}{{attr:.id}}/">More about {{.name}}</a>{{/if .page}}
+              <a class="btn btn-secondary" href="#quote" data-service="{{attr:.id}}">{{t:services.cta}}</a>
+              {{#if .page}}<a class="text-link" href="{{base}}{{attr:.id}}/">{{t:services.more}}</a>{{/if .page}}
             </div>
           </li>
           {{/each services}}
@@ -85,7 +85,7 @@
 
         {{#if tackle}}
         <div class="tackle">
-          <h3 class="tackle-title">What a deep clean tackles</h3>
+          <h3 class="tackle-title">{{t:services.tackle}}</h3>
           <ul class="tackle-grid">
             {{#each tackle}}
             <li>
@@ -106,8 +106,8 @@
     <section class="section results" id="results" aria-labelledby="results-title">
       <div class="wrap">
         <div class="section-head">
-          <h2 id="results-title">Real cleaning. Real results.</h2>
-          <p>Before-and-after photos from {{business.owner}}’s own jobs, taken from the same angle. Drag the handle, or use the arrow keys, to compare.</p>
+          <h2 id="results-title">{{t:results.title}}</h2>
+          <p>{{t:results.intro}}</p>
         </div>
         <ul class="results-grid">
           {{#each results}}
@@ -116,10 +116,10 @@
               <div class="ba" style="--pos: 50%">
                 <div class="ba-layer ba-after">{{img:.afterImg "(min-width: 1100px) 380px, (min-width: 600px) 50vw, 100vw"}}</div>
                 <div class="ba-layer ba-before">{{img:.beforeImg "(min-width: 1100px) 380px, (min-width: 600px) 50vw, 100vw"}}</div>
-                <span class="ba-label ba-label-before" aria-hidden="true">Before</span>
-                <span class="ba-label ba-label-after" aria-hidden="true">After</span>
+                <span class="ba-label ba-label-before" aria-hidden="true">{{t:results.before}}</span>
+                <span class="ba-label ba-label-after" aria-hidden="true">{{t:results.after}}</span>
                 <span class="ba-handle" aria-hidden="true"></span>
-                <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after: {{attr:.service}}, {{attr:.job}}">
+                <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="{{t:results.compare}} {{attr:.service}}, {{attr:.job}}">
               </div>
               <figcaption>
                 <span class="result-service">{{.service}}</span>
@@ -136,19 +136,19 @@
     <!-- 5. Why choose -->
     <section class="section why" aria-labelledby="why-title">
       <div class="wrap">
-        <h2 id="why-title">Why choose {{business.owner}}?</h2>
+        <h2 id="why-title">{{t:why.title}}</h2>
         <ul class="why-grid">
           <li>
-            <h3>Detailed rather than rushed</h3>
-            <p>Each clean is planned around the property’s condition and the scope you’ve agreed, not a generic checklist worked through against the clock.</p>
+            <h3>{{t:why.h1}}</h3>
+            <p>{{t:why.p1}}</p>
           </li>
           <li>
-            <h3>You know who is doing the work</h3>
-            <p>An owner-led, personal service, from your first message through to the finished clean.</p>
+            <h3>{{t:why.h2}}</h3>
+            <p>{{t:why.p2}}</p>
           </li>
           <li>
-            <h3>Clear before the clean starts</h3>
-            <p>The scope and quote are agreed before booking, so you know exactly what’s included.</p>
+            <h3>{{t:why.h3}}</h3>
+            <p>{{t:why.p3}}</p>
           </li>
         </ul>
       </div>
@@ -161,14 +161,13 @@
           {{img:founder.photo "(min-width: 900px) 460px, 100vw"}}
         </figure>
         <div class="meet-copy">
-          <p class="eyebrow">Owner, {{business.name}}</p>
-          <h2 id="meet-title">Meet {{business.owner}}</h2>
-          <p class="meet-bio">{{founder.bio}}</p>
-          <p>{{business.owner}} runs {{business.name}} personally. When you get in touch, you’re talking to the person who plans your clean, agrees the scope and price with you, and is accountable for the result.</p>
-          <p>If something needs another look, you tell the person responsible, not a head office.</p>
+          <p class="eyebrow">{{t:meet.eyebrow}}</p>
+          <h2 id="meet-title">{{t:meet.title}}</h2>
+          {{#each founder.bio}}<p class="meet-bio">{{.}}</p>{{/each founder.bio}}
+          <p>{{t:meet.contact}}</p>
           <div class="actions">
-            <a class="btn btn-primary" href="#quote">Request a quote</a>
-            <a class="btn btn-secondary" href="{{attr:whatsappHref}}">WhatsApp {{business.owner}}</a>
+            <a class="btn btn-primary" href="#quote">{{t:nav.quote}}</a>
+            <a class="btn btn-secondary" href="{{attr:whatsappHref}}">{{t:nav.whatsapp}}</a>
           </div>
         </div>
       </div>
@@ -177,30 +176,30 @@
     <!-- 7. How it works + quote messaging -->
     <section class="section process" id="process" aria-labelledby="process-title">
       <div class="wrap">
-        <h2 id="process-title">How it works</h2>
+        <h2 id="process-title">{{t:process.title}}</h2>
         <ol class="steps">
           <li>
             <span class="step-num" aria-hidden="true">01</span>
-            <h3>Tell {{business.owner}} about the property</h3>
-            <p>The type of clean, property size, its condition, your postcode and a preferred date.</p>
+            <h3>{{t:process.h1}}</h3>
+            <p>{{t:process.p1}}</p>
           </li>
           <li>
             <span class="step-num" aria-hidden="true">02</span>
-            <h3>Receive your quote</h3>
-            <p>The scope and price are confirmed before anything is booked.</p>
+            <h3>{{t:process.h2}}</h3>
+            <p>{{t:process.p2}}</p>
           </li>
           <li>
             <span class="step-num" aria-hidden="true">03</span>
-            <h3>Book your clean</h3>
-            <p>The date is confirmed and the clean is completed as agreed.</p>
+            <h3>{{t:process.h3}}</h3>
+            <p>{{t:process.p3}}</p>
           </li>
         </ol>
         <div class="pricing">
           <div>
-            <h3>A quote based on your property, not an arbitrary package</h3>
-            <p>Send the property size, its condition and the type of clean. {{business.owner}} will confirm what’s included and give you a clear price before you book.</p>
+            <h3>{{t:process.pricingTitle}}</h3>
+            <p>{{t:process.pricingText}}</p>
           </div>
-          <a class="btn btn-primary btn-lg" href="#quote">Request a quote</a>
+          <a class="btn btn-primary btn-lg" href="#quote">{{t:nav.quote}}</a>
         </div>
       </div>
     </section>
@@ -210,20 +209,20 @@
     <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
       <div class="wrap">
         <div class="reviews-head">
-          <h2 id="reviews-title">What customers say</h2>
+          <h2 id="reviews-title">{{t:reviews.title}}</h2>
           <p class="rating">
             {{#if reviews.ratingPct}}<span class="stars" style="--pct: {{attr:reviews.ratingPct}}" aria-hidden="true"></span>{{/if reviews.ratingPct}}
-            <span><strong>{{reviews.rating}}</strong> on Google · {{reviews.count}} reviews</span>
-            {{#if reviews.link}}<a href="{{attr:reviews.link}}">Read all reviews on Google</a>{{/if reviews.link}}
+            <span>{{t:reviews.summary}}</span>
+            {{#if reviews.link}}<a href="{{attr:reviews.link}}">{{t:reviews.readAll}}</a>{{/if reviews.link}}
           </p>
         </div>
         {{#if reviews.draft}}
-        <p class="ph-note">Placeholder layout. No reviews are shown until genuine ones are added to <code>site.config.json</code>.</p>
+        <p class="ph-note">{{t:reviews.draft}}</p>
         {{/if reviews.draft}}
         <ul class="review-list">
           {{#each reviews.items}}
           <li class="review">
-            {{#if .starsPct}}<span class="stars" style="--pct: {{attr:.starsPct}}" role="img" aria-label="{{attr:.stars}} out of 5 stars"></span>{{/if .starsPct}}
+            {{#if .starsPct}}<span class="stars" style="--pct: {{attr:.starsPct}}" role="img" aria-label="{{t:reviews.stars}}"></span>{{/if .starsPct}}
             {{#unless .starsPct}}<p class="review-stars-ph">{{.stars}}</p>{{/unless .starsPct}}
             <blockquote><p>{{.quote}}</p></blockquote>
             <p class="review-by">{{.name}} — {{.area}}<span>{{.service}}</span></p>
@@ -238,49 +237,67 @@
     <section class="section eco" id="products" aria-labelledby="eco-title">
       <div class="wrap eco-grid">
         <div class="eco-intro">
-          <h2 id="eco-title">Thoughtful products, strong results</h2>
-          <p>Gentler products are used wherever they’ll do the job. For heavy grease, limescale or stubborn build-up, a stronger specialist product may be needed to get the surface properly clean.</p>
-          <p>If anyone in the home has allergies or sensitivities, mention it when you enquire.</p>
+          <h2 id="eco-title">{{t:eco.title}}</h2>
+          <p>{{t:eco.p1}}</p>
+          <p>{{t:eco.p2}}</p>
         </div>
         <dl class="eco-facts">
           <div>
-            <dt>What we use</dt>
+            <dt>{{t:eco.products}}</dt>
             <dd>{{eco.products}}</dd>
           </div>
           <div>
-            <dt>When something stronger is needed</dt>
+            <dt>{{t:eco.stronger}}</dt>
             <dd>{{eco.strongerProducts}}</dd>
           </div>
+          {{#if eco.credentials}}
           <div>
-            <dt>Product credentials</dt>
+            <dt>{{t:eco.credentials}}</dt>
             <dd>{{eco.credentials}}</dd>
           </div>
+          {{/if eco.credentials}}
         </dl>
       </div>
     </section>
 
-    <!-- 10. Areas -->
+    <!-- 10. A little more about Renata -->
+    {{#if founder.more}}
+    <section class="section more-about" id="more-about" aria-labelledby="more-title">
+      <div class="wrap more-grid">
+        <div>
+          <p class="eyebrow">{{t:more.eyebrow}}</p>
+          <h2 id="more-title">{{t:more.title}}</h2>
+        </div>
+        <div class="more-copy">
+          {{#each founder.more}}<p>{{.}}</p>{{/each founder.more}}
+          {{#if founder.moreClosing}}<p class="more-closing">{{founder.moreClosing}}</p>{{/if founder.moreClosing}}
+        </div>
+      </div>
+    </section>
+    {{/if founder.more}}
+
+    <!-- 11. Areas -->
     <section class="section areas" id="areas" aria-labelledby="areas-title">
       <div class="wrap areas-grid">
         <div>
-          <h2 id="areas-title">Deep cleaning across {{business.location}}</h2>
-          <p>End-of-tenancy, after-builders and one-off deep cleans in {{business.location}} and nearby areas, including:</p>
+          <h2 id="areas-title">{{t:areas.title}}</h2>
+          <p>{{t:areas.intro}}</p>
         </div>
         <div>
           <ul class="area-list">
             {{#each areas}}<li>{{.}}</li>{{/each areas}}
           </ul>
-          <p class="areas-note">Not sure whether your postcode is covered? Send it with your enquiry and we’ll confirm. <a href="#quote">Ask about your postcode</a></p>
+          <p class="areas-note">{{t:areas.note}} <a href="#quote">{{t:areas.link}}</a></p>
         </div>
       </div>
     </section>
 
-    <!-- 11. FAQs -->
+    <!-- 12. FAQs -->
     <section class="section faqs" id="faqs" aria-labelledby="faqs-title">
       <div class="wrap faq-grid">
         <div class="faq-intro">
-          <h2 id="faqs-title">Questions before you book</h2>
-          <p>Something not covered here? Message <a href="{{attr:whatsappHref}}">{{business.owner}} on WhatsApp</a>, call <a href="{{attr:phoneHref}}">{{business.phoneDisplay}}</a> or email <a href="{{attr:mailHref}}">{{business.email}}</a>.</p>
+          <h2 id="faqs-title">{{t:faqs.title}}</h2>
+          <p>{{t:faqs.intro}}</p>
         </div>
         <div class="faq-list">
           {{#each faqs}}
@@ -293,47 +310,48 @@
       </div>
     </section>
 
-    <!-- 12. Quote -->
+    <!-- 13. Quote -->
     <section class="section quote" id="quote" aria-labelledby="quote-title">
       <div class="wrap quote-grid">
         <div class="quote-intro">
-          <h2 id="quote-title">Tell {{business.owner}} what needs cleaning</h2>
-          <p>Share a few details about the property. {{business.owner}} will reply to confirm the scope and a clear price. Nothing is booked until you agree.</p>
+          <h2 id="quote-title">{{t:quote.title}}</h2>
+          <p>{{t:quote.intro}}</p>
           <div class="wa-box">
-            <p><strong>Want a quicker quote?</strong> Send a few photos of the property on WhatsApp.</p>
+            <p>{{t:quote.waText}}</p>
             <a class="btn btn-light" href="{{attr:whatsappHref}}">
               <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg>
-              WhatsApp {{business.owner}}
+              {{t:nav.whatsapp}}
             </a>
           </div>
           <dl class="contact-list">
-            <div><dt>Phone</dt><dd><a href="{{attr:phoneHref}}">{{business.phoneDisplay}}</a></dd></div>
-            <div><dt>Email</dt><dd><a href="{{attr:mailHref}}">{{business.email}}</a></dd></div>
-            <div><dt>Areas covered</dt><dd>{{coverage}}</dd></div>
+            <div><dt>{{t:quote.phone}}</dt><dd><a href="{{attr:phoneHref}}">{{business.phoneDisplay}}</a></dd></div>
+            <div><dt>{{t:quote.email}}</dt><dd><a href="{{attr:mailHref}}">{{business.email}}</a></dd></div>
+            <div><dt>{{t:quote.areas}}</dt><dd>{{coverage}}</dd></div>
           </dl>
         </div>
 
         <div class="form-panel">
           <div class="form-status" id="form-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
           <form class="quote-form" id="quote-form" method="post" action="{{attr:formEndpoint}}" data-endpoint="{{attr:formEndpoint}}"{{#if form.fileUploads}} enctype="multipart/form-data"{{/if form.fileUploads}}>
-            <p class="form-intro">All fields are required unless marked optional.</p>
+            <p class="form-intro">{{t:form.intro}}</p>
+            <input type="hidden" name="language" value="{{t:form.language}}">
 
             <div class="field">
-              <label for="f-name">Your name</label>
+              <label for="f-name">{{t:form.name}}</label>
               <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="100">
               <p class="field-error" id="f-name-error" hidden></p>
             </div>
 
             <fieldset class="field contact-pair" id="f-contact" aria-describedby="f-contact-hint">
-              <legend>How should we reply?</legend>
-              <p class="hint" id="f-contact-hint">Give a phone number, an email address, or both.</p>
+              <legend>{{t:form.contactLegend}}</legend>
+              <p class="hint" id="f-contact-hint">{{t:form.contactHint}}</p>
               <div class="field-row">
                 <div>
-                  <label for="f-phone">Phone</label>
+                  <label for="f-phone">{{t:form.phone}}</label>
                   <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="30">
                 </div>
                 <div>
-                  <label for="f-email">Email</label>
+                  <label for="f-email">{{t:form.email}}</label>
                   <input id="f-email" name="email" type="email" autocomplete="email" maxlength="150">
                 </div>
               </div>
@@ -341,80 +359,71 @@
             </fieldset>
 
             <div class="field">
-              <label for="f-postcode">Postcode of the property</label>
+              <label for="f-postcode">{{t:form.postcode}}</label>
               <input id="f-postcode" class="input-short" name="postcode" type="text" autocomplete="postal-code" autocapitalize="characters" required maxlength="8" aria-describedby="f-postcode-hint">
-              <p class="hint" id="f-postcode-hint">So we can check it’s in the area we cover.</p>
+              <p class="hint" id="f-postcode-hint">{{t:form.postcodeHint}}</p>
               <p class="field-error" id="f-postcode-error" hidden></p>
             </div>
 
             <div class="field-row field-row-gap">
               <div class="field">
-                <label for="f-property">Property type</label>
+                <label for="f-property">{{t:form.propertyType}}</label>
                 <select id="f-property" name="property_type" required>
-                  <option value="">Choose…</option>
-                  <option>Flat or apartment</option>
-                  <option>House</option>
-                  <option>Maisonette</option>
-                  <option>Bungalow</option>
-                  <option>Other</option>
+                  <option value="">{{t:form.choose}}</option>
+                  {{t:form.propertyTypes}}
                 </select>
                 <p class="field-error" id="f-property-error" hidden></p>
               </div>
               <div class="field">
-                <label for="f-size">Property size</label>
+                <label for="f-size">{{t:form.propertySize}}</label>
                 <select id="f-size" name="property_size" required>
-                  <option value="">Choose…</option>
-                  <option>Studio</option>
-                  <option>1 bedroom</option>
-                  <option>2 bedrooms</option>
-                  <option>3 bedrooms</option>
-                  <option>4 bedrooms</option>
-                  <option>5+ bedrooms</option>
+                  <option value="">{{t:form.choose}}</option>
+                  {{t:form.propertySizes}}
                 </select>
                 <p class="field-error" id="f-size-error" hidden></p>
               </div>
             </div>
 
             <fieldset class="field" id="f-type">
-              <legend>Service required</legend>
+              <legend>{{t:form.service}}</legend>
               <div class="choices">
                 {{#each services}}
                 <label class="choice"><input type="radio" name="service" value="{{attr:.name}}" data-service="{{attr:.id}}" required> {{.name}}</label>
                 {{/each services}}
-                <label class="choice"><input type="radio" name="service" value="Not sure yet" required> Not sure yet</label>
+                <label class="choice"><input type="radio" name="service" value="{{t:form.notSure}}" required> {{t:form.notSure}}</label>
               </div>
               <p class="field-error" id="f-type-error" hidden></p>
             </fieldset>
 
             <div class="field">
-              <label for="f-date">Preferred date <span class="optional">(optional)</span></label>
+              <label for="f-date">{{t:form.date}} <span class="optional">{{t:form.optional}}</span></label>
               <input id="f-date" class="input-short" name="preferred_date" type="date" aria-describedby="f-date-hint">
-              <p class="hint" id="f-date-hint">We’ll confirm availability when we reply.</p>
+              <p class="hint" id="f-date-hint">{{t:form.dateHint}}</p>
             </div>
 
             <div class="field">
-              <label for="f-details">Property condition and anything else we should know</label>
+              <label for="f-details">{{t:form.details}}</label>
               <textarea id="f-details" name="details" rows="5" required maxlength="1500" aria-describedby="f-details-hint"></textarea>
-              <p class="hint" id="f-details-hint">For example: 2 bathrooms, unfurnished, heavy limescale in the shower, checkout on Friday.</p>
+              <p class="hint" id="f-details-hint">{{t:form.detailsHint}}</p>
               <p class="field-error" id="f-details-error" hidden></p>
             </div>
 
             {{#if form.fileUploads}}
             <div class="field" id="f-photos-field">
-              <label for="f-photos">Photos of the property <span class="optional">(optional)</span></label>
+              <label for="f-photos">{{t:form.photos}} <span class="optional">{{t:form.optional}}</span></label>
               <input id="f-photos" name="photos" type="file" accept="image/*" multiple aria-describedby="f-photos-hint">
-              <p class="hint" id="f-photos-hint">Up to 5 photos, 20 MB in total. Photos help give an accurate quote.</p>
+              <p class="hint" id="f-photos-hint">{{t:form.photosHint}}</p>
               <p class="field-error" id="f-photos-error" hidden></p>
             </div>
             {{/if form.fileUploads}}
 
             <div class="hp" aria-hidden="true">
-              <label for="f-website">Leave this empty</label>
+              <label for="f-website">{{t:form.honeypot}}</label>
               <input id="f-website" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
             </div>
 
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Get my quote</button>
-            <p class="form-small">Read how we use your details in our <a href="{{attr:site.privacyPath}}">privacy notice</a>.</p>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">{{t:form.submit}}</button>
+            <p class="form-small">{{t:form.privacy}}</p>
           </form>
         </div>
       </div>
@@ -422,5 +431,6 @@
   </main>
 
 {{> footer}}
+  <script type="application/json" id="i18n">{{raw:jsStrings}}</script>
 </body>
 </html>

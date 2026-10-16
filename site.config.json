@@ -2,27 +2,30 @@
   "_readme": "Edit this file, then run `node build.js`. Anything written inside [[double brackets]] is a placeholder: it is highlighted on the page, listed by the build, and blocks LocalBusiness schema until replaced. Photo slots with an empty \"name\" show a labelled 'Photo to come' frame; see NOTES.md → Photos for how to add a real one. Leave a list empty ([]) to hide it.",
 
   "business": {
+    "_help": "location is the full area used in headings; locality is the single place used in the page title and LocalBusiness schema.",
     "name": "Deep Cleaning by Renata",
     "owner": "Renata",
-    "phoneDisplay": "[[Phone number, e.g. 07700 900123]]",
-    "phoneLink": "[[Phone in international format, e.g. +447700900123]]",
-    "whatsapp": "[[WhatsApp number, digits only in international format, e.g. 447700900123]]",
-    "whatsappMessage": "Hi Renata, I’d like a quote for a deep clean.",
-    "email": "[[Email address]]",
-    "location": "[[Primary area]]",
-    "companyDetails": "[[Trading details, e.g. sole trader / company number and registered address]]"
+    "phoneDisplay": "07456 950999",
+    "phoneLink": "+447456950999",
+    "whatsapp": "447456950999",
+    "whatsappMessage": "Hi Renata, I’d like a quote for a clean.",
+    "email": "deepcleaning.renata@gmail.com",
+    "location": "Wimbledon and South West London",
+    "locality": "Wimbledon",
+    "companyDetails": "Deep Cleaning by Renata is run by Renata as a self-employed sole trader."
   },
 
-  "areas": ["[[Area 1]]", "[[Area 2]]", "[[Area 3]]", "[[Area 4]]"],
+  "areas": ["Wimbledon", "Putney", "Richmond", "Barnes"],
+  "coverageNote": "and areas close to these",
 
   "site": {
-    "url": "[[Production URL, e.g. https://www.example.co.uk]]",
+    "url": "https://deepcleaningbyrenata.co.uk",
     "privacyPath": "privacy.html"
   },
 
   "hero": {
     "photo": {
-      "_help": "Currently Renata's portrait. Best replacement: Renata actively deep cleaning a real kitchen or bathroom, portrait (4:5) orientation.",
+      "_help": "Renata's portrait in the green apron (approved for use). Best replacement: Renata actively deep cleaning a real kitchen or bathroom, portrait (4:5) orientation.",
       "name": "renata",
       "width": 1000,
       "height": 1250,
@@ -32,15 +35,24 @@
   },
 
   "trust": [
-    { "_help": "Four short items. Swap in stronger verified signals (Google rating, years of experience, certifications) once confirmed." },
-    { "title": "[[Fully insured]]", "detail": "[[Confirm public liability cover before launch]]" },
-    { "title": "Owner-led service", "detail": "You deal directly with Renata, from enquiry to finished clean" },
-    { "title": "[[All equipment supplied]]", "detail": "[[Confirm products and equipment are brought to every job]]" },
+    { "_help": "Four short items, all confirmed by Renata (September 2026 questionnaire). Add 'Fully insured' only once the public liability certificate is seen." },
+    { "title": "Nearly 15 years’ experience", "detail": "Owner-led: you deal directly with Renata, from enquiry to finished clean" },
+    { "title": "DBS checked", "detail": "Checked through the Disclosure and Barring Service" },
+    { "title": "Products and equipment supplied", "detail": "Vacuum, mop, cloths and products brought to every job" },
     { "title": "Clear quote before work begins", "detail": "Scope and price agreed before you book" }
   ],
 
   "founder": {
-    "bio": "[[Two or three sentences from Renata: how she started, how long she has been cleaning, and what she takes pride in]]",
+    "_help": "bio: Renata's own words, shown in Meet Renata. more: her shorter personal section, shown further down the page.",
+    "bio": [
+      "Hi, I’m Renata, the owner of Deep Cleaning by Renata. I’ve been cleaning homes across London for nearly 15 years. I’ve always worked independently, building my experience and reputation through hard work and recommendations from happy clients, who passed my name on to their friends and families.",
+      "Over the years, cleaning has become more than just a job — it’s something I truly enjoy. I put my heart into what I do, and nothing makes me happier than seeing my clients pleased with the results."
+    ],
+    "more": [
+      "Outside of work, I’m a proud mum and grandma. I’m a warm, friendly and positive person who loves spending time with family, travelling, cycling, walking in nature and discovering new places.",
+      "Over the past five years, I’ve become really interested in personal growth and mental wellbeing. One of my dreams is to support women who have lost confidence in themselves or forgotten about their own needs, and help them find their strength and happiness again."
+    ],
+    "moreClosing": "I believe it’s never too late for a fresh start.",
     "photo": {
       "_help": "A different shot from the hero: Renata at work, or a relaxed portrait on a job.",
       "name": "",
@@ -52,62 +64,71 @@
   },
 
   "form": {
-    "_help": "POST endpoint that accepts form data and returns JSON (e.g. Formspree, Basin, Getform, or your own). Leave as a placeholder and the form will tell visitors to use WhatsApp, phone or email instead. Set fileUploads to false if the provider's plan doesn't accept file uploads.",
+    "_help": "POST endpoint that accepts form data and returns JSON (e.g. Formspree, Basin, Getform, or your own). Enquiries go to deepcleaning.renata@gmail.com. Leave as a placeholder and the form will tell visitors to use WhatsApp, phone or email instead. Set fileUploads to false if the provider's plan doesn't accept file uploads.",
     "endpoint": "[[Form endpoint URL]]",
     "processor": "[[Name of the form service that receives enquiries]]",
     "fileUploads": true
   },
 
   "eco": {
-    "_help": "UK Green Claims Code: keep claims specific and provable. Never 'chemical-free', 'non-toxic' or '100% eco-friendly' unless the products prove it.",
-    "products": "[[Which products or brands Renata uses]]",
+    "_help": "UK Green Claims Code: keep claims specific and provable. Never 'chemical-free', 'non-toxic' or '100% eco-friendly' unless the products prove it. Leave credentials empty to hide that row.",
+    "products": "Renata brings her own cleaning products and equipment, including a vacuum cleaner, mop and cloths. She uses products made with naturally derived ingredients, chosen with care for homes with people and pets, and always used according to their instructions.",
     "strongerProducts": "[[When a stronger specialist product is needed, e.g. heavy limescale, and how customers are told first]]",
-    "credentials": "[[Any eco certifications for those products, e.g. EU Ecolabel — only if proven]]"
+    "credentials": ""
   },
 
   "privacy": {
     "processorDetails": "[[Where the form provider stores data, with a link to its privacy policy]]",
-    "retention": "[[How long enquiries and photos are kept, e.g. deleted after 12 months if no booking follows]]"
+    "retention": "[[How long enquiries and photos are kept, e.g. deleted after 12 months if no booking follows]]",
+    "ico": "[[ICO registration number, or confirm whether registration is needed]]"
   },
 
   "services": [
     {
-      "_help": "id doubles as the future page URL (/id/). Set \"page\": true once src/<id>/index.html exists to link to it. Confirm the three points with Renata.",
+      "_help": "id doubles as the future page URL (/id/). Set \"page\": true once src/<id>/index.html exists to link to it. Points confirmed by Renata (September 2026).",
       "id": "end-of-tenancy-cleaning",
       "name": "End of tenancy cleaning",
       "outcome": "Leave the property ready for checkout",
-      "summary": "For tenants moving out, landlords and letting agents between tenancies. If you have the inventory or check-in report, mention it so the quote reflects what will be checked.",
-      "points": ["Kitchens and bathrooms", "Inside accessible cupboards", "Detailed surfaces, edges and skirting"],
+      "summary": "For tenants moving out, landlords and letting agents between tenancies. The exact checklist is agreed in your quote; if you have the inventory or check-in report, mention it.",
+      "points": ["Kitchen surfaces and cupboards, inside and out where emptied", "Bathrooms cleaned and descaled", "Skirting boards, doors, switches and accessible internal windows", "Floors vacuumed and mopped"],
       "page": false
     },
     {
       "id": "after-builders-cleaning",
       "name": "After-builders cleaning",
-      "outcome": "Remove the dust and residue left behind after renovation",
-      "summary": "Post-renovation and post-construction cleaning once an extension, refurbishment or new kitchen is finished. Tell us what work was done and whether any trades are still on site.",
-      "points": ["Fine building dust", "Floors, fixtures and surfaces", "Light plaster and paint residue, where it can be safely removed"],
+      "outcome": "Remove the dust left behind after renovation",
+      "summary": "For homeowners after an extension, refurbishment or new kitchen, and for builders handing a property back. Tell us what work was done. Paint or adhesive removal is assessed separately.",
+      "points": ["Fine building dust removed from accessible surfaces, fittings and skirting", "Kitchens and bathrooms cleaned", "Floors vacuumed and mopped", "Internal glass, where safe and accessible"],
       "page": false
     },
     {
       "id": "deep-cleaning",
       "name": "One-off deep cleaning",
-      "outcome": "A full reset for homes that need more than regular cleaning",
-      "summary": "Before a sale, after moving in, or when a home is simply overdue. A single top-to-bottom clean, not a regular cleaning schedule.",
-      "points": ["Built-up grease and grime", "Limescale and detailed bathroom cleaning", "Hard-to-reach areas and neglected surfaces"],
+      "outcome": "A full reset for homes that need more than a regular clean",
+      "summary": "Before a sale, after moving in, or when a home is simply overdue. Tailored to the property, with the checklist agreed in your quote.",
+      "points": ["Detailed kitchen and bathroom cleaning", "Reachable surfaces, skirting boards, doors and switches", "Internal windows and floors"],
+      "page": false
+    },
+    {
+      "id": "regular-cleaning",
+      "name": "Regular cleaning",
+      "outcome": "Keep your home on top of things, week to week",
+      "summary": "Weekly or fortnightly visits, with a cleaning plan agreed to suit your household.",
+      "points": ["Weekly or fortnightly visits", "A cleaning plan agreed with you", "Products and equipment brought to every visit"],
       "page": false
     }
   ],
 
-  "extrasNote": "Oven interiors, carpet cleaning and rubbish removal are not assumed to be included. Mention them in your enquiry and we’ll confirm whether they can be added.",
+  "extrasNote": "Inside the oven, fridge/freezer cleaning, carpet cleaning and rubbish removal are extras, subject to availability and quoted separately. Not offered: exterior windows, hazardous materials, heavy waste or work at heights.",
 
   "tackle": [
     { "_help": "photo: base name of a processed image in src/assets/img (see NOTES.md → Photos). Close-up, real job photos work best." },
-    { "label": "Built-up grease", "detail": "Hobs, splashbacks, tiles and cupboard fronts", "photo": "" },
-    { "label": "Limescale", "detail": "Taps, shower screens, tiles and toilets", "photo": "" },
+    { "label": "Kitchen grease", "detail": "Surfaces, splashbacks and cupboard fronts", "photo": "" },
+    { "label": "Limescale", "detail": "Taps, shower screens, tiles and toilets, descaled", "photo": "" },
     { "label": "Fine renovation dust", "detail": "The layer that settles on every surface after building work", "photo": "" },
-    { "label": "Skirting and edges", "detail": "Skirting boards, door frames and the corners a quick clean misses", "photo": "" },
-    { "label": "Inside cupboards", "detail": "Accessible kitchen and bathroom cupboards, wiped out", "photo": "" },
-    { "label": "Hard-to-reach surfaces", "detail": "Tops of units, high ledges and behind fixtures", "photo": "" }
+    { "label": "Skirting and edges", "detail": "Skirting boards and the corners a quick clean misses", "photo": "" },
+    { "label": "Inside cupboards", "detail": "Kitchen cupboards, inside and out, once emptied", "photo": "" },
+    { "label": "Doors and switches", "detail": "Doors, frames and light switches, wiped and detailed", "photo": "" }
   ],
 
   "results": [
@@ -121,29 +142,29 @@
   ],
 
   "reviews": {
-    "_help": "Genuine reviews only, word for word, with the customer's permission. stars: a number 1–5.",
-    "rating": "[[Google rating, e.g. 5.0]]",
-    "count": "[[Number of Google reviews]]",
-    "url": "[[Link to the Google Business Profile reviews]]",
-    "items": [
-      { "quote": "[[Paste a genuine customer review here, word for word]]", "name": "[[First name]]", "area": "[[Area]]", "service": "[[Service, e.g. End of tenancy clean]]", "stars": "[[Stars, 1–5]]" },
-      { "quote": "[[Paste a genuine customer review here, word for word]]", "name": "[[First name]]", "area": "[[Area]]", "service": "[[Service, e.g. After-builders clean]]", "stars": "[[Stars, 1–5]]" },
-      { "quote": "[[Paste a genuine customer review here, word for word]]", "name": "[[First name]]", "area": "[[Area]]", "service": "[[Service, e.g. One-off deep clean]]", "stars": "[[Stars, 1–5]]" }
-    ]
+    "_help": "Hidden until Renata's Google Business Profile has reviews. Then add genuine reviews only, word for word, with the customer's permission — e.g. { \"quote\": \"…\", \"name\": \"First name\", \"area\": \"Putney\", \"service\": \"End of tenancy clean\", \"stars\": 5 } — plus rating, count and the profile link. The section and its nav link appear once items is non-empty.",
+    "rating": "",
+    "count": "",
+    "url": "",
+    "items": []
   },
 
   "faqs": [
     {
-      "q": "What’s included in a deep clean?",
-      "a": "It depends on the type of clean and the property, so the room-by-room checklist is agreed with your quote before anything is booked. As a guide, a deep clean goes further than a regular clean: built-up grease, limescale, inside accessible cupboards, skirting, edges and hard-to-reach surfaces. Oven interiors, carpets and rubbish removal are only included if we’ve confirmed them."
+      "q": "What’s included in a clean?",
+      "a": "Every clean is quoted individually, according to the size and condition of the property and the work required, and the checklist and price are confirmed before booking. As a guide, a deep clean covers kitchens and bathrooms in detail, reachable surfaces, skirting boards, doors, switches, internal windows and floors. Inside the oven, fridge/freezers, carpets and rubbish removal are extras, quoted separately."
     },
     {
-      "q": "Do you provide cleaning products and equipment?",
-      "a": "[[Confirm whether all products and equipment are brought to every job, and anything the customer needs to provide]] Gentler products are used wherever they’ll do the job. If anyone in the home has allergies or sensitivities, mention it when you enquire."
+      "q": "Do you bring your own products and equipment?",
+      "a": "Yes. Renata brings her own cleaning products and equipment, including a vacuum cleaner, mop, cloths and other supplies. She uses products made with naturally derived ingredients, chosen with care for homes with people and pets, always used according to their instructions. Please mention any allergies, sensitivities or pets before the clean."
+    },
+    {
+      "q": "Do you offer regular cleaning?",
+      "a": "Yes. Weekly or fortnightly cleaning is available, with a cleaning plan agreed to suit your household."
     },
     {
       "q": "How long does a clean take?",
-      "a": "It depends on the size of the property, its condition and the type of clean, so you’ll get a time estimate with your quote. [[Typical example, e.g. an end-of-tenancy clean of a 2-bed flat usually takes around X hours]]"
+      "a": "It depends on the size of the property, its condition and the type of clean, so you’ll get a time estimate with your quote."
     },
     {
       "q": "Can you guarantee I’ll get my tenancy deposit back?",
@@ -151,15 +172,19 @@
     },
     {
       "q": "Can I book after-builders cleaning?",
-      "a": "Yes. It works best once building work has finished and trades are off site, so dust doesn’t settle again. Tell us what work was done and send a few photos if you can. [[Confirm anything excluded, e.g. rubble removal or paint on carpets]]"
+      "a": "Yes. It works best once building work has finished and trades are off site, so dust doesn’t settle again. Tell us what work was done and send a few photos if you can. Paint or adhesive removal is assessed separately, and heavy waste and rubble removal aren’t offered."
+    },
+    {
+      "q": "Is there anything you don’t do?",
+      "a": "Exterior windows, hazardous materials, heavy waste and work at heights aren’t offered."
     },
     {
       "q": "Do I need to be home during the clean?",
-      "a": "[[Confirm how access works, e.g. meeting on site, key safe, or collecting keys from the agent]]"
+      "a": "You don’t need to stay for the whole clean, as long as access and key handover are arranged in advance."
     },
     {
       "q": "Which areas do you cover?",
-      "a": "[[Confirm the towns or postcode districts covered, and whether travel outside them is possible]] Not sure? Send your postcode with your enquiry and we’ll confirm."
+      "a": "Wimbledon and the surrounding areas, including Putney, Richmond and Barnes, and areas close to these. At the moment we don’t travel further afield. Not sure? Send your postcode with your enquiry and we’ll confirm."
     },
     {
       "q": "How are quotes calculated?",
@@ -167,11 +192,15 @@
     },
     {
       "q": "How should I prepare the property?",
-      "a": "[[Confirm preparation, e.g. whether the property should be empty and electricity and hot water left on]]"
+      "a": "Please make sure there’s safe access to the property, working electricity and hot water, and clear personal belongings from the areas to be cleaned. For end-of-tenancy cleans, an empty property is best."
     },
     {
-      "q": "How do I book?",
-      "a": "Send the quote form or a message on WhatsApp. Once you’re happy with the scope and price, we’ll arrange a date. [[Confirm payment terms, e.g. deposit on booking or payment on completion]]"
+      "q": "How far ahead should I book?",
+      "a": "Please get in touch as early as possible to check availability."
+    },
+    {
+      "q": "How do I book and pay?",
+      "a": "Send the quote form or a message on WhatsApp. Once you’re happy with the scope and price, we’ll arrange a date. First-time customers pay a 10% deposit when booking, with the rest paid once the job is done; returning customers don’t need to pay a deposit. Payment is by bank transfer or cash."
     }
   ]
 }

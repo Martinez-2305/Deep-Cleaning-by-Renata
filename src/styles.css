@@ -142,6 +142,19 @@ mark.ph {
   cursor: pointer;
 }
 .menu-toggle:hover { border-color: var(--green-700); color: var(--green-700); }
+/* Language switch: links to the same page in the other language (EN ⇄ PL) */
+.lang-switch {
+  display: inline-grid; place-items: center; flex: none;
+  min-width: 44px; height: 44px; padding-inline: 8px;
+  font: 600 0.875rem/1 var(--sans); letter-spacing: 0.04em; color: var(--text); text-decoration: none;
+  border: 1px solid var(--border); border-radius: var(--radius);
+}
+.lang-switch:hover { border-color: var(--green-700); color: var(--green-700); }
+.header-actions .btn { white-space: nowrap; }
+@media (max-width: 419px) {
+  .header-actions .btn { padding-inline: 10px; font-size: 0.9375rem; }
+  .lang-switch { min-width: 40px; padding-inline: 6px; }
+}
 .menu-icon, .menu-icon::before, .menu-icon::after, .menu-icon > span {
   display: block; width: 20px; height: 2px; border-radius: 2px; background: currentColor;
 }
@@ -304,8 +317,9 @@ section[id], [id="top"], .service-card { scroll-margin-top: calc(var(--header-h)
 .checks li::marker { color: var(--leaf); }
 .service-links { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2) var(--s5); }
 .text-link { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; }
+@media (min-width: 720px) { .service-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 900px) {
-  .service-grid { grid-template-columns: repeat(3, 1fr); gap: var(--s5); }
+  .service-grid { gap: var(--s5); }
   .service-card { padding: var(--s6) var(--s5); }
 }
 
@@ -389,7 +403,8 @@ section[id], [id="top"], .service-card { scroll-margin-top: calc(var(--header-h)
 .meet-copy { max-width: 36rem; }
 .meet-copy p { color: var(--muted); }
 .meet-copy .eyebrow { color: var(--leaf); }
-.meet-copy .meet-bio { font: 600 1.1875rem/1.5 var(--display); color: var(--text); }
+.meet-copy .meet-bio { font-size: 1.0625rem; color: var(--text); }
+.meet-copy h2 + .meet-bio { font: 600 1.1875rem/1.5 var(--display); }
 @media (min-width: 720px) {
   .meet-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--s6); align-items: center; }
   .meet-photo img, .meet-photo .photo-ph { aspect-ratio: 4 / 5; }
@@ -451,6 +466,16 @@ section[id], [id="top"], .service-card { scroll-margin-top: calc(var(--header-h)
 .eco-facts dd { margin: 0; }
 @media (min-width: 900px) {
   .eco-grid { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--s8); align-items: start; }
+}
+
+/* A little more about Renata */
+.more-about { border-top: 1px solid var(--border); }
+.more-grid { display: grid; gap: var(--s4); }
+.more-copy { max-width: 38rem; }
+.more-copy p { color: var(--muted); }
+.more-copy .more-closing { margin-top: var(--s5); padding-left: var(--s4); border-left: 2px solid var(--leaf); font: 600 1.1875rem/1.5 var(--display); color: var(--text); }
+@media (min-width: 900px) {
+  .more-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--s8); align-items: start; }
 }
 
 /* Areas */
