@@ -1,4 +1,16 @@
   <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-cta">
+        <div>
+          <p class="footer-cta-title">{{t:footer.ctaTitle}}</p>
+          <p>{{t:footer.ctaText}}</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="{{attr:home}}#quote">{{t:nav.quote}}</a>
+          <a class="btn btn-secondary" href="{{attr:whatsappHref}}">{{t:nav.whatsapp}}</a>
+        </div>
+      </div>
+    </div>
     <div class="wrap footer-grid">
       <div class="footer-brand">
         <picture>
@@ -13,7 +25,9 @@
           <li><a href="{{attr:whatsappHref}}">{{t:nav.whatsapp}}</a></li>
           <li><a href="{{attr:phoneHref}}">{{business.phoneDisplay}}</a></li>
           <li><a href="{{attr:mailHref}}">{{business.email}}</a></li>
+          {{#if reviews.link}}<li><a href="{{attr:reviews.link}}" rel="noopener">{{t:footer.google}}</a></li>{{/if reviews.link}}
           <li>{{coverage}}</li>
+          {{#if hours.text}}<li class="footer-hours"><strong>{{t:footer.hours}}</strong>{{#each hours.text}}<span class="hours-line">{{.}}</span>{{/each hours.text}}</li>{{/if hours.text}}
         </ul>
       </div>
       <div>
@@ -26,7 +40,7 @@
     <div class="wrap footer-base">
       <p>© {{year}} {{business.name}}</p>
       <a href="{{root}}{{attr:site.privacyPath}}">{{t:footer.privacy}}</a>
-      <a href="{{attr:altHref}}" hreflang="{{t:langSwitch.hreflang}}" lang="{{t:langSwitch.hreflang}}">{{t:langSwitch.label}}</a>
+      <a href="{{attr:altHref}}" hreflang="{{t:langSwitch.hreflang}}" lang="{{t:langSwitch.hreflang}}">{{t:langSwitch.footer}}</a>
     </div>
   </footer>
 

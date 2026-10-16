@@ -3,6 +3,7 @@
 ## Running it
 - Edit `site.config.json` (every fact about the business lives there).
 - `node build.js` → writes the finished site to `dist/` and lists any placeholders still to confirm. No npm install needed.
+- The build also writes `robots.txt` (allow all, points to the sitemap) and `sitemap.xml` (every page without a `noindex` tag, in both languages, with `hreflang` alternates). Both use `site.url`, and are skipped while it's a placeholder. The privacy notices are `noindex`, so they're not in the sitemap (and robots.txt doesn't block them, so crawlers can see the noindex). `<lastmod>` is the date of the last commit touching a page's sources, or today if they have uncommitted edits. Checked against the sitemaps.org 0.9 schema plus Google's `xhtml:link` format.
 - Preview: open `dist/index.html` in a browser, or serve `dist/` with any static server.
 - Deploy: upload the contents of `dist/`.
 - GitHub Pages (temporary): the live copy is served from the repo root (`index.html`, `privacy.html`, `pl/`, `main.js`, `styles.css`, `assets/`). After `node build.js`, copy the contents of `dist/` over those root files and commit. `dist/` itself is gitignored. Don't point `build.js` at the root: it empties its output folder before rebuilding.
@@ -23,7 +24,7 @@ Home page order: hero → trust strip → services (+ "what a deep clean tackles
 Anything written as `[[…]]` in the config is a placeholder: it is highlighted on the page, a draft banner is shown, the build lists it, and LocalBusiness schema and the canonical tag are left out until the real details are in.
 
 ## Languages (English / Polish)
-Every page is built twice: English at the site root, Polish under `/pl/` (`/pl/`, `/pl/privacy.html`). The EN/PL button in the header (and a link in the footer) goes to the same page in the other language. Canonical, `hreflang` alternates and `<html lang>` are set per language.
+Every page is built twice: English at the site root, Polish under `/pl/` (`/pl/`, `/pl/privacy.html`). The language switch sits beside the logo: a globe icon (from 480px) and an EN | PL toggle with the current language filled in. The other option links to the same page in that language; the footer has a text link too. Below 480px the header quote button says "Get a quote" / "Wycena" so everything fits on one line, and below 350px it's hidden (the hero button and bottom bar cover it). Canonical, `hreflang` alternates and `<html lang>` are set per language.
 - Interface text lives in `src/_i18n/<lang>.json` and is used in templates as `{{t:key}}`. Values are template fragments, so English strings can use `{{business.owner}}`; Polish strings write Renata's name and the area out in full because Polish declines them (Renaty, Renacie, w Wimbledonie).
 - Business content is translated in `site.config.pl.json`, merged over `site.config.json`: objects by key, lists of objects item by item, text and lists of text replaced. Anything not in the Polish file falls back to English. When adding or reordering services, tackle items, results or FAQs, do the same in both files.
 - Both About texts on the Polish page are Renata's own translations. Everything else was translated for the site and should be read over by Renata.
@@ -39,8 +40,29 @@ Every photo on the page is a slot in `site.config.json`. While a slot's name is 
 
 Only use Renata's own job photos, especially for before/after pairs, which should be taken from the same angle. Don't use stock or AI images as evidence. The hero currently uses Renata's portrait; a photo of her actively cleaning a real kitchen or bathroom would be stronger.
 
-## Adding a service page later
-`services[].id` is already the intended URL (`end-of-tenancy-cleaning`, `after-builders-cleaning`, `deep-cleaning`), and each card has that id as its anchor.
+## On-page SEO (October 2026 checklist)
+Done:
+- **One H1 per page**: "Professional deep cleaning in South West London" (Polish: "Profesjonalne sprzątanie gruntowne w południowo-zachodnim Londynie"). Sentence case, like every other heading. H2 per section; each service card's H3 is just the service name, with its tagline as a paragraph under it.
+- **Alt text**: descriptive and local, e.g. "Deep cleaning kitchen surfaces in a South West London home" (`tackle[].alt`; hero and founder photo alts mention South West London). When real photos go in, describe what each photo actually shows.
+- **Images**: every photo slot serves WebP at 480/720/1000px with a JPEG fallback, sized to avoid layout shift, lazy-loaded below the fold. Logos are WebP too (privacy page included). `tools/images.js` produces these from originals.
+- **Structured data** (home pages only):
+  - `HouseCleaningService` (a LocalBusiness type): name, phone, email, URL, logo, founder, locality, service areas, the four services as an `OfferCatalog`, payment methods, and `sameAs` (the Google Business Profile). It has a fixed `@id` (`/#business`), so the English and Polish pages describe the same business.
+  - `openingHoursSpecification` comes from `hours.schema` (Mon–Fri 08:00–17:30, Sat 09:00–15:30; Sunday closed, so left out). The same hours show in the quote section and footer. If they change on the Google Business Profile, change them here too.
+  - `FAQPage` repeats the visible FAQs word for word, in the page's language. Note: Google now shows FAQ rich results only for government and health sites, but the markup is still valid and readable by other search engines and AI tools.
+- **CTAs**: header ("Request a quote"), hero, mid-page (Meet Renata, How it works), quote section, and a "Ready for a quote?" band at the top of the footer. On phones there's also the bottom bar.
+- **NAP consistency**: name, phone, email and areas all come from `site.config.json`, so the header, quote section, footer, privacy notice and schema always match. Use exactly this on the Google Business Profile and in directories:
+  - Name: Deep Cleaning by Renata
+  - Phone: 07456 950999 (+44 7456 950999)
+  - Email: deepcleaning.renata@gmail.com
+  - Website: https://deepcleaningbyrenata.co.uk
+  - Service area: Wimbledon, Putney, Richmond, Barnes and areas close to these (South West London). No public street address; set it up as a service-area business.
+  - Hours: Monday–Friday 08:00–17:30, Saturday 09:00–15:30, Sunday closed (from the Google Business Profile, October 2026)
+
+Still to do:
+- **Service pages**: /kitchen-deep-cleaning/, /bathroom-deep-cleaning/, /end-of-tenancy-cleaning/, /move-in-move-out-cleaning/, /post-renovation-cleaning/ (see "Adding a service page later" below). Each links back to the home page and to the quote form (`{{home}}#quote` until there's a separate contact/booking page), with a breadcrumb and its own `Service` schema. Add each to both languages. Current home-page anchors: `end-of-tenancy-cleaning` and `post-renovation-cleaning` already match their future URLs. Kitchen, bathroom and move-in/move-out are new pages; one-off deep cleaning and regular cleaning stay on the home page unless pages are added for them too.
+- **Genuine reviews and original before/after photos**, with the customers' and property owners' consent (see Reviews and Photos).
+
+`services[].id` is already the intended URL (`end-of-tenancy-cleaning`, `post-renovation-cleaning`, `deep-cleaning`, `regular-cleaning`), and each card has that id as its anchor.
 1. Create `src/<id>/index.html` with its own `<head>` (title/description), `{{> header}}` and `{{> footer}}`. Use `{{base}}` in front of asset paths (`{{base}}styles.css`). `{{home}}` in the partials already points nav links back to the home page.
 2. Set `"page": true` on that service. The card gets a "More about…" link, and the footer links to the page instead of the anchor.
 Don't create per-town doorway pages.
@@ -78,11 +100,11 @@ Changed from Libre Baskerville at the client's request: the serif read as tradit
 
 ## Decisions
 - **Conversion restructure (September 2026)**: page reordered around services → evidence → trust → process, per the client's brief. The hero H1 is benefit-led and the service + location keywords sit in the line directly under it and in the title tag ("End of Tenancy & After-Builders Cleaning in [area] | Deep Cleaning by Renata"). Headings use sentence case to match the rest of the site.
-- **Products, not "eco" as the headline**: the products section sits below reviews as "Thoughtful products, strong results". "What we use" is Renata's own answer (naturally derived ingredients, chosen with care for people and pets, used per instructions). "When something stronger is needed" is still a placeholder; the intro's mention of stronger specialist products is unconfirmed. The credentials row is hidden while `eco.credentials` is empty. UK CMA Green Claims Code still applies: never "chemical-free", "non-toxic" or "100% eco-friendly" without proof.
+- **Products**: "Natural-based products, thorough results". Renata confirmed (October 2026) that all cleaning is done with products made with naturally derived ingredients and no stronger products are used, so the section says tough jobs get more time and attention, not stronger chemicals (`eco.products`, `eco.toughJobs`). The credentials row is hidden while `eco.credentials` is empty. UK CMA Green Claims Code still applies: keep the wording to "made with naturally derived ingredients"; never "chemical-free", "non-toxic", "100% natural" or "100% eco-friendly" without proof.
 - **No invented facts**: no prices, ratings, review text, insurance, availability or deposit-return promises. Experience ("nearly 15 years"), DBS check, equipment, payment terms (10% deposit for first-time customers, bank transfer or cash) and coverage come from Renata's questionnaire answers (September 2026). Insurance is "to be confirmed", so it's not on the site. The deposit FAQ says no cleaner can promise a deposit back.
 - **Services**: four services. Regular (weekly/fortnightly) cleaning was added at Renata's request, overriding the original brief's "no recurring housekeeping". Service points, extras (oven, fridge/freezer, carpets, rubbish removal: quoted separately) and exclusions (exterior windows, hazardous materials, heavy waste, work at heights) are her answers. The service grid is 2×2 from 720px.
 - **About Renata**: her professional text is `founder.bio` (Meet Renata); her personal text is `founder.more` in a separate "A little more about me" section lower down, as she asked. She also supplied Polish translations of both (in the questionnaire PDF); not used yet.
-- **Reviews**: the section and its nav link are hidden while `reviews.items` is empty (Renata's Google reviews aren't set up yet). Stars only render once `stars`/`rating` are real numbers. AggregateRating schema is only added with a real rating and count.
+- **Reviews and Google Business Profile**: `reviews.url` is Renata's profile (https://www.google.com/search?kgmid=/g/11zyjxt4m1). It's linked from the reviews section and footer, and is `sameAs` in the LocalBusiness schema. With no reviews, the section shows an invitation with "Leave a review on Google" and "See Renata on Google". Set `reviews.writeUrl` to the review link from her Business Profile dashboard ("Ask for reviews"); until then that button opens the profile, which has Google's own "Write a review" button. The page's own review cards appear once genuine reviews are pasted into `reviews.items`. Stars and the rating line only show with a real rating and count. No AggregateRating schema: Google doesn't allow marking up ratings collected on another site.
 - **Before/after**: a range input over two stacked images (keyboard and screen-reader operable, `touch-action: pan-y` so page scrolling still works on phones). No animation.
 - **WhatsApp**: `business.whatsapp` builds a `wa.me` link with a prefilled message. Until it's set, WhatsApp buttons fall back to the quote form (`#quote`), like phone and email.
 - **Form**: posts `FormData` (multipart, including optional photos) with `Accept: application/json` to `form.endpoint`. It shows success only after a 2xx response. Until an endpoint is set, it says the form isn't connected. Photo upload: up to 5 images, 20 MB total, checked client-side. The provider's plan must accept file uploads (Formspree's free plan doesn't; Basin does), otherwise set `form.fileUploads` to false. Includes a `_gotcha` honeypot.
@@ -97,12 +119,12 @@ Changed from Libre Baskerville at the client's request: the serif read as tradit
 
 ## Before launch — still needed
 - Public liability insurance (Renata: "to be confirmed"); add to the trust strip once the certificate is seen
-- A second photo of Renata at work for Meet Renata
+- Optional: a photo of Renata at work on a real job. Meet Renata now uses her sage-blazer portrait (`renata-portrait`, from `images/founder-img2.jpeg`)
 - Genuine before/after job photos (6 pairs) and close-ups for "What a deep clean tackles" (Renata says she has photos ready). Add Polish captions for them in `site.config.pl.json` → `results`
 - Renata to read over the Polish page
-- Google Business Profile reviews, rating, count and link
-- When stronger products are used (`eco.strongerProducts`)
+- `reviews.writeUrl` from Renata's Business Profile dashboard; set the profile's website to https://deepcleaningbyrenata.co.uk once the domain is live; paste genuine reviews in as they arrive
 - Cancellation / rescheduling terms (Renata: skip for now)
 - A form endpoint that accepts file uploads + provider name; privacy notice details (provider storage, retention period, ICO registration); have the notice checked
-- Point the deepcleaningbyrenata.co.uk domain at the host (the canonical tag and schema now use it)
+- Point the deepcleaningbyrenata.co.uk domain at the host (the canonical tag, schema, robots.txt and sitemap.xml use it), then submit https://deepcleaningbyrenata.co.uk/sitemap.xml in Google Search Console
+- Deploy only the built site (`dist/`) to the host. The repo root also holds source files (`src/`, `NOTES.md`, `build.js`, configs), which shouldn't be public on the production domain
 - Performance check on the real host (fonts load from Google; consider self-hosting them)

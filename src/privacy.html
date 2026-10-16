@@ -23,12 +23,15 @@
   <p class="draft-bar" role="note">{{t:privacy.draft}}</p>
   {{/if draft}}
   <header class="site-header">
-    <div class="wrap header-inner" style="grid-template-areas: 'brand actions'; padding-block: 12px;">
+    <div class="wrap header-inner" style="grid-template-columns: auto auto 1fr; grid-template-areas: 'brand lang actions'; padding-block: 12px;">
       <a class="brand" href="{{root}}index.html">
-        <img src="{{base}}assets/img/logo-360.jpg" width="360" height="205" alt="{{attr:business.name}} — {{t:nav.home}}">
+        <picture>
+          <source type="image/webp" srcset="{{base}}assets/img/logo-360.webp 360w, {{base}}assets/img/logo-720.webp 720w" sizes="112px">
+          <img src="{{base}}assets/img/logo-360.jpg" srcset="{{base}}assets/img/logo-360.jpg 360w, {{base}}assets/img/logo-720.jpg 720w" sizes="112px" width="360" height="205" alt="{{attr:business.name}} — {{t:nav.home}}">
+        </picture>
       </a>
+      {{> lang-switch}}
       <div class="header-actions">
-        {{> lang-switch}}
         <a class="btn btn-secondary" href="{{root}}index.html#quote">{{t:privacy.back}}</a>
       </div>
     </div>

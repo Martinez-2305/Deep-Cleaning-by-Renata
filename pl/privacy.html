@@ -23,12 +23,19 @@
   <p class="draft-bar" role="note">Wersja robocza — tę informację trzeba uzupełnić i sprawdzić przed publikacją. <mark class="ph">[Wyróżnione]</mark> informacje to elementy do uzupełnienia.</p>
   
   <header class="site-header">
-    <div class="wrap header-inner" style="grid-template-areas: 'brand actions'; padding-block: 12px;">
+    <div class="wrap header-inner" style="grid-template-columns: auto auto 1fr; grid-template-areas: 'brand lang actions'; padding-block: 12px;">
       <a class="brand" href="index.html">
-        <img src="../assets/img/logo-360.jpg" width="360" height="205" alt="Deep Cleaning by Renata — strona główna">
+        <picture>
+          <source type="image/webp" srcset="../assets/img/logo-360.webp 360w, ../assets/img/logo-720.webp 720w" sizes="112px">
+          <img src="../assets/img/logo-360.jpg" srcset="../assets/img/logo-360.jpg 360w, ../assets/img/logo-720.jpg 720w" sizes="112px" width="360" height="205" alt="Deep Cleaning by Renata — strona główna">
+        </picture>
       </a>
+      <nav class="lang-switch" aria-label="Język strony">
+          <svg class="icon lang-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+          
+          <a class="lang-opt" href="../privacy.html" hreflang="en" lang="en" title="English — switch the site to English"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a><span class="lang-opt is-current" aria-current="true"><span aria-hidden="true">PL</span><span class="sr-only">Polski</span></span>
+        </nav>
       <div class="header-actions">
-        <a class="lang-switch" href="../privacy.html" hreflang="en-GB" lang="en-GB"><span aria-hidden="true">EN</span><span class="sr-only">English — English version of this page</span></a>
         <a class="btn btn-secondary" href="index.html#quote">Wróć do formularza</a>
       </div>
     </div>

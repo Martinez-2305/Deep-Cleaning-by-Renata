@@ -18,6 +18,15 @@
   "areas": ["Wimbledon", "Putney", "Richmond", "Barnes"],
   "coverageNote": "and areas close to these",
 
+  "hours": {
+    "_help": "Must match the hours on the Google Business Profile (confirmed October 2026). text: lines shown on the page (Polish in site.config.pl.json). schema: openingHoursSpecification in the LocalBusiness schema; closed days are simply left out.",
+    "text": ["Monday–Friday: 08:00–17:30", "Saturday: 09:00–15:30", "Sunday: closed"],
+    "schema": [
+      { "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:00", "closes": "17:30" },
+      { "days": ["Saturday"], "opens": "09:00", "closes": "15:30" }
+    ]
+  },
+
   "site": {
     "url": "https://deepcleaningbyrenata.co.uk",
     "privacyPath": "privacy.html"
@@ -29,7 +38,7 @@
       "name": "renata",
       "width": 1000,
       "height": 1250,
-      "alt": "Renata, owner of Deep Cleaning by Renata, wearing a green apron with the business logo",
+      "alt": "Renata, owner of Deep Cleaning by Renata in South West London, wearing a green apron with the business logo",
       "brief": "Renata deep cleaning a kitchen or bathroom"
     }
   },
@@ -54,11 +63,11 @@
     ],
     "moreClosing": "I believe it’s never too late for a fresh start.",
     "photo": {
-      "_help": "A different shot from the hero: Renata at work, or a relaxed portrait on a job.",
-      "name": "",
+      "_help": "Portrait in a sage blazer (images/founder-img2.jpeg, processed by tools/images.js). A photo of Renata at work on a real job would also suit this slot.",
+      "name": "renata-portrait",
       "width": 1000,
       "height": 1250,
-      "alt": "Renata at work on a deep clean",
+      "alt": "Renata, owner of Deep Cleaning by Renata in South West London, smiling in a sage green blazer and white shirt",
       "brief": "Renata at work, e.g. cleaning a bathroom or kitchen"
     }
   },
@@ -71,9 +80,9 @@
   },
 
   "eco": {
-    "_help": "UK Green Claims Code: keep claims specific and provable. Never 'chemical-free', 'non-toxic' or '100% eco-friendly' unless the products prove it. Leave credentials empty to hide that row.",
+    "_help": "Renata uses products made with naturally derived ingredients for all cleaning; no stronger specialist products. UK Green Claims Code: keep claims specific and provable. Never 'chemical-free', 'non-toxic' or '100% eco-friendly' unless the products prove it. Leave credentials empty to hide that row.",
     "products": "Renata brings her own cleaning products and equipment, including a vacuum cleaner, mop and cloths. She uses products made with naturally derived ingredients, chosen with care for homes with people and pets, and always used according to their instructions.",
-    "strongerProducts": "[[When a stronger specialist product is needed, e.g. heavy limescale, and how customers are told first]]",
+    "toughJobs": "Heavy grease, limescale and build-up are cleaned with the same natural-based products, with the extra time and care they need.",
     "credentials": ""
   },
 
@@ -94,7 +103,7 @@
       "page": false
     },
     {
-      "id": "after-builders-cleaning",
+      "id": "post-renovation-cleaning",
       "name": "After-builders cleaning",
       "outcome": "Remove the dust left behind after renovation",
       "summary": "For homeowners after an extension, refurbishment or new kitchen, and for builders handing a property back. Tell us what work was done. Paint or adhesive removal is assessed separately.",
@@ -122,17 +131,17 @@
   "extrasNote": "Inside the oven, fridge/freezer cleaning, carpet cleaning and rubbish removal are extras, subject to availability and quoted separately. Not offered: exterior windows, hazardous materials, heavy waste or work at heights.",
 
   "tackle": [
-    { "_help": "photo: base name of a processed image in src/assets/img (see NOTES.md → Photos). Close-up, real job photos work best." },
-    { "label": "Kitchen grease", "detail": "Surfaces, splashbacks and cupboard fronts", "photo": "" },
-    { "label": "Limescale", "detail": "Taps, shower screens, tiles and toilets, descaled", "photo": "" },
-    { "label": "Fine renovation dust", "detail": "The layer that settles on every surface after building work", "photo": "" },
-    { "label": "Skirting and edges", "detail": "Skirting boards and the corners a quick clean misses", "photo": "" },
-    { "label": "Inside cupboards", "detail": "Kitchen cupboards, inside and out, once emptied", "photo": "" },
-    { "label": "Doors and switches", "detail": "Doors, frames and light switches, wiped and detailed", "photo": "" }
+    { "_help": "photo: base name of a processed image in src/assets/img (see NOTES.md → Photos). Close-up, real job photos work best. alt: describe what the photo actually shows, and where, once it's in." },
+    { "label": "Kitchen grease", "detail": "Surfaces, splashbacks and cupboard fronts", "photo": "", "alt": "Deep cleaning kitchen surfaces in a South West London home" },
+    { "label": "Limescale", "detail": "Taps, shower screens, tiles and toilets, descaled", "photo": "", "alt": "Descaling a shower screen and taps during a bathroom deep clean" },
+    { "label": "Fine renovation dust", "detail": "The layer that settles on every surface after building work", "photo": "", "alt": "Removing fine building dust after renovation work" },
+    { "label": "Skirting and edges", "detail": "Skirting boards and the corners a quick clean misses", "photo": "", "alt": "Cleaning skirting boards and edges during a deep clean" },
+    { "label": "Inside cupboards", "detail": "Kitchen cupboards, inside and out, once emptied", "photo": "", "alt": "Cleaning inside emptied kitchen cupboards for an end-of-tenancy clean" },
+    { "label": "Doors and switches", "detail": "Doors, frames and light switches, wiped and detailed", "photo": "", "alt": "Wiping doors, frames and light switches during a deep clean" }
   ],
 
   "results": [
-    { "_help": "Genuine before/after pairs from Renata's jobs only, taken from the same angle. before/after: base names of processed images. Hide the section by emptying this list." },
+    { "_help": "Genuine before/after pairs from Renata's jobs only, taken from the same angle, with the property owner's consent. before/after: base names of processed images. alt: what the photo shows and where, e.g. 'Kitchen hob and splashback in a Putney flat'. Hide the section by emptying this list." },
     { "service": "End of tenancy clean", "job": "[[Job, e.g. Kitchen, 2-bed flat]]", "area": "[[Area]]", "alt": "[[Describe the photo, e.g. kitchen hob and splashback]]", "before": "", "after": "" },
     { "service": "End of tenancy clean", "job": "[[Job, e.g. Bathroom, 1-bed flat]]", "area": "[[Area]]", "alt": "[[Describe the photo, e.g. bath and shower screen]]", "before": "", "after": "" },
     { "service": "After-builders clean", "job": "[[Job, e.g. Kitchen after an extension]]", "area": "[[Area]]", "alt": "[[Describe the photo, e.g. new kitchen worktops and floor]]", "before": "", "after": "" },
@@ -142,10 +151,11 @@
   ],
 
   "reviews": {
-    "_help": "Hidden until Renata's Google Business Profile has reviews. Then add genuine reviews only, word for word, with the customer's permission — e.g. { \"quote\": \"…\", \"name\": \"First name\", \"area\": \"Putney\", \"service\": \"End of tenancy clean\", \"stars\": 5 } — plus rating, count and the profile link. The section and its nav link appear once items is non-empty.",
+    "_help": "url: Renata's Google Business Profile (linked from the reviews section, footer and LocalBusiness schema 'sameAs'). writeUrl: the review link from her Business Profile dashboard ('Ask for reviews' / 'Share review form', e.g. https://g.page/r/…/review); while empty, the 'Leave a review' button opens the profile, which has Google's own 'Write a review' button. With no items, the section invites the first reviews. Add genuine reviews only, word for word, with the customer's permission — e.g. { \"quote\": \"…\", \"name\": \"First name\", \"area\": \"Putney\", \"service\": \"End of tenancy clean\", \"stars\": 5 } — plus rating and count once Google shows them.",
+    "url": "https://www.google.com/search?kgmid=/g/11zyjxt4m1",
+    "writeUrl": "",
     "rating": "",
     "count": "",
-    "url": "",
     "items": []
   },
 

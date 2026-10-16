@@ -1,1 +1,5 @@
-<a class="lang-switch" href="{{attr:altHref}}" hreflang="{{t:langSwitch.hreflang}}" lang="{{t:langSwitch.hreflang}}"><span aria-hidden="true">{{t:langSwitch.code}}</span><span class="sr-only">{{t:langSwitch.label}}</span></a>
+<nav class="lang-switch" aria-label="{{t:langSwitch.aria}}">
+          <svg class="icon lang-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+          {{#if isEn}}<span class="lang-opt is-current" aria-current="true"><span aria-hidden="true">EN</span><span class="sr-only">English</span></span><a class="lang-opt" href="{{attr:altHref}}" hreflang="pl" lang="pl" title="{{t:langSwitch.title}}"><span aria-hidden="true">PL</span><span class="sr-only">Polski</span></a>{{/if isEn}}
+          {{#unless isEn}}<a class="lang-opt" href="{{attr:altHref}}" hreflang="en" lang="en" title="{{t:langSwitch.title}}"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a><span class="lang-opt is-current" aria-current="true"><span aria-hidden="true">PL</span><span class="sr-only">Polski</span></span>{{/unless isEn}}
+        </nav>

@@ -8,7 +8,12 @@
   },
   "skip": "Skip to main content",
   "draft": "Draft preview — <mark class=\"ph\">[highlighted]</mark> details and “Photo to come” frames are placeholders to replace in <code>site.config.json</code> before launch.",
-  "langSwitch": { "code": "PL", "hreflang": "pl", "label": "Polski — polska wersja strony" },
+  "langSwitch": {
+    "hreflang": "pl",
+    "aria": "Site language",
+    "title": "Polski — zmień język strony na polski",
+    "footer": "Polski — polska wersja strony"
+  },
   "nav": {
     "label": "Main",
     "home": "home",
@@ -20,7 +25,8 @@
     "quote": "Request a quote",
     "menu": "Menu",
     "whatsapp": "WhatsApp {{business.owner}}",
-    "call": "Call {{business.owner}}"
+    "call": "Call {{business.owner}}",
+    "quoteShort": "Get a quote"
   },
   "photo": {
     "toCome": "Photo to come",
@@ -30,8 +36,8 @@
     "afterAlt": "After: "
   },
   "hero": {
-    "title": "Deep cleaning for homes that need more than a standard clean",
-    "seo": "Professional end-of-tenancy, after-builders, one-off deep and regular cleaning across {{business.location}}.",
+    "title": "Professional deep cleaning in South West London",
+    "seo": "End-of-tenancy, after-builders, one-off deep and regular cleaning in {{coverage}}.",
     "lede": "Moving out, finishing renovation work, or living with a home that needs a full reset? {{business.owner}} plans each clean around the property’s condition, and agrees the scope and price with you before any work starts. Weekly and fortnightly cleaning is available too.",
     "note": "Every quote is based on the property’s size, its condition and what you need done.",
     "caption": "<strong>{{business.owner}}</strong>, owner of {{business.name}}"
@@ -78,17 +84,21 @@
   },
   "reviews": {
     "title": "What customers say",
-    "summary": "<strong>{{reviews.rating}}</strong> on Google · {{reviews.count}} reviews",
+    "summary": "Google rating: <strong>{{reviews.rating}}</strong> ({{reviews.count}})",
     "readAll": "Read all reviews on Google",
     "draft": "Placeholder layout. No reviews are shown until genuine ones are added to <code>site.config.json</code>.",
-    "stars": "{{attr:.stars}} out of 5 stars"
+    "stars": "{{attr:.stars}} out of 5 stars",
+    "emptyTitle": "Reviews",
+    "empty": "Renata’s Google Business Profile is new, so there are no reviews on it yet. If she has cleaned for you, a few words about your experience would help others find her.",
+    "write": "Leave a review on Google",
+    "profile": "See Renata on Google"
   },
   "eco": {
-    "title": "Thoughtful products, strong results",
-    "p1": "Gentler products are used wherever they’ll do the job. For heavy grease, limescale or stubborn build-up, a stronger specialist product may be needed to get the surface properly clean.",
+    "title": "Natural-based products, thorough results",
+    "p1": "All cleaning is done with products made with naturally derived ingredients, on every job and in every room. Tough jobs get more time and attention, not stronger chemicals.",
     "p2": "Please let {{business.owner}} know about any allergies, sensitivities or pets before the clean.",
     "products": "What we use",
-    "stronger": "When something stronger is needed",
+    "toughJobs": "For tough jobs",
     "credentials": "Product credentials"
   },
   "more": {
@@ -111,7 +121,8 @@
     "waText": "<strong>Want a quicker quote?</strong> Send a few photos of the property on WhatsApp.",
     "phone": "Phone",
     "email": "Email",
-    "areas": "Areas covered"
+    "areas": "Areas covered",
+    "hours": "Opening hours"
   },
   "form": {
     "language": "English",
@@ -145,7 +156,11 @@
     "contact": "Contact",
     "services": "Services",
     "privacy": "Privacy notice",
-    "mobileQuote": "Get a quote"
+    "mobileQuote": "Get a quote",
+    "google": "Google Business Profile",
+    "ctaTitle": "Ready for a quote?",
+    "ctaText": "Tell {{business.owner}} about the property and get a clear price before you book.",
+    "hours": "Opening hours"
   },
   "privacy": {
     "title": "Privacy notice",

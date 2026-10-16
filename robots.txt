@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://deepcleaningbyrenata.co.uk/sitemap.xml

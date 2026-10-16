@@ -9,9 +9,13 @@
 
   "coverageNote": "i okolice",
 
+  "hours": {
+    "text": ["Poniedziałek–piątek: 08:00–17:30", "Sobota: 09:00–15:30", "Niedziela: nieczynne"]
+  },
+
   "hero": {
     "photo": {
-      "alt": "Renata, właścicielka Deep Cleaning by Renata, w zielonym fartuchu z logo firmy",
+      "alt": "Renata, właścicielka Deep Cleaning by Renata z południowo-zachodniego Londynu, w zielonym fartuchu z logo firmy",
       "brief": "Renata podczas gruntownego sprzątania kuchni lub łazienki"
     }
   },
@@ -35,12 +39,13 @@
     ],
     "moreClosing": "Wierzę, że nigdy nie jest za późno, żeby zacząć od nowa.",
     "photo": {
-      "alt": "Renata podczas gruntownego sprzątania",
+      "alt": "Renata, właścicielka Deep Cleaning by Renata z południowo-zachodniego Londynu, uśmiechnięta, w szałwiowozielonej marynarce i białej koszuli",
       "brief": "Renata przy pracy, np. sprzątając łazienkę lub kuchnię"
     }
   },
 
   "eco": {
+    "toughJobs": "Zapieczony tłuszcz, kamień i osady są czyszczone tymi samymi środkami na bazie naturalnych składników – z dodatkowym czasem i starannością, których wymagają.",
     "products": "Renata przynosi własne środki czystości i sprzęt, w tym odkurzacz, mop i ściereczki. Używa środków zawierających składniki pochodzenia naturalnego, starannie dobranych z myślą o domach, w których mieszkają ludzie i zwierzęta, i zawsze stosowanych zgodnie z instrukcją."
   },
 
@@ -74,12 +79,12 @@
   "extrasNote": "Czyszczenie piekarnika w środku, czyszczenie lodówki/zamrażarki, pranie dywanów i wywóz śmieci to usługi dodatkowe, zależne od dostępności i wyceniane osobno. Nie wykonujemy: mycia okien z zewnątrz, prac z materiałami niebezpiecznymi, wywozu ciężkich odpadów ani prac na wysokości.",
 
   "tackle": [
-    { "label": "Tłuszcz w kuchni", "detail": "Blaty, ściana nad blatem i fronty szafek" },
-    { "label": "Kamień", "detail": "Krany, kabiny prysznicowe, płytki i toalety – odkamienione" },
-    { "label": "Drobny pył po remoncie", "detail": "Warstwa, która po pracach budowlanych osiada na każdej powierzchni" },
-    { "label": "Listwy i krawędzie", "detail": "Listwy przypodłogowe i zakamarki pomijane przy szybkim sprzątaniu" },
-    { "label": "Wnętrza szafek", "detail": "Szafki kuchenne w środku i na zewnątrz, po opróżnieniu" },
-    { "label": "Drzwi i włączniki", "detail": "Drzwi, framugi i włączniki światła – dokładnie przetarte" }
+    { "label": "Tłuszcz w kuchni", "detail": "Blaty, ściana nad blatem i fronty szafek", "alt": "Gruntowne czyszczenie blatów kuchennych w domu w południowo-zachodnim Londynie" },
+    { "label": "Kamień", "detail": "Krany, kabiny prysznicowe, płytki i toalety – odkamienione", "alt": "Odkamienianie kabiny prysznicowej i kranów podczas gruntownego sprzątania łazienki" },
+    { "label": "Drobny pył po remoncie", "detail": "Warstwa, która po pracach budowlanych osiada na każdej powierzchni", "alt": "Usuwanie drobnego pyłu budowlanego po remoncie" },
+    { "label": "Listwy i krawędzie", "detail": "Listwy przypodłogowe i zakamarki pomijane przy szybkim sprzątaniu", "alt": "Czyszczenie listew przypodłogowych i krawędzi podczas gruntownego sprzątania" },
+    { "label": "Wnętrza szafek", "detail": "Szafki kuchenne w środku i na zewnątrz, po opróżnieniu", "alt": "Czyszczenie wnętrza opróżnionych szafek kuchennych przy sprzątaniu po zakończeniu najmu" },
+    { "label": "Drzwi i włączniki", "detail": "Drzwi, framugi i włączniki światła – dokładnie przetarte", "alt": "Przecieranie drzwi, framug i włączników światła podczas gruntownego sprzątania" }
   ],
 
   "results": [

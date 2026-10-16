@@ -27,6 +27,15 @@ fs.mkdirSync(path.dirname(out('x')), { recursive: true });
     await img.clone().jpeg({ quality: 80, mozjpeg: true }).toFile(out(`renata-${w}.jpg`));
   }
 
+  // Second portrait for Meet Renata (sage blazer): 4:5 crop from just above her head
+  // to below the jacket hem. The square mobile crop (CSS, 50% 15%) still frames her face.
+  const portraitCrop = { left: 0, top: 40, width: 1067, height: 1334 };
+  for (const w of [480, 720, 1000]) {
+    const img = sharp(src('founder-img2.jpeg')).extract(portraitCrop).resize(w);
+    await img.clone().webp({ quality: 78 }).toFile(out(`renata-portrait-${w}.webp`));
+    await img.clone().jpeg({ quality: 80, mozjpeg: true }).toFile(out(`renata-portrait-${w}.jpg`));
+  }
+
   // Social share image (1200x630): the logo's own background band, no recolouring.
   await sharp(src('DCBR-logo.jpg'))
     .extract({ left: 0, top: 243, width: 1024, height: 538 })

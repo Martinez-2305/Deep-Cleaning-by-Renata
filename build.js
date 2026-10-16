@@ -98,7 +98,7 @@ function makeCtx(locale) {
     beforeImg: slot(r.before, `${t.photo.beforeAlt}${r.alt}`, t.photo.before),
     afterImg: slot(r.after, `${t.photo.afterAlt}${r.alt}`, t.photo.after),
   }));
-  config.tackle = config.tackle.map((x) => ({ ...x, img: slot(x.photo, `${x.label}: ${x.detail}`, x.label) }));
+  config.tackle = config.tackle.map((x) => ({ ...x, img: slot(x.photo, x.alt || `${x.label}: ${x.detail}`, x.label) }));
   const photoSlots = [
     ['hero.photo', config.hero.photo],
     ['founder.photo', config.founder.photo],
@@ -115,8 +115,13 @@ function makeCtx(locale) {
   };
   config.reviews.ratingPct = starsPct(config.reviews.rating);
   config.reviews.link = real(config.reviews.url);
+  config.reviews.writeLink = real(config.reviews.writeUrl) || config.reviews.link;
   config.reviews.items = config.reviews.items.map((r) => ({ ...r, starsPct: starsPct(r.stars) }));
   config.reviews.draft = config.reviews.items.some((r) => isPlaceholder(r.quote));
+  // The rating line needs both a real rating and a real count.
+  config.reviews.summary = config.reviews.ratingPct && real(config.reviews.count) ? 'yes' : '';
+  // The section (and its nav link) shows once there are reviews or a profile to send people to.
+  config.reviews.show = config.reviews.items.length || config.reviews.link ? 'yes' : '';
 
   // Values derived from config so templates never build links from placeholders.
   const b = config.business;
@@ -127,6 +132,7 @@ function makeCtx(locale) {
     ...config,
     t,
     locale,
+    isEn: locale.code === 'en' ? 'yes' : '',
     siteUrl,
     draft: [...JSON.stringify(config).matchAll(PH)].length > 0 || pagePhotosMissing.length > 0,
     year: String(new Date().getFullYear()),
@@ -140,26 +146,56 @@ function makeCtx(locale) {
     jsStrings: JSON.stringify(t.js).replace(/</g, '\\u003c'),
   };
 
-  // LocalBusiness schema only with verified production details.
+  // Structured data for the home page, only with verified production details.
+  // LocalBusiness (HouseCleaningService): one entity with a fixed @id, so the English
+  // and Polish pages describe the same business; names follow the page's language.
   schemaReady = !!(siteUrl && real(b.phoneLink) && real(b.locality) && realAreas.length && real(b.email));
+  const scripts = [];
   if (schemaReady) {
-    const schema = {
+    const business = {
       '@context': 'https://schema.org',
       '@type': 'HouseCleaningService',
+      '@id': `${siteUrl}/#business`,
       name: b.name,
-      url: `${siteUrl}/${locale.dir ? `${locale.dir}/` : ''}`,
+      url: `${siteUrl}/`,
       telephone: b.phoneLink,
       email: b.email,
       image: ctx.meta.image,
+      logo: `${siteUrl}/assets/img/logo-720.jpg`,
+      founder: { '@type': 'Person', name: b.owner },
       areaServed: realAreas.map((name) => ({ '@type': 'Place', name })),
       address: { '@type': 'PostalAddress', addressLocality: b.locality, addressRegion: 'London', addressCountry: 'GB' },
       knowsLanguage: ['en', 'pl'],
+      paymentAccepted: 'Cash, Bank transfer',
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: t.nav.services,
+        itemListElement: config.services.map((s) => ({
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name: s.name, description: s.summary, areaServed: realAreas.map((name) => ({ '@type': 'Place', name })) },
+        })),
+      },
     };
-    if (config.reviews.ratingPct && real(config.reviews.count)) {
-      schema.aggregateRating = { '@type': 'AggregateRating', ratingValue: config.reviews.rating, reviewCount: config.reviews.count };
+    // Opening hours only once confirmed (they must match the Google Business Profile).
+    const hours = (config.hours && config.hours.schema) || [];
+    if (hours.length) {
+      business.openingHoursSpecification = hours.map((h) => ({ '@type': 'OpeningHoursSpecification', dayOfWeek: h.days, opens: h.opens, closes: h.closes }));
     }
-    ctx.schema = `<script type="application/ld+json">${JSON.stringify(schema)}</script>`;
+    if (config.reviews.link) business.sameAs = [config.reviews.link];
+    // No aggregateRating: Google's review-snippet rules don't allow marking up ratings
+    // collected on another site (here, Google reviews). The profile shows them itself.
+    scripts.push(business);
   }
+  // FAQPage: the same questions and answers shown in the FAQ section, in the page's language.
+  if (config.faqs.length && !config.faqs.some((f) => isPlaceholder(f.q) || isPlaceholder(f.a))) {
+    scripts.push({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      inLanguage: t.lang,
+      mainEntity: config.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    });
+  }
+  ctx.schema = scripts.map((s) => `<script type="application/ld+json">${JSON.stringify(s).replace(/</g, '\\u003c')}</script>`).join('\n  ');
   return ctx;
 }
 
@@ -237,6 +273,25 @@ fs.cpSync(srcDir, outDir, {
   filter: (f) => !f.endsWith('.html') && !path.relative(srcDir, f).split(path.sep).some((p) => p.startsWith('_')),
 });
 
+// Pages that search engines may index (anything without a noindex robots tag),
+// as file → { localeCode: { loc, lastmod } }, for sitemap.xml.
+const indexable = new Map();
+
+// When a page's content last changed: the newest commit touching its sources, or
+// today if those sources have uncommitted edits. '' when git isn't available.
+const { execFileSync } = require('child_process');
+function lastmod(locale, file) {
+  const sources = [path.join('src', file), 'src/_partials', `src/_i18n/${locale.code}.json`, 'src/assets', 'site.config.json']
+    .concat(locale.code === 'en' ? [] : [`site.config.${locale.code}.json`]);
+  const git = (args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+  try {
+    if (git(['status', '--porcelain', '--', ...sources])) return new Date().toISOString().slice(0, 10);
+    return git(['log', '-1', '--format=%cs', '--', ...sources]);
+  } catch {
+    return '';
+  }
+}
+
 for (const locale of LOCALES) {
   ctx = makeCtx(locale);
   const other = LOCALES.find((l) => l !== locale);
@@ -260,8 +315,34 @@ for (const locale of LOCALES) {
 
     const out = path.join(outDir, locale.dir, file);
     fs.mkdirSync(path.dirname(out), { recursive: true });
-    fs.writeFileSync(out, render(fs.readFileSync(path.join(srcDir, file), 'utf8')));
+    const html = render(fs.readFileSync(path.join(srcDir, file), 'utf8'));
+    fs.writeFileSync(out, html);
+
+    if (ctx.siteUrl && !/<meta name="robots" content="[^"]*noindex/.test(html)) {
+      if (!indexable.has(file)) indexable.set(file, {});
+      indexable.get(file)[locale.code] = { loc: `${ctx.siteUrl}/${pageUrl(locale, file)}`, lastmod: lastmod(locale, file) };
+    }
   }
+}
+
+// robots.txt and sitemap.xml, only once the production URL is known.
+const siteUrl = real(baseConfig.site.url).replace(/\/$/, '');
+if (siteUrl) {
+  fs.writeFileSync(path.join(outDir, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`);
+  // Each URL lists every language version, itself included, plus x-default (English),
+  // matching the hreflang links in each page's <head>.
+  const entries = [...indexable.values()].flatMap((urls) => Object.values(urls).map((u) => [
+    '  <url>',
+    `    <loc>${esc(u.loc)}</loc>`,
+    ...(u.lastmod ? [`    <lastmod>${u.lastmod}</lastmod>`] : []),
+    ...Object.entries(urls).map(([code, alt]) => `    <xhtml:link rel="alternate" hreflang="${code}" href="${esc(alt.loc)}"/>`),
+    ...(urls[LOCALES[0].code] ? [`    <xhtml:link rel="alternate" hreflang="x-default" href="${esc(urls[LOCALES[0].code].loc)}"/>`] : []),
+    '  </url>',
+  ].join('\n')));
+  fs.writeFileSync(path.join(outDir, 'sitemap.xml'),
+    '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' +
+    `${entries.join('\n')}\n</urlset>\n`);
 }
 
 console.log(`Built ${outDir} (${LOCALES.map((l) => l.code).join(', ')})`);

@@ -70,7 +70,8 @@
         <ul class="service-grid">
           {{#each services}}
           <li class="service-card" id="{{attr:.id}}">
-            <h3><span class="kicker">{{.name}}<span class="sr-only">: </span></span>{{.outcome}}</h3>
+            <h3>{{.name}}</h3>
+            <p class="service-outcome">{{.outcome}}</p>
             <p>{{.summary}}</p>
             <ul class="checks">
               {{#each .points}}<li>{{.}}</li>{{/each .points}}
@@ -179,17 +180,17 @@
         <h2 id="process-title">{{t:process.title}}</h2>
         <ol class="steps">
           <li>
-            <span class="step-num" aria-hidden="true">01</span>
+            <span class="step-num" aria-hidden="true">1</span>
             <h3>{{t:process.h1}}</h3>
             <p>{{t:process.p1}}</p>
           </li>
           <li>
-            <span class="step-num" aria-hidden="true">02</span>
+            <span class="step-num" aria-hidden="true">2</span>
             <h3>{{t:process.h2}}</h3>
             <p>{{t:process.p2}}</p>
           </li>
           <li>
-            <span class="step-num" aria-hidden="true">03</span>
+            <span class="step-num" aria-hidden="true">3</span>
             <h3>{{t:process.h3}}</h3>
             <p>{{t:process.p3}}</p>
           </li>
@@ -205,20 +206,32 @@
     </section>
 
     <!-- 8. Reviews -->
-    {{#if reviews.items}}
+    {{#if reviews.show}}
     <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
       <div class="wrap">
         <div class="reviews-head">
-          <h2 id="reviews-title">{{t:reviews.title}}</h2>
+          <h2 id="reviews-title">{{#if reviews.items}}{{t:reviews.title}}{{/if reviews.items}}{{#unless reviews.items}}{{t:reviews.emptyTitle}}{{/unless reviews.items}}</h2>
+          {{#if reviews.items}}
           <p class="rating">
-            {{#if reviews.ratingPct}}<span class="stars" style="--pct: {{attr:reviews.ratingPct}}" aria-hidden="true"></span>{{/if reviews.ratingPct}}
-            <span>{{t:reviews.summary}}</span>
+            {{#if reviews.summary}}<span class="stars" style="--pct: {{attr:reviews.ratingPct}}" aria-hidden="true"></span>
+            <span>{{t:reviews.summary}}</span>{{/if reviews.summary}}
             {{#if reviews.link}}<a href="{{attr:reviews.link}}">{{t:reviews.readAll}}</a>{{/if reviews.link}}
           </p>
+          {{/if reviews.items}}
         </div>
+        {{#unless reviews.items}}
+        <div class="reviews-empty">
+          <p>{{t:reviews.empty}}</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="{{attr:reviews.writeLink}}" rel="noopener">{{t:reviews.write}}</a>
+            <a class="btn btn-secondary" href="{{attr:reviews.link}}" rel="noopener">{{t:reviews.profile}}</a>
+          </div>
+        </div>
+        {{/unless reviews.items}}
         {{#if reviews.draft}}
         <p class="ph-note">{{t:reviews.draft}}</p>
         {{/if reviews.draft}}
+        {{#if reviews.items}}
         <ul class="review-list">
           {{#each reviews.items}}
           <li class="review">
@@ -229,9 +242,13 @@
           </li>
           {{/each reviews.items}}
         </ul>
+        {{#if reviews.link}}
+        <p class="reviews-more"><a href="{{attr:reviews.writeLink}}" rel="noopener">{{t:reviews.write}}</a></p>
+        {{/if reviews.link}}
+        {{/if reviews.items}}
       </div>
     </section>
-    {{/if reviews.items}}
+    {{/if reviews.show}}
 
     <!-- 9. Products -->
     <section class="section eco" id="products" aria-labelledby="eco-title">
@@ -247,8 +264,8 @@
             <dd>{{eco.products}}</dd>
           </div>
           <div>
-            <dt>{{t:eco.stronger}}</dt>
-            <dd>{{eco.strongerProducts}}</dd>
+            <dt>{{t:eco.toughJobs}}</dt>
+            <dd>{{eco.toughJobs}}</dd>
           </div>
           {{#if eco.credentials}}
           <div>
@@ -327,6 +344,7 @@
             <div><dt>{{t:quote.phone}}</dt><dd><a href="{{attr:phoneHref}}">{{business.phoneDisplay}}</a></dd></div>
             <div><dt>{{t:quote.email}}</dt><dd><a href="{{attr:mailHref}}">{{business.email}}</a></dd></div>
             <div><dt>{{t:quote.areas}}</dt><dd>{{coverage}}</dd></div>
+            {{#if hours.text}}<div><dt>{{t:quote.hours}}</dt><dd>{{#each hours.text}}<span class="hours-line">{{.}}</span>{{/each hours.text}}</dd></div>{{/if hours.text}}
           </dl>
         </div>
 

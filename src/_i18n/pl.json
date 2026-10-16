@@ -8,7 +8,12 @@
   },
   "skip": "Przejdź do treści",
   "draft": "Wersja robocza — <mark class=\"ph\">[wyróżnione]</mark> informacje i ramki „Zdjęcie wkrótce” to elementy do uzupełnienia w <code>site.config.json</code> / <code>site.config.pl.json</code> przed publikacją.",
-  "langSwitch": { "code": "EN", "hreflang": "en-GB", "label": "English — English version of this page" },
+  "langSwitch": {
+    "hreflang": "en-GB",
+    "aria": "Język strony",
+    "title": "English — switch the site to English",
+    "footer": "English — English version of this page"
+  },
   "nav": {
     "label": "Menu główne",
     "home": "strona główna",
@@ -20,7 +25,8 @@
     "quote": "Poproś o wycenę",
     "menu": "Menu",
     "whatsapp": "Napisz na WhatsAppie",
-    "call": "Zadzwoń do Renaty"
+    "call": "Zadzwoń do Renaty",
+    "quoteShort": "Wycena"
   },
   "photo": {
     "toCome": "Zdjęcie wkrótce",
@@ -30,8 +36,8 @@
     "afterAlt": "Po: "
   },
   "hero": {
-    "title": "Gruntowne sprzątanie dla domów, którym nie wystarczy zwykłe sprzątanie",
-    "seo": "Profesjonalne sprzątanie po zakończeniu najmu, po remoncie, jednorazowe sprzątanie gruntowne i regularne sprzątanie w Wimbledonie i południowo-zachodnim Londynie.",
+    "title": "Profesjonalne sprzątanie gruntowne w południowo-zachodnim Londynie",
+    "seo": "Sprzątanie po zakończeniu najmu, po remoncie, jednorazowe sprzątanie gruntowne i regularne sprzątanie w Wimbledonie, Putney, Richmond, Barnes i okolicach.",
     "lede": "Wyprowadzasz się, kończysz remont albo Twój dom potrzebuje gruntownego odświeżenia? Renata planuje każde sprzątanie z uwzględnieniem stanu nieruchomości i ustala z Tobą zakres oraz cenę, zanim rozpocznie pracę. Dostępne jest też sprzątanie co tydzień lub co dwa tygodnie.",
     "note": "Każda wycena zależy od wielkości nieruchomości, jej stanu i zakresu prac.",
     "caption": "<strong>Renata</strong>, właścicielka {{business.name}}"
@@ -78,17 +84,21 @@
   },
   "reviews": {
     "title": "Opinie klientów",
-    "summary": "<strong>{{reviews.rating}}</strong> w Google · liczba opinii: {{reviews.count}}",
+    "summary": "Ocena w Google: <strong>{{reviews.rating}}</strong> ({{reviews.count}})",
     "readAll": "Przeczytaj wszystkie opinie w Google",
     "draft": "Układ przykładowy. Opinie pojawią się dopiero po dodaniu prawdziwych opinii do <code>site.config.json</code>.",
-    "stars": "{{attr:.stars}} na 5 gwiazdek"
+    "stars": "{{attr:.stars}} na 5 gwiazdek",
+    "emptyTitle": "Opinie",
+    "empty": "Profil firmy Renaty w Google jest nowy, więc nie ma tam jeszcze opinii. Jeśli Renata u Ciebie sprzątała, kilka słów o Twoich wrażeniach pomoże innym ją znaleźć.",
+    "write": "Wystaw opinię w Google",
+    "profile": "Zobacz profil w Google"
   },
   "eco": {
-    "title": "Przemyślane środki, skuteczne efekty",
-    "p1": "Tam, gdzie to wystarczy, używane są łagodniejsze środki. Przy mocno zapieczonym tłuszczu, kamieniu lub uporczywym osadzie może być potrzebny mocniejszy środek specjalistyczny, aby porządnie doczyścić powierzchnię.",
+    "title": "Naturalne składniki, dokładne efekty",
+    "p1": "Każde sprzątanie odbywa się przy użyciu środków na bazie składników pochodzenia naturalnego – na każdym zleceniu i w każdym pomieszczeniu. Trudne zabrudzenia wymagają więcej czasu i uwagi, a nie mocniejszej chemii.",
     "p2": "Przed sprzątaniem daj znać Renacie o alergiach, nadwrażliwościach lub zwierzętach w domu.",
     "products": "Czego używamy",
-    "stronger": "Kiedy potrzebny jest mocniejszy środek",
+    "toughJobs": "Przy trudnych zabrudzeniach",
     "credentials": "Certyfikaty środków"
   },
   "more": {
@@ -111,7 +121,8 @@
     "waText": "<strong>Chcesz szybciej dostać wycenę?</strong> Wyślij kilka zdjęć nieruchomości na WhatsAppie.",
     "phone": "Telefon",
     "email": "E-mail",
-    "areas": "Obsługiwany obszar"
+    "areas": "Obsługiwany obszar",
+    "hours": "Godziny pracy"
   },
   "form": {
     "language": "polski",
@@ -145,7 +156,11 @@
     "contact": "Kontakt",
     "services": "Usługi",
     "privacy": "Informacja o prywatności",
-    "mobileQuote": "Wycena"
+    "mobileQuote": "Wycena",
+    "google": "Profil firmy w Google",
+    "ctaTitle": "Chcesz otrzymać wycenę?",
+    "ctaText": "Opowiedz Renacie o nieruchomości i poznaj jasną cenę przed rezerwacją.",
+    "hours": "Godziny pracy"
   },
   "privacy": {
     "title": "Informacja o prywatności",
