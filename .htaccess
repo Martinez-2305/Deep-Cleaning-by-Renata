@@ -1,0 +1,5 @@
+# One address for the whole site: www.deepcleaningbyrenata.co.uk → deepcleaningbyrenata.co.uk
+# (matches the canonical URLs, hreflang links and sitemap). Hostinger handles HTTP → HTTPS.
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
