@@ -7,7 +7,6 @@
     "description": "Sprzątanie po zakończeniu najmu, po remoncie, jednorazowe sprzątanie gruntowne i regularne sprzątanie w Wimbledonie i południowo-zachodnim Londynie. Zakres i cenę ustalasz bezpośrednio z Renatą przed rezerwacją."
   },
   "skip": "Przejdź do treści",
-  "draft": "Wersja robocza — <mark class=\"ph\">[wyróżnione]</mark> informacje i ramki „Zdjęcie wkrótce” to elementy do uzupełnienia w <code>site.config.json</code> / <code>site.config.pl.json</code> przed publikacją.",
   "langSwitch": {
     "hreflang": "en-GB",
     "aria": "Język strony",
@@ -29,7 +28,7 @@
     "quoteShort": "Wycena"
   },
   "photo": {
-    "toCome": "Zdjęcie wkrótce",
+    "toCome": "Wkrótce",
     "before": "Zdjęcie przed",
     "after": "Zdjęcie po",
     "beforeAlt": "Przed: ",
@@ -165,7 +164,6 @@
   "privacy": {
     "title": "Informacja o prywatności",
     "description": "Jak {{business.name}} wykorzystuje dane przesłane przez formularz wyceny.",
-    "draft": "Wersja robocza — tę informację trzeba uzupełnić i sprawdzić przed publikacją. <mark class=\"ph\">[Wyróżnione]</mark> informacje to elementy do uzupełnienia.",
     "back": "Wróć do formularza",
     "intro": "Ta informacja wyjaśnia, jak {{business.name}} wykorzystuje dane podane przy prośbie o wycenę.",
     "whoTitle": "Kim jesteśmy",
@@ -183,7 +181,9 @@
     "keepTitle": "Jak długo przechowujemy dane",
     "rightsTitle": "Twoje prawa",
     "rights": "Możesz poprosić o wgląd, poprawienie lub usunięcie danych, które o Tobie przechowujemy, korzystając z powyższych danych kontaktowych. Jeśli masz zastrzeżenia do tego, jak postępujemy z Twoimi danymi, możesz złożyć skargę do brytyjskiego organu ochrony danych (Information Commissioner’s Office) na stronie <a href=\"https://ico.org.uk/make-a-complaint/\">ico.org.uk</a>.",
-    "home": "Wróć na stronę główną"
+    "home": "Wróć na stronę główną",
+    "receiveFallback": "Nie sprzedajemy Twoich danych ani nie udostępniamy ich w celach marketingowych. Przekazujemy je wyłącznie dostawcom usług, którzy pomagają nam odbierać zapytania i nimi zarządzać, np. dostawcy poczty e-mail.",
+    "keepFallback": "Przechowujemy Twoje dane tylko tak długo, jak to potrzebne, aby odpowiedzieć na zapytanie, a jeśli zarezerwujesz usługę – aby ją wykonać i prowadzić wymaganą prawem dokumentację. Dane z zapytań, które nie zakończyły się rezerwacją, usuwamy, gdy nie są już potrzebne."
   },
   "js": {
     "name": "Podaj imię i nazwisko.",

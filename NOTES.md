@@ -5,8 +5,8 @@
 - `node build.js` → writes the finished site to `dist/` and lists any placeholders still to confirm. No npm install needed.
 - The build also writes `robots.txt` (allow all, points to the sitemap) and `sitemap.xml` (every page without a `noindex` tag, in both languages, with `hreflang` alternates). Both use `site.url`, and are skipped while it's a placeholder. The privacy notices are `noindex`, so they're not in the sitemap (and robots.txt doesn't block them, so crawlers can see the noindex). `<lastmod>` is the date of the last commit touching a page's sources, or today if they have uncommitted edits. Checked against the sitemaps.org 0.9 schema plus Google's `xhtml:link` format.
 - Preview: open `dist/index.html` in a browser, or serve `dist/` with any static server.
-- Deploy: upload the contents of `dist/`.
-- GitHub Pages (temporary): the live copy is served from the repo root (`index.html`, `privacy.html`, `pl/`, `main.js`, `styles.css`, `assets/`). After `node build.js`, copy the contents of `dist/` over those root files and commit. `dist/` itself is gitignored. Don't point `build.js` at the root: it empties its output folder before rebuilding.
+- Deploy: push to `main`. The GitHub Action (`.github/workflows/deploy.yml`) runs `node build.js` and commits the contents of `dist/` to the `deploy` branch; Hostinger auto-deploys that branch into public_html of deepcleaningbyrenata.co.uk (account `u225414582`, server `145.14.152.16`, GitHub connected in hPanel → Git). Only built files are on the `deploy` branch, so source files are never public. Don't edit files on the server or the `deploy` branch by hand; they're overwritten on the next push.
+- Domain: registered at Namecheap (no transfer). Namecheap BasicDNS with A `@` → 145.14.152.16 and CNAME `www` → deepcleaningbyrenata.co.uk. GitHub Pages was switched off on 17 October 2026, and the built copies in the repo root were removed.
 - Images: `tools/images.js` crops/compresses the logo and portrait, plus every file in `images/photos/`, into `src/assets/img`. Only rerun it when photos change (it needs `npm i -D sharp`).
 
 ## Structure
@@ -21,7 +21,7 @@ src/styles.css     all styles           src/main.js        form, before/after sl
 src/assets/img/    generated WebP/JPEG images
 ```
 Home page order: hero → trust strip → services (+ "what a deep clean tackles") → before/after results → why choose Renata → meet Renata → how it works (+ quote/pricing message) → reviews (hidden until there are genuine ones) → products → a little more about me → areas → FAQs → quote form → footer.
-Anything written as `[[…]]` in the config is a placeholder: it is highlighted on the page, a draft banner is shown, the build lists it, and LocalBusiness schema and the canonical tag are left out until the real details are in.
+Anything written as `[[…]]` in the config is a placeholder: the build lists it, it's never shown on the page (sentences that depend on it fall back to general wording or are left out), and LocalBusiness schema and the canonical tag are left out until the real details are in. Empty photo slots show a small "Coming soon" tag. HTML comments in templates are stripped from the built pages.
 
 ## Languages (English / Polish)
 Every page is built twice: English at the site root, Polish under `/pl/` (`/pl/`, `/pl/privacy.html`). The language switch sits beside the logo: a globe icon (from 480px) and an EN | PL toggle with the current language filled in. The other option links to the same page in that language; the footer has a text link too. Below 480px the header quote button says "Get a quote" / "Wycena" so everything fits on one line, and below 350px it's hidden (the hero button and bottom bar cover it). Canonical, `hreflang` alternates and `<html lang>` are set per language.
@@ -32,7 +32,7 @@ Every page is built twice: English at the site root, Polish under `/pl/` (`/pl/`
 - Adding a language: add it to `LOCALES` in `build.js`, create `src/_i18n/<code>.json` and `site.config.<code>.json`, and change the switch to a list (it currently links to "the other" language).
 
 ## Photos
-Every photo on the page is a slot in `site.config.json`. While a slot's name is empty the page shows a labelled "Photo to come" frame at the right size, so nothing shifts when the real photo arrives.
+Every photo on the page is a slot in `site.config.json`. While a slot's name is empty the page shows a frame with a small "Coming soon" tag at the right size, so nothing shifts when the real photo arrives.
 1. Put the original in `images/photos/`, e.g. `images/photos/eot-kitchen-before.jpg`.
 2. Run `node tools/images.js` → `src/assets/img/eot-kitchen-before-480/720/1000.webp|jpg`.
 3. Put the base name in the slot: `hero.photo.name`, `founder.photo.name`, `results[].before` / `after`, or `tackle[].photo`. Update the slot's `alt` text.
@@ -126,5 +126,4 @@ Changed from Libre Baskerville at the client's request: the serif read as tradit
 - Cancellation / rescheduling terms (Renata: skip for now)
 - A form endpoint that accepts file uploads + provider name; privacy notice details (provider storage, retention period, ICO registration); have the notice checked
 - Point the deepcleaningbyrenata.co.uk domain at the host (the canonical tag, schema, robots.txt and sitemap.xml use it), then submit https://deepcleaningbyrenata.co.uk/sitemap.xml in Google Search Console
-- Deploy only the built site (`dist/`) to the host. The repo root also holds source files (`src/`, `NOTES.md`, `build.js`, configs), which shouldn't be public on the production domain
 - Performance check on the real host (fonts load from Google; consider self-hosting them)

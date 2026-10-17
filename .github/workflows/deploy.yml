@@ -1,0 +1,51 @@
+# Builds the site on every push to main and publishes only the built files (dist/)
+# to the `deploy` branch. Hostinger auto-deploys that branch into public_html, so
+# source files (src/, NOTES.md, configs, build.js) never reach the live server.
+name: Build and publish
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history: sitemap <lastmod> dates come from git log
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build
+        run: node build.js
+
+      - name: Publish dist/ to the deploy branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin deploy >/dev/null; then
+            git fetch origin deploy
+            git worktree add -B deploy ../publish origin/deploy
+          else
+            git worktree add --orphan -b deploy ../publish
+          fi
+          rsync -a --delete --exclude .git dist/ ../publish/
+          cd ../publish
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to publish."
+          else
+            git commit -m "Build from ${GITHUB_SHA::7}"
+            git push origin deploy
+          fi

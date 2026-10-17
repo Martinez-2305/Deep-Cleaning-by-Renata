@@ -19,9 +19,6 @@
   </style>
 </head>
 <body>
-  {{#if draft}}
-  <p class="draft-bar" role="note">{{t:privacy.draft}}</p>
-  {{/if draft}}
   <header class="site-header">
     <div class="wrap header-inner" style="grid-template-columns: auto auto 1fr; grid-template-areas: 'brand lang actions'; padding-block: 12px;">
       <a class="brand" href="{{root}}index.html">
@@ -43,7 +40,7 @@
 
     <h2>{{t:privacy.whoTitle}}</h2>
     <p>{{business.companyDetails}} {{t:privacy.responsible}}</p>
-    <p>{{t:privacy.ico}} {{privacy.ico}}</p>
+    {{#if privacy.icoReal}}<p>{{t:privacy.ico}} {{privacy.ico}}</p>{{/if privacy.icoReal}}
     <p>{{t:privacy.contact}} <a href="{{attr:mailHref}}">{{business.email}}</a> {{t:privacy.or}} <a href="{{attr:phoneHref}}">{{business.phoneDisplay}}</a>.</p>
 
     <h2>{{t:privacy.collectTitle}}</h2>
@@ -56,10 +53,10 @@
     <p>{{t:privacy.why}}</p>
 
     <h2>{{t:privacy.receiveTitle}}</h2>
-    <p>{{t:privacy.receive}} {{privacy.processorDetails}}</p>
+    <p>{{#if form.processorReal}}{{t:privacy.receive}} {{privacy.processorDetails}}{{/if form.processorReal}}{{#unless form.processorReal}}{{t:privacy.receiveFallback}}{{/unless form.processorReal}}</p>
 
     <h2>{{t:privacy.keepTitle}}</h2>
-    <p>{{privacy.retention}}</p>
+    <p>{{#if privacy.retentionReal}}{{privacy.retention}}{{/if privacy.retentionReal}}{{#unless privacy.retentionReal}}{{t:privacy.keepFallback}}{{/unless privacy.retentionReal}}</p>
 
     <h2>{{t:privacy.rightsTitle}}</h2>
     <p>{{t:privacy.rights}}</p>

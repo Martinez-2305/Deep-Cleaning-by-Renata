@@ -120,11 +120,11 @@
                 <span class="ba-label ba-label-before" aria-hidden="true">{{t:results.before}}</span>
                 <span class="ba-label ba-label-after" aria-hidden="true">{{t:results.after}}</span>
                 <span class="ba-handle" aria-hidden="true"></span>
-                <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="{{t:results.compare}} {{attr:.service}}, {{attr:.job}}">
+                <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="{{t:results.compare}} {{attr:.label}}">
               </div>
               <figcaption>
                 <span class="result-service">{{.service}}</span>
-                <span class="result-job">{{.job}} <span class="result-area">· {{.area}}</span></span>
+                {{#if .job}}<span class="result-job">{{.job}}{{#if .area}} <span class="result-area">· {{.area}}</span>{{/if .area}}</span>{{/if .job}}
               </figcaption>
             </figure>
           </li>

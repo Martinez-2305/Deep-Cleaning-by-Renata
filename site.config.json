@@ -1,5 +1,5 @@
 {
-  "_readme": "Edit this file, then run `node build.js`. Anything written inside [[double brackets]] is a placeholder: it is highlighted on the page, listed by the build, and blocks LocalBusiness schema until replaced. Photo slots with an empty \"name\" show a labelled 'Photo to come' frame; see NOTES.md → Photos for how to add a real one. Leave a list empty ([]) to hide it.",
+  "_readme": "Edit this file, then run `node build.js` (or just push to main: the site rebuilds and deploys itself). Anything written inside [[double brackets]] is a placeholder: the build lists it, it is never shown on the page, and it blocks LocalBusiness schema until replaced. Photo slots with an empty \"name\" show a small Coming soon frame; see NOTES.md → Photos for how to add a real one. Leave a list empty ([]) to hide it.",
 
   "business": {
     "_help": "location is the full area used in headings; locality is the single place used in the page title and LocalBusiness schema.",

@@ -9,7 +9,7 @@
 //   {{t:key}}              interface text from src/_i18n/<lang>.json; the value is itself
 //                          a template fragment, so it can use {{business.owner}}, {{.name}}…
 //   {{img:path "sizes" eager}}  photo slot { name, width, height, alt, brief } → responsive
-//                          <picture>, or a labelled "Photo to come" frame while name is empty
+//                          <picture>, or a "Coming soon" frame while name is empty
 //   {{> name}}             include src/_partials/name.html (partials may include partials)
 //   {{#each path}}…{{/each path}}      loop; inside, {{.field}}, {{.}} and {{@n}} (1-based)
 //   {{#if path}}…{{/if path}}          rendered when value is non-empty
@@ -70,8 +70,9 @@ const real = (v) => (v && !isPlaceholder(v) ? v : '');
 function esc(s) {
   return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
-const text = (v) => esc(v).replace(PH, '<mark class="ph" title="Placeholder — edit site.config.json">[$1]</mark>');
-const attr = (v) => esc(v).replace(PH, '[$1]');
+// Placeholders are listed by the build but never shown on the page.
+const text = (v) => esc(v).replace(PH, '').trim();
+const attr = (v) => esc(v).replace(PH, '').trim();
 
 const missing = new Set();
 const missingPhotos = new Set();
@@ -93,11 +94,18 @@ function makeCtx(locale) {
 
   // Photo slots. A slot is { name, width, height, alt, brief }; empty name = photo still to come.
   const slot = (name, alt, brief, width = 1000, height = 750) => ({ name, alt, brief, width, height });
-  config.results = config.results.map((r) => ({
-    ...r,
-    beforeImg: slot(r.before, `${t.photo.beforeAlt}${r.alt}`, t.photo.before),
-    afterImg: slot(r.after, `${t.photo.afterAlt}${r.alt}`, t.photo.after),
-  }));
+  // Captions show only confirmed details; placeholders never reach the page.
+  config.results = config.results.map((r) => {
+    const alt = real(r.alt) || r.service;
+    return {
+      ...r,
+      job: real(r.job),
+      area: real(r.area),
+      label: [r.service, real(r.job)].filter(Boolean).join(', '),
+      beforeImg: slot(r.before, `${t.photo.beforeAlt}${alt}`, t.photo.before),
+      afterImg: slot(r.after, `${t.photo.afterAlt}${alt}`, t.photo.after),
+    };
+  });
   config.tackle = config.tackle.map((x) => ({ ...x, img: slot(x.photo, x.alt || `${x.label}: ${x.detail}`, x.label) }));
   const photoSlots = [
     ['hero.photo', config.hero.photo],
@@ -118,6 +126,10 @@ function makeCtx(locale) {
   config.reviews.writeLink = real(config.reviews.writeUrl) || config.reviews.link;
   config.reviews.items = config.reviews.items.map((r) => ({ ...r, starsPct: starsPct(r.stars) }));
   config.reviews.draft = config.reviews.items.some((r) => isPlaceholder(r.quote));
+  // Privacy notice details that fall back to general wording until confirmed.
+  config.form.processorReal = real(config.form.processor) ? 'yes' : '';
+  config.privacy.icoReal = real(config.privacy.ico) ? 'yes' : '';
+  config.privacy.retentionReal = real(config.privacy.retention) ? 'yes' : '';
   // The rating line needs both a real rating and a real count.
   config.reviews.summary = config.reviews.ratingPct && real(config.reviews.count) ? 'yes' : '';
   // The section (and its nav link) shows once there are reviews or a profile to send people to.
@@ -134,7 +146,6 @@ function makeCtx(locale) {
     locale,
     isEn: locale.code === 'en' ? 'yes' : '',
     siteUrl,
-    draft: [...JSON.stringify(config).matchAll(PH)].length > 0 || pagePhotosMissing.length > 0,
     year: String(new Date().getFullYear()),
     phoneHref: real(b.phoneLink) ? `tel:${b.phoneLink.replace(/\s+/g, '')}` : '#quote',
     mailHref: real(b.email) ? `mailto:${b.email}` : '#quote',
@@ -212,8 +223,7 @@ const empty = (v) => v == null || v === '' || v === false || (Array.isArray(v) &
 
 function image(s, sizes = '100vw', eager = false) {
   if (!s.name) {
-    return `<div class="photo-ph" role="img" aria-label="${attr(ctx.t.photo.toCome)}: ${attr(s.brief)}">` +
-      `<span class="photo-ph-tag">${text(ctx.t.photo.toCome)}</span><span class="photo-ph-brief">${text(s.brief)}</span></div>`;
+    return `<div class="photo-ph" role="img" aria-label="${attr(ctx.t.photo.toCome)}"><span class="photo-ph-tag">${text(ctx.t.photo.toCome)}</span></div>`;
   }
   const set = (ext) => [480, 720, 1000].map((w) => `${ctx.base}assets/img/${s.name}-${w}.${ext} ${w}w`).join(', ');
   const load = eager ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"';
@@ -316,7 +326,8 @@ for (const locale of LOCALES) {
     const out = path.join(outDir, locale.dir, file);
     fs.mkdirSync(path.dirname(out), { recursive: true });
     const html = render(fs.readFileSync(path.join(srcDir, file), 'utf8'));
-    fs.writeFileSync(out, html);
+    // Template comments are for editors, not visitors.
+    fs.writeFileSync(out, html.replace(/[ \t]*<!--[\s\S]*?-->\r?\n?/g, ''));
 
     if (ctx.siteUrl && !/<meta name="robots" content="[^"]*noindex/.test(html)) {
       if (!indexable.has(file)) indexable.set(file, {});
@@ -347,11 +358,11 @@ if (siteUrl) {
 
 console.log(`Built ${outDir} (${LOCALES.map((l) => l.code).join(', ')})`);
 if (missing.size) {
-  console.log(`\n${missing.size} placeholder(s) still to confirm (page shows a draft banner):`);
+  console.log(`\n${missing.size} placeholder(s) still to confirm (hidden on the page until filled in):`);
   for (const m of missing) console.log(`  - ${m}`);
 }
 if (missingPhotos.size) {
-  console.log(`\n${missingPhotos.size} photo slot(s) still showing "Photo to come":`);
+  console.log(`\n${missingPhotos.size} photo slot(s) still showing "Coming soon":`);
   for (const m of missingPhotos) console.log(`  - ${m}`);
 }
 if (!schemaReady) console.log('\nLocalBusiness schema omitted until URL, phone, email, locality and areas are real.');

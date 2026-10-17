@@ -7,7 +7,6 @@
     "description": "End-of-tenancy, after-builders, one-off deep and regular cleaning across {{business.location}}. Owner-led by {{business.owner}}, with the scope and price agreed before you book."
   },
   "skip": "Skip to main content",
-  "draft": "Draft preview — <mark class=\"ph\">[highlighted]</mark> details and “Photo to come” frames are placeholders to replace in <code>site.config.json</code> before launch.",
   "langSwitch": {
     "hreflang": "pl",
     "aria": "Site language",
@@ -29,7 +28,7 @@
     "quoteShort": "Get a quote"
   },
   "photo": {
-    "toCome": "Photo to come",
+    "toCome": "Coming soon",
     "before": "Before photo",
     "after": "After photo",
     "beforeAlt": "Before: ",
@@ -165,7 +164,6 @@
   "privacy": {
     "title": "Privacy notice",
     "description": "How {{business.name}} uses the details you send through the quote form.",
-    "draft": "Draft — this notice must be completed and checked before launch. <mark class=\"ph\">[highlighted]</mark> details are placeholders.",
     "back": "Back to quote form",
     "intro": "This notice explains how {{business.name}} uses the details you give us when you ask for a quote.",
     "whoTitle": "Who we are",
@@ -183,7 +181,9 @@
     "keepTitle": "How long we keep it",
     "rightsTitle": "Your rights",
     "rights": "You can ask to see, correct or delete the information we hold about you by contacting us using the details above. If you’re unhappy with how we’ve handled your data, you can complain to the Information Commissioner’s Office at <a href=\"https://ico.org.uk/make-a-complaint/\">ico.org.uk</a>.",
-    "home": "Return to the home page"
+    "home": "Return to the home page",
+    "receiveFallback": "We don’t sell your details or share them for marketing. They’re only shared with service providers that help us receive and manage enquiries, such as our email provider.",
+    "keepFallback": "We keep your details only for as long as we need them to reply to your enquiry and, if you book, to provide the clean and keep the records the law requires. Details from enquiries that don’t lead to a booking are deleted once they’re no longer needed."
   },
   "js": {
     "name": "Enter your name.",

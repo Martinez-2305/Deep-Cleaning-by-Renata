@@ -14,7 +14,6 @@
   --border: #d4dcc4;
   --control: #76846c;     /* form borders, ≥3:1 on white */
   --error: #b42318;
-  --ph-bg: #ffe58f;
 
   --display: "Manrope", "Segoe UI", Arial, sans-serif;
   --sans: "Public Sans", "Segoe UI", Arial, sans-serif;
@@ -80,18 +79,6 @@ a:hover { color: var(--green-800); }
   background: var(--surface); padding: var(--s3) var(--s4); border-radius: var(--radius);
 }
 .skip-link:focus { top: var(--s4); }
-
-/* Placeholders (draft only) */
-.draft-bar {
-  margin: 0; padding: var(--s2) var(--gutter);
-  background: #fff4cc; color: #4d3a00; font-size: 0.875rem; text-align: center;
-}
-mark.ph {
-  background: var(--ph-bg); color: #3b2f00;
-  padding: 0 0.2em; border-radius: 2px;
-  outline: 1px dashed #b38600;
-  box-decoration-break: clone; -webkit-box-decoration-break: clone;
-}
 
 /* Buttons */
 .btn {
