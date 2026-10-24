@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="{{t:lang}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{t:gallery.metaTitle}}</title>
+  <meta name="description" content="{{t:gallery.description}}">
+  <meta name="theme-color" content="#076719">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="{{t:ogLocale}}">
+  <meta property="og:site_name" content="{{attr:business.name}}">
+  <meta property="og:title" content="{{t:gallery.metaTitle}}">
+  <meta property="og:description" content="{{t:gallery.description}}">
+  <meta property="og:image" content="{{attr:meta.image}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  {{raw:headExtras}}
+  <link rel="icon" type="image/png" sizes="48x48" href="{{base}}assets/img/favicon-48.png">
+  <link rel="apple-touch-icon" href="{{base}}assets/img/apple-touch-icon.png">
+  <link rel="preload" href="{{base}}assets/fonts/public-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{base}}assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{base}}styles.css">
+  <script src="{{base}}main.js" defer></script>
+</head>
+<body>
+{{> header}}
+
+  <main id="main">
+    <section class="section gallery-page" aria-labelledby="gallery-title">
+      <div class="wrap">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="{{attr:home}}">{{t:gallery.home}}</a> <span aria-hidden="true">/</span> <span aria-current="page">{{t:nav.gallery}}</span>
+        </nav>
+        <div class="section-head">
+          <h1 id="gallery-title">{{t:gallery.title}}</h1>
+          <p>{{t:gallery.intro}}</p>
+        </div>
+
+        <!-- Filters only work with JavaScript, so main.js reveals them. -->
+        <div class="gallery-filters" role="group" aria-label="{{t:gallery.filterLabel}}" hidden>
+          <button class="chip" type="button" data-filter="all" aria-pressed="true">{{t:gallery.all}} <span class="chip-count">{{galleryTotal}}</span></button>
+          {{#each galleryFilters}}<button class="chip" type="button" data-filter="{{attr:.id}}" aria-pressed="false">{{.label}} <span class="chip-count">{{.count}}</span></button>
+          {{/each galleryFilters}}
+        </div>
+        <p class="sr-only" id="gallery-status" aria-live="polite"></p>
+
+        <!-- Each photo links to its full-size JPEG; main.js opens it in the viewer instead. -->
+        <ul class="gallery-grid">
+          {{#each gallery}}
+          <li data-cat="{{attr:.cat}}">
+            <a class="g-item" href="{{base}}assets/img/{{attr:.name}}-1200.jpg" data-avif="{{base}}assets/img/{{attr:.name}}-1200.avif" data-w="{{attr:.width}}" data-h="{{attr:.height}}">
+              <picture>
+                <source type="image/avif" srcset="{{base}}assets/img/{{attr:.name}}-400.avif">
+                <img src="{{base}}assets/img/{{attr:.name}}-400.jpg" width="{{attr:.thumbW}}" height="{{attr:.thumbH}}" alt="{{attr:.alt}}" loading="lazy" decoding="async">
+              </picture>
+            </a>
+          </li>
+          {{/each gallery}}
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- Full-size photo viewer -->
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lb-cap">
+    <figure class="lb-figure">
+      <picture id="lb-pic"></picture>
+      <figcaption><span id="lb-cap"></span> <span class="lb-count" id="lb-count"></span></figcaption>
+    </figure>
+    <button class="lb-btn lb-prev" type="button" aria-label="{{t:js.galleryPrev}}"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <button class="lb-btn lb-next" type="button" aria-label="{{t:js.galleryNext}}"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+    <button class="lb-btn lb-close" type="button" aria-label="{{t:js.galleryClose}}"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+  </dialog>
+
+{{> footer}}
+  <script type="application/json" id="i18n">{{raw:jsStrings}}</script>
+</body>
+</html>

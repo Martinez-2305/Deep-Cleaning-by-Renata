@@ -107,6 +107,17 @@ function makeCtx(locale) {
     };
   });
   config.tackle = config.tackle.map((x) => ({ ...x, img: slot(x.photo, x.alt || `${x.label}: ${x.detail}`, x.label) }));
+  // Gallery page: file names, thumbnail height (400px wide) and a count per filter.
+  config.gallery = (config.gallery || []).map((g) => ({
+    ...g,
+    name: `gallery-${String(g.n).padStart(2, '0')}`,
+    thumbH: String(Math.round((g.height * Math.min(400, g.width)) / g.width)),
+    thumbW: String(Math.min(400, g.width)),
+  }));
+  config.galleryTotal = String(config.gallery.length);
+  config.galleryFilters = Object.entries((t.gallery && t.gallery.cats) || {}).map(([id, label]) => ({
+    id, label, count: String(config.gallery.filter((g) => g.cat === id).length),
+  }));
   const photoSlots = [
     ['hero.photo', config.hero.photo],
     ['founder.photo', config.founder.photo],

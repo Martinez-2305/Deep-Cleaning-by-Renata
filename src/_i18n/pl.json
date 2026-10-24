@@ -18,6 +18,7 @@
     "home": "strona główna",
     "services": "Usługi",
     "results": "Efekty",
+    "gallery": "Galeria",
     "about": "O mnie",
     "reviews": "Opinie",
     "faqs": "Pytania",
@@ -25,7 +26,8 @@
     "menu": "Menu",
     "whatsapp": "Napisz na WhatsAppie",
     "call": "Zadzwoń do Renaty",
-    "quoteShort": "Wycena"
+    "quoteShort": "Wycena",
+    "quickLabel": "Szybki kontakt"
   },
   "photo": {
     "toCome": "Wkrótce",
@@ -51,10 +53,26 @@
   },
   "results": {
     "title": "Prawdziwe sprzątanie. Prawdziwe efekty.",
-    "intro": "Zdjęcia przed i po z prawdziwych zleceń Renaty, zrobione z tego samego miejsca. Przeciągnij suwak lub użyj strzałek, aby porównać.",
+    "intro": "Zdjęcia przed i po z prawdziwych zleceń Renaty. Przeciągnij suwak lub użyj strzałek, aby porównać.",
     "before": "Przed",
     "after": "Po",
-    "compare": "Porównaj przed i po:"
+    "compare": "Porównaj przed i po:",
+    "galleryLink": "Zobacz więcej zdjęć w galerii"
+  },
+  "gallery": {
+    "metaTitle": "Galeria zdjęć ze sprzątania | {{business.name}}",
+    "description": "Zdjęcia z prawdziwych zleceń Renaty w Wimbledonie i południowo-zachodnim Londynie: piekarniki, okapy, kuchnie, łazienki i listwy przypodłogowe, przed i po.",
+    "home": "Strona główna",
+    "title": "Galeria naszych prac",
+    "intro": "Zdjęcia z prawdziwych zleceń Renaty w Wimbledonie i południowo-zachodnim Londynie. Dotknij zdjęcia, aby zobaczyć je w pełnym rozmiarze.",
+    "filterLabel": "Pokaż zdjęcia",
+    "all": "Wszystkie",
+    "cats": {
+      "ovens": "Piekarniki i okapy",
+      "kitchens": "Kuchnie",
+      "bathrooms": "Łazienki i umywalki",
+      "details": "Listwy i detale"
+    }
   },
   "why": {
     "title": "Dlaczego Renata?",
@@ -209,6 +227,11 @@
     "successWa": "<h3>Dziękujemy, zapytanie zostało wysłane</h3><p>Teraz zdjęcia: przycisk poniżej otworzy WhatsApp z kopią Twojego zapytania. Dotknij spinacza lub aparatu, aby dodać zdjęcia, i wyślij.</p>",
     "waButton": "Wyślij zdjęcia przez WhatsApp",
     "waIntro": "Dzień dobry, moje zapytanie o wycenę zostało właśnie wysłane przez stronę. Przesyłam zdjęcia nieruchomości.",
-    "waFields": "name=Imię i nazwisko|phone=Telefon|email=E-mail|postcode=Kod pocztowy|service=Usługa|details=O zleceniu"
+    "waFields": "name=Imię i nazwisko|phone=Telefon|email=E-mail|postcode=Kod pocztowy|service=Usługa|details=O zleceniu",
+    "galleryClose": "Zamknij",
+    "galleryPrev": "Poprzednie zdjęcie",
+    "galleryNext": "Następne zdjęcie",
+    "galleryCount": "{n} z {total}",
+    "galleryShown": "Wyświetlane zdjęcia: {n}"
   }
 }

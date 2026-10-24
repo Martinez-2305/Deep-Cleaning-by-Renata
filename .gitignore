@@ -6,3 +6,7 @@ desktop.ini
 *.log
 dist/
 .playwright-mcp/
+
+# Original job photos: kept on this laptop only (the repo is public and they show
+# unblurred product labels). tools/images.js makes the web versions from them.
+images/images of cleaning jobs/

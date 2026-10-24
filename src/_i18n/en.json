@@ -18,6 +18,7 @@
     "home": "home",
     "services": "Services",
     "results": "Results",
+    "gallery": "Gallery",
     "about": "About",
     "reviews": "Reviews",
     "faqs": "FAQs",
@@ -25,7 +26,8 @@
     "menu": "Menu",
     "whatsapp": "WhatsApp {{business.owner}}",
     "call": "Call {{business.owner}}",
-    "quoteShort": "Get a quote"
+    "quoteShort": "Get a quote",
+    "quickLabel": "Quick contact"
   },
   "photo": {
     "toCome": "Coming soon",
@@ -51,10 +53,26 @@
   },
   "results": {
     "title": "Real cleaning. Real results.",
-    "intro": "Before-and-after photos from {{business.owner}}’s own jobs, taken from the same angle. Drag the handle, or use the arrow keys, to compare.",
+    "intro": "Before-and-after photos from {{business.owner}}’s own jobs. Drag the handle, or use the arrow keys, to compare.",
     "before": "Before",
     "after": "After",
-    "compare": "Compare before and after:"
+    "compare": "Compare before and after:",
+    "galleryLink": "See more photos in the gallery"
+  },
+  "gallery": {
+    "metaTitle": "Cleaning Photo Gallery | {{business.name}}",
+    "description": "Photos from {{business.owner}}’s own cleaning jobs across {{business.location}}: ovens, cooker hoods, kitchens, bathrooms and skirting boards, before and after.",
+    "home": "Home",
+    "title": "Gallery of our cleaning work",
+    "intro": "Photos from {{business.owner}}’s own jobs across {{business.location}}. Tap any photo to see it full size.",
+    "filterLabel": "Show photos of",
+    "all": "All",
+    "cats": {
+      "ovens": "Ovens & extractors",
+      "kitchens": "Kitchens",
+      "bathrooms": "Bathrooms & basins",
+      "details": "Skirting & details"
+    }
   },
   "why": {
     "title": "Why choose {{business.owner}}?",
@@ -209,6 +227,11 @@
     "successWa": "<h3>Thank you, your enquiry has been sent</h3><p>Now for your photos: the button below opens WhatsApp with a copy of your enquiry. Tap the paperclip or camera to add your photos, then send.</p>",
     "waButton": "Send photos on WhatsApp",
     "waIntro": "Hi Renata, I’ve just sent a quote request through your website. Here are some photos of the property.",
-    "waFields": "name=Name|phone=Phone|email=Email|postcode=Postcode|service=Service|details=About the job"
+    "waFields": "name=Name|phone=Phone|email=Email|postcode=Postcode|service=Service|details=About the job",
+    "galleryClose": "Close",
+    "galleryPrev": "Previous photo",
+    "galleryNext": "Next photo",
+    "galleryCount": "{n} of {total}",
+    "galleryShown": "{n} photos shown"
   }
 }

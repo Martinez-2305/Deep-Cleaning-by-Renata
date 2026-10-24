@@ -6,6 +6,34 @@ const fs = require('fs');
 const sharp = require('sharp');
 
 const root = path.join(__dirname, '..');
+
+// Brand labels to blur, by photo number in "images/images of cleaning jobs" (areas in the
+// original photo's pixels; a soft margin is added around each). Add an entry for any new
+// photo that shows a cleaning product or other branded label.
+const BLUR_LABELS = {
+  40: [{ left: 950, top: 120, width: 460, height: 540 }],  // tub and tile spray
+  43: [{ left: 650, top: 640, width: 350, height: 510 }],  // cleaner bottle on the hood
+  45: [{ left: 820, top: 670, width: 270, height: 400 }],  // cleaner bottle on the hood
+  47: [{ left: 1370, top: 740, width: 230, height: 330 }], // bottle at the edge of the sink
+  49: [{ left: 660, top: 110, width: 290, height: 370 }],  // cleaner bottle behind the sink
+  56: [{ left: 0, top: 220, width: 200, height: 260 }],    // toothpaste and hand soap by the basin
+};
+
+// Returns the photo with each area blurred, fading softly into the surrounding image.
+async function blurAreas(file, areas) {
+  const base = await sharp(file).rotate().toBuffer();
+  const meta = await sharp(base).metadata();
+  const patches = await Promise.all(areas.map(async (box) => {
+    const f = Math.round(Math.min(box.width, box.height) * 0.15); // fade width
+    const left = Math.max(0, box.left - f), top = Math.max(0, box.top - f);
+    const r = { left, top, width: Math.min(meta.width, box.left + box.width + f) - left, height: Math.min(meta.height, box.top + box.height + f) - top };
+    const mask = Buffer.from(`<svg width="${r.width}" height="${r.height}"><defs><filter id="f" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="${f / 2}"/></filter></defs><rect x="${f}" y="${f}" width="${r.width - 2 * f}" height="${r.height - 2 * f}" rx="${f}" fill="#fff" filter="url(#f)"/></svg>`);
+    const blurred = await sharp(base).extract(r).blur(Math.max(18, Math.round(Math.min(box.width, box.height) / 9)))
+      .ensureAlpha().composite([{ input: mask, blend: 'dest-in' }]).png().toBuffer();
+    return { input: blurred, left: r.left, top: r.top };
+  }));
+  return sharp(base).composite(patches).toBuffer();
+}
 const src = (f) => path.join(root, 'images', f);
 const out = (f) => path.join(root, 'src', 'assets', 'img', f);
 fs.mkdirSync(path.dirname(out('x')), { recursive: true });
@@ -70,6 +98,23 @@ fs.mkdirSync(path.dirname(out('x')), { recursive: true });
     }
     console.log(`  photo "${name}"`);
   }
+
+  // Gallery page: every photo in images/images of cleaning jobs → gallery-NN-400 (thumbnail)
+  // and gallery-NN-1200 (full size), AVIF + JPEG. NN is the number in "cleaning-img (NN).jpeg";
+  // site.config.json → gallery lists them in display order with alt text.
+  const jobsDir = path.join(root, 'images', 'images of cleaning jobs');
+  const jobs = fs.existsSync(jobsDir) ? fs.readdirSync(jobsDir).filter((f) => /\((\d+)\)\.(jpe?g|png|webp)$/i.test(f)) : [];
+  for (const file of jobs) {
+    const n = file.match(/\((\d+)\)/)[1].padStart(2, '0');
+    // Product labels are blurred in the source first, so every size and format inherits it.
+    const input = BLUR_LABELS[Number(n)] ? await blurAreas(path.join(jobsDir, file), BLUR_LABELS[Number(n)]) : path.join(jobsDir, file);
+    for (const [w, q, qa] of [[400, 72, 50], [1200, 80, 55]]) {
+      const img = sharp(input).rotate().resize({ width: w, withoutEnlargement: true });
+      await img.clone().avif({ quality: qa, effort: 6 }).toFile(out(`gallery-${n}-${w}.avif`));
+      await img.clone().jpeg({ quality: q, mozjpeg: true }).toFile(out(`gallery-${n}-${w}.jpg`));
+    }
+  }
+  if (jobs.length) console.log(`  ${jobs.length} gallery photos`);
 
   console.log('Images written to src/assets/img');
 })();

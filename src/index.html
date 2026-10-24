@@ -114,8 +114,8 @@
           <li>
             <figure class="result">
               <div class="ba" style="--pos: 50%">
-                <div class="ba-layer ba-after">{{img:.afterImg "(min-width: 1260px) 390px, (min-width: 760px) 31vw, 100vw"}}</div>
-                <div class="ba-layer ba-before">{{img:.beforeImg "(min-width: 1260px) 390px, (min-width: 760px) 31vw, 100vw"}}</div>
+                <div class="ba-layer ba-after">{{img:.afterImg "(min-width: 1260px) 590px, (min-width: 760px) 47vw, 100vw"}}</div>
+                <div class="ba-layer ba-before">{{img:.beforeImg "(min-width: 1260px) 590px, (min-width: 760px) 47vw, 100vw"}}</div>
                 <span class="ba-label ba-label-before" aria-hidden="true">{{t:results.before}}</span>
                 <span class="ba-label ba-label-after" aria-hidden="true">{{t:results.after}}</span>
                 <span class="ba-handle" aria-hidden="true"></span>
@@ -129,6 +129,7 @@
           </li>
           {{/each results}}
         </ul>
+        <p class="results-more"><a class="btn btn-secondary" href="{{root}}gallery/">{{t:results.galleryLink}}</a></p>
       </div>
     </section>
     {{/if results}}
