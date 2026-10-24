@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="{{t:lang}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{t:notFound.title}} | {{attr:business.name}}</title>
+  <meta name="robots" content="noindex">
+  <!-- Served for any missing URL, at any depth, so every path here is absolute (build.js sets base/home to "/"). -->
+  <link rel="icon" type="image/png" sizes="48x48" href="{{base}}assets/img/favicon-48.png">
+  <link rel="preload" href="{{base}}assets/fonts/public-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{base}}assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{base}}styles.css">
+  <style>
+    body { padding-bottom: 0; }
+    .not-found { max-width: 40rem; padding-block: var(--s8); }
+    .not-found .actions { margin-top: var(--s6); }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">{{t:skip}}</a>
+  <header class="site-header">
+    <div class="wrap header-inner" style="grid-template-columns: auto auto 1fr; grid-template-areas: 'brand lang actions'; padding-block: 12px;">
+      <a class="brand" href="{{attr:home}}">
+        <picture>
+          <source type="image/webp" srcset="{{base}}assets/img/logo-360.webp 360w, {{base}}assets/img/logo-720.webp 720w" sizes="112px">
+          <img src="{{base}}assets/img/logo-360.jpg" srcset="{{base}}assets/img/logo-360.jpg 360w, {{base}}assets/img/logo-720.jpg 720w" sizes="112px" width="360" height="205" alt="{{attr:business.name}} — {{t:nav.home}}">
+        </picture>
+      </a>
+      {{> lang-switch}}
+    </div>
+  </header>
+
+  <main id="main" class="wrap not-found">
+    <h1>{{t:notFound.title}}</h1>
+    <p>{{t:notFound.text}}</p>
+    <div class="actions">
+      <a class="btn btn-primary btn-lg" href="{{attr:home}}">{{t:notFound.home}}</a>
+      <a class="btn btn-secondary btn-lg" href="{{attr:home}}#quote">{{t:nav.quote}}</a>
+    </div>
+    <p>{{t:notFound.contact}}</p>
+  </main>
+</body>
+</html>

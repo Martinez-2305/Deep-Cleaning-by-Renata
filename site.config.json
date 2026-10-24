@@ -62,6 +62,13 @@
       "Over the past five years, I’ve become really interested in personal growth and mental wellbeing. One of my dreams is to support women who have lost confidence in themselves or forgotten about their own needs, and help them find their strength and happiness again."
     ],
     "moreClosing": "I believe it’s never too late for a fresh start.",
+    "morePhoto": {
+      "_help": "Shown in \"A little more about me\" (images/more-abt-pic.jpeg, processed by tools/images.js).",
+      "name": "renata-more",
+      "width": 1000,
+      "height": 1250,
+      "alt": "Renata smiling, seated on a cream armchair in a green jumper and amber necklace"
+    },
     "photo": {
       "_help": "Portrait in a sage blazer (images/founder-img2.jpeg, processed by tools/images.js). A photo of Renata at work on a real job would also suit this slot.",
       "name": "renata-portrait",
@@ -135,25 +142,20 @@
     { "label": "Kitchen grease", "detail": "Surfaces, splashbacks and cupboard fronts", "photo": "", "alt": "Deep cleaning kitchen surfaces in a South West London home" },
     { "label": "Limescale", "detail": "Taps, shower screens, tiles and toilets, descaled", "photo": "", "alt": "Descaling a shower screen and taps during a bathroom deep clean" },
     { "label": "Fine renovation dust", "detail": "The layer that settles on every surface after building work", "photo": "", "alt": "Removing fine building dust after renovation work" },
-    { "label": "Skirting and edges", "detail": "Skirting boards and the corners a quick clean misses", "photo": "", "alt": "Cleaning skirting boards and edges during a deep clean" },
-    { "label": "Inside cupboards", "detail": "Kitchen cupboards, inside and out, once emptied", "photo": "", "alt": "Cleaning inside emptied kitchen cupboards for an end-of-tenancy clean" },
-    { "label": "Doors and switches", "detail": "Doors, frames and light switches, wiped and detailed", "photo": "", "alt": "Wiping doors, frames and light switches during a deep clean" }
+    { "label": "Skirting and edges", "detail": "Skirting boards and the corners a quick clean misses", "photo": "", "alt": "Cleaning skirting boards and edges during a deep clean" }
   ],
 
   "results": [
     { "_help": "Genuine before/after pairs from Renata's jobs only, taken from the same angle, with the property owner's consent. before/after: base names of processed images. alt: what the photo shows and where, e.g. 'Kitchen hob and splashback in a Putney flat'. Hide the section by emptying this list." },
     { "service": "End of tenancy clean", "job": "[[Job, e.g. Kitchen, 2-bed flat]]", "area": "[[Area]]", "alt": "[[Describe the photo, e.g. kitchen hob and splashback]]", "before": "", "after": "" },
-    { "service": "End of tenancy clean", "job": "[[Job, e.g. Bathroom, 1-bed flat]]", "area": "[[Area]]", "alt": "[[Describe the photo, e.g. bath and shower screen]]", "before": "", "after": "" },
     { "service": "After-builders clean", "job": "[[Job, e.g. Kitchen after an extension]]", "area": "[[Area]]", "alt": "[[Describe the photo, e.g. new kitchen worktops and floor]]", "before": "", "after": "" },
-    { "service": "After-builders clean", "job": "[[Job, e.g. Floors after replastering]]", "area": "[[Area]]", "alt": "[[Describe the photo, e.g. hallway floor and skirting]]", "before": "", "after": "" },
-    { "service": "One-off deep clean", "job": "[[Job, e.g. Oven hob and extractor]]", "area": "[[Area]]", "alt": "[[Describe the photo, e.g. gas hob and extractor hood]]", "before": "", "after": "" },
     { "service": "One-off deep clean", "job": "[[Job, e.g. Shower with heavy limescale]]", "area": "[[Area]]", "alt": "[[Describe the photo, e.g. shower tray, tiles and glass]]", "before": "", "after": "" }
   ],
 
   "reviews": {
     "_help": "url: Renata's Google Business Profile (linked from the reviews section, footer and LocalBusiness schema 'sameAs'). writeUrl: the review link from her Business Profile dashboard ('Ask for reviews' / 'Share review form', e.g. https://g.page/r/…/review); while empty, the 'Leave a review' button opens the profile, which has Google's own 'Write a review' button. With no items, the section invites the first reviews. Add genuine reviews only, word for word, with the customer's permission — e.g. { \"quote\": \"…\", \"name\": \"First name\", \"area\": \"Putney\", \"service\": \"End of tenancy clean\", \"stars\": 5 } — plus rating and count once Google shows them.",
     "url": "https://www.google.com/search?kgmid=/g/11zyjxt4m1",
-    "writeUrl": "",
+    "writeUrl": "https://g.page/r/CQ1FDruwymg5EBM/review",
     "rating": "",
     "count": "",
     "items": []

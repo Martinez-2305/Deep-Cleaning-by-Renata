@@ -7,9 +7,8 @@
   <meta name="description" content="{{t:privacy.description}}">
   <meta name="robots" content="noindex">
   <link rel="icon" type="image/png" sizes="48x48" href="{{base}}assets/img/favicon-48.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700&family=Public+Sans:wght@400;600&display=swap">
+  <link rel="preload" href="{{base}}assets/fonts/public-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{base}}assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{base}}styles.css">
   <style>
     body { padding-bottom: 0; }
@@ -21,7 +20,7 @@
 <body>
   <header class="site-header">
     <div class="wrap header-inner" style="grid-template-columns: auto auto 1fr; grid-template-areas: 'brand lang actions'; padding-block: 12px;">
-      <a class="brand" href="{{root}}index.html">
+      <a class="brand" href="{{attr:home}}">
         <picture>
           <source type="image/webp" srcset="{{base}}assets/img/logo-360.webp 360w, {{base}}assets/img/logo-720.webp 720w" sizes="112px">
           <img src="{{base}}assets/img/logo-360.jpg" srcset="{{base}}assets/img/logo-360.jpg 360w, {{base}}assets/img/logo-720.jpg 720w" sizes="112px" width="360" height="205" alt="{{attr:business.name}} — {{t:nav.home}}">
@@ -29,7 +28,7 @@
       </a>
       {{> lang-switch}}
       <div class="header-actions">
-        <a class="btn btn-secondary" href="{{root}}index.html#quote">{{t:privacy.back}}</a>
+        <a class="btn btn-secondary" href="{{attr:home}}#quote">{{t:privacy.back}}</a>
       </div>
     </div>
   </header>
@@ -61,7 +60,7 @@
     <h2>{{t:privacy.rightsTitle}}</h2>
     <p>{{t:privacy.rights}}</p>
 
-    <p><a href="{{root}}index.html">{{t:privacy.home}}</a></p>
+    <p><a href="{{attr:home}}">{{t:privacy.home}}</a></p>
   </main>
 </body>
 </html>

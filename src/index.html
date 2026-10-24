@@ -18,9 +18,8 @@
   {{raw:headExtras}}
   <link rel="icon" type="image/png" sizes="48x48" href="{{base}}assets/img/favicon-48.png">
   <link rel="apple-touch-icon" href="{{base}}assets/img/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700&family=Public+Sans:wght@400;600&display=swap">
+  <link rel="preload" href="{{base}}assets/fonts/public-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{base}}assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{base}}styles.css">
   <script src="{{base}}main.js" defer></script>
 </head>
@@ -90,7 +89,7 @@
           <ul class="tackle-grid">
             {{#each tackle}}
             <li>
-              {{img:.img "(min-width: 1100px) 180px, (min-width: 600px) 30vw, 45vw"}}
+              {{img:.img "(min-width: 1260px) 290px, (min-width: 900px) 23vw, 45vw"}}
               <p><strong>{{.label}}</strong>{{.detail}}</p>
             </li>
             {{/each tackle}}
@@ -115,8 +114,8 @@
           <li>
             <figure class="result">
               <div class="ba" style="--pos: 50%">
-                <div class="ba-layer ba-after">{{img:.afterImg "(min-width: 1100px) 380px, (min-width: 600px) 50vw, 100vw"}}</div>
-                <div class="ba-layer ba-before">{{img:.beforeImg "(min-width: 1100px) 380px, (min-width: 600px) 50vw, 100vw"}}</div>
+                <div class="ba-layer ba-after">{{img:.afterImg "(min-width: 1260px) 390px, (min-width: 760px) 31vw, 100vw"}}</div>
+                <div class="ba-layer ba-before">{{img:.beforeImg "(min-width: 1260px) 390px, (min-width: 760px) 31vw, 100vw"}}</div>
                 <span class="ba-label ba-label-before" aria-hidden="true">{{t:results.before}}</span>
                 <span class="ba-label ba-label-after" aria-hidden="true">{{t:results.after}}</span>
                 <span class="ba-handle" aria-hidden="true"></span>
@@ -211,20 +210,16 @@
       <div class="wrap">
         <div class="reviews-head">
           <h2 id="reviews-title">{{#if reviews.items}}{{t:reviews.title}}{{/if reviews.items}}{{#unless reviews.items}}{{t:reviews.emptyTitle}}{{/unless reviews.items}}</h2>
-          {{#if reviews.items}}
-          <p class="rating">
-            {{#if reviews.summary}}<span class="stars" style="--pct: {{attr:reviews.ratingPct}}" aria-hidden="true"></span>
-            <span>{{t:reviews.summary}}</span>{{/if reviews.summary}}
-            {{#if reviews.link}}<a href="{{attr:reviews.link}}">{{t:reviews.readAll}}</a>{{/if reviews.link}}
-          </p>
-          {{/if reviews.items}}
+          <!-- Google badge (links to Renata's Business Profile): beside the heading once there are
+               reviews, in the button row until then. Stars and count only appear with a real rating. -->
+          {{#if reviews.items}}{{> google-badge}}{{/if reviews.items}}
         </div>
         {{#unless reviews.items}}
         <div class="reviews-empty">
           <p>{{t:reviews.empty}}</p>
           <div class="actions">
             <a class="btn btn-primary" href="{{attr:reviews.writeLink}}" rel="noopener">{{t:reviews.write}}</a>
-            <a class="btn btn-secondary" href="{{attr:reviews.link}}" rel="noopener">{{t:reviews.profile}}</a>
+            {{> google-badge}}
           </div>
         </div>
         {{/unless reviews.items}}
@@ -257,6 +252,32 @@
           <h2 id="eco-title">{{t:eco.title}}</h2>
           <p>{{t:eco.p1}}</p>
           <p>{{t:eco.p2}}</p>
+          <svg class="eco-art" aria-hidden="true" focusable="false" viewBox="0 0 220 260">
+            <defs><clipPath id="eco-bottle"><path d="M104 86h32c8 0 14 6 16 14l8 26c2 6 4 12 4 20v80a14 14 0 0 1-14 14H90a14 14 0 0 1-14-14v-80c0-8 2-14 4-20l8-26c2-8 8-14 16-14z"/></clipPath></defs>
+            <g class="eco-sprig">
+              <path class="eco-line" d="M150 248c20-18 34-44 40-76"/>
+              <path class="eco-leaf" d="M178 214c-14-2-22-12-22-24 14 0 24 10 22 24z"/>
+              <path class="eco-leaf" d="M186 196c4-14 16-20 28-18-2 14-14 22-28 18z"/>
+              <path class="eco-leaf" d="M190 172c-10-8-12-22-4-30 10 6 12 20 4 30z"/>
+            </g>
+            <path class="eco-body" d="M104 86h32c8 0 14 6 16 14l8 26c2 6 4 12 4 20v80a14 14 0 0 1-14 14H90a14 14 0 0 1-14-14v-80c0-8 2-14 4-20l8-26c2-8 8-14 16-14z"/>
+            <rect class="eco-liquid" x="70" y="132" width="100" height="120" clip-path="url(#eco-bottle)"/>
+            <path class="eco-line" d="M104 86h32c8 0 14 6 16 14l8 26c2 6 4 12 4 20v80a14 14 0 0 1-14 14H90a14 14 0 0 1-14-14v-80c0-8 2-14 4-20l8-26c2-8 8-14 16-14z"/>
+            <rect class="eco-cap" x="106" y="66" width="28" height="20" rx="3"/>
+            <rect class="eco-cap" x="84" y="38" width="72" height="28" rx="8"/>
+            <rect class="eco-cap" x="60" y="44" width="26" height="14" rx="3"/>
+            <path class="eco-line eco-trigger" d="M100 66c-3 14-10 24-20 32"/>
+            <rect class="eco-label" x="90" y="152" width="60" height="62" rx="8"/>
+            <path class="eco-leaf" d="M120 204c-16-6-18-28 0-40 18 12 16 34 0 40z"/>
+            <path class="eco-vein" d="M120 202v-34"/>
+            <g class="eco-mist">
+              <circle cx="49" cy="51" r="3"/><circle cx="38" cy="43" r="2.5"/><circle cx="38" cy="59" r="2.5"/>
+              <circle cx="27" cy="51" r="2.5"/><circle cx="24" cy="36" r="2"/><circle cx="24" cy="66" r="2"/>
+              <circle cx="13" cy="45" r="1.8"/><circle cx="13" cy="58" r="1.8"/>
+            </g>
+            <path class="eco-spark" d="M184 52c1 8 2 9 10 10-8 1-9 2-10 10-1-8-2-9-10-10 8-1 9-2 10-10z"/>
+            <path class="eco-spark eco-spark-2" d="M40 118c1 6 2 7 8 8-6 1-7 2-8 8-1-6-2-7-8-8 6-1 7-2 8-8z"/>
+          </svg>
         </div>
         <dl class="eco-facts">
           <div>
@@ -281,10 +302,15 @@
     {{#if founder.more}}
     <section class="section more-about" id="more-about" aria-labelledby="more-title">
       <div class="wrap more-grid">
-        <div>
+        <div class="more-head">
           <p class="eyebrow">{{t:more.eyebrow}}</p>
           <h2 id="more-title">{{t:more.title}}</h2>
         </div>
+        {{#if founder.morePhoto}}
+        <figure class="more-photo">
+          {{img:founder.morePhoto "(min-width: 900px) 440px, (min-width: 600px) 416px, calc(100vw - 32px)"}}
+        </figure>
+        {{/if founder.morePhoto}}
         <div class="more-copy">
           {{#each founder.more}}<p>{{.}}</p>{{/each founder.more}}
           {{#if founder.moreClosing}}<p class="more-closing">{{founder.moreClosing}}</p>{{/if founder.moreClosing}}
@@ -351,7 +377,6 @@
         <div class="form-panel">
           <div class="form-status" id="form-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
           <form class="quote-form" id="quote-form" method="post" action="{{attr:formEndpoint}}" data-endpoint="{{attr:formEndpoint}}"{{#if form.fileUploads}} enctype="multipart/form-data"{{/if form.fileUploads}}>
-            <p class="form-intro">{{t:form.intro}}</p>
             <input type="hidden" name="language" value="{{t:form.language}}">
 
             <div class="field">
@@ -376,60 +401,41 @@
               <p class="field-error" id="f-contact-error" hidden></p>
             </fieldset>
 
-            <div class="field">
-              <label for="f-postcode">{{t:form.postcode}}</label>
-              <input id="f-postcode" class="input-short" name="postcode" type="text" autocomplete="postal-code" autocapitalize="characters" required maxlength="8" aria-describedby="f-postcode-hint">
-              <p class="hint" id="f-postcode-hint">{{t:form.postcodeHint}}</p>
-              <p class="field-error" id="f-postcode-error" hidden></p>
-            </div>
-
             <div class="field-row field-row-gap">
               <div class="field">
-                <label for="f-property">{{t:form.propertyType}}</label>
-                <select id="f-property" name="property_type" required>
-                  <option value="">{{t:form.choose}}</option>
-                  {{t:form.propertyTypes}}
-                </select>
-                <p class="field-error" id="f-property-error" hidden></p>
+                <label for="f-postcode">{{t:form.postcode}}</label>
+                <input id="f-postcode" name="postcode" type="text" autocomplete="postal-code" autocapitalize="characters" required maxlength="8">
+                <p class="field-error" id="f-postcode-error" hidden></p>
               </div>
               <div class="field">
-                <label for="f-size">{{t:form.propertySize}}</label>
-                <select id="f-size" name="property_size" required>
+                <label for="f-service">{{t:form.service}}</label>
+                <select id="f-service" name="service" required>
                   <option value="">{{t:form.choose}}</option>
-                  {{t:form.propertySizes}}
+                  {{#each services}}
+                  <option value="{{attr:.name}}" data-service="{{attr:.id}}">{{.name}}</option>
+                  {{/each services}}
+                  <option value="{{t:form.notSure}}">{{t:form.notSure}}</option>
                 </select>
-                <p class="field-error" id="f-size-error" hidden></p>
+                <p class="field-error" id="f-service-error" hidden></p>
               </div>
-            </div>
-
-            <fieldset class="field" id="f-type">
-              <legend>{{t:form.service}}</legend>
-              <div class="choices">
-                {{#each services}}
-                <label class="choice"><input type="radio" name="service" value="{{attr:.name}}" data-service="{{attr:.id}}" required> {{.name}}</label>
-                {{/each services}}
-                <label class="choice"><input type="radio" name="service" value="{{t:form.notSure}}" required> {{t:form.notSure}}</label>
-              </div>
-              <p class="field-error" id="f-type-error" hidden></p>
-            </fieldset>
-
-            <div class="field">
-              <label for="f-date">{{t:form.date}} <span class="optional">{{t:form.optional}}</span></label>
-              <input id="f-date" class="input-short" name="preferred_date" type="date" aria-describedby="f-date-hint">
-              <p class="hint" id="f-date-hint">{{t:form.dateHint}}</p>
             </div>
 
             <div class="field">
               <label for="f-details">{{t:form.details}}</label>
-              <textarea id="f-details" name="details" rows="5" required maxlength="1500" aria-describedby="f-details-hint"></textarea>
+              <textarea id="f-details" name="details" rows="4" required maxlength="1500" aria-describedby="f-details-hint"></textarea>
               <p class="hint" id="f-details-hint">{{t:form.detailsHint}}</p>
               <p class="field-error" id="f-details-error" hidden></p>
             </div>
 
             {{#if form.fileUploads}}
             <div class="field" id="f-photos-field">
-              <label for="f-photos">{{t:form.photos}} <span class="optional">{{t:form.optional}}</span></label>
-              <input id="f-photos" name="photos" type="file" accept="image/*" multiple aria-describedby="f-photos-hint">
+              <span class="field-label" id="f-photos-label">{{t:form.photos}} <span class="optional">{{t:form.optional}}</span></span>
+              <label class="file-drop" for="f-photos">
+                <input id="f-photos" class="file-input" name="photos" type="file" accept="image/*" multiple aria-labelledby="f-photos-label" aria-describedby="f-photos-hint f-photos-chosen">
+                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="4"/></svg>
+                <span class="file-drop-text">{{t:form.photosButton}}</span>
+              </label>
+              <p class="file-chosen" id="f-photos-chosen" aria-live="polite"></p>
               <p class="hint" id="f-photos-hint">{{t:form.photosHint}}</p>
               <p class="field-error" id="f-photos-error" hidden></p>
             </div>

@@ -3,8 +3,8 @@
   "lang": "pl",
   "ogLocale": "pl_PL",
   "meta": {
-    "title": "Sprzątanie po zakończeniu najmu i sprzątanie gruntowne – Wimbledon | {{business.name}}",
-    "description": "Sprzątanie po zakończeniu najmu, po remoncie, jednorazowe sprzątanie gruntowne i regularne sprzątanie w Wimbledonie i południowo-zachodnim Londynie. Zakres i cenę ustalasz bezpośrednio z Renatą przed rezerwacją."
+    "title": "Sprzątanie po najmie i gruntowne – Wimbledon | {{business.name}}",
+    "description": "Sprzątanie po najmie, po remoncie, gruntowne i regularne w Wimbledonie i południowo-zachodnim Londynie. Cenę ustalasz z Renatą przed rezerwacją."
   },
   "skip": "Przejdź do treści",
   "langSwitch": {
@@ -83,14 +83,14 @@
   },
   "reviews": {
     "title": "Opinie klientów",
-    "summary": "Ocena w Google: <strong>{{reviews.rating}}</strong> ({{reviews.count}})",
-    "readAll": "Przeczytaj wszystkie opinie w Google",
+    "summary": "<strong>{{reviews.rating}}</strong> na 5 · liczba opinii: {{reviews.count}}",
+    "badgeTitle": "Opinie w Google",
+    "badgeSub": "Profil firmy Renaty w Google",
     "draft": "Układ przykładowy. Opinie pojawią się dopiero po dodaniu prawdziwych opinii do <code>site.config.json</code>.",
     "stars": "{{attr:.stars}} na 5 gwiazdek",
     "emptyTitle": "Opinie",
     "empty": "Profil firmy Renaty w Google jest nowy, więc nie ma tam jeszcze opinii. Jeśli Renata u Ciebie sprzątała, kilka słów o Twoich wrażeniach pomoże innym ją znaleźć.",
-    "write": "Wystaw opinię w Google",
-    "profile": "Zobacz profil w Google"
+    "write": "Wystaw opinię w Google"
   },
   "eco": {
     "title": "Naturalne składniki, dokładne efekty",
@@ -125,27 +125,20 @@
   },
   "form": {
     "language": "polski",
-    "intro": "Wszystkie pola są wymagane, chyba że oznaczono je jako opcjonalne.",
     "name": "Imię i nazwisko",
     "contactLegend": "Jak mamy się z Tobą skontaktować?",
-    "contactHint": "Podaj numer telefonu, adres e-mail lub oba.",
+    "contactHint": "Numer telefonu, adres e-mail lub oba.",
     "phone": "Telefon",
     "email": "E-mail",
     "postcode": "Kod pocztowy nieruchomości",
-    "postcodeHint": "Abyśmy mogli sprawdzić, czy obsługujemy ten obszar.",
-    "propertyType": "Rodzaj nieruchomości",
-    "propertySize": "Wielkość nieruchomości",
     "choose": "Wybierz…",
-    "propertyTypes": "<option>Mieszkanie</option><option>Dom</option><option>Mieszkanie dwupoziomowe (maisonette)</option><option>Dom parterowy (bungalow)</option><option>Inne</option>",
-    "propertySizes": "<option>Kawalerka (studio)</option><option>1 sypialnia</option><option>2 sypialnie</option><option>3 sypialnie</option><option>4 sypialnie</option><option>5+ sypialni</option>",
-    "service": "Rodzaj usługi",
+    "service": "Usługa",
     "notSure": "Jeszcze nie wiem",
-    "date": "Preferowany termin",
     "optional": "(opcjonalnie)",
-    "dateHint": "Dostępność potwierdzimy w odpowiedzi.",
-    "details": "Stan nieruchomości i inne ważne informacje",
-    "detailsHint": "Na przykład: 2 łazienki, bez mebli, dużo kamienia pod prysznicem, wyprowadzka w piątek.",
+    "details": "O zleceniu",
+    "detailsHint": "Wielkość i stan nieruchomości oraz ewentualne terminy. Na przykład: mieszkanie z 2 sypialniami, dużo kamienia pod prysznicem, wyprowadzka w piątek.",
     "photos": "Zdjęcia nieruchomości",
+    "photosButton": "Dodaj zdjęcia",
     "photosHint": "Do 5 zdjęć, łącznie do 20 MB. Zdjęcia pomagają przygotować dokładną wycenę.",
     "honeypot": "Zostaw to pole puste",
     "submit": "Wyślij zapytanie",
@@ -172,7 +165,7 @@
     "contact": "Kontakt:",
     "or": "lub",
     "collectTitle": "Jakie dane zbieramy",
-    "collectList": "<li>Imię i nazwisko oraz podany numer telefonu i/lub adres e-mail</li><li>Kod pocztowy nieruchomości</li><li>Rodzaj i wielkość nieruchomości, wybraną usługę, opis zlecenia i ewentualny preferowany termin</li><li>Zdjęcia nieruchomości, jeśli zdecydujesz się je dołączyć</li>",
+    "collectList": "<li>Imię i nazwisko oraz podany numer telefonu i/lub adres e-mail</li><li>Kod pocztowy nieruchomości</li><li>Wybraną usługę i opis zlecenia, w tym ewentualne terminy</li><li>Zdjęcia nieruchomości, jeśli zdecydujesz się je dołączyć</li>",
     "whatsapp": "Jeśli zamiast tego napiszesz na WhatsAppie, Twoje wiadomości i zdjęcia są również przetwarzane przez WhatsApp zgodnie z jego polityką prywatności.",
     "whyTitle": "Do czego je wykorzystujemy",
     "why": "Wyłącznie do odpowiedzi na zapytanie, przygotowania wyceny i – jeśli zdecydujesz się na usługę – umówienia sprzątania. Podstawą prawną jest podjęcie działań na Twoje żądanie przed zawarciem umowy.",
@@ -185,6 +178,12 @@
     "receiveFallback": "Nie sprzedajemy Twoich danych ani nie udostępniamy ich w celach marketingowych. Przekazujemy je wyłącznie dostawcom usług, którzy pomagają nam odbierać zapytania i nimi zarządzać, np. dostawcy poczty e-mail.",
     "keepFallback": "Przechowujemy Twoje dane tylko tak długo, jak to potrzebne, aby odpowiedzieć na zapytanie, a jeśli zarezerwujesz usługę – aby ją wykonać i prowadzić wymaganą prawem dokumentację. Dane z zapytań, które nie zakończyły się rezerwacją, usuwamy, gdy nie są już potrzebne."
   },
+  "notFound": {
+    "title": "Nie znaleziono strony",
+    "text": "Przepraszamy, ta strona nie istnieje lub została przeniesiona.",
+    "home": "Przejdź do strony głównej",
+    "contact": "Możesz też zadzwonić pod <a href=\"{{attr:phoneHref}}\">{{business.phoneDisplay}}</a> lub napisać na <a href=\"{{attr:mailHref}}\">{{business.email}}</a>."
+  },
   "js": {
     "name": "Podaj imię i nazwisko.",
     "contactMissing": "Podaj numer telefonu lub adres e-mail, abyśmy mogli odpowiedzieć.",
@@ -192,10 +191,8 @@
     "phoneShort": "Podaj numer telefonu składający się z co najmniej 10 cyfr.",
     "postcodeMissing": "Podaj kod pocztowy nieruchomości.",
     "postcodeInvalid": "Podaj pełny brytyjski kod pocztowy, np. SW19 1AA.",
-    "propertyType": "Wybierz rodzaj nieruchomości.",
-    "propertySize": "Wybierz wielkość nieruchomości.",
     "service": "Wybierz usługę lub „Jeszcze nie wiem”.",
-    "details": "Napisz kilka słów o stanie nieruchomości i zakresie prac.",
+    "details": "Napisz kilka słów o zleceniu.",
     "photosCount": "Możesz wybrać maksymalnie {n} zdjęć.",
     "photosType": "Zdjęcia muszą być plikami graficznymi, np. JPEG lub PNG.",
     "photosSize": "Wybrane zdjęcia mają łącznie {mb} MB. Wybierz mniej – maksymalnie 20 MB łącznie.",
@@ -209,6 +206,7 @@
     "contactFallback": "skontaktuj się z nami bezpośrednio",
     "notConnected": "<h3>Formularz nie jest jeszcze podłączony</h3><p>Twoje zapytanie <strong>nie</strong> zostało wysłane. Zamiast tego {contact}. Wpisane informacje nadal są w formularzu.</p>",
     "success": "<h3>Dziękujemy, zapytanie zostało wysłane</h3><p>Odpowiemy, korzystając z podanych danych kontaktowych, aby potwierdzić zakres prac i wycenę. W pilnej sprawie {contact}.</p>",
-    "failed": "<h3>Nie udało się wysłać zapytania</h3><p>Nic nie zostało utracone. Sprawdź połączenie i ponownie naciśnij „{label}” albo {contact}.</p>"
+    "failed": "<h3>Nie udało się wysłać zapytania</h3><p>Nic nie zostało utracone. Sprawdź połączenie i ponownie naciśnij „{label}” albo {contact}.</p>",
+    "photosChosen": "Wybrane zdjęcia: {n}"
   }
 }

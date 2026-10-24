@@ -110,6 +110,7 @@ function makeCtx(locale) {
   const photoSlots = [
     ['hero.photo', config.hero.photo],
     ['founder.photo', config.founder.photo],
+    ...(config.founder.morePhoto ? [['founder.morePhoto', config.founder.morePhoto]] : []),
     ...config.results.flatMap((r, i) => [[`results.${i}.before`, r.beforeImg], [`results.${i}.after`, r.afterImg]]),
     ...config.tackle.map((x, i) => [`tackle.${i}.photo`, x.img]),
   ];
@@ -227,7 +228,10 @@ function image(s, sizes = '100vw', eager = false) {
   }
   const set = (ext) => [480, 720, 1000].map((w) => `${ctx.base}assets/img/${s.name}-${w}.${ext} ${w}w`).join(', ');
   const load = eager ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"';
-  return `<picture><source type="image/webp" srcset="${set('webp')}" sizes="${sizes}">` +
+  // AVIF first (smallest) only when tools/images.js has made it; browsers skip types they can't show.
+  const avif = fs.existsSync(path.join(srcDir, 'assets', 'img', `${s.name}-480.avif`))
+    ? `<source type="image/avif" srcset="${set('avif')}" sizes="${sizes}">` : '';
+  return `<picture>${avif}<source type="image/webp" srcset="${set('webp')}" sizes="${sizes}">` +
     `<img src="${ctx.base}assets/img/${s.name}-720.jpg" srcset="${set('jpg')}" sizes="${sizes}" ` +
     `width="${s.width || 1000}" height="${s.height || 750}" ${load} alt="${attr(s.alt)}"></picture>`;
 }
@@ -311,10 +315,17 @@ for (const locale of LOCALES) {
     ctx.base = '../'.repeat(depth + (locale.dir ? 1 : 0));
     ctx.home = file === 'index.html' ? '' : ctx.root || './';
     ctx.altHref = ctx.base + pageUrl(other, file) || './';
+    // The 404 page is served at whatever URL was missing, so its links must be absolute.
+    const notFound = file === '404.html';
+    if (notFound) {
+      ctx.base = '/';
+      ctx.root = ctx.home = '/' + (locale.dir ? `${locale.dir}/` : '');
+      ctx.altHref = '/' + pageUrl(other, file);
+    }
 
     // Canonical and language alternates only with the verified production URL.
     const head = [];
-    if (ctx.siteUrl) {
+    if (ctx.siteUrl && !notFound) {
       const url = (l) => `${ctx.siteUrl}/${pageUrl(l, file)}`;
       head.push(`<link rel="canonical" href="${esc(url(locale))}">`, `<meta property="og:url" content="${esc(url(locale))}">`);
       for (const l of LOCALES) head.push(`<link rel="alternate" hreflang="${l.code}" href="${esc(url(l))}">`);

@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "src/styles.css"
+        ],
+        "createdAt": "2026-10-22T03:48:30.835Z",
+        "reason": "Claude: .stars uses a hard-stop gradient to fill a partial star rating (functional, existing code, not decorative)"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "src/index.html"
+        ],
+        "createdAt": "2026-10-24T10:47:22.197Z",
+        "reason": "Claude: false positive on the template; detector can't load {{base}}styles.css so it measures every role at 16px. Built page (localhost scan) passes with 34/26/20/17px steps."
+      }
+    ]
+  }
+}

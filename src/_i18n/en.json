@@ -4,7 +4,7 @@
   "ogLocale": "en_GB",
   "meta": {
     "title": "End of Tenancy &amp; Deep Cleaning in {{business.locality}} | {{business.name}}",
-    "description": "End-of-tenancy, after-builders, one-off deep and regular cleaning across {{business.location}}. Owner-led by {{business.owner}}, with the scope and price agreed before you book."
+    "description": "End of tenancy, after-builders, deep and regular cleaning in {{business.location}}. Owner-led, with a clear price agreed before you book."
   },
   "skip": "Skip to main content",
   "langSwitch": {
@@ -83,14 +83,14 @@
   },
   "reviews": {
     "title": "What customers say",
-    "summary": "Google rating: <strong>{{reviews.rating}}</strong> ({{reviews.count}})",
-    "readAll": "Read all reviews on Google",
+    "summary": "<strong>{{reviews.rating}}</strong> out of 5 · {{reviews.count}} reviews",
+    "badgeTitle": "Reviews on Google",
+    "badgeSub": "Renata’s Google Business Profile",
     "draft": "Placeholder layout. No reviews are shown until genuine ones are added to <code>site.config.json</code>.",
     "stars": "{{attr:.stars}} out of 5 stars",
     "emptyTitle": "Reviews",
     "empty": "Renata’s Google Business Profile is new, so there are no reviews on it yet. If she has cleaned for you, a few words about your experience would help others find her.",
-    "write": "Leave a review on Google",
-    "profile": "See Renata on Google"
+    "write": "Leave a review on Google"
   },
   "eco": {
     "title": "Natural-based products, thorough results",
@@ -125,27 +125,20 @@
   },
   "form": {
     "language": "English",
-    "intro": "All fields are required unless marked optional.",
     "name": "Your name",
     "contactLegend": "How should we reply?",
-    "contactHint": "Give a phone number, an email address, or both.",
+    "contactHint": "A phone number, an email address, or both.",
     "phone": "Phone",
     "email": "Email",
     "postcode": "Postcode of the property",
-    "postcodeHint": "So we can check it’s in the area we cover.",
-    "propertyType": "Property type",
-    "propertySize": "Property size",
     "choose": "Choose…",
-    "propertyTypes": "<option>Flat or apartment</option><option>House</option><option>Maisonette</option><option>Bungalow</option><option>Other</option>",
-    "propertySizes": "<option>Studio</option><option>1 bedroom</option><option>2 bedrooms</option><option>3 bedrooms</option><option>4 bedrooms</option><option>5+ bedrooms</option>",
-    "service": "Service required",
+    "service": "Service",
     "notSure": "Not sure yet",
-    "date": "Preferred date",
     "optional": "(optional)",
-    "dateHint": "We’ll confirm availability when we reply.",
-    "details": "Property condition and anything else we should know",
-    "detailsHint": "For example: 2 bathrooms, unfurnished, heavy limescale in the shower, checkout on Friday.",
+    "details": "About the job",
+    "detailsHint": "Size and condition of the property, and any dates. For example: 2-bed flat, heavy limescale in the shower, checkout on Friday.",
     "photos": "Photos of the property",
+    "photosButton": "Add photos",
     "photosHint": "Up to 5 photos, 20 MB in total. Photos help give an accurate quote.",
     "honeypot": "Leave this empty",
     "submit": "Get my quote",
@@ -172,7 +165,7 @@
     "contact": "Contact:",
     "or": "or",
     "collectTitle": "What we collect",
-    "collectList": "<li>Your name and the phone number and/or email address you give us</li><li>The postcode of the property</li><li>The property type and size, the service you need, your description of the job and any preferred date</li><li>Any photos of the property you choose to attach</li>",
+    "collectList": "<li>Your name and the phone number and/or email address you give us</li><li>The postcode of the property</li><li>The service you need and your description of the job, including any dates you mention</li><li>Any photos of the property you choose to attach</li>",
     "whatsapp": "If you message us on WhatsApp instead, your messages and photos are also handled by WhatsApp under its own privacy policy.",
     "whyTitle": "Why we use it",
     "why": "Only to reply to your enquiry, prepare a quote and, if you go ahead, arrange the clean. The lawful basis is taking steps at your request before entering into a contract.",
@@ -185,6 +178,12 @@
     "receiveFallback": "We don’t sell your details or share them for marketing. They’re only shared with service providers that help us receive and manage enquiries, such as our email provider.",
     "keepFallback": "We keep your details only for as long as we need them to reply to your enquiry and, if you book, to provide the clean and keep the records the law requires. Details from enquiries that don’t lead to a booking are deleted once they’re no longer needed."
   },
+  "notFound": {
+    "title": "Page not found",
+    "text": "Sorry, that page doesn’t exist or may have moved.",
+    "home": "Go to the home page",
+    "contact": "You can also call <a href=\"{{attr:phoneHref}}\">{{business.phoneDisplay}}</a> or email <a href=\"{{attr:mailHref}}\">{{business.email}}</a>."
+  },
   "js": {
     "name": "Enter your name.",
     "contactMissing": "Enter a phone number or an email address so we can reply.",
@@ -192,10 +191,8 @@
     "phoneShort": "Enter a phone number with at least 10 digits.",
     "postcodeMissing": "Enter the postcode of the property.",
     "postcodeInvalid": "Enter a full UK postcode, for example SW1A 1AA.",
-    "propertyType": "Choose the type of property.",
-    "propertySize": "Choose the size of the property.",
     "service": "Choose the service you need, or “Not sure yet”.",
-    "details": "Tell us a little about the property’s condition and the job.",
+    "details": "Tell us a little about the job.",
     "photosCount": "Choose up to {n} photos.",
     "photosType": "Photos must be image files, such as JPEG or PNG.",
     "photosSize": "Those photos add up to {mb} MB. Choose fewer, up to 20 MB in total.",
@@ -209,6 +206,7 @@
     "contactFallback": "contact us directly",
     "notConnected": "<h3>This form isn’t connected yet</h3><p>Your enquiry has <strong>not</strong> been sent. Please {contact} instead. What you’ve typed is still in the form.</p>",
     "success": "<h3>Thank you, your enquiry has been sent</h3><p>We’ll reply using the contact details you gave to confirm the scope and quote. If it’s urgent, {contact}.</p>",
-    "failed": "<h3>Your enquiry didn’t send</h3><p>Nothing has been lost. Check your connection and press “{label}” again, or {contact}.</p>"
+    "failed": "<h3>Your enquiry didn’t send</h3><p>Nothing has been lost. Check your connection and press “{label}” again, or {contact}.</p>",
+    "photosChosen": "Photos chosen: {n}"
   }
 }
