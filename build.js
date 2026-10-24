@@ -263,6 +263,16 @@ function render(tpl, scope = {}) {
   });
 }
 
+// Short content hash of a file in src/, for cache-busting links (changes only when the file does).
+const fingerprints = {};
+function fingerprint(file) {
+  if (!fingerprints[file]) {
+    fingerprints[file] = require('crypto').createHash('sha256')
+      .update(fs.readFileSync(path.join(srcDir, file))).digest('hex').slice(0, 10);
+  }
+  return fingerprints[file];
+}
+
 // Pages: every .html under src/ except partials, keeping folder structure,
 // so e.g. src/end-of-tenancy-cleaning/index.html → /end-of-tenancy-cleaning/.
 function pages(dir, rel = '') {
@@ -337,8 +347,11 @@ for (const locale of LOCALES) {
     const out = path.join(outDir, locale.dir, file);
     fs.mkdirSync(path.dirname(out), { recursive: true });
     const html = render(fs.readFileSync(path.join(srcDir, file), 'utf8'));
-    // Template comments are for editors, not visitors.
-    fs.writeFileSync(out, html.replace(/[ \t]*<!--[\s\S]*?-->\r?\n?/g, ''));
+    // Template comments are for editors, not visitors. The stylesheet and script links get a
+    // fingerprint of their contents (styles.css?v=…), so browsers fetch them again only when they change.
+    fs.writeFileSync(out, html
+      .replace(/[ \t]*<!--[\s\S]*?-->\r?\n?/g, '')
+      .replace(/((?:href|src)="[^"]*\b(styles\.css|main\.js))"/g, (_, url, name) => `${url}?v=${fingerprint(name)}"`));
 
     if (ctx.siteUrl && !/<meta name="robots" content="[^"]*noindex/.test(html)) {
       if (!indexable.has(file)) indexable.set(file, {});
