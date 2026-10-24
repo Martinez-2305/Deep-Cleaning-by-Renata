@@ -95,6 +95,10 @@
     { "service": "Sprzątanie gruntowne" }
   ],
 
+  "privacy": {
+    "processorDetails": "Formspree, Inc. przechowuje zapytania na serwerach Amazon Web Services w Stanach Zjednoczonych. Przekazywanie danych jest objęte standardowymi klauzulami umownymi. Polityka prywatności Formspree: https://formspree.io/legal/privacy-policy/"
+  },
+
   "faqs": [
     {
       "q": "Co obejmuje sprzątanie?",

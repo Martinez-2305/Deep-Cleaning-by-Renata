@@ -125,6 +125,7 @@
   },
   "form": {
     "language": "polski",
+    "subject": "Nowe zapytanie o wycenę ze strony (wersja polska)",
     "name": "Imię i nazwisko",
     "contactLegend": "Jak mamy się z Tobą skontaktować?",
     "contactHint": "Numer telefonu, adres e-mail lub oba.",
@@ -138,8 +139,9 @@
     "details": "O zleceniu",
     "detailsHint": "Wielkość i stan nieruchomości oraz ewentualne terminy. Na przykład: mieszkanie z 2 sypialniami, dużo kamienia pod prysznicem, wyprowadzka w piątek.",
     "photos": "Zdjęcia nieruchomości",
-    "photosButton": "Dodaj zdjęcia",
-    "photosHint": "Do 5 zdjęć, łącznie do 20 MB. Zdjęcia pomagają przygotować dokładną wycenę.",
+    "photosWa": "Chcę wysłać zdjęcia przez WhatsApp",
+    "photosWaValue": "Tak, wyślę zdjęcia przez WhatsApp",
+    "photosHint": "Zdjęcia pomagają przygotować dokładną wycenę. Po wysłaniu formularza przycisk otworzy czat WhatsApp z Renatą z gotową kopią zapytania. Wystarczy dodać zdjęcia i wysłać.",
     "honeypot": "Zostaw to pole puste",
     "submit": "Wyślij zapytanie",
     "privacy": "Sprawdź, jak wykorzystujemy Twoje dane, w <a href=\"{{attr:site.privacyPath}}\">informacji o prywatności</a>."
@@ -165,7 +167,7 @@
     "contact": "Kontakt:",
     "or": "lub",
     "collectTitle": "Jakie dane zbieramy",
-    "collectList": "<li>Imię i nazwisko oraz podany numer telefonu i/lub adres e-mail</li><li>Kod pocztowy nieruchomości</li><li>Wybraną usługę i opis zlecenia, w tym ewentualne terminy</li><li>Zdjęcia nieruchomości, jeśli zdecydujesz się je dołączyć</li>",
+    "collectList": "<li>Imię i nazwisko oraz podany numer telefonu i/lub adres e-mail</li><li>Kod pocztowy nieruchomości</li><li>Wybraną usługę i opis zlecenia, w tym ewentualne terminy</li><li>Informację, czy chcesz wysłać zdjęcia przez WhatsApp (same zdjęcia wysyłasz przez WhatsApp, nie przez ten formularz)</li>",
     "whatsapp": "Jeśli zamiast tego napiszesz na WhatsAppie, Twoje wiadomości i zdjęcia są również przetwarzane przez WhatsApp zgodnie z jego polityką prywatności.",
     "whyTitle": "Do czego je wykorzystujemy",
     "why": "Wyłącznie do odpowiedzi na zapytanie, przygotowania wyceny i – jeśli zdecydujesz się na usługę – umówienia sprzątania. Podstawą prawną jest podjęcie działań na Twoje żądanie przed zawarciem umowy.",
@@ -193,9 +195,6 @@
     "postcodeInvalid": "Podaj pełny brytyjski kod pocztowy, np. SW19 1AA.",
     "service": "Wybierz usługę lub „Jeszcze nie wiem”.",
     "details": "Napisz kilka słów o zleceniu.",
-    "photosCount": "Możesz wybrać maksymalnie {n} zdjęć.",
-    "photosType": "Zdjęcia muszą być plikami graficznymi, np. JPEG lub PNG.",
-    "photosSize": "Wybrane zdjęcia mają łącznie {mb} MB. Wybierz mniej – maksymalnie 20 MB łącznie.",
     "sliderValue": "{before}% przed, {after}% po",
     "sending": "Wysyłanie…",
     "waPrefix": "napisz ",
@@ -207,6 +206,9 @@
     "notConnected": "<h3>Formularz nie jest jeszcze podłączony</h3><p>Twoje zapytanie <strong>nie</strong> zostało wysłane. Zamiast tego {contact}. Wpisane informacje nadal są w formularzu.</p>",
     "success": "<h3>Dziękujemy, zapytanie zostało wysłane</h3><p>Odpowiemy, korzystając z podanych danych kontaktowych, aby potwierdzić zakres prac i wycenę. W pilnej sprawie {contact}.</p>",
     "failed": "<h3>Nie udało się wysłać zapytania</h3><p>Nic nie zostało utracone. Sprawdź połączenie i ponownie naciśnij „{label}” albo {contact}.</p>",
-    "photosChosen": "Wybrane zdjęcia: {n}"
+    "successWa": "<h3>Dziękujemy, zapytanie zostało wysłane</h3><p>Teraz zdjęcia: przycisk poniżej otworzy WhatsApp z kopią Twojego zapytania. Dotknij spinacza lub aparatu, aby dodać zdjęcia, i wyślij.</p>",
+    "waButton": "Wyślij zdjęcia przez WhatsApp",
+    "waIntro": "Dzień dobry, moje zapytanie o wycenę zostało właśnie wysłane przez stronę. Przesyłam zdjęcia nieruchomości.",
+    "waFields": "name=Imię i nazwisko|phone=Telefon|email=E-mail|postcode=Kod pocztowy|service=Usługa|details=O zleceniu"
   }
 }

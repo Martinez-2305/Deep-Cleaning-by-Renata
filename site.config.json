@@ -80,10 +80,9 @@
   },
 
   "form": {
-    "_help": "POST endpoint that accepts form data and returns JSON (e.g. Formspree, Basin, Getform, or your own). Enquiries go to deepcleaning.renata@gmail.com. Leave as a placeholder and the form will tell visitors to use WhatsApp, phone or email instead. Set fileUploads to false if the provider's plan doesn't accept file uploads.",
-    "endpoint": "[[Form endpoint URL]]",
-    "processor": "[[Name of the form service that receives enquiries]]",
-    "fileUploads": true
+    "_help": "POST endpoint that accepts form data and returns JSON (e.g. Formspree, Basin, Getform, or your own). Enquiries go to deepcleaning.renata@gmail.com. Leave as a placeholder and the form will tell visitors to use WhatsApp, phone or email instead. Photos aren't uploaded through the form: customers send them on WhatsApp (business.whatsapp), using the button on the thank-you message.",
+    "endpoint": "https://formspree.io/f/mqppaeqe",
+    "processor": "Formspree"
   },
 
   "eco": {
@@ -94,7 +93,7 @@
   },
 
   "privacy": {
-    "processorDetails": "[[Where the form provider stores data, with a link to its privacy policy]]",
+    "processorDetails": "Formspree, Inc. stores enquiries on Amazon Web Services servers in the United States. Transfers are covered by Standard Contractual Clauses. Formspree’s privacy policy: https://formspree.io/legal/privacy-policy/",
     "retention": "[[How long enquiries and photos are kept, e.g. deleted after 12 months if no booking follows]]",
     "ico": "[[ICO registration number, or confirm whether registration is needed]]"
   },

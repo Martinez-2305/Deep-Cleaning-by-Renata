@@ -125,6 +125,7 @@
   },
   "form": {
     "language": "English",
+    "subject": "New quote request from the website",
     "name": "Your name",
     "contactLegend": "How should we reply?",
     "contactHint": "A phone number, an email address, or both.",
@@ -138,8 +139,9 @@
     "details": "About the job",
     "detailsHint": "Size and condition of the property, and any dates. For example: 2-bed flat, heavy limescale in the shower, checkout on Friday.",
     "photos": "Photos of the property",
-    "photosButton": "Add photos",
-    "photosHint": "Up to 5 photos, 20 MB in total. Photos help give an accurate quote.",
+    "photosWa": "I’d like to send photos on WhatsApp",
+    "photosWaValue": "Yes, sending photos on WhatsApp",
+    "photosHint": "Photos help give an accurate quote. After you send this form, a button opens a WhatsApp chat with Renata, with a copy of your enquiry ready to go. Just add your photos and send.",
     "honeypot": "Leave this empty",
     "submit": "Get my quote",
     "privacy": "Read how we use your details in our <a href=\"{{attr:site.privacyPath}}\">privacy notice</a>."
@@ -165,7 +167,7 @@
     "contact": "Contact:",
     "or": "or",
     "collectTitle": "What we collect",
-    "collectList": "<li>Your name and the phone number and/or email address you give us</li><li>The postcode of the property</li><li>The service you need and your description of the job, including any dates you mention</li><li>Any photos of the property you choose to attach</li>",
+    "collectList": "<li>Your name and the phone number and/or email address you give us</li><li>The postcode of the property</li><li>The service you need and your description of the job, including any dates you mention</li><li>Whether you’d like to send photos on WhatsApp (photos themselves are sent through WhatsApp, not this form)</li>",
     "whatsapp": "If you message us on WhatsApp instead, your messages and photos are also handled by WhatsApp under its own privacy policy.",
     "whyTitle": "Why we use it",
     "why": "Only to reply to your enquiry, prepare a quote and, if you go ahead, arrange the clean. The lawful basis is taking steps at your request before entering into a contract.",
@@ -193,9 +195,6 @@
     "postcodeInvalid": "Enter a full UK postcode, for example SW1A 1AA.",
     "service": "Choose the service you need, or “Not sure yet”.",
     "details": "Tell us a little about the job.",
-    "photosCount": "Choose up to {n} photos.",
-    "photosType": "Photos must be image files, such as JPEG or PNG.",
-    "photosSize": "Those photos add up to {mb} MB. Choose fewer, up to 20 MB in total.",
     "sliderValue": "{before}% before, {after}% after",
     "sending": "Sending…",
     "waPrefix": "message ",
@@ -207,6 +206,9 @@
     "notConnected": "<h3>This form isn’t connected yet</h3><p>Your enquiry has <strong>not</strong> been sent. Please {contact} instead. What you’ve typed is still in the form.</p>",
     "success": "<h3>Thank you, your enquiry has been sent</h3><p>We’ll reply using the contact details you gave to confirm the scope and quote. If it’s urgent, {contact}.</p>",
     "failed": "<h3>Your enquiry didn’t send</h3><p>Nothing has been lost. Check your connection and press “{label}” again, or {contact}.</p>",
-    "photosChosen": "Photos chosen: {n}"
+    "successWa": "<h3>Thank you, your enquiry has been sent</h3><p>Now for your photos: the button below opens WhatsApp with a copy of your enquiry. Tap the paperclip or camera to add your photos, then send.</p>",
+    "waButton": "Send photos on WhatsApp",
+    "waIntro": "Hi Renata, I’ve just sent a quote request through your website. Here are some photos of the property.",
+    "waFields": "name=Name|phone=Phone|email=Email|postcode=Postcode|service=Service|details=About the job"
   }
 }
