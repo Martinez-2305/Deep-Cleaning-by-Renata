@@ -71,7 +71,9 @@
       entries.forEach(function (en) { if (en.isIntersecting) visible.add(en.target); else visible.delete(en.target); });
       var hide = visible.size > 0;
       bar.classList.toggle('is-hidden', hide);
-      bar.setAttribute('aria-hidden', hide ? 'true' : 'false');
+      // inert also takes the hidden bar's buttons out of the keyboard order straight away.
+      bar.inert = hide;
+      if (hide) bar.setAttribute('aria-hidden', 'true'); else bar.removeAttribute('aria-hidden');
     });
     [document.querySelector('.hero .actions'), document.getElementById('quote'), document.querySelector('.site-footer')].forEach(function (el) { if (el) io.observe(el); });
   }
@@ -123,12 +125,7 @@
         return POSTCODE.test(pc) ? '' : msg('postcodeInvalid');
       }
     },
-    { el: 'f-property', check: function () { return val('property_type') ? '' : msg('propertyType'); } },
-    { el: 'f-size', check: function () { return val('property_size') ? '' : msg('propertySize'); } },
-    {
-      el: 'f-type', focus: 'f-type',
-      check: function () { return form.querySelector('input[name="service"]:checked') ? '' : msg('service'); }
-    },
+    { el: 'f-service', check: function () { return val('service') ? '' : msg('service'); } },
     {
       el: 'f-details',
       check: function () { return val('details').length >= 10 ? '' : msg('details'); }
@@ -147,6 +144,12 @@
         if (total > MAX_BYTES) return msg('photosSize', { mb: (total / 1048576).toFixed(1) });
         return '';
       }
+    });
+    // List the chosen photos under the "Add photos" button.
+    var chosen = document.getElementById('f-photos-chosen');
+    photos.addEventListener('change', function () {
+      var names = Array.prototype.map.call(photos.files || [], function (f) { return f.name; });
+      chosen.textContent = names.length ? msg('photosChosen', { n: names.length }) + ' · ' + names.join(', ') : '';
     });
   }
 
@@ -197,13 +200,6 @@
     });
   });
 
-  // Earliest allowed preferred date is today.
-  var date = document.getElementById('f-date');
-  if (date) {
-    var d = new Date();
-    date.min = [d.getFullYear(), ('0' + (d.getMonth() + 1)).slice(-2), ('0' + d.getDate()).slice(-2)].join('-');
-  }
-
   function showStatus(kind, html) {
     statusBox.className = 'form-status is-' + kind;
     statusBox.innerHTML = html;
@@ -224,8 +220,7 @@
 
     var invalid = validate();
     if (invalid) {
-      if (invalid.focus === 'f-type') form.querySelector('input[name="service"]').focus();
-      else document.getElementById(invalid.focus || invalid.el).focus();
+      document.getElementById(invalid.focus || invalid.el).focus();
       return;
     }
 
@@ -261,7 +256,10 @@
   document.addEventListener('click', function (e) {
     var link = e.target.closest && e.target.closest('a[data-service]');
     if (!link) return;
-    var radio = form.querySelector('input[data-service="' + link.getAttribute('data-service') + '"]');
-    if (radio) radio.checked = true;
+    var option = form.querySelector('option[data-service="' + link.getAttribute('data-service') + '"]');
+    if (option) {
+      option.selected = true;
+      document.getElementById('f-service').dispatchEvent(new Event('change', { bubbles: true }));
+    }
   });
 })();
