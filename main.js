@@ -60,6 +60,36 @@
     };
     range.addEventListener('input', update);
     update();
+
+    // Plays on its own when it scrolls into view: sweeps to show the "before", then the
+    // "after", and settles in the middle. Stops for good once the visitor moves it, and
+    // never runs for reduced-motion settings.
+    var touched = false, frame = 0;
+    var stop = function () { touched = true; cancelAnimationFrame(frame); };
+    ['pointerdown', 'keydown', 'input'].forEach(function (ev) { range.addEventListener(ev, function (e) { if (e.isTrusted) stop(); }); });
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (!('IntersectionObserver' in window) || still.matches) return;
+    var keys = [[0, 50], [900, 92], [2100, 8], [3000, 50]]; // [ms, % of "before" shown]
+    var ease = function (t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; };
+    var play = function () {
+      var start = performance.now();
+      var step = function (now) {
+        if (touched) return;
+        var ms = now - start, i = 1;
+        while (i < keys.length - 1 && ms > keys[i][0]) i++;
+        var a = keys[i - 1], b = keys[i], t = Math.min(1, Math.max(0, (ms - a[0]) / (b[0] - a[0])));
+        ba.style.setProperty('--pos', (a[1] + (b[1] - a[1]) * ease(t)).toFixed(2) + '%');
+        if (ms < keys[keys.length - 1][0]) frame = requestAnimationFrame(step);
+        else update();
+      };
+      frame = requestAnimationFrame(step);
+    };
+    var seen = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting && !touched) { seen.disconnect(); setTimeout(play, 250); }
+      });
+    }, { threshold: 0.6 });
+    seen.observe(ba);
   });
 
   // Hide the mobile action bar while the hero buttons, the form or the footer are on
@@ -76,6 +106,74 @@
       if (hide) bar.setAttribute('aria-hidden', 'true'); else bar.removeAttribute('aria-hidden');
     });
     [document.querySelector('.hero .actions'), document.getElementById('quote'), document.querySelector('.site-footer')].forEach(function (el) { if (el) io.observe(el); });
+  }
+
+  // Gallery page: filter buttons and a full-size photo viewer (arrows, keyboard, swipe).
+  // Without JavaScript every photo shows and each one links to its full-size image.
+  var grid = document.querySelector('.gallery-grid');
+  if (grid) {
+    var tiles = Array.prototype.slice.call(grid.querySelectorAll('li'));
+    var filters = document.querySelector('.gallery-filters');
+    var galleryStatus = document.getElementById('gallery-status');
+    if (filters) {
+      filters.hidden = false;
+      filters.addEventListener('click', function (e) {
+        var chip = e.target.closest('.chip');
+        if (!chip) return;
+        var cat = chip.getAttribute('data-filter'), shown = 0;
+        Array.prototype.forEach.call(filters.querySelectorAll('.chip'), function (c) { c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
+        tiles.forEach(function (li) {
+          li.hidden = cat !== 'all' && li.getAttribute('data-cat') !== cat;
+          if (!li.hidden) shown++;
+        });
+        galleryStatus.textContent = msg('galleryShown', { n: shown });
+      });
+    }
+
+    var box = document.getElementById('lightbox');
+    if (box && typeof box.showModal === 'function') {
+      var pic = document.getElementById('lb-pic');
+      var cap = document.getElementById('lb-cap');
+      var count = document.getElementById('lb-count');
+      var current = [], index = 0;
+      var visibleLinks = function () { return tiles.filter(function (li) { return !li.hidden; }).map(function (li) { return li.querySelector('a'); }); };
+      var show = function (i) {
+        index = (i + current.length) % current.length;
+        var a = current[index], thumb = a.querySelector('img');
+        pic.innerHTML = '<source type="image/avif" srcset="' + esc(a.getAttribute('data-avif')) + '">' +
+          '<img src="' + esc(a.getAttribute('href')) + '" width="' + esc(a.getAttribute('data-w')) + '" height="' + esc(a.getAttribute('data-h')) + '" alt="' + esc(thumb.alt) + '">';
+        cap.textContent = thumb.alt;
+        count.textContent = msg('galleryCount', { n: index + 1, total: current.length });
+        // Fetch the neighbours so the next tap is instant.
+        [index + 1, index - 1].forEach(function (j) { var n = current[(j + current.length) % current.length]; if (n) (new Image()).src = n.getAttribute('href'); });
+      };
+      grid.addEventListener('click', function (e) {
+        var a = e.target.closest('a.g-item');
+        if (!a || e.ctrlKey || e.metaKey || e.shiftKey) return;
+        e.preventDefault();
+        current = visibleLinks();
+        show(current.indexOf(a));
+        box.showModal();
+      });
+      box.querySelector('.lb-prev').addEventListener('click', function () { show(index - 1); });
+      box.querySelector('.lb-next').addEventListener('click', function () { show(index + 1); });
+      box.querySelector('.lb-close').addEventListener('click', function () { box.close(); });
+      box.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); show(index - 1); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); show(index + 1); }
+      });
+      // A click on the dark area around the photo closes the viewer.
+      box.addEventListener('click', function (e) { if (e.target === box && !swiped) box.close(); swiped = false; });
+      // Swipe left or right on touch screens.
+      var startX = null, swiped = false;
+      box.addEventListener('pointerdown', function (e) { startX = e.clientX; });
+      box.addEventListener('pointerup', function (e) {
+        if (startX === null) return;
+        var dx = e.clientX - startX;
+        startX = null;
+        if (Math.abs(dx) > 50) { swiped = true; show(index + (dx < 0 ? 1 : -1)); }
+      });
+    }
   }
 
   var form = document.getElementById('quote-form');
