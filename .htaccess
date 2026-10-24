@@ -25,8 +25,10 @@ ErrorDocument 404 /404.html
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
 </IfModule>
 
-# Fonts never change under the same name, so browsers can keep them for a year.
+# Fonts never change under the same name, so browsers can keep them for a year; AVIF photos
+# get a week, like the other images (Hostinger sets that for JPEG/WebP itself).
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType image/avif "access plus 1 week"
 </IfModule>
