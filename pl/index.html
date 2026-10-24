@@ -558,8 +558,9 @@
 
         <div class="form-panel">
           <div class="form-status" id="form-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
-          <form class="quote-form" id="quote-form" method="post" action="" data-endpoint="" enctype="multipart/form-data">
+          <form class="quote-form" id="quote-form" method="post" action="https://formspree.io/f/mqppaeqe" data-endpoint="https://formspree.io/f/mqppaeqe">
             <input type="hidden" name="language" value="polski">
+            <input type="hidden" name="_subject" value="Nowe zapytanie o wycenę ze strony (wersja polska)">
 
             <div class="field">
               <label for="f-name">Imię i nazwisko</label>
@@ -617,15 +618,13 @@
 
             
             <div class="field" id="f-photos-field">
-              <span class="field-label" id="f-photos-label">Zdjęcia nieruchomości <span class="optional">(opcjonalnie)</span></span>
-              <label class="file-drop" for="f-photos">
-                <input id="f-photos" class="file-input" name="photos" type="file" accept="image/*" multiple aria-labelledby="f-photos-label" aria-describedby="f-photos-hint f-photos-chosen">
-                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="4"/></svg>
-                <span class="file-drop-text">Dodaj zdjęcia</span>
+              <span class="field-label">Zdjęcia nieruchomości <span class="optional">(opcjonalnie)</span></span>
+              <label class="wa-photos" for="f-photos-wa">
+                <input id="f-photos-wa" name="photos_on_whatsapp" type="checkbox" value="Tak, wyślę zdjęcia przez WhatsApp" aria-describedby="f-photos-hint">
+                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg>
+                <span>Chcę wysłać zdjęcia przez WhatsApp</span>
               </label>
-              <p class="file-chosen" id="f-photos-chosen" aria-live="polite"></p>
-              <p class="hint" id="f-photos-hint">Do 5 zdjęć, łącznie do 20 MB. Zdjęcia pomagają przygotować dokładną wycenę.</p>
-              <p class="field-error" id="f-photos-error" hidden></p>
+              <p class="hint" id="f-photos-hint">Zdjęcia pomagają przygotować dokładną wycenę. Po wysłaniu formularza przycisk otworzy czat WhatsApp z Renatą z gotową kopią zapytania. Wystarczy dodać zdjęcia i wysłać.</p>
             </div>
             
 
@@ -687,6 +686,6 @@
     </div>
   </footer>
 
-  <script type="application/json" id="i18n">{"name":"Podaj imię i nazwisko.","contactMissing":"Podaj numer telefonu lub adres e-mail, abyśmy mogli odpowiedzieć.","emailInvalid":"Podaj adres e-mail w formacie imie@przyklad.co.uk.","phoneShort":"Podaj numer telefonu składający się z co najmniej 10 cyfr.","postcodeMissing":"Podaj kod pocztowy nieruchomości.","postcodeInvalid":"Podaj pełny brytyjski kod pocztowy, np. SW19 1AA.","service":"Wybierz usługę lub „Jeszcze nie wiem”.","details":"Napisz kilka słów o zleceniu.","photosCount":"Możesz wybrać maksymalnie {n} zdjęć.","photosType":"Zdjęcia muszą być plikami graficznymi, np. JPEG lub PNG.","photosSize":"Wybrane zdjęcia mają łącznie {mb} MB. Wybierz mniej – maksymalnie 20 MB łącznie.","sliderValue":"{before}% przed, {after}% po","sending":"Wysyłanie…","waPrefix":"napisz ","waText":"na WhatsAppie","callPrefix":"zadzwoń pod numer ","emailPrefix":"wyślij e-mail na adres ","or":" lub ","contactFallback":"skontaktuj się z nami bezpośrednio","notConnected":"\u003ch3>Formularz nie jest jeszcze podłączony\u003c/h3>\u003cp>Twoje zapytanie \u003cstrong>nie\u003c/strong> zostało wysłane. Zamiast tego {contact}. Wpisane informacje nadal są w formularzu.\u003c/p>","success":"\u003ch3>Dziękujemy, zapytanie zostało wysłane\u003c/h3>\u003cp>Odpowiemy, korzystając z podanych danych kontaktowych, aby potwierdzić zakres prac i wycenę. W pilnej sprawie {contact}.\u003c/p>","failed":"\u003ch3>Nie udało się wysłać zapytania\u003c/h3>\u003cp>Nic nie zostało utracone. Sprawdź połączenie i ponownie naciśnij „{label}” albo {contact}.\u003c/p>","photosChosen":"Wybrane zdjęcia: {n}"}</script>
+  <script type="application/json" id="i18n">{"name":"Podaj imię i nazwisko.","contactMissing":"Podaj numer telefonu lub adres e-mail, abyśmy mogli odpowiedzieć.","emailInvalid":"Podaj adres e-mail w formacie imie@przyklad.co.uk.","phoneShort":"Podaj numer telefonu składający się z co najmniej 10 cyfr.","postcodeMissing":"Podaj kod pocztowy nieruchomości.","postcodeInvalid":"Podaj pełny brytyjski kod pocztowy, np. SW19 1AA.","service":"Wybierz usługę lub „Jeszcze nie wiem”.","details":"Napisz kilka słów o zleceniu.","sliderValue":"{before}% przed, {after}% po","sending":"Wysyłanie…","waPrefix":"napisz ","waText":"na WhatsAppie","callPrefix":"zadzwoń pod numer ","emailPrefix":"wyślij e-mail na adres ","or":" lub ","contactFallback":"skontaktuj się z nami bezpośrednio","notConnected":"\u003ch3>Formularz nie jest jeszcze podłączony\u003c/h3>\u003cp>Twoje zapytanie \u003cstrong>nie\u003c/strong> zostało wysłane. Zamiast tego {contact}. Wpisane informacje nadal są w formularzu.\u003c/p>","success":"\u003ch3>Dziękujemy, zapytanie zostało wysłane\u003c/h3>\u003cp>Odpowiemy, korzystając z podanych danych kontaktowych, aby potwierdzić zakres prac i wycenę. W pilnej sprawie {contact}.\u003c/p>","failed":"\u003ch3>Nie udało się wysłać zapytania\u003c/h3>\u003cp>Nic nie zostało utracone. Sprawdź połączenie i ponownie naciśnij „{label}” albo {contact}.\u003c/p>","successWa":"\u003ch3>Dziękujemy, zapytanie zostało wysłane\u003c/h3>\u003cp>Teraz zdjęcia: przycisk poniżej otworzy WhatsApp z kopią Twojego zapytania. Dotknij spinacza lub aparatu, aby dodać zdjęcia, i wyślij.\u003c/p>","waButton":"Wyślij zdjęcia przez WhatsApp","waIntro":"Dzień dobry, moje zapytanie o wycenę zostało właśnie wysłane przez stronę. Przesyłam zdjęcia nieruchomości.","waFields":"name=Imię i nazwisko|phone=Telefon|email=E-mail|postcode=Kod pocztowy|service=Usługa|details=O zleceniu"}</script>
 </body>
 </html>

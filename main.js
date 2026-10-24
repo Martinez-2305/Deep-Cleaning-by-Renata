@@ -87,8 +87,6 @@
   var submitLabel = submitBtn.textContent;
   var POSTCODE = /^[A-Z]{1,2}[0-9][A-Z0-9]?\s*[0-9][A-Z]{2}$/i;
   var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  var MAX_PHOTOS = 5;
-  var MAX_BYTES = 20 * 1024 * 1024;
 
   // Real contact routes only (links still pointing at #quote are placeholders).
   var contactLinks = (function () {
@@ -132,25 +130,19 @@
     }
   ];
 
-  var photos = document.getElementById('f-photos');
-  if (photos) {
-    rules.push({
-      el: 'f-photos',
-      check: function () {
-        var files = Array.prototype.slice.call(photos.files || []);
-        if (files.length > MAX_PHOTOS) return msg('photosCount', { n: MAX_PHOTOS });
-        if (files.some(function (f) { return !/^image\//.test(f.type); })) return msg('photosType');
-        var total = files.reduce(function (sum, f) { return sum + f.size; }, 0);
-        if (total > MAX_BYTES) return msg('photosSize', { mb: (total / 1048576).toFixed(1) });
-        return '';
-      }
+  // Photos go by WhatsApp. If ticked, the thank-you message gets a button that opens a chat
+  // with Renata, pre-filled with a copy of the enquiry (WhatsApp links can carry text, not files).
+  var photosWa = document.getElementById('f-photos-wa');
+  var waLink = document.querySelector('.quote-intro a[href^="https://wa.me/"]');
+
+  function enquiryCopy() {
+    var lines = [msg('waIntro'), ''];
+    // waFields is "name=Name|phone=Phone|…": form field name = short label for the chat.
+    msg('waFields').split('|').forEach(function (pair) {
+      var parts = pair.split('='), value = val(parts[0]);
+      if (value) lines.push(parts[1] + ': ' + value);
     });
-    // List the chosen photos under the "Add photos" button.
-    var chosen = document.getElementById('f-photos-chosen');
-    photos.addEventListener('change', function () {
-      var names = Array.prototype.map.call(photos.files || [], function (f) { return f.name; });
-      chosen.textContent = names.length ? msg('photosChosen', { n: names.length }) + ' · ' + names.join(', ') : '';
-    });
+    return lines.join('\n');
   }
 
   function esc(s) {
@@ -196,7 +188,7 @@
       if (!box.contains(e.relatedTarget) && (attempted || e.target.value)) setError(rule, rule.check());
     });
     box.addEventListener('change', function () {
-      if (attempted || rule.el === 'f-photos') setError(rule, rule.check());
+      if (attempted) setError(rule, rule.check());
     });
   });
 
@@ -234,6 +226,11 @@
     var controller = 'AbortController' in window ? new AbortController() : null;
     var timer = controller && setTimeout(function () { controller.abort(); }, 60000);
 
+    // Ticked "send photos on WhatsApp": prepare the chat link now, with a copy of the enquiry.
+    var waHref = photosWa && photosWa.checked && waLink
+      ? waLink.getAttribute('href').split('?')[0] + '?text=' + encodeURIComponent(enquiryCopy())
+      : '';
+
     fetch(endpoint, {
       method: 'POST',
       body: new FormData(form),
@@ -243,7 +240,14 @@
       .then(function (res) {
         if (!res.ok) throw new Error('HTTP ' + res.status);
         form.hidden = true;
-        showStatus('success', msg('success', { contact: contactLinks }));
+        if (waHref) {
+          showStatus('success', msg('successWa') +
+            '<p class="form-status-action"><a class="btn btn-primary btn-lg" href="' + esc(waHref) + '" target="_blank" rel="noopener">' +
+            '<svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg>' +
+            esc(msg('waButton')) + '</a></p>');
+        } else {
+          showStatus('success', msg('success', { contact: contactLinks }));
+        }
       })
       .catch(function () {
         setBusy(false);
