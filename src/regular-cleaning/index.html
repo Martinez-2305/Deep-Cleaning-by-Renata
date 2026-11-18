@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="{{t:lang}}">
+<head>
+{{> svc-head}}
+</head>
+<body>
+{{> header}}
+
+  <main id="main">
+{{> svc-hero}}
+
+    <!-- The practical facts -->
+    <section class="section svc-facts-band" aria-labelledby="facts-title">
+      <div class="wrap has-deco">
+        {{> deco-sparkles}}
+        <h2 id="facts-title">{{t:svc.regular.factsTitle}}</h2>
+        <dl class="visit-facts">
+          {{#each t.svc.regular.facts}}
+          <div>
+            <dt>{{.term}}</dt>
+            <dd>{{.detail}}</dd>
+          </div>
+          {{/each t.svc.regular.facts}}
+        </dl>
+      </div>
+    </section>
+
+    <!-- The cleaning plan -->
+    <section class="section svc-plan" aria-labelledby="plan-title">
+      <div class="wrap split">
+        <div class="split-copy">
+          <h2 id="plan-title">{{t:svc.regular.planTitle}}</h2>
+          <p>{{t:svc.regular.plan1}}</p>
+          <p>{{t:svc.regular.plan2}}</p>
+        </div>
+        <div class="plan-card">
+          <h3>{{t:svc.regular.exampleTitle}}</h3>
+          <ul class="checks">
+            {{#each t.svc.regular.example}}<li>{{.}}</li>{{/each t.svc.regular.example}}
+          </ul>
+          <p class="plan-note">{{t:svc.regular.exampleNote}}</p>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="pricing">
+          <div>
+            <h3>{{t:svc.regular.startTitle}}</h3>
+            <p>{{t:svc.regular.startText}}</p>
+          </div>
+          <a class="btn btn-secondary btn-lg" href="{{root}}deep-cleaning/">{{t:svc.regular.startLink}}</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Small commercial spaces -->
+    <section class="section svc-commercial" aria-labelledby="commercial-title">
+      <div class="wrap split split-reverse">
+        <figure class="split-photo">
+          {{photo:38 "(min-width: 900px) 36vw, 100vw"}}
+        </figure>
+        <div class="split-copy">
+          <h2 id="commercial-title">{{t:svc.regular.commercialTitle}}</h2>
+          <p>{{t:svc.regular.commercialText}}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faqs" aria-labelledby="faqs-title">
+      <div class="wrap faq-grid">
+        <div class="faq-intro">
+          <h2 id="faqs-title">{{t:svc.regular.faqTitle}}</h2>
+          <p>{{t:svc.regular.faqIntro}}</p>
+        </div>
+        <div class="faq-list">
+          {{#each t.svc.regular.faqs}}
+          <details>
+            <summary>{{.q}}</summary>
+            <p>{{.a}}</p>
+          </details>
+          {{/each t.svc.regular.faqs}}
+        </div>
+      </div>
+    </section>
+
+{{> svc-related}}
+  </main>
+
+{{> footer}}
+  <script type="application/json" id="i18n">{{raw:jsStrings}}</script>
+</body>
+</html>

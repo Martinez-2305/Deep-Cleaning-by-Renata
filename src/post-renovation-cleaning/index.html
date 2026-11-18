@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="{{t:lang}}">
+<head>
+{{> svc-head}}
+</head>
+<body>
+{{> header}}
+
+  <main id="main">
+{{> svc-hero}}
+
+    <!-- Why building dust is different -->
+    <section class="section svc-dust" aria-labelledby="dust-title">
+      <div class="wrap split">
+        <div class="split-copy">
+          <h2 id="dust-title">{{t:svc.builders.dustTitle}}</h2>
+          <p>{{t:svc.builders.dust1}}</p>
+          <p>{{t:svc.builders.dust2}}</p>
+        </div>
+        <figure class="split-photo">
+          {{photo:23 "(min-width: 900px) 36vw, 100vw"}}
+        </figure>
+      </div>
+    </section>
+
+    <!-- One visit or two -->
+    <section class="section svc-stages" aria-labelledby="stages-title">
+      <div class="wrap has-deco">
+        {{> deco-bucket}}
+        <div class="section-head">
+          <h2 id="stages-title">{{t:svc.builders.stagesTitle}}</h2>
+          <p>{{t:svc.builders.stagesIntro}}</p>
+        </div>
+        <ol class="timeline">
+          {{#each t.svc.builders.stages}}
+          <li>
+            <div class="timeline-card">
+              <p class="timeline-when"><span class="timeline-label">{{.label}}</span> {{.when}}</p>
+              <h3>{{.title}}</h3>
+              <p>{{.text}}</p>
+            </div>
+          </li>
+          {{/each t.svc.builders.stages}}
+        </ol>
+      </div>
+    </section>
+
+    <!-- Homeowners and builders -->
+    <section class="section svc-who" aria-labelledby="who-title">
+      <div class="wrap">
+        <h2 id="who-title">{{t:svc.builders.whoTitle}}</h2>
+        <ul class="audience-grid audience-two">
+          {{#each t.svc.builders.who}}
+          <li>
+            <h3>{{.title}}</h3>
+            <p>{{.text}}</p>
+          </li>
+          {{/each t.svc.builders.who}}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Limits, then questions -->
+    <section class="section faqs" aria-labelledby="faqs-title">
+      <div class="wrap faq-grid">
+        <div class="faq-intro">
+          <h2 id="faqs-title">{{t:svc.builders.faqTitle}}</h2>
+          <ul class="limits">
+            {{#each t.svc.builders.limits}}<li>{{.}}</li>{{/each t.svc.builders.limits}}
+          </ul>
+        </div>
+        <div class="faq-list">
+          {{#each t.svc.builders.faqs}}
+          <details>
+            <summary>{{.q}}</summary>
+            <p>{{.a}}</p>
+          </details>
+          {{/each t.svc.builders.faqs}}
+        </div>
+      </div>
+    </section>
+
+{{> svc-related}}
+  </main>
+
+{{> footer}}
+  <script type="application/json" id="i18n">{{raw:jsStrings}}</script>
+</body>
+</html>

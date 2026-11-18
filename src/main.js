@@ -50,6 +50,31 @@
     if (desktop.addEventListener) desktop.addEventListener('change', onChange); else desktop.addListener(onChange);
   }
 
+  // Services dropdown (desktop): the arrow button opens it, as does hovering. Escape closes it
+  // (and keeps a hovered one shut until the pointer leaves), as do clicks or focus elsewhere.
+  var sub = document.querySelector('.has-sub');
+  if (sub) {
+    var subBtn = sub.querySelector('.sub-toggle');
+    var setSub = function (open) {
+      subBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      sub.classList.toggle('is-open', open);
+    };
+    subBtn.addEventListener('click', function () {
+      sub.classList.remove('is-dismissed');
+      setSub(subBtn.getAttribute('aria-expanded') !== 'true');
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape' || !(sub.classList.contains('is-open') || sub.matches(':hover'))) return;
+      var hadFocus = sub.contains(document.activeElement);
+      setSub(false);
+      sub.classList.add('is-dismissed');
+      if (hadFocus) subBtn.focus();
+    });
+    sub.addEventListener('mouseleave', function () { sub.classList.remove('is-dismissed'); });
+    sub.addEventListener('focusout', function (e) { if (!sub.contains(e.relatedTarget)) setSub(false); });
+    document.addEventListener('click', function (e) { if (!sub.contains(e.target)) setSub(false); });
+  }
+
   // Before/after comparison: the range input sets how much of the "before" layer shows.
   Array.prototype.forEach.call(document.querySelectorAll('.ba'), function (ba) {
     var range = ba.querySelector('.ba-range');
@@ -105,13 +130,14 @@
       bar.inert = hide;
       if (hide) bar.setAttribute('aria-hidden', 'true'); else bar.removeAttribute('aria-hidden');
     });
-    [document.querySelector('.hero .actions'), document.getElementById('quote'), document.querySelector('.site-footer')].forEach(function (el) { if (el) io.observe(el); });
+    [document.querySelector('.hero .actions'), document.querySelector('.svc-hero .actions'),document.getElementById('quote'), document.querySelector('.site-footer')].forEach(function (el) { if (el) io.observe(el); });
   }
 
   // Gallery page: filter buttons and a full-size photo viewer (arrows, keyboard, swipe).
   // Without JavaScript every photo shows and each one links to its full-size image.
-  var grid = document.querySelector('.gallery-grid');
+  var grid = document.querySelector('.gallery-groups');
   if (grid) {
+    var groups = Array.prototype.slice.call(grid.querySelectorAll('.gallery-group'));
     var tiles = Array.prototype.slice.call(grid.querySelectorAll('li'));
     var filters = document.querySelector('.gallery-filters');
     var galleryStatus = document.getElementById('gallery-status');
@@ -122,9 +148,9 @@
         if (!chip) return;
         var cat = chip.getAttribute('data-filter'), shown = 0;
         Array.prototype.forEach.call(filters.querySelectorAll('.chip'), function (c) { c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
-        tiles.forEach(function (li) {
-          li.hidden = cat !== 'all' && li.getAttribute('data-cat') !== cat;
-          if (!li.hidden) shown++;
+        groups.forEach(function (g) {
+          g.hidden = cat !== 'all' && g.getAttribute('data-cat') !== cat;
+          if (!g.hidden) shown += g.querySelectorAll('li').length;
         });
         galleryStatus.textContent = msg('galleryShown', { n: shown });
       });
@@ -136,7 +162,7 @@
       var cap = document.getElementById('lb-cap');
       var count = document.getElementById('lb-count');
       var current = [], index = 0;
-      var visibleLinks = function () { return tiles.filter(function (li) { return !li.hidden; }).map(function (li) { return li.querySelector('a'); }); };
+      var visibleLinks = function () { return tiles.filter(function (li) { return !li.closest('.gallery-group').hidden; }).map(function (li) { return li.querySelector('a'); }); };
       var show = function (i) {
         index = (i + current.length) % current.length;
         var a = current[index], thumb = a.querySelector('img');
@@ -354,14 +380,55 @@
       .then(function () { if (timer) clearTimeout(timer); });
   });
 
-  // Service card "Get a quote" links pre-select that service.
-  document.addEventListener('click', function (e) {
-    var link = e.target.closest && e.target.closest('a[data-service]');
-    if (!link) return;
-    var option = form.querySelector('option[data-service="' + link.getAttribute('data-service') + '"]');
+  // Service card "Get a quote" links pre-select that service, as do links from the
+  // service pages (…/?service=<id>#quote).
+  var preselect = function (id) {
+    var option = id && form.querySelector('option[data-service="' + id.replace(/[^\w-]/g, '') + '"]');
     if (option) {
       option.selected = true;
       document.getElementById('f-service').dispatchEvent(new Event('change', { bubbles: true }));
     }
+  };
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest && e.target.closest('a[data-service]');
+    if (link) preselect(link.getAttribute('data-service'));
   });
+  var fromPage = /[?&]service=([\w-]+)/.exec(location.search);
+  if (fromPage) preselect(fromPage[1]);
+})();
+
+// Review slider: arrow buttons scroll the row by one card. The row itself still scrolls
+// by swipe, trackpad or arrow keys, so the buttons are a convenience, not the only way.
+(function () {
+  var list = document.getElementById('review-list');
+  var nav = document.querySelector('.review-nav');
+  if (!list || !nav) return;
+  var buttons = nav.querySelectorAll('.review-btn');
+  var update = function () {
+    // Compare card edges with the row's edges: snapping can stop a few pixels from the true end.
+    var box = list.getBoundingClientRect();
+    var cards = list.querySelectorAll('.review');
+    if (!cards.length) return;
+    var first = cards[0].getBoundingClientRect(), last = cards[cards.length - 1].getBoundingClientRect();
+    nav.hidden = list.scrollWidth <= list.clientWidth + 2;
+    buttons[0].setAttribute('aria-disabled', first.left >= box.left - 2 ? 'true' : 'false');
+    buttons[1].setAttribute('aria-disabled', last.right <= box.right + 2 ? 'true' : 'false');
+  };
+  Array.prototype.forEach.call(buttons, function (btn) {
+    btn.addEventListener('click', function () {
+      if (btn.getAttribute('aria-disabled') === 'true') return;
+      // Go to the card before/after the first fully visible one, by its exact position.
+      var cards = list.querySelectorAll('.review');
+      var edge = list.getBoundingClientRect().left + parseFloat(getComputedStyle(list).paddingLeft) - 2;
+      var i = 0;
+      while (i < cards.length - 1 && cards[i].getBoundingClientRect().left < edge) i++;
+      var target = cards[Math.max(0, Math.min(cards.length - 1, i + Number(btn.getAttribute('data-dir'))))];
+      list.scrollTo({ left: list.scrollLeft + target.getBoundingClientRect().left - cards[i].getBoundingClientRect().left });
+    });
+  });
+  list.addEventListener('scroll', update, { passive: true });
+  // Snapping can settle after the last scroll event, so check again when scrolling ends.
+  list.addEventListener('scrollend', update);
+  window.addEventListener('resize', update);
+  update();
 })();

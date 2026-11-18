@@ -115,9 +115,11 @@ function makeCtx(locale) {
     thumbW: String(Math.min(400, g.width)),
   }));
   config.galleryTotal = String(config.gallery.length);
-  config.galleryFilters = Object.entries((t.gallery && t.gallery.cats) || {}).map(([id, label]) => ({
-    id, label, count: String(config.gallery.filter((g) => g.cat === id).length),
-  }));
+  // One section per job type (gallery.cats), each with its heading, caption and photos.
+  config.galleryFilters = Object.entries((t.gallery && t.gallery.cats) || {}).map(([id, label]) => {
+    const photos = config.gallery.filter((g) => g.cat === id);
+    return { id, label, count: String(photos.length), caption: (t.gallery.catText || {})[id] || '', photos };
+  });
   const photoSlots = [
     ['hero.photo', config.hero.photo],
     ['founder.photo', config.founder.photo],
@@ -233,6 +235,13 @@ function lookup(p, scope) {
 
 const empty = (v) => v == null || v === '' || v === false || (Array.isArray(v) && v.length === 0);
 
+function galleryPicture(g, sizes = '100vw', eager = false) {
+  const set = (ext) => [400, 1200].map((w) => `${ctx.base}assets/img/${g.name}-${w}.${ext} ${w}w`).join(', ');
+  const load = eager ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"';
+  return `<picture><source type="image/avif" srcset="${set('avif')}" sizes="${attr(sizes)}">` +
+    `<img src="${ctx.base}assets/img/${g.name}-1200.jpg" srcset="${set('jpg')}" sizes="${attr(sizes)}" width="${g.width}" height="${g.height}" alt="${attr(g.alt)}" ${load}></picture>`;
+}
+
 function image(s, sizes = '100vw', eager = false) {
   if (!s.name) {
     return `<div class="photo-ph" role="img" aria-label="${attr(ctx.t.photo.toCome)}"><span class="photo-ph-tag">${text(ctx.t.photo.toCome)}</span></div>`;
@@ -261,6 +270,13 @@ function render(tpl, scope = {}) {
     (lookup(p, scope) || []).map((item, i) => render(body, { item, n: i + 1 })).join(''));
   tpl = tpl.replace(/\{\{#(if|unless) ([\w.@]+)\}\}([\s\S]*?)\{\{\/\1 \2\}\}/g, (_, kind, p, body) =>
     (kind === 'if') !== empty(lookup(p, scope)) ? render(body, scope) : '');
+  // {{photo:N "sizes" eager}}: gallery photo number N (or a path holding it) at 400/1200px.
+  tpl = tpl.replace(/\{\{photo:([\w.@]+)(?: "([^"]*)")?( eager)?\}\}/g, (_, p, sizes, eager) => {
+    const n = Number(/^\d+$/.test(p) ? p : lookup(p, scope));
+    const g = (ctx.gallery || []).find((x) => x.n === n);
+    if (!g) throw new Error(`Gallery photo not found: ${p}`);
+    return galleryPicture(g, sizes, !!eager);
+  });
   tpl = tpl.replace(/\{\{img:([\w.@]+)(?: "([^"]*)")?( eager)?\}\}/g, (_, p, sizes, eager) => {
     const s = lookup(p, scope);
     if (!s) throw new Error(`Photo slot not found: ${p}`);
@@ -353,6 +369,40 @@ for (const locale of LOCALES) {
       head.push(`<link rel="alternate" hreflang="x-default" href="${esc(url(LOCALES[0]))}">`);
     }
     if (ctx.schema && file === 'index.html') head.push(ctx.schema);
+
+    // Service pages (src/<service id>/index.html): their text is t.svc[key], and they get
+    // Service and BreadcrumbList structured data pointing back to the business.
+    const svc = ctx.services.find((s) => file === path.join(s.id, 'index.html'));
+    ctx.svc = svc ? { ...svc, copy: ctx.t.svc[svc.key], others: ctx.services.filter((s) => s !== svc) } : null;
+    const crumb = svc ? svc.name : file === path.join('gallery', 'index.html') ? ctx.t.nav.gallery : '';
+    if (ctx.siteUrl && schemaReady && crumb) {
+      const here = `${ctx.siteUrl}/${pageUrl(locale, file)}`;
+      const homeUrl = `${ctx.siteUrl}/${pageUrl(locale, 'index.html')}`;
+      const ld = [{
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: ctx.t.gallery.home, item: homeUrl },
+          { '@type': 'ListItem', position: 2, name: crumb, item: here },
+        ],
+      }];
+      if (svc) {
+        const b = ctx.business;
+        ld.push({
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          '@id': `${here}#service`,
+          name: svc.name,
+          serviceType: svc.name,
+          description: ctx.svc.copy.metaDescription,
+          url: here,
+          inLanguage: ctx.t.lang,
+          provider: { '@type': 'HouseCleaningService', '@id': `${ctx.siteUrl}/#business`, name: b.name, telephone: b.phoneLink, url: `${ctx.siteUrl}/` },
+          areaServed: ctx.areas.filter(real).map((name) => ({ '@type': 'Place', name })),
+        });
+      }
+      head.push(...ld.map((s) => `<script type="application/ld+json">${JSON.stringify(s).replace(/</g, '\\u003c')}</script>`));
+    }
     ctx.headExtras = head.join('\n  ');
 
     const out = path.join(outDir, locale.dir, file);

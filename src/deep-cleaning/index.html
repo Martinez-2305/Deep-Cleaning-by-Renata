@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="{{t:lang}}">
+<head>
+{{> svc-head}}
+</head>
+<body>
+{{> header}}
+
+  <main id="main">
+{{> svc-hero}}
+
+    <!-- When it makes sense -->
+    <section class="section svc-when" aria-labelledby="when-title">
+      <div class="wrap has-deco">
+        {{> deco-sponge}}
+        <div class="section-head">
+          <h2 id="when-title">{{t:svc.deep.whenTitle}}</h2>
+        </div>
+        <ul class="occasion-list">
+          {{#each t.svc.deep.when}}
+          <li>
+            <h3>{{.title}}</h3>
+            <p>{{.text}}</p>
+          </li>
+          {{/each t.svc.deep.when}}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Deep or regular? -->
+    <section class="section svc-compare" aria-labelledby="compare-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="compare-title">{{t:svc.deep.compareTitle}}</h2>
+          <p>{{t:svc.deep.compareIntro}}</p>
+        </div>
+        <div class="table-wrap" role="region" aria-labelledby="compare-caption" tabindex="0">
+          <table class="compare">
+            <caption class="sr-only" id="compare-caption">{{t:svc.deep.compareCaption}}</caption>
+            <thead>
+              <tr>
+                <td></td>
+                <th scope="col">{{t:svc.deep.colDeep}}</th>
+                <th scope="col">{{t:svc.deep.colRegular}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each t.svc.deep.compare}}
+              <tr>
+                <th scope="row">{{.row}}</th>
+                <td>{{.deep}}</td>
+                <td>{{.regular}}</td>
+              </tr>
+              {{/each t.svc.deep.compare}}
+            </tbody>
+          </table>
+        </div>
+        <p class="svc-aside">{{t:svc.deep.compareLink}}</p>
+      </div>
+    </section>
+
+    <!-- Where the time goes, with photos -->
+    <section class="section svc-time" aria-labelledby="time-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="time-title">{{t:svc.deep.timeTitle}}</h2>
+          <p>{{t:svc.deep.timeIntro}}</p>
+        </div>
+        <ul class="photo-cards">
+          {{#each t.svc.deep.time}}
+          <li>
+            <figure>{{photo:.photo "(min-width: 900px) 30vw, (min-width: 600px) 45vw, 100vw"}}</figure>
+            <h3>{{.title}}</h3>
+            <p>{{.text}}</p>
+          </li>
+          {{/each t.svc.deep.time}}
+        </ul>
+        <p class="extras-note">{{t:svc.deep.extras}}</p>
+      </div>
+    </section>
+
+    <section class="section faqs" aria-labelledby="faqs-title">
+      <div class="wrap faq-grid">
+        <div class="faq-intro">
+          <h2 id="faqs-title">{{t:svc.deep.faqTitle}}</h2>
+          <p>{{t:svc.deep.faqIntro}}</p>
+        </div>
+        <div class="faq-list">
+          {{#each t.svc.deep.faqs}}
+          <details>
+            <summary>{{.q}}</summary>
+            <p>{{.a}}</p>
+          </details>
+          {{/each t.svc.deep.faqs}}
+        </div>
+      </div>
+    </section>
+
+{{> svc-related}}
+  </main>
+
+{{> footer}}
+  <script type="application/json" id="i18n">{{raw:jsStrings}}</script>
+</body>
+</html>

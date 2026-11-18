@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="{{t:lang}}">
+<head>
+{{> svc-head}}
+</head>
+<body>
+{{> header}}
+
+  <main id="main">
+{{> svc-hero}}
+
+    <!-- Who books it: tenants, landlords, letting agents -->
+    <section class="section svc-who" aria-labelledby="who-title">
+      <div class="wrap has-deco">
+        {{> deco-sparkles}}
+        <div class="section-head">
+          <h2 id="who-title">{{t:svc.eot.whoTitle}}</h2>
+          <p>{{t:svc.eot.whoIntro}}</p>
+        </div>
+        <ul class="audience-grid">
+          {{#each t.svc.eot.who}}
+          <li>
+            <h3>{{.title}}</h3>
+            <p>{{.text}}</p>
+          </li>
+          {{/each t.svc.eot.who}}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Room-by-room checklist -->
+    <section class="section svc-rooms" aria-labelledby="rooms-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="rooms-title">{{t:svc.eot.roomsTitle}}</h2>
+          <p>{{t:svc.eot.roomsIntro}}</p>
+        </div>
+        <div class="rooms-grid">
+          {{#each t.svc.eot.rooms}}
+          <div class="room">
+            <h3>{{.title}}</h3>
+            <ul class="checks">
+              {{#each .items}}<li>{{.}}</li>{{/each .items}}
+            </ul>
+          </div>
+          {{/each t.svc.eot.rooms}}
+        </div>
+        <p class="extras-note">{{t:svc.eot.extras}}</p>
+      </div>
+    </section>
+
+    <!-- Before and after: the details that get checked -->
+    <section class="section svc-proof" aria-labelledby="proof-title">
+      <div class="wrap proof-grid">
+        <div class="proof-copy">
+          <h2 id="proof-title">{{t:svc.eot.proofTitle}}</h2>
+          <p>{{t:svc.eot.proofText}}</p>
+        </div>
+        <div class="photo-pair">
+          <figure>{{photo:53 "(min-width: 900px) 28vw, 50vw"}}<figcaption>{{t:svcCommon.before}}</figcaption></figure>
+          <figure>{{photo:54 "(min-width: 900px) 28vw, 50vw"}}<figcaption>{{t:svcCommon.after}}</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Getting ready -->
+    <section class="section svc-prep" aria-labelledby="prep-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="prep-title">{{t:svc.eot.prepTitle}}</h2>
+          <p>{{t:svc.eot.prepIntro}}</p>
+        </div>
+        <ol class="prep-list">
+          {{#each t.svc.eot.prep}}
+          <li>
+            <h3>{{.title}}</h3>
+            <p>{{.text}}</p>
+          </li>
+          {{/each t.svc.eot.prep}}
+        </ol>
+      </div>
+    </section>
+
+    <!-- Deposits and checkout questions -->
+    <section class="section faqs" aria-labelledby="faqs-title">
+      <div class="wrap faq-grid">
+        <div class="faq-intro">
+          <h2 id="faqs-title">{{t:svc.eot.faqTitle}}</h2>
+          <p>{{t:svc.eot.faqIntro}}</p>
+        </div>
+        <div class="faq-list">
+          {{#each t.svc.eot.faqs}}
+          <details>
+            <summary>{{.q}}</summary>
+            <p>{{.a}}</p>
+          </details>
+          {{/each t.svc.eot.faqs}}
+        </div>
+      </div>
+    </section>
+
+{{> svc-related}}
+  </main>
+
+{{> footer}}
+  <script type="application/json" id="i18n">{{raw:jsStrings}}</script>
+</body>
+</html>

@@ -16,10 +16,24 @@
         "rule": "flat-type-hierarchy",
         "value": "*",
         "files": [
-          "src/index.html"
+          "src/index.html",
+          "src/gallery/index.html",
+          "src/end-of-tenancy-cleaning/index.html",
+          "src/post-renovation-cleaning/index.html",
+          "src/deep-cleaning/index.html",
+          "src/regular-cleaning/index.html"
         ],
         "createdAt": "2026-10-24T10:47:22.197Z",
         "reason": "Claude: false positive on the template; detector can't load {{base}}styles.css so it measures every role at 16px. Built page (localhost scan) passes with 34/26/20/17px steps."
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/styles.css"
+        ],
+        "createdAt": "2026-11-17T07:03:53.320Z",
+        "reason": "Claude: .timeline li border-left is the vertical rail of the two-stage timeline on the after-builders page (with dots on it), not a card accent. Card side-tabs were removed site-wide; .occasion-list switched to a top border."
       }
     ]
   }

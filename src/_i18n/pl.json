@@ -3,7 +3,7 @@
   "lang": "pl",
   "ogLocale": "pl_PL",
   "meta": {
-    "title": "Sprzątanie po najmie i gruntowne – Wimbledon | {{business.name}}",
+    "title": "Sprzątanie po najmie i gruntowne {{business.locality}} | {{business.owner}}",
     "description": "Sprzątanie po najmie, po remoncie, gruntowne i regularne w Wimbledonie i południowo-zachodnim Londynie. Cenę ustalasz z Renatą przed rezerwacją."
   },
   "skip": "Przejdź do treści",
@@ -17,6 +17,7 @@
     "label": "Menu główne",
     "home": "strona główna",
     "services": "Usługi",
+    "servicesMenu": "Strony usług",
     "results": "Efekty",
     "gallery": "Galeria",
     "about": "O mnie",
@@ -64,7 +65,15 @@
     "description": "Zdjęcia z prawdziwych zleceń Renaty w Wimbledonie i południowo-zachodnim Londynie: piekarniki, okapy, kuchnie, łazienki i listwy przypodłogowe, przed i po.",
     "home": "Strona główna",
     "title": "Galeria naszych prac",
-    "intro": "Zdjęcia z prawdziwych zleceń Renaty w Wimbledonie i południowo-zachodnim Londynie. Dotknij zdjęcia, aby zobaczyć je w pełnym rozmiarze.",
+    "intro": "Każde zdjęcie pochodzi z prawdziwego zlecenia Renaty w Wimbledonie i południowo-zachodnim Londynie – bez zdjęć stockowych, a jedyną zmianą jest rozmycie etykiet środków czystości.",
+    "intro2": "Każde sprzątanie jest planowane pod kątem potrzeb nieruchomości, dlatego na zdjęciach powtarza się jedno: miejsca, które szybkie sprzątanie pomija. Dotknij zdjęcia, aby zobaczyć je w pełnym rozmiarze.",
+    "breadcrumb": "Ścieżka nawigacji",
+    "catText": {
+      "ovens": "Przypalony tłuszcz na półkach i prowadnicach piekarnika, filtry okapu namoczone i odtłuszczone oraz okapy ze stali nierdzewnej wypolerowane bez smug. Czyszczenie wnętrza piekarnika to usługa dodatkowa, wyceniana osobno.",
+      "kitchens": "Ruszty kuchenki, szuflady lodówki, zlewy, odpływy i fronty szafek – miejsca, w których między sprzątaniami zbierają się plamy i odciski palców.",
+      "bathrooms": "Brodziki, szklane kabiny, odpływy, toalety i płytki, odkamienione i wyczyszczone środkami na bazie naturalnych składników. Także stanowisko do pedicure w salonie.",
+      "details": "Listwy przypodłogowe, włączniki światła i ościeżnice – często pierwsze miejsca, które sprawdza właściciel lub agencja, a ostatnie, do których dociera pośpieszne sprzątanie."
+    },
     "filterLabel": "Pokaż zdjęcia",
     "all": "Wszystkie",
     "cats": {
@@ -108,7 +117,11 @@
     "stars": "{{attr:.stars}} na 5 gwiazdek",
     "emptyTitle": "Opinie",
     "empty": "Profil firmy Renaty w Google jest nowy, więc nie ma tam jeszcze opinii. Jeśli Renata u Ciebie sprzątała, kilka słów o Twoich wrażeniach pomoże innym ją znaleźć.",
-    "write": "Wystaw opinię w Google"
+    "write": "Wystaw opinię w Google",
+    "sliderLabel": "Opinie klientów z Google",
+    "prev": "Poprzednie opinie",
+    "next": "Kolejne opinie",
+    "source": "Opinia w Google"
   },
   "eco": {
     "title": "Naturalne składniki, dokładne efekty",
@@ -233,5 +246,164 @@
     "galleryNext": "Następne zdjęcie",
     "galleryCount": "{n} z {total}",
     "galleryShown": "Wyświetlane zdjęcia: {n}"
+  },
+  "svcCommon": {
+    "quote": "Poproś o wycenę",
+    "facts": "Prawie 15 lat doświadczenia · Zaświadczenie DBS · Własne środki i sprzęt",
+    "before": "Przed",
+    "after": "Po",
+    "relatedTitle": "W czym jeszcze Renata może pomóc",
+    "galleryLink": "Zdjęcia z prawdziwych zleceń, według rodzaju prac",
+    "areas": "Obsługiwany obszar: {{coverage}}. Nie wiesz, czy to Twoja okolica? Podaj kod pocztowy w zapytaniu."
+  },
+  "svc": {
+    "eot": {
+      "metaTitle": "Sprzątanie po najmie Wimbledon | Deep Cleaning by Renata",
+      "metaDescription": "Sprzątanie po zakończeniu najmu w Wimbledonie, Putney, Richmond i Barnes dla najemców, właścicieli i agencji. Lista prac pokój po pokoju, cena z góry.",
+      "eyebrow": "Dla najemców, właścicieli i agencji nieruchomości",
+      "h1": "Sprzątanie po zakończeniu najmu w Wimbledonie",
+      "lede": "Przeprowadzka to i tak dużo pracy. Renata sprząta nieruchomość według listy prac ustalonej z Tobą przed terminem, więc kuchnia, łazienki i szczegóły, na które zwraca się uwagę przy odbiorze, są zrobione porządnie, a nie w pośpiechu pod koniec przeprowadzki.",
+      "whoTitle": "Kto zamawia sprzątanie po najmie",
+      "whoIntro": "Standard jest ten sam bez względu na to, kto zamawia. Zmienia się tylko to, czego potrzebujesz.",
+      "who": [
+        { "title": "Najemcy, którzy się wyprowadzają", "text": "Chcesz oddać nieruchomość w stanie, jakiego wymaga umowa najmu. Prześlij protokół zdawczo-odbiorczy lub inwentarz, jeśli go masz, a lista prac zostanie do niego dopasowana." },
+        { "title": "Właściciele między najmami", "text": "Potrzebujesz nieruchomości gotowej dla kolejnego najemcy, a także do zdjęć i oglądania. Napisz Renacie, kiedy klucze będą wolne i kiedy wprowadza się nowy najemca, a sprzątanie zostanie zaplanowane pomiędzy." },
+        { "title": "Agencje nieruchomości", "text": "Potrzebujesz jednej osoby do kontaktu, jasnej ceny i pracy wykonanej w ustalonym zakresie. Dostęp i przekazanie kluczy można ustalić bezpośrednio z biurem." }
+      ],
+      "roomsTitle": "Co jest sprzątane, pokój po pokoju",
+      "roomsIntro": "Orientacyjna lista prac przy sprzątaniu po najmie. W wycenie potwierdzamy dokładnie, co obejmuje sprzątanie Twojej nieruchomości.",
+      "rooms": [
+        { "title": "Kuchnia", "items": ["Odtłuszczone blaty, panele nad blatem i płytki", "Szafki i szuflady w środku i na zewnątrz, po opróżnieniu", "Płyta kuchenna i fronty urządzeń", "Odkamieniony zlew, baterie i odpływ"] },
+        { "title": "Łazienki", "items": ["Wanna, prysznic, kabina i płytki wyczyszczone i odkamienione", "Toaleta wyczyszczona i zdezynfekowana", "Umywalka, baterie i lustra", "Kratki odpływowe zdjęte i wyczyszczone, jeśli są dostępne"] },
+        { "title": "Sypialnie, pokoje i korytarze", "items": ["Listwy przypodłogowe, drzwi i ościeżnice", "Przetarte włączniki i gniazdka", "Dostępne okna od wewnątrz i parapety", "Odkurzone i umyte podłogi"] }
+      ],
+      "extras": "Potrzebujesz więcej? Czyszczenie wnętrza piekarnika, lodówki lub zamrażarki, czyszczenie dywanów i wywóz śmieci można dodać w miarę dostępności, z osobną wyceną.",
+      "proofTitle": "Szczegóły, które się sprawdza",
+      "proofText": "Przy odbiorze uwaga często skupia się na tych samych miejscach: tłuszczu w kuchni, kamieniu w łazience i kurzu na listwach przypodłogowych i wokół włączników. To miejsca, które szybkie sprzątanie pomija, więc tutaj dostają tyle czasu, ile trzeba. Ta listwa i włącznik pochodzą z jednego ze zleceń Renaty.",
+      "prepTitle": "Jak przygotować się do sprzątania",
+      "prepIntro": "Kilka rzeczy, dzięki którym wszystko pójdzie sprawnie.",
+      "prep": [
+        { "title": "Prześlij inwentarz", "text": "Jeśli masz protokół zdawczo-odbiorczy lub inwentarz, wyślij go razem z zapytaniem, żeby lista prac mogła się do niego odnosić." },
+        { "title": "Najpierw opróżnij mieszkanie", "text": "Szafki, szuflady i szafy można wyczyścić w środku dopiero, gdy są puste, dlatego najlepiej zarezerwować sprzątanie po wywiezieniu rzeczy." },
+        { "title": "Nie wyłączaj prądu i wody", "text": "Dokładne sprzątanie wymaga prądu i ciepłej wody, więc sprawdź, czy w dniu sprzątania będą podłączone." },
+        { "title": "Ustal dostęp", "text": "Nie musisz być na miejscu, o ile dostęp i przekazanie kluczy zostaną ustalone wcześniej." }
+      ],
+      "faqTitle": "Kaucja i odbiór mieszkania",
+      "faqIntro": "Żadna firma sprzątająca nie może uczciwie obiecać zwrotu kaucji. Decyzję podejmuje właściciel lub agencja i bierze pod uwagę nie tylko czystość, ale też uszkodzenia i zużycie. Renata może natomiast porządnie posprzątać zgodnie z ustaloną z Tobą listą prac.",
+      "faqs": [
+        { "q": "Co, jeśli agencja zwróci na coś uwagę po sprzątaniu?", "a": "Daj znać Renacie jak najszybciej, najlepiej ze zdjęciem. Każde zgłoszenie jest rozpatrywane indywidualnie." },
+        { "q": "Czy czyszczenie piekarnika jest w cenie?", "a": "Czyszczenie wnętrza piekarnika to usługa dodatkowa, wyceniana osobno, więc wspomnij o nim w zapytaniu, jeśli wymaga tego umowa najmu. Płyta kuchenna i fronty urządzeń są częścią sprzątania kuchni." },
+        { "q": "Jak ustalana jest cena?", "a": "Każde sprzątanie jest wyceniane indywidualnie, w zależności od wielkości i stanu nieruchomości oraz zakresu prac. Zakres i cenę znasz przed rezerwacją." }
+      ]
+    },
+    "builders": {
+      "metaTitle": "Sprzątanie po remoncie Wimbledon | Deep Cleaning by Renata",
+      "metaDescription": "Sprzątanie po remoncie w Wimbledonie i południowo-zachodnim Londynie dla właścicieli domów, firm budowlanych i deweloperów. W jednej lub dwóch wizytach.",
+      "eyebrow": "Po rozbudowie, remoncie lub montażu nowej kuchni",
+      "h1": "Sprzątanie po remoncie w Wimbledonie",
+      "lede": "Prace budowlane zostawiają drobny pył, który osiada na każdej powierzchni i wciąż wraca. Renata dokładnie go usuwa, żeby było widać efekt remontu i żeby można było znów korzystać z pomieszczeń.",
+      "dustTitle": "Dlaczego pył budowlany wymaga osobnego sprzątania",
+      "dust1": "Tynkowanie, szlifowanie i cięcie wytwarzają pył znacznie drobniejszy niż zwykły domowy kurz. Dostaje się do szafek, na górne krawędzie drzwi, na listwy przypodłogowe i do lamp, i osiada jeszcze przez kilka dni po zakończeniu prac.",
+      "dust2": "Szybkie odkurzanie często tylko go przenosi. Dlatego sprzątanie po remoncie idzie od góry pomieszczenia w dół, zbierając po drodze to, co opada, a kończy się na podłogach.",
+      "stagesTitle": "Jedno lub dwa sprzątania, zależnie od projektu",
+      "stagesIntro": "Przy mniejszych pracach może wystarczyć jedno sprzątanie końcowe. Przy większych projektach lepiej sprawdzają się dwie wizyty. Renata doradzi, co będzie najlepsze, gdy dowie się, jakie prace zostały wykonane.",
+      "stages": [
+        { "label": "Etap 1", "when": "Gdy ekipy skończą pracę", "title": "Sprzątanie budowlane", "text": "Usunięcie większości pyłu z powierzchni, instalacji, listew i podłóg, żeby dobrze było widać efekt prac i ewentualne poprawki do zgłoszenia." },
+        { "label": "Etap 2", "when": "Przed wniesieniem mebli lub wprowadzką", "title": "Sprzątanie końcowe", "text": "Dokładne sprzątanie: kuchnia i łazienki, szyby od wewnątrz tam, gdzie jest to bezpieczne i dostępne, oraz odkurzone i umyte podłogi – gotowe do zamieszkania lub przekazania." }
+      ],
+      "whoTitle": "Dla właścicieli domów i firm budowlanych",
+      "who": [
+        { "title": "Właściciele domów", "text": "Po rozbudowie, adaptacji poddasza, remoncie lub montażu nowej kuchni. Wyślij kilka zdjęć i krótki opis prac, a wycena uwzględni rzeczywistą ilość pyłu i szczegółów." },
+        { "title": "Firmy budowlane i deweloperzy", "text": "Renata współpracuje też bezpośrednio z firmami budowlanymi i deweloperami, które przekazują nieruchomość klientowi. Termin ustalamy pod Twój harmonogram, tak żeby sprzątanie odbyło się po ostatniej ekipie, a przed odbiorem." }
+      ],
+      "faqTitle": "Dobrze wiedzieć przed rezerwacją",
+      "limits": [
+        "Zarezerwuj sprzątanie po zakończeniu prac, gdy ekipy opuszczą budynek, żeby pył nie osiadał ponownie.",
+        "Usuwanie farby i resztek kleju jest wyceniane osobno.",
+        "Nie oferujemy wywozu ciężkich odpadów ani gruzu.",
+        "Nie oferujemy prac na wysokości ani mycia okien z zewnątrz."
+      ],
+      "faqs": [
+        { "q": "Jak szybko po zakończeniu prac zarezerwować sprzątanie?", "a": "Gdy tylko ekipy opuszczą budynek. Jeśli ktoś nadal pracuje, pył znów osiądzie za sprzątaniem." },
+        { "q": "Czy potrzebuję jednej wizyty, czy dwóch?", "a": "To zależy od wielkości projektu i ilości pyłu. Renata doradzi po obejrzeniu zdjęć." },
+        { "q": "Czego potrzebujesz ode mnie do wyceny?", "a": "Krótkiego opisu prac, wielkości pomieszczeń i kilku zdjęć. Zdjęcia możesz wysłać przez WhatsApp." }
+      ]
+    },
+    "deep": {
+      "metaTitle": "Sprzątanie gruntowne Wimbledon | Deep Cleaning by Renata",
+      "metaDescription": "Jednorazowe sprzątanie gruntowne w Wimbledonie, Putney, Richmond i Barnes: tłuszcz, kamień i kurz usunięte dokładnie, w domach i małych lokalach.",
+      "eyebrow": "Przed sprzedażą, po przeprowadzce lub gdy dawno nie było sprzątane",
+      "h1": "Jednorazowe sprzątanie gruntowne w Wimbledonie",
+      "lede": "Sprzątanie gruntowne przywraca porządek w domu, który potrzebuje czegoś więcej niż zwykłego sprzątania. Sięga do tłuszczu, kamienia i kurzu, które zbierają się miesiącami, i do miejsc, do których nie dociera cotygodniowe sprzątanie.",
+      "whenTitle": "Kiedy warto zamówić sprzątanie gruntowne",
+      "when": [
+        { "title": "Przed sprzedażą lub wynajmem", "text": "Czysty dom lepiej wygląda na zdjęciach i robi lepsze wrażenie podczas oglądania." },
+        { "title": "Po wprowadzeniu się", "text": "Zacznij od nowa w domu, w którym mieszkał ktoś inny." },
+        { "title": "Gdy sprzątanie zostało zaniedbane", "text": "Po intensywnych miesiącach, chorobie albo narodzinach dziecka, gdy na sprzątanie brakowało czasu." },
+        { "title": "Przed regularnym sprzątaniem", "text": "Doprowadź dom do porządku, żeby cotygodniowe lub co dwutygodniowe wizyty mogły go w nim utrzymać." },
+        { "title": "Małe lokale usługowe", "text": "Salony, małe biura i mieszkania na wynajem krótkoterminowy, a nie tylko domy." }
+      ],
+      "compareTitle": "Sprzątanie gruntowne czy regularne?",
+      "compareIntro": "Oba są wyceniane indywidualnie. Różnica polega na tym, jak głęboko każde z nich sięga w szczegóły.",
+      "compareCaption": "Tabela porównawcza: sprzątanie gruntowne i regularne",
+      "colDeep": "Jednorazowe sprzątanie gruntowne",
+      "colRegular": "Regularne sprzątanie",
+      "compare": [
+        { "row": "Najlepsze dla", "deep": "Domów, które dawno nie były dokładnie sprzątane", "regular": "Utrzymania porządku na co dzień" },
+        { "row": "Jak często", "deep": "Raz lub od czasu do czasu", "regular": "Co tydzień lub co dwa tygodnie" },
+        { "row": "Kuchnia i łazienki", "deep": "Dokładne usuwanie tłuszczu i kamienia", "regular": "Utrzymywane w czystości od wizyty do wizyty" },
+        { "row": "Listwy, drzwi i włączniki", "deep": "Czyszczone w całym domu", "regular": "Zgodnie z ustalonym planem sprzątania" },
+        { "row": "Czas wizyty", "deep": "Szacowany w wycenie", "regular": "Od 2 godzin" }
+      ],
+      "compareLink": "Szukasz stałych wizyt? Zobacz <a href=\"{{root}}regular-cleaning/\">regularne sprzątanie</a>.",
+      "timeTitle": "Na co idzie najwięcej czasu",
+      "timeIntro": "Większość czasu przy sprzątaniu gruntownym zajmuje kilka prac, które narastają powoli.",
+      "time": [
+        { "photo": 26, "title": "Tłuszcz w kuchni", "text": "Filtry okapu, panele nad blatem i fronty szafek. Filtry są namaczane i odtłuszczane, a nie tylko przecierane." },
+        { "photo": 16, "title": "Kamień w łazience", "text": "Brodziki, szklane kabiny, baterie i płytki, odkamienione środkami na bazie naturalnych składników." },
+        { "photo": 12, "title": "Kurz na krawędziach", "text": "Listwy przypodłogowe, ościeżnice i włączniki, na których zbiera się kurz omijany przez odkurzacz." }
+      ],
+      "extras": "Do sprzątania gruntownego można dodać czyszczenie wnętrza piekarnika, lodówki lub zamrażarki, czyszczenie dywanów i wywóz śmieci, w miarę dostępności i z osobną wyceną.",
+      "faqTitle": "Pytania o sprzątanie gruntowne",
+      "faqIntro": "Masz inne pytanie? Napisz do Renaty na WhatsAppie lub zadzwoń.",
+      "faqs": [
+        { "q": "Ile trwa sprzątanie gruntowne?", "a": "To zależy od wielkości i stanu nieruchomości, dlatego szacowany czas podamy razem z wyceną." },
+        { "q": "Czy przynosisz własne środki?", "a": "Tak. Renata przynosi własne środki i sprzęt, w tym środki zawierające składniki pochodzenia naturalnego, dobrane z myślą o domach, w których mieszkają ludzie i zwierzęta. Przed sprzątaniem daj znać o alergiach lub nadwrażliwościach." },
+        { "q": "Czy możesz gruntownie posprzątać salon lub małe biuro?", "a": "Tak. Małe lokale, takie jak salony, małe biura i mieszkania na wynajem krótkoterminowy, również mogą być gruntownie sprzątane. Opisz lokal i to, jak jest używany, a Renata przygotuje wycenę." }
+      ]
+    },
+    "regular": {
+      "metaTitle": "Regularne sprzątanie Wimbledon | Deep Cleaning by Renata",
+      "metaDescription": "Sprzątanie domu co tydzień lub co dwa tygodnie w Wimbledonie, Putney, Richmond i Barnes. Wizyty od 2 godzin, plan ustalony z Tobą, własne środki.",
+      "eyebrow": "Co tydzień lub co dwa tygodnie, od 2 godzin",
+      "h1": "Regularne sprzątanie domu w Wimbledonie",
+      "lede": "Czysty dom co tydzień lub co dwa tygodnie, sprzątany przez tę samą osobę, która go wyceniła. Renata ustala z Tobą plan sprzątania, przynosi własne środki i sprzęt i dopasowuje wizyty do Twojego domu.",
+      "factsTitle": "Jak wyglądają wizyty",
+      "facts": [
+        { "term": "Jak często", "detail": "Co tydzień lub co dwa tygodnie" },
+        { "term": "Czas wizyty", "detail": "Od 2 godzin, zależnie od domu i planu" },
+        { "term": "Dostęp", "detail": "Możesz być w domu albo Renata może mieć klucz" },
+        { "term": "Kto sprząta", "detail": "Renata, właścicielka, która też wycenia i planuje pracę" },
+        { "term": "Środki i sprzęt", "detail": "Przynoszone na każdą wizytę, w tym odkurzacz i mop" }
+      ],
+      "planTitle": "Plan dopasowany do Twojego domu",
+      "plan1": "Przed pierwszą wizytą ustalacie z Renatą, co jest najważniejsze: pomieszczenia, które wymagają uwagi za każdym razem, i prace, które można robić rzadziej.",
+      "plan2": "Plan nie jest sztywny. Jeśli zmieni się Twój rytm dnia albo priorytety, daj znać Renacie, a plan zmieni się razem z nimi.",
+      "exampleTitle": "Przykładowy plan może obejmować",
+      "example": ["Blaty kuchenne, płytę i zlew", "Łazienki i toalety", "Odkurzanie dostępnych powierzchni", "Odkurzanie i mycie podłóg", "Listwy przypodłogowe lub okna od wewnątrz co drugą wizytę"],
+      "exampleNote": "Twój plan ustalamy razem z Tobą.",
+      "startTitle": "Na początek sprzątanie gruntowne",
+      "startText": "Jeśli Twój dom dawno nie był dokładnie sprzątany, jednorazowe sprzątanie gruntowne na początek doprowadzi go do porządku, a regularne wizyty będą go w nim utrzymywać. Renata doradzi, czy warto.",
+      "startLink": "O sprzątaniu gruntownym",
+      "commercialTitle": "Także małe biura i salony",
+      "commercialText": "Regularne sprzątanie to nie tylko domy. Renata sprząta też małe lokale, takie jak salony, małe biura i mieszkania na wynajem krótkoterminowy, co tydzień lub co dwa tygodnie. To stanowisko do pedicure pochodzi z jednego z jej zleceń w salonie.",
+      "faqTitle": "Pytania o regularne sprzątanie",
+      "faqIntro": "Masz inne pytanie? Napisz do Renaty na WhatsAppie lub zadzwoń.",
+      "faqs": [
+        { "q": "Czy jest minimalny czas wizyty?", "a": "Tak, wizyta trwa co najmniej 2 godziny. Większe domy lub bardziej szczegółowe plany mogą wymagać więcej czasu, a wycena poda, ile." },
+        { "q": "Czy muszę być w domu?", "a": "Nie. Możesz być w domu, jeśli wolisz, albo ustalić, że Renata będzie mieć klucz." },
+        { "q": "Czy za każdym razem sprząta ta sama osoba?", "a": "Deep Cleaning by Renata prowadzi sama Renata, więc osoba, która wycenia Twój dom, jest tą samą osobą, która go sprząta." }
+      ]
+    }
   }
 }

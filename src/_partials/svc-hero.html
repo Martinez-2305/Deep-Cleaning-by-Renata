@@ -1,0 +1,21 @@
+    <!-- Service page top: breadcrumb, heading, intro, quote buttons and one job photo. -->
+    <section class="svc-hero" aria-labelledby="svc-title">
+      <div class="wrap svc-hero-grid">
+        <div class="svc-hero-copy">
+          <nav class="breadcrumb" aria-label="{{t:gallery.breadcrumb}}">
+            <a href="{{attr:home}}">{{t:gallery.home}}</a> <span aria-hidden="true">/</span> <span aria-current="page">{{svc.name}}</span>
+          </nav>
+          <p class="eyebrow">{{svc.copy.eyebrow}}</p>
+          <h1 id="svc-title">{{svc.copy.h1}}</h1>
+          <p class="svc-lede">{{svc.copy.lede}}</p>
+          <div class="actions">
+            <a class="btn btn-primary btn-lg" href="{{attr:home}}?service={{attr:svc.id}}#quote">{{t:svcCommon.quote}}</a>
+            <a class="btn btn-secondary btn-lg" href="{{attr:whatsappHref}}">{{t:nav.whatsapp}}</a>
+          </div>
+          <p class="svc-facts">{{t:svcCommon.facts}}</p>
+        </div>
+        <figure class="svc-hero-photo">
+          {{photo:svc.hero "(min-width: 900px) 44vw, 100vw" eager}}
+        </figure>
+      </div>
+    </section>

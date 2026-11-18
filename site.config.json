@@ -100,13 +100,13 @@
 
   "services": [
     {
-      "_help": "id doubles as the future page URL (/id/). Set \"page\": true once src/<id>/index.html exists to link to it. Points confirmed by Renata (September 2026).",
+      "_help": "id is the page URL (/id/); its page is src/<id>/index.html, with text in src/_i18n → svc.<key>. hero: gallery photo number shown at the top of that page. page: false hides the links to it. Points confirmed by Renata (September 2026).",
       "id": "end-of-tenancy-cleaning",
       "name": "End of tenancy cleaning",
       "outcome": "Leave the property ready for checkout",
       "summary": "For tenants moving out, landlords and letting agents between tenancies. The exact checklist is agreed in your quote; if you have the inventory or check-in report, mention it.",
       "points": ["Kitchen surfaces and cupboards, inside and out where emptied", "Bathrooms cleaned and descaled", "Skirting boards, doors, switches and accessible internal windows", "Floors vacuumed and mopped"],
-      "page": false
+      "page": true, "key": "eot", "hero": 15
     },
     {
       "id": "post-renovation-cleaning",
@@ -114,7 +114,7 @@
       "outcome": "Remove the dust left behind after renovation",
       "summary": "For homeowners after an extension, refurbishment or new kitchen, and for builders handing a property back. Tell us what work was done. Paint or adhesive removal is assessed separately.",
       "points": ["Fine building dust removed from accessible surfaces, fittings and skirting", "Kitchens and bathrooms cleaned", "Floors vacuumed and mopped", "Internal glass, where safe and accessible"],
-      "page": false
+      "page": true, "key": "builders", "hero": 24
     },
     {
       "id": "deep-cleaning",
@@ -122,7 +122,7 @@
       "outcome": "A full reset for homes that need more than a regular clean",
       "summary": "Before a sale, after moving in, or when a home is simply overdue. Tailored to the property, with the checklist agreed in your quote.",
       "points": ["Detailed kitchen and bathroom cleaning", "Reachable surfaces, skirting boards, doors and switches", "Internal windows and floors"],
-      "page": false
+      "page": true, "key": "deep", "hero": 46
     },
     {
       "id": "regular-cleaning",
@@ -130,7 +130,7 @@
       "outcome": "Keep your home on top of things, week to week",
       "summary": "Weekly or fortnightly visits, with a cleaning plan agreed to suit your household.",
       "points": ["Weekly or fortnightly visits", "A cleaning plan agreed with you", "Products and equipment brought to every visit"],
-      "page": false
+      "page": true, "key": "regular", "hero": 20
     }
   ],
 
@@ -226,9 +226,16 @@
     "_help": "url: Renata's Google Business Profile (linked from the reviews section, footer and LocalBusiness schema 'sameAs'). writeUrl: the review link from her Business Profile dashboard ('Ask for reviews' / 'Share review form', e.g. https://g.page/r/…/review); while empty, the 'Leave a review' button opens the profile, which has Google's own 'Write a review' button. With no items, the section invites the first reviews. Add genuine reviews only, word for word, with the customer's permission — e.g. { \"quote\": \"…\", \"name\": \"First name\", \"area\": \"Putney\", \"service\": \"End of tenancy clean\", \"stars\": 5 } — plus rating and count once Google shows them.",
     "url": "https://www.google.com/search?kgmid=/g/11zyjxt4m1",
     "writeUrl": "https://g.page/r/CQ1FDruwymg5EBM/review",
-    "rating": "",
-    "count": "",
-    "items": []
+    "rating": "5.0",
+    "count": "5",
+    "_itemsHelp": "Copied word for word from the Google Business Profile (November 2026). area and service are optional: leave them out unless the customer said so. url: the review's own link (on Google Maps: the review's Share button → Copy Link); it makes the whole card clickable. Update rating and count when new reviews arrive.",
+    "items": [
+      { "quote": "Renata has been our cleaner for over a year now. She is hardworking, reliable and friendly. Renata is an excellent cleaner, our house always looks and smells great afterwards and she works quickly during the time she is here. She brings her own products, mop and hoover and we find this really helpful. Our kitchen and bathroom especially look sparkling once she has finished. She is also wonderful with kids, our two get excited to see her each week and she always takes time to say hello to them. I would really recommend Renata to anyone.", "name": "Rebecca B.", "stars": 5, "url": "https://maps.app.goo.gl/RkHyznDqNwySnfTw6" },
+      { "quote": "Renata has been cleaning for us for over ten years. My two sons and cats enjoy her company when she’s here. She is reliable, hard working and friendly. Our house always feels clean and fresh when she finishes. I highly recommend Renata.", "name": "Rebecca R.", "stars": 5, "url": "https://maps.app.goo.gl/k9dVQJwazUmQ5Gqk6" },
+      { "quote": "It was my first time scheduling a clean with Renata and I can already tell she is incredible at what she does. I’m impressed with how clean our house looks and Renata only uses natural based cleaning products. She’s also very accommodating, kind and communicative which is a huge plus. Thank you!", "name": "Erin", "stars": 5, "url": "https://maps.app.goo.gl/hT1rQ6N8uZyjiWnr8" },
+      { "quote": "Renata has done a very thorough job. Meticulously cleaned the house. Before and after looks very good. Quality cleaning services. I recommend.", "name": "Romualdas T.", "stars": 5, "url": "https://maps.app.goo.gl/KGwSP2AVaVTvPmwL9" },
+      { "quote": "Renata has been cleaning for us for many years and has always been reliable, trustworthy and cleaning is of the highest level.", "name": "Paul U.", "stars": 5, "url": "https://maps.app.goo.gl/JcoU76DhveE4yG8r6" }
+    ]
   },
 
   "faqs": [

@@ -3,7 +3,7 @@
   "lang": "en-GB",
   "ogLocale": "en_GB",
   "meta": {
-    "title": "End of Tenancy &amp; Deep Cleaning in {{business.locality}} | {{business.name}}",
+    "title": "End of Tenancy &amp; Deep Cleaning {{business.locality}} | {{business.owner}}",
     "description": "End of tenancy, after-builders, deep and regular cleaning in {{business.location}}. Owner-led, with a clear price agreed before you book."
   },
   "skip": "Skip to main content",
@@ -17,6 +17,7 @@
     "label": "Main",
     "home": "home",
     "services": "Services",
+    "servicesMenu": "Service pages",
     "results": "Results",
     "gallery": "Gallery",
     "about": "About",
@@ -64,7 +65,15 @@
     "description": "Photos from {{business.owner}}’s own cleaning jobs across {{business.location}}: ovens, cooker hoods, kitchens, bathrooms and skirting boards, before and after.",
     "home": "Home",
     "title": "Gallery of our cleaning work",
-    "intro": "Photos from {{business.owner}}’s own jobs across {{business.location}}. Tap any photo to see it full size.",
+    "intro": "Every photo here is from one of {{business.owner}}’s own jobs across {{business.location}}. There are no stock images, and the only edit is blurring product labels.",
+    "intro2": "Each clean is planned around what the property needs, so you’ll see the same thing again and again: the parts of a home that a quick clean skips. Tap any photo to see it full size.",
+    "breadcrumb": "Breadcrumb",
+    "catText": {
+      "ovens": "Burnt-on grease on oven shelves and runners, cooker hood filters soaked and degreased, and stainless steel hoods polished without streaks. Inside-oven cleaning is an extra, quoted separately.",
+      "kitchens": "Hob pan supports, fridge drawers, sinks, plugholes and cupboard fronts: the places where spills and fingerprints build up between cleans.",
+      "bathrooms": "Shower trays, glass screens, drains, toilets and tiles, descaled and cleaned with natural-based products. This also includes work at a salon pedicure station.",
+      "details": "Skirting boards, light switches and door frames. These are often the first places a landlord or letting agent checks, and the last a rushed clean reaches."
+    },
     "filterLabel": "Show photos of",
     "all": "All",
     "cats": {
@@ -108,7 +117,11 @@
     "stars": "{{attr:.stars}} out of 5 stars",
     "emptyTitle": "Reviews",
     "empty": "Renata’s Google Business Profile is new, so there are no reviews on it yet. If she has cleaned for you, a few words about your experience would help others find her.",
-    "write": "Leave a review on Google"
+    "write": "Leave a review on Google",
+    "sliderLabel": "Customer reviews from Google",
+    "prev": "Previous reviews",
+    "next": "More reviews",
+    "source": "Google review"
   },
   "eco": {
     "title": "Natural-based products, thorough results",
@@ -233,5 +246,166 @@
     "galleryNext": "Next photo",
     "galleryCount": "{n} of {total}",
     "galleryShown": "{n} photos shown"
+  },
+  "svcCommon": {
+    "_help": "Shared text on the four service pages (src/<service id>/index.html).",
+    "quote": "Get a quote",
+    "facts": "Nearly 15 years’ experience · DBS checked · Products and equipment supplied",
+    "before": "Before",
+    "after": "After",
+    "relatedTitle": "Other ways Renata can help",
+    "galleryLink": "Photos from real jobs, sorted by job type",
+    "areas": "Covering {{coverage}}. Not sure if you’re in the area? Send your postcode with your enquiry."
+  },
+  "svc": {
+    "_help": "Text for each service page. Lists are plain text (no {{…}} values); write names in full. metaTitle stays under 60 characters, metaDescription under 155.",
+    "eot": {
+      "metaTitle": "End of Tenancy Cleaning Wimbledon | Deep Cleaning by Renata",
+      "metaDescription": "End of tenancy cleaning in Wimbledon, Putney, Richmond and Barnes for tenants, landlords and letting agents. Room-by-room checklist, price agreed first.",
+      "eyebrow": "For tenants, landlords and letting agents",
+      "h1": "End of tenancy cleaning in Wimbledon",
+      "lede": "Moving out is busy enough. Renata cleans the property to a checklist agreed with you before the day, so the kitchen, the bathrooms and the details that get looked at closely at checkout are done properly, not rushed at the end of a long move.",
+      "whoTitle": "Who books an end of tenancy clean",
+      "whoIntro": "The standard is the same whoever books it. What changes is what you need from it.",
+      "who": [
+        { "title": "Tenants moving out", "text": "You want the property handed back in the condition your tenancy asks for. Share your check-in report or inventory if you have it, and the checklist is built around it." },
+        { "title": "Landlords between tenancies", "text": "You need the property ready for the next tenant, and for photos or viewings. Tell Renata when the keys are free and when the next move-in is, and the clean is planned in between." },
+        { "title": "Letting agents", "text": "You need one person to deal with, a clear price and the work done to the agreed scope. Access and key handover can be arranged directly with your office." }
+      ],
+      "roomsTitle": "What’s cleaned, room by room",
+      "roomsIntro": "A guide to a typical end of tenancy checklist. Your quote confirms exactly what’s included for your property.",
+      "rooms": [
+        { "title": "Kitchen", "items": ["Worktops, splashbacks and tiles degreased", "Cupboards and drawers cleaned inside and out, once emptied", "Hob and appliance fronts", "Sink, taps and plughole descaled"] },
+        { "title": "Bathrooms", "items": ["Bath, shower, screen and tiles cleaned and descaled", "Toilet cleaned and disinfected", "Basin, taps and mirrors", "Drain covers lifted and cleaned where accessible"] },
+        { "title": "Bedrooms, living areas and hallways", "items": ["Skirting boards, doors and door frames", "Light switches and sockets wiped", "Accessible internal windows and sills", "Floors vacuumed and mopped"] }
+      ],
+      "extras": "Need more? Inside the oven, fridge or freezer cleaning, carpet cleaning and rubbish removal can be added, subject to availability and quoted separately.",
+      "proofTitle": "The details that get checked",
+      "proofText": "At checkout, attention often goes to the same places: grease in the kitchen, limescale in the bathroom, and dust along skirting boards and around switches. These are the areas a quick clean skips, so they get proper time here. This skirting board and switch are from one of Renata’s own jobs.",
+      "prepTitle": "Getting ready for the clean",
+      "prepIntro": "A few things that help the day go smoothly.",
+      "prep": [
+        { "title": "Send the inventory", "text": "If you have the check-in report or inventory, send it with your enquiry so the checklist can follow it." },
+        { "title": "Empty the property first", "text": "Cupboards, drawers and wardrobes can only be cleaned inside once they’re empty, so book the clean for after your things have gone." },
+        { "title": "Keep the power and water on", "text": "A thorough clean needs electricity and hot water, so check both are still connected on the day." },
+        { "title": "Agree access", "text": "You don’t need to be there, as long as access and key handover are arranged in advance." }
+      ],
+      "faqTitle": "Deposits and checkout",
+      "faqIntro": "No cleaner can honestly promise your deposit back. Deposit decisions are made by your landlord or letting agent, and they cover damage and wear as well as cleaning. What Renata can do is clean properly to the checklist agreed with you.",
+      "faqs": [
+        { "q": "What if the agent points something out after the clean?", "a": "Let Renata know as soon as you can, with a photo if possible. Anything raised is looked at case by case." },
+        { "q": "Is oven cleaning included?", "a": "Inside the oven is an extra, quoted separately, so mention it in your enquiry if your tenancy needs it. The hob and appliance fronts are part of the kitchen clean." },
+        { "q": "How is the price worked out?", "a": "Every clean is quoted individually, based on the size and condition of the property and what needs doing. You’ll know the scope and price before you book." }
+      ]
+    },
+    "builders": {
+      "metaTitle": "After Builders Cleaning Wimbledon | Deep Cleaning by Renata",
+      "metaDescription": "After-builders cleaning in Wimbledon and South West London for homeowners, builders and developers. Fine dust removed, in one visit or two stages.",
+      "eyebrow": "After extensions, refurbishments and new kitchens",
+      "h1": "After-builders cleaning in Wimbledon",
+      "lede": "Building work leaves behind a fine dust that settles on every surface and keeps coming back. Renata clears it properly, so you can see the finished work and start using the space again.",
+      "dustTitle": "Why building dust needs its own clean",
+      "dust1": "Plastering, sanding and cutting make dust far finer than everyday household dust. It drifts into cupboards, onto door tops, along skirting boards and into light fittings, and it carries on settling for days after the work stops.",
+      "dust2": "A quick dust or vacuum often just moves it around. That’s why an after-builders clean works from the top of each room down, collecting what falls on the way and finishing with the floors.",
+      "stagesTitle": "One clean or two, depending on the project",
+      "stagesIntro": "A smaller job may only need one final clean. On bigger projects, two visits can work better. Renata will suggest what suits yours once she knows what work was done.",
+      "stages": [
+        { "label": "Stage 1", "when": "Once the trades have finished", "title": "Builders’ clean", "text": "The heavy dust-down: dust cleared from surfaces, fittings, skirting and floors, so you can see the finished work clearly and spot anything that needs snagging." },
+        { "label": "Stage 2", "when": "Before furniture goes back or you move in", "title": "Final clean", "text": "The detailed clean: kitchen and bathrooms, internal glass where safe and accessible, and floors vacuumed and mopped, ready to live in or hand over." }
+      ],
+      "whoTitle": "For homeowners and for builders",
+      "who": [
+        { "title": "Homeowners", "text": "After an extension, loft conversion, refurbishment or new kitchen. Send a few photos and a note of what was done, and the quote will reflect how much dust and detail is really involved." },
+        { "title": "Builders and developers", "text": "Renata also works directly for builders and developers handing a property back to a client. Timing is agreed around your programme, so the clean happens after the last trade and before handover." }
+      ],
+      "faqTitle": "Good to know before you book",
+      "limits": [
+        "Book once building work has finished and trades are off site, so dust doesn’t settle again.",
+        "Paint splashes and adhesive residue are assessed separately.",
+        "Heavy waste and rubble removal aren’t offered.",
+        "Work at heights and exterior windows aren’t offered."
+      ],
+      "faqs": [
+        { "q": "How soon after the work finishes should I book?", "a": "As soon as the trades are off site. If anyone is still working, dust will settle again behind the clean." },
+        { "q": "Will I need one visit or two?", "a": "It depends on the size of the project and how much dust there is. Renata will advise once she has seen photos." },
+        { "q": "What do you need from me for a quote?", "a": "A short description of the work, the size of the space and a few photos. Photos can be sent by WhatsApp." }
+      ]
+    },
+    "deep": {
+      "metaTitle": "One-Off Deep Cleaning Wimbledon | Deep Cleaning by Renata",
+      "metaDescription": "One-off deep cleaning in Wimbledon, Putney, Richmond and Barnes: grease, limescale and dust tackled in detail, for homes and small commercial spaces.",
+      "eyebrow": "Before a sale, after a move, or when it’s overdue",
+      "h1": "One-off deep cleaning in Wimbledon",
+      "lede": "A deep clean resets a home that needs more than a regular tidy. It goes into the grease, limescale and dust that build up over months, and the places a weekly clean doesn’t reach.",
+      "whenTitle": "When a deep clean makes sense",
+      "when": [
+        { "title": "Before selling or letting", "text": "A clean home photographs better and feels better at viewings." },
+        { "title": "After moving in", "text": "Start fresh in a home someone else has lived in." },
+        { "title": "When it’s overdue", "text": "After a busy few months, an illness or a new baby, when the cleaning has slipped." },
+        { "title": "Before regular cleaning starts", "text": "Bring the home up to standard, so weekly or fortnightly visits can keep it there." },
+        { "title": "Small commercial spaces", "text": "Salons, small offices and short-let flats, as well as homes." }
+      ],
+      "compareTitle": "Deep clean or regular clean?",
+      "compareIntro": "Both are quoted individually. The difference is how far into the detail each one goes.",
+      "compareCaption": "Comparison table: one-off deep clean and regular clean",
+      "colDeep": "One-off deep clean",
+      "colRegular": "Regular clean",
+      "compare": [
+        { "row": "Best for", "deep": "Homes that haven’t had a thorough clean for a while", "regular": "Keeping a home on top of things" },
+        { "row": "How often", "deep": "Once, or every now and then", "regular": "Weekly or fortnightly" },
+        { "row": "Kitchen and bathrooms", "deep": "Grease and limescale tackled in detail", "regular": "Kept clean from visit to visit" },
+        { "row": "Skirting, doors and switches", "deep": "Cleaned throughout", "regular": "As agreed in your cleaning plan" },
+        { "row": "Visit length", "deep": "Estimated in your quote", "regular": "From 2 hours" }
+      ],
+      "compareLink": "Looking for ongoing visits? See <a href=\"{{root}}regular-cleaning/\">regular cleaning</a>.",
+      "timeTitle": "Where the time goes",
+      "timeIntro": "Most of a deep clean is spent on a handful of jobs that build up slowly.",
+      "time": [
+        { "photo": 26, "title": "Grease in the kitchen", "text": "Cooker hood filters, splashbacks and cupboard fronts. Filters are soaked and degreased, not just wiped over." },
+        { "photo": 16, "title": "Limescale in the bathroom", "text": "Shower trays, glass screens, taps and tiles, descaled with natural-based products." },
+        { "photo": 12, "title": "Dust along the edges", "text": "Skirting boards, door frames and switches, which gather the dust a vacuum passes over." }
+      ],
+      "extras": "Inside-oven cleaning, fridge or freezer cleaning, carpet cleaning and rubbish removal can be added to a deep clean, subject to availability and quoted separately.",
+      "faqTitle": "Deep cleaning questions",
+      "faqIntro": "Anything else? Ask Renata on WhatsApp or by phone.",
+      "faqs": [
+        { "q": "How long does a deep clean take?", "a": "It depends on the size and condition of the property, so you’ll get a time estimate with your quote." },
+        { "q": "Do you bring your own products?", "a": "Yes. Renata brings her own products and equipment, using products made with naturally derived ingredients, chosen with care for homes with people and pets. Mention any allergies or sensitivities before the clean." },
+        { "q": "Can you deep clean a salon or small office?", "a": "Yes. Small commercial spaces such as salons, small offices and short-let flats can be deep cleaned too. Describe the space and how it’s used, and Renata will quote for it." }
+      ]
+    },
+    "regular": {
+      "metaTitle": "Regular House Cleaning Wimbledon | Deep Cleaning by Renata",
+      "metaDescription": "Weekly or fortnightly house cleaning in Wimbledon, Putney, Richmond and Barnes. Visits from 2 hours, a plan agreed with you, products supplied.",
+      "eyebrow": "Weekly or fortnightly, from 2 hours a visit",
+      "h1": "Regular house cleaning in Wimbledon",
+      "lede": "A clean home every week or fortnight, from the same person who quoted for it. Renata agrees a cleaning plan with you, brings her own products and equipment, and fits the visits around your household.",
+      "factsTitle": "How visits work",
+      "facts": [
+        { "term": "How often", "detail": "Weekly or fortnightly" },
+        { "term": "Visit length", "detail": "From 2 hours, depending on your home and your plan" },
+        { "term": "Access", "detail": "Be at home, or Renata can hold a key" },
+        { "term": "Who cleans", "detail": "Renata, the owner, who also quotes and plans the work" },
+        { "term": "Products and equipment", "detail": "Brought to every visit, including a vacuum cleaner and mop" }
+      ],
+      "planTitle": "A plan that fits your home",
+      "plan1": "Before the first visit, you and Renata agree what matters most: the rooms that need attention every time, and the jobs that can be done less often.",
+      "plan2": "The plan isn’t set in stone. If your routine or your priorities change, tell Renata and the plan can change with them.",
+      "exampleTitle": "For example, a plan might include",
+      "example": ["Kitchen worktops, hob and sink", "Bathrooms and toilets", "Dusting reachable surfaces", "Floors vacuumed and mopped", "Skirting boards or internal windows on alternate visits"],
+      "exampleNote": "Your own plan is agreed with you.",
+      "startTitle": "Starting with a deep clean",
+      "startText": "If your home hasn’t had a thorough clean for a while, a one-off deep clean first can bring it up to standard, so regular visits spend their time keeping it there. Renata can advise whether it’s worth it.",
+      "startLink": "About deep cleaning",
+      "commercialTitle": "Small offices and salons too",
+      "commercialText": "Regular cleaning isn’t only for homes. Renata also cleans small commercial spaces, such as salons, small offices and short-let flats, weekly or fortnightly. This pedicure station is from one of her salon jobs.",
+      "faqTitle": "Regular cleaning questions",
+      "faqIntro": "Anything else? Ask Renata on WhatsApp or by phone.",
+      "faqs": [
+        { "q": "Is there a minimum visit length?", "a": "Yes, visits are at least 2 hours. Larger homes or more detailed plans may need longer, and your quote will say how long." },
+        { "q": "Do I need to be home?", "a": "No. You can be at home if you prefer, or arrange for Renata to hold a key." },
+        { "q": "Will it be the same cleaner every time?", "a": "Deep Cleaning by Renata is run by Renata herself, so the person who quotes for your home is the person who cleans it." }
+      ]
+    }
   }
 }

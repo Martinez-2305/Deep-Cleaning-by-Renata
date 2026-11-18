@@ -1,0 +1,13 @@
+    <!-- Links to the other services and the gallery, so each page leads somewhere useful. -->
+    <section class="section svc-related" aria-labelledby="related-title">
+      <div class="wrap">
+        <h2 id="related-title">{{t:svcCommon.relatedTitle}}</h2>
+        <ul class="related-list">
+          {{#each svc.others}}
+          <li><a href="{{root}}{{attr:.id}}/"><strong>{{.name}}</strong><span>{{.outcome}}</span></a></li>
+          {{/each svc.others}}
+          <li><a href="{{root}}gallery/"><strong>{{t:nav.gallery}}</strong><span>{{t:svcCommon.galleryLink}}</span></a></li>
+        </ul>
+        <p class="svc-areas">{{t:svcCommon.areas}}</p>
+      </div>
+    </section>

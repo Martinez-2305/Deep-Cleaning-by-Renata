@@ -26,7 +26,20 @@
       <nav class="main-nav" id="site-menu" aria-label="{{t:nav.label}}">
         <div class="nav-inner">
           <ul>
-            <li><a href="{{attr:home}}#services">{{t:nav.services}}</a></li>
+            <!-- Services: the link goes to the home-page section; the button beside it opens the
+                 service pages (desktop dropdown). On small screens the pages are listed underneath. -->
+            <li class="has-sub">
+              <div class="nav-parent">
+                <a href="{{attr:home}}#services">{{t:nav.services}}</a>
+                <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="services-menu">
+                  <span class="sr-only">{{t:nav.servicesMenu}}</span>
+                  <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+              </div>
+              <ul class="sub-menu" id="services-menu">
+                {{#each services}}{{#if .page}}<li><a href="{{root}}{{attr:.id}}/">{{.name}}</a></li>{{/if .page}}{{/each services}}
+              </ul>
+            </li>
             <li><a href="{{attr:home}}#results">{{t:nav.results}}</a></li>
             <li><a href="{{root}}gallery/">{{t:nav.gallery}}</a></li>
             <li><a href="{{attr:home}}#meet-renata">{{t:nav.about}}</a></li>

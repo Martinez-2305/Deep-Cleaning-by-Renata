@@ -59,7 +59,59 @@
       </ul>
     </section>
 
-    <!-- 3. Services -->
+    <!-- 3. Reviews: straight after the trust strip, so new visitors see them on the first scroll -->
+    {{#if reviews.show}}
+    <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
+      <div class="wrap">
+        <div class="reviews-head">
+          <h2 id="reviews-title">{{#if reviews.items}}{{t:reviews.title}}{{/if reviews.items}}{{#unless reviews.items}}{{t:reviews.emptyTitle}}{{/unless reviews.items}}</h2>
+          <!-- Google badge (links to Renata's Business Profile): beside the heading once there are
+               reviews, in the button row until then. Stars and count only appear with a real rating. -->
+          {{#if reviews.items}}{{> google-badge}}{{/if reviews.items}}
+        </div>
+        {{#unless reviews.items}}
+        <div class="reviews-empty">
+          <p>{{t:reviews.empty}}</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="{{attr:reviews.writeLink}}" rel="noopener">{{t:reviews.write}}</a>
+            {{> google-badge}}
+          </div>
+        </div>
+        {{/unless reviews.items}}
+        {{#if reviews.draft}}
+        <p class="ph-note">{{t:reviews.draft}}</p>
+        {{/if reviews.draft}}
+        {{#if reviews.items}}
+        <!-- Slider: a native scroll-snap row (swipe, trackpad or keyboard). main.js shows the
+             arrow buttons and greys out the one at each end. No autoplay.
+             With a url, the "Google review" link stretches over the whole card, so the card is clickable. -->
+        <div class="review-slider">
+          <div class="review-track" id="review-list" role="region" aria-label="{{t:reviews.sliderLabel}}" tabindex="0">
+          <ul class="review-list">
+            {{#each reviews.items}}
+            <li class="review">
+              {{#if .starsPct}}<span class="stars" style="--pct: {{attr:.starsPct}}" role="img" aria-label="{{t:reviews.stars}}"></span>{{/if .starsPct}}
+              {{#unless .starsPct}}<p class="review-stars-ph">{{.stars}}</p>{{/unless .starsPct}}
+              <blockquote lang="en"><p>{{.quote}}</p></blockquote>
+              <p class="review-by">{{.name}}{{#if .area}} — {{.area}}{{/if .area}}<span>{{#if .service}}{{.service}} · {{/if .service}}{{#if .url}}<a class="review-link" href="{{attr:.url}}" rel="noopener">{{t:reviews.source}}<span class="sr-only">: {{.name}}</span><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a>{{/if .url}}{{#unless .url}}{{t:reviews.source}}{{/unless .url}}</span></p>
+            </li>
+            {{/each reviews.items}}
+          </ul>
+          </div>
+          <div class="review-nav" hidden>
+            <button class="review-btn" type="button" data-dir="-1" aria-controls="review-list"><span class="sr-only">{{t:reviews.prev}}</span><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button class="review-btn" type="button" data-dir="1" aria-controls="review-list"><span class="sr-only">{{t:reviews.next}}</span><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+          </div>
+          {{#if reviews.link}}
+          <p class="reviews-more"><a href="{{attr:reviews.writeLink}}" rel="noopener">{{t:reviews.write}}</a></p>
+          {{/if reviews.link}}
+        </div>
+        {{/if reviews.items}}
+      </div>
+    </section>
+    {{/if reviews.show}}
+
+    <!-- 4. Services -->
     <section class="section services" id="services" aria-labelledby="services-title">
       <div class="wrap">
         <div class="section-head">
@@ -77,7 +129,7 @@
             </ul>
             <div class="service-links">
               <a class="btn btn-secondary" href="#quote" data-service="{{attr:.id}}">{{t:services.cta}}</a>
-              {{#if .page}}<a class="text-link" href="{{base}}{{attr:.id}}/">{{t:services.more}}</a>{{/if .page}}
+              {{#if .page}}<a class="text-link" href="{{root}}{{attr:.id}}/">{{t:services.more}}</a>{{/if .page}}
             </div>
           </li>
           {{/each services}}
@@ -101,7 +153,7 @@
       </div>
     </section>
 
-    <!-- 4. Before / after -->
+    <!-- 5. Before / after -->
     {{#if results}}
     <section class="section results" id="results" aria-labelledby="results-title">
       <div class="wrap">
@@ -134,20 +186,24 @@
     </section>
     {{/if results}}
 
-    <!-- 5. Why choose -->
+    <!-- 6. Why choose -->
     <section class="section why" aria-labelledby="why-title">
-      <div class="wrap">
+      <div class="wrap has-deco">
+        {{> deco-sparkles}}
         <h2 id="why-title">{{t:why.title}}</h2>
         <ul class="why-grid">
           <li>
+            <span class="why-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></span>
             <h3>{{t:why.h1}}</h3>
             <p>{{t:why.p1}}</p>
           </li>
           <li>
+            <span class="why-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
             <h3>{{t:why.h2}}</h3>
             <p>{{t:why.p2}}</p>
           </li>
           <li>
+            <span class="why-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="M9 13l2 2 4-4"/></svg></span>
             <h3>{{t:why.h3}}</h3>
             <p>{{t:why.p3}}</p>
           </li>
@@ -155,7 +211,7 @@
       </div>
     </section>
 
-    <!-- 6. Meet Renata -->
+    <!-- 7. Meet Renata -->
     <section class="section meet" id="meet-renata" aria-labelledby="meet-title">
       <div class="wrap meet-grid">
         <figure class="meet-photo">
@@ -174,9 +230,10 @@
       </div>
     </section>
 
-    <!-- 7. How it works + quote messaging -->
+    <!-- 8. How it works + quote messaging -->
     <section class="section process" id="process" aria-labelledby="process-title">
-      <div class="wrap">
+      <div class="wrap has-deco">
+        {{> deco-bucket}}
         <h2 id="process-title">{{t:process.title}}</h2>
         <ol class="steps">
           <li>
@@ -204,47 +261,6 @@
         </div>
       </div>
     </section>
-
-    <!-- 8. Reviews -->
-    {{#if reviews.show}}
-    <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
-      <div class="wrap">
-        <div class="reviews-head">
-          <h2 id="reviews-title">{{#if reviews.items}}{{t:reviews.title}}{{/if reviews.items}}{{#unless reviews.items}}{{t:reviews.emptyTitle}}{{/unless reviews.items}}</h2>
-          <!-- Google badge (links to Renata's Business Profile): beside the heading once there are
-               reviews, in the button row until then. Stars and count only appear with a real rating. -->
-          {{#if reviews.items}}{{> google-badge}}{{/if reviews.items}}
-        </div>
-        {{#unless reviews.items}}
-        <div class="reviews-empty">
-          <p>{{t:reviews.empty}}</p>
-          <div class="actions">
-            <a class="btn btn-primary" href="{{attr:reviews.writeLink}}" rel="noopener">{{t:reviews.write}}</a>
-            {{> google-badge}}
-          </div>
-        </div>
-        {{/unless reviews.items}}
-        {{#if reviews.draft}}
-        <p class="ph-note">{{t:reviews.draft}}</p>
-        {{/if reviews.draft}}
-        {{#if reviews.items}}
-        <ul class="review-list">
-          {{#each reviews.items}}
-          <li class="review">
-            {{#if .starsPct}}<span class="stars" style="--pct: {{attr:.starsPct}}" role="img" aria-label="{{t:reviews.stars}}"></span>{{/if .starsPct}}
-            {{#unless .starsPct}}<p class="review-stars-ph">{{.stars}}</p>{{/unless .starsPct}}
-            <blockquote><p>{{.quote}}</p></blockquote>
-            <p class="review-by">{{.name}} — {{.area}}<span>{{.service}}</span></p>
-          </li>
-          {{/each reviews.items}}
-        </ul>
-        {{#if reviews.link}}
-        <p class="reviews-more"><a href="{{attr:reviews.writeLink}}" rel="noopener">{{t:reviews.write}}</a></p>
-        {{/if reviews.link}}
-        {{/if reviews.items}}
-      </div>
-    </section>
-    {{/if reviews.show}}
 
     <!-- 9. Products -->
     <section class="section eco" id="products" aria-labelledby="eco-title">

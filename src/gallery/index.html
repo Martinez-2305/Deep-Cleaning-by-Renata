@@ -28,13 +28,15 @@
 
   <main id="main">
     <section class="section gallery-page" aria-labelledby="gallery-title">
-      <div class="wrap">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
+      <div class="wrap has-deco">
+        {{> deco-sponge}}
+        <nav class="breadcrumb" aria-label="{{t:gallery.breadcrumb}}">
           <a href="{{attr:home}}">{{t:gallery.home}}</a> <span aria-hidden="true">/</span> <span aria-current="page">{{t:nav.gallery}}</span>
         </nav>
         <div class="section-head">
           <h1 id="gallery-title">{{t:gallery.title}}</h1>
           <p>{{t:gallery.intro}}</p>
+          <p>{{t:gallery.intro2}}</p>
         </div>
 
         <!-- Filters only work with JavaScript, so main.js reveals them. -->
@@ -45,19 +47,27 @@
         </div>
         <p class="sr-only" id="gallery-status" aria-live="polite"></p>
 
-        <!-- Each photo links to its full-size JPEG; main.js opens it in the viewer instead. -->
-        <ul class="gallery-grid">
-          {{#each gallery}}
-          <li data-cat="{{attr:.cat}}">
-            <a class="g-item" href="{{base}}assets/img/{{attr:.name}}-1200.jpg" data-avif="{{base}}assets/img/{{attr:.name}}-1200.avif" data-w="{{attr:.width}}" data-h="{{attr:.height}}">
-              <picture>
-                <source type="image/avif" srcset="{{base}}assets/img/{{attr:.name}}-400.avif">
-                <img src="{{base}}assets/img/{{attr:.name}}-400.jpg" width="{{attr:.thumbW}}" height="{{attr:.thumbH}}" alt="{{attr:.alt}}" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          {{/each gallery}}
-        </ul>
+        <!-- One section per job type. Each photo links to its full-size JPEG; main.js opens it in the viewer instead. -->
+        <div class="gallery-groups">
+          {{#each galleryFilters}}
+          <section class="gallery-group" data-cat="{{attr:.id}}" aria-labelledby="g-{{attr:.id}}">
+            <h2 id="g-{{attr:.id}}">{{.label}}</h2>
+            <p>{{.caption}}</p>
+            <ul class="gallery-grid">
+              {{#each .photos}}
+              <li>
+                <a class="g-item" href="{{base}}assets/img/{{attr:.name}}-1200.jpg" data-avif="{{base}}assets/img/{{attr:.name}}-1200.avif" data-w="{{attr:.width}}" data-h="{{attr:.height}}">
+                  <picture>
+                    <source type="image/avif" srcset="{{base}}assets/img/{{attr:.name}}-400.avif">
+                    <img src="{{base}}assets/img/{{attr:.name}}-400.jpg" width="{{attr:.thumbW}}" height="{{attr:.thumbH}}" alt="{{attr:.alt}}" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              {{/each .photos}}
+            </ul>
+          </section>
+          {{/each galleryFilters}}
+        </div>
       </div>
     </section>
   </main>
