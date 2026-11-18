@@ -20,12 +20,13 @@
   <link rel="alternate" hreflang="en" href="https://deepcleaningbyrenata.co.uk/gallery/">
   <link rel="alternate" hreflang="pl" href="https://deepcleaningbyrenata.co.uk/pl/gallery/">
   <link rel="alternate" hreflang="x-default" href="https://deepcleaningbyrenata.co.uk/gallery/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Strona główna","item":"https://deepcleaningbyrenata.co.uk/pl/"},{"@type":"ListItem","position":2,"name":"Galeria","item":"https://deepcleaningbyrenata.co.uk/pl/gallery/"}]}</script>
   <link rel="icon" type="image/png" sizes="48x48" href="../../assets/img/favicon-48.png">
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png">
   <link rel="preload" href="../../assets/fonts/public-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../../assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../../styles.css?v=6ed51f7877">
-  <script src="../../main.js?v=df312acd58" defer></script>
+  <link rel="stylesheet" href="../../styles.css?v=dd495c5357">
+  <script src="../../main.js?v=5506f68447" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Przejdź do treści</a>
@@ -59,7 +60,18 @@
       <nav class="main-nav" id="site-menu" aria-label="Menu główne">
         <div class="nav-inner">
           <ul>
-            <li><a href="../#services">Usługi</a></li>
+            <li class="has-sub">
+              <div class="nav-parent">
+                <a href="../#services">Usługi</a>
+                <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="services-menu">
+                  <span class="sr-only">Strony usług</span>
+                  <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+              </div>
+              <ul class="sub-menu" id="services-menu">
+                <li><a href="../end-of-tenancy-cleaning/">Sprzątanie po zakończeniu najmu</a></li><li><a href="../post-renovation-cleaning/">Sprzątanie po remoncie</a></li><li><a href="../deep-cleaning/">Jednorazowe sprzątanie gruntowne</a></li><li><a href="../regular-cleaning/">Regularne sprzątanie</a></li>
+              </ul>
+            </li>
             <li><a href="../#results">Efekty</a></li>
             <li><a href="../gallery/">Galeria</a></li>
             <li><a href="../#meet-renata">O mnie</a></li>
@@ -84,13 +96,16 @@
 
   <main id="main">
     <section class="section gallery-page" aria-labelledby="gallery-title">
-      <div class="wrap">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
+      <div class="wrap has-deco">
+        <svg class="deco" aria-hidden="true" focusable="false" viewBox="0 0 140 120"><circle class="d-bubble" cx="104" cy="24" r="10"/><circle class="d-bubble" cx="122" cy="44" r="6"/><circle class="d-bubble" cx="86" cy="12" r="5"/><rect class="d-lime" x="14" y="54" width="108" height="52" rx="10"/><rect class="d-soft" x="14" y="42" width="108" height="20" rx="8"/><circle class="d-dot" cx="36" cy="78" r="3.5"/><circle class="d-dot" cx="58" cy="90" r="3"/><circle class="d-dot" cx="78" cy="74" r="4"/><circle class="d-dot" cx="100" cy="90" r="3"/><circle class="d-dot" cx="50" cy="70" r="2.5"/><circle class="d-dot" cx="92" cy="72" r="2.5"/><path class="d-soft d-twinkle" d="M20 6Q21.5 16 32 18Q21.5 20 20 30Q18.5 20 8 18Q18.5 16 20 6Z"/></svg>
+
+        <nav class="breadcrumb" aria-label="Ścieżka nawigacji">
           <a href="../">Strona główna</a> <span aria-hidden="true">/</span> <span aria-current="page">Galeria</span>
         </nav>
         <div class="section-head">
           <h1 id="gallery-title">Galeria naszych prac</h1>
-          <p>Zdjęcia z prawdziwych zleceń Renaty w Wimbledonie i południowo-zachodnim Londynie. Dotknij zdjęcia, aby zobaczyć je w pełnym rozmiarze.</p>
+          <p>Każde zdjęcie pochodzi z prawdziwego zlecenia Renaty w Wimbledonie i południowo-zachodnim Londynie – bez zdjęć stockowych, a jedyną zmianą jest rozmycie etykiet środków czystości.</p>
+          <p>Każde sprzątanie jest planowane pod kątem potrzeb nieruchomości, dlatego na zdjęciach powtarza się jedno: miejsca, które szybkie sprzątanie pomija. Dotknij zdjęcia, aby zobaczyć je w pełnym rozmiarze.</p>
         </div>
 
         <div class="gallery-filters" role="group" aria-label="Pokaż zdjęcia" hidden>
@@ -103,603 +118,635 @@
         </div>
         <p class="sr-only" id="gallery-status" aria-live="polite"></p>
 
-        <ul class="gallery-grid">
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-27-1200.jpg" data-avif="../../assets/img/gallery-27-1200.avif" data-w="1200" data-h="1200">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-27-400.avif">
-                <img src="../../assets/img/gallery-27-400.jpg" width="400" height="400" alt="Piekarnik przed i po gruntownym czyszczeniu: usunięty przypalony tłuszcz z wnętrza i szyby drzwi" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-65-1200.jpg" data-avif="../../assets/img/gallery-65-1200.avif" data-w="1200" data-h="1081">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-65-400.avif">
-                <img src="../../assets/img/gallery-65-400.jpg" width="400" height="360" alt="Filtr okapu zatkany tłuszczem przed czyszczeniem" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-66-1200.jpg" data-avif="../../assets/img/gallery-66-1200.avif" data-w="1200" data-h="1373">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-66-400.avif">
-                <img src="../../assets/img/gallery-66-400.jpg" width="400" height="458" alt="Filtr okapu po odtłuszczeniu" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-44-1200.jpg" data-avif="../../assets/img/gallery-44-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-44-400.avif">
-                <img src="../../assets/img/gallery-44-400.jpg" width="400" height="533" alt="Odtłuszczanie okapu ze stali nierdzewnej gąbką do szorowania" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-46-1200.jpg" data-avif="../../assets/img/gallery-46-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-46-400.avif">
-                <img src="../../assets/img/gallery-46-400.jpg" width="400" height="300" alt="Wypolerowany okap ze stali nierdzewnej po czyszczeniu" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-60-1200.jpg" data-avif="../../assets/img/gallery-60-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-60-400.avif">
-                <img src="../../assets/img/gallery-60-400.jpg" width="400" height="533" alt="Okap kominowy wypolerowany na wysoki połysk" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-61-1200.jpg" data-avif="../../assets/img/gallery-61-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-61-400.avif">
-                <img src="../../assets/img/gallery-61-400.jpg" width="400" height="533" alt="Wypolerowany okap ze stali nierdzewnej widziany z boku" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-62-1200.jpg" data-avif="../../assets/img/gallery-62-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-62-400.avif">
-                <img src="../../assets/img/gallery-62-400.jpg" width="400" height="533" alt="Czysty okap kominowy widziany od dołu" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-45-1200.jpg" data-avif="../../assets/img/gallery-45-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-45-400.avif">
-                <img src="../../assets/img/gallery-45-400.jpg" width="400" height="533" alt="Czyszczenie okapu ze stali nierdzewnej, obok środki czyszczące" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-43-1200.jpg" data-avif="../../assets/img/gallery-43-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-43-400.avif">
-                <img src="../../assets/img/gallery-43-400.jpg" width="400" height="533" alt="Górna część okapu podczas czyszczenia, obok płynu czyszczącego" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-42-1200.jpg" data-avif="../../assets/img/gallery-42-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-42-400.avif">
-                <img src="../../assets/img/gallery-42-400.jpg" width="400" height="533" alt="Zbliżenie powierzchni ze stali nierdzewnej po czyszczeniu" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-48-1200.jpg" data-avif="../../assets/img/gallery-48-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-48-400.avif">
-                <img src="../../assets/img/gallery-48-400.jpg" width="400" height="533" alt="Okap ze stali nierdzewnej nad ścianą z płytkami" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-47-1200.jpg" data-avif="../../assets/img/gallery-47-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-47-400.avif">
-                <img src="../../assets/img/gallery-47-400.jpg" width="400" height="300" alt="Wyczyszczone filtry okapu nad zlewem kuchennym" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-49-1200.jpg" data-avif="../../assets/img/gallery-49-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-49-400.avif">
-                <img src="../../assets/img/gallery-49-400.jpg" width="400" height="533" alt="Filtry okapu namaczane w gorącej wodzie z płynem" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-26-1200.jpg" data-avif="../../assets/img/gallery-26-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-26-400.avif">
-                <img src="../../assets/img/gallery-26-400.jpg" width="400" height="533" alt="Filtry okapu: jeden wyczyszczony obok dwóch jeszcze zatłuszczonych" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-58-1200.jpg" data-avif="../../assets/img/gallery-58-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-58-400.avif">
-                <img src="../../assets/img/gallery-58-400.jpg" width="400" height="300" alt="Para filtrów okapu po odtłuszczeniu" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-59-1200.jpg" data-avif="../../assets/img/gallery-59-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-59-400.avif">
-                <img src="../../assets/img/gallery-59-400.jpg" width="400" height="300" alt="Czyste filtry okapu schnące na blacie" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-63-1200.jpg" data-avif="../../assets/img/gallery-63-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-63-400.avif">
-                <img src="../../assets/img/gallery-63-400.jpg" width="400" height="533" alt="Czyste filtry okapu nad płytą gazową" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-64-1200.jpg" data-avif="../../assets/img/gallery-64-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-64-400.avif">
-                <img src="../../assets/img/gallery-64-400.jpg" width="400" height="300" alt="Zbliżenie wyczyszczonych filtrów okapu" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-28-1200.jpg" data-avif="../../assets/img/gallery-28-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-28-400.avif">
-                <img src="../../assets/img/gallery-28-400.jpg" width="400" height="533" alt="Prowadnice piekarnika pokryte przypalonym tłuszczem przed czyszczeniem" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-29-1200.jpg" data-avif="../../assets/img/gallery-29-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-29-400.avif">
-                <img src="../../assets/img/gallery-29-400.jpg" width="400" height="533" alt="Zatłuszczone prowadnice piekarnika przed czyszczeniem" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-34-1200.jpg" data-avif="../../assets/img/gallery-34-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-34-400.avif">
-                <img src="../../assets/img/gallery-34-400.jpg" width="400" height="533" alt="Zatłuszczona półka piekarnika przed czyszczeniem" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-30-1200.jpg" data-avif="../../assets/img/gallery-30-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-30-400.avif">
-                <img src="../../assets/img/gallery-30-400.jpg" width="400" height="533" alt="Lśniące prowadnice piekarnika po czyszczeniu" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-31-1200.jpg" data-avif="../../assets/img/gallery-31-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-31-400.avif">
-                <img src="../../assets/img/gallery-31-400.jpg" width="400" height="533" alt="Czyste chromowane prowadnice piekarnika" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-32-1200.jpg" data-avif="../../assets/img/gallery-32-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-32-400.avif">
-                <img src="../../assets/img/gallery-32-400.jpg" width="400" height="533" alt="Półki piekarnika po czyszczeniu" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="ovens">
-            <a class="g-item" href="../../assets/img/gallery-33-1200.jpg" data-avif="../../assets/img/gallery-33-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-33-400.avif">
-                <img src="../../assets/img/gallery-33-400.jpg" width="400" height="300" alt="Półki i prowadnice piekarnika po czyszczeniu" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="kitchens">
-            <a class="g-item" href="../../assets/img/gallery-17-1200.jpg" data-avif="../../assets/img/gallery-17-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-17-400.avif">
-                <img src="../../assets/img/gallery-17-400.jpg" width="400" height="533" alt="Płyta gazowa i ruszty przed czyszczeniem" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="kitchens">
-            <a class="g-item" href="../../assets/img/gallery-19-1200.jpg" data-avif="../../assets/img/gallery-19-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-19-400.avif">
-                <img src="../../assets/img/gallery-19-400.jpg" width="400" height="533" alt="Płyta gazowa i ruszty po czyszczeniu" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="kitchens">
-            <a class="g-item" href="../../assets/img/gallery-36-1200.jpg" data-avif="../../assets/img/gallery-36-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-36-400.avif">
-                <img src="../../assets/img/gallery-36-400.jpg" width="400" height="533" alt="Szuflada lodówki z zabrudzeniami i plamami przed czyszczeniem" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="kitchens">
-            <a class="g-item" href="../../assets/img/gallery-35-1200.jpg" data-avif="../../assets/img/gallery-35-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-35-400.avif">
-                <img src="../../assets/img/gallery-35-400.jpg" width="400" height="300" alt="Szuflada lodówki po czyszczeniu" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="kitchens">
-            <a class="g-item" href="../../assets/img/gallery-18-1200.jpg" data-avif="../../assets/img/gallery-18-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-18-400.avif">
-                <img src="../../assets/img/gallery-18-400.jpg" width="400" height="300" alt="Dwukomorowy zlew ze stali nierdzewnej z ociekaczem" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="kitchens">
-            <a class="g-item" href="../../assets/img/gallery-20-1200.jpg" data-avif="../../assets/img/gallery-20-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-20-400.avif">
-                <img src="../../assets/img/gallery-20-400.jpg" width="400" height="300" alt="Wyczyszczony, lśniący zlew ze stali nierdzewnej" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="kitchens">
-            <a class="g-item" href="../../assets/img/gallery-03-1200.jpg" data-avif="../../assets/img/gallery-03-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-03-400.avif">
-                <img src="../../assets/img/gallery-03-400.jpg" width="400" height="300" alt="Przetarte białe fronty szafek kuchennych i uchwyty" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="kitchens">
-            <a class="g-item" href="../../assets/img/gallery-04-1200.jpg" data-avif="../../assets/img/gallery-04-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-04-400.avif">
-                <img src="../../assets/img/gallery-04-400.jpg" width="400" height="300" alt="Czyste fronty i uchwyty szafek kuchennych" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="kitchens">
-            <a class="g-item" href="../../assets/img/gallery-50-1200.jpg" data-avif="../../assets/img/gallery-50-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-50-400.avif">
-                <img src="../../assets/img/gallery-50-400.jpg" width="400" height="533" alt="Biały ceramiczny zlew i odpływ po czyszczeniu" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="kitchens">
-            <a class="g-item" href="../../assets/img/gallery-51-1200.jpg" data-avif="../../assets/img/gallery-51-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-51-400.avif">
-                <img src="../../assets/img/gallery-51-400.jpg" width="400" height="533" alt="Zbliżenie odpływu zlewu po czyszczeniu" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="bathrooms">
-            <a class="g-item" href="../../assets/img/gallery-23-1200.jpg" data-avif="../../assets/img/gallery-23-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-23-400.avif">
-                <img src="../../assets/img/gallery-23-400.jpg" width="400" height="533" alt="Prysznic z turkusowymi płytkami w jodełkę i czystą szklaną ścianką" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="bathrooms">
-            <a class="g-item" href="../../assets/img/gallery-24-1200.jpg" data-avif="../../assets/img/gallery-24-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-24-400.avif">
-                <img src="../../assets/img/gallery-24-400.jpg" width="400" height="533" alt="Nieskazitelnie czysta, świeżo wyremontowana łazienka z turkusowymi płytkami, umywalką i drewnianą szafką" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="bathrooms">
-            <a class="g-item" href="../../assets/img/gallery-25-1200.jpg" data-avif="../../assets/img/gallery-25-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-25-400.avif">
-                <img src="../../assets/img/gallery-25-400.jpg" width="400" height="533" alt="Wanna z lśniącą szklaną ścianką i turkusowymi płytkami w jodełkę" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="bathrooms">
-            <a class="g-item" href="../../assets/img/gallery-15-1200.jpg" data-avif="../../assets/img/gallery-15-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-15-400.avif">
-                <img src="../../assets/img/gallery-15-400.jpg" width="400" height="300" alt="Lśniący biały brodzik i szklana kabina prysznicowa" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="bathrooms">
-            <a class="g-item" href="../../assets/img/gallery-16-1200.jpg" data-avif="../../assets/img/gallery-16-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-16-400.avif">
-                <img src="../../assets/img/gallery-16-400.jpg" width="400" height="300" alt="Brodzik podczas czyszczenia, ze zdjętą pokrywą odpływu" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="bathrooms">
-            <a class="g-item" href="../../assets/img/gallery-13-1200.jpg" data-avif="../../assets/img/gallery-13-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-13-400.avif">
-                <img src="../../assets/img/gallery-13-400.jpg" width="400" height="533" alt="Czyszczenie pokrywy odpływu prysznica" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="bathrooms">
-            <a class="g-item" href="../../assets/img/gallery-14-1200.jpg" data-avif="../../assets/img/gallery-14-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-14-400.avif">
-                <img src="../../assets/img/gallery-14-400.jpg" width="400" height="300" alt="Brodzik w trakcie sprzątania, ze słuchawką prysznica i przyborami" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="bathrooms">
-            <a class="g-item" href="../../assets/img/gallery-21-1200.jpg" data-avif="../../assets/img/gallery-21-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-21-400.avif">
-                <img src="../../assets/img/gallery-21-400.jpg" width="400" height="533" alt="Wyczyszczona i zdezynfekowana muszla toaletowa" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="bathrooms">
-            <a class="g-item" href="../../assets/img/gallery-22-1200.jpg" data-avif="../../assets/img/gallery-22-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-22-400.avif">
-                <img src="../../assets/img/gallery-22-400.jpg" width="400" height="533" alt="Czysta biała toaleta na podłodze imitującej marmur" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="bathrooms">
-            <a class="g-item" href="../../assets/img/gallery-56-1200.jpg" data-avif="../../assets/img/gallery-56-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-56-400.avif">
-                <img src="../../assets/img/gallery-56-400.jpg" width="400" height="533" alt="Czysta łazienka z umywalką na postumencie i wzorzystymi płytkami" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="bathrooms">
-            <a class="g-item" href="../../assets/img/gallery-55-1200.jpg" data-avif="../../assets/img/gallery-55-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-55-400.avif">
-                <img src="../../assets/img/gallery-55-400.jpg" width="400" height="533" alt="Postument umywalki i listwy na wzorzystych płytkach" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="bathrooms">
-            <a class="g-item" href="../../assets/img/gallery-57-1200.jpg" data-avif="../../assets/img/gallery-57-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-57-400.avif">
-                <img src="../../assets/img/gallery-57-400.jpg" width="400" height="533" alt="Kosz pedałowy i narożnik listwy w łazience" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="bathrooms">
-            <a class="g-item" href="../../assets/img/gallery-41-1200.jpg" data-avif="../../assets/img/gallery-41-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-41-400.avif">
-                <img src="../../assets/img/gallery-41-400.jpg" width="400" height="300" alt="Brodzik do pedicure przed czyszczeniem" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="bathrooms">
-            <a class="g-item" href="../../assets/img/gallery-37-1200.jpg" data-avif="../../assets/img/gallery-37-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-37-400.avif">
-                <img src="../../assets/img/gallery-37-400.jpg" width="400" height="533" alt="Czysty brodzik przy fotelu do pedicure w salonie" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="bathrooms">
-            <a class="g-item" href="../../assets/img/gallery-38-1200.jpg" data-avif="../../assets/img/gallery-38-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-38-400.avif">
-                <img src="../../assets/img/gallery-38-400.jpg" width="400" height="533" alt="Fotel do pedicure i brodzik po czyszczeniu" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="bathrooms">
-            <a class="g-item" href="../../assets/img/gallery-39-1200.jpg" data-avif="../../assets/img/gallery-39-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-39-400.avif">
-                <img src="../../assets/img/gallery-39-400.jpg" width="400" height="300" alt="Stopień stanowiska do pedicure przed czyszczeniem" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="bathrooms">
-            <a class="g-item" href="../../assets/img/gallery-40-1200.jpg" data-avif="../../assets/img/gallery-40-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-40-400.avif">
-                <img src="../../assets/img/gallery-40-400.jpg" width="400" height="300" alt="Czyszczenie stanowiska do pedicure środkiem do wanien i płytek" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="details">
-            <a class="g-item" href="../../assets/img/gallery-53-1200.jpg" data-avif="../../assets/img/gallery-53-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-53-400.avif">
-                <img src="../../assets/img/gallery-53-400.jpg" width="400" height="300" alt="Listwa przypodłogowa obok włącznika światła przed czyszczeniem" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="details">
-            <a class="g-item" href="../../assets/img/gallery-54-1200.jpg" data-avif="../../assets/img/gallery-54-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-54-400.avif">
-                <img src="../../assets/img/gallery-54-400.jpg" width="400" height="300" alt="Listwa przypodłogowa obok włącznika światła po czyszczeniu" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="details">
-            <a class="g-item" href="../../assets/img/gallery-12-1200.jpg" data-avif="../../assets/img/gallery-12-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-12-400.avif">
-                <img src="../../assets/img/gallery-12-400.jpg" width="400" height="300" alt="Zakurzona listwa przypodłogowa nad wykładziną przed czyszczeniem" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="details">
-            <a class="g-item" href="../../assets/img/gallery-05-1200.jpg" data-avif="../../assets/img/gallery-05-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-05-400.avif">
-                <img src="../../assets/img/gallery-05-400.jpg" width="400" height="300" alt="Listwa przypodłogowa nad wykładziną" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="details">
-            <a class="g-item" href="../../assets/img/gallery-06-1200.jpg" data-avif="../../assets/img/gallery-06-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-06-400.avif">
-                <img src="../../assets/img/gallery-06-400.jpg" width="400" height="300" alt="Czysta biała listwa przypodłogowa" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="details">
-            <a class="g-item" href="../../assets/img/gallery-07-1200.jpg" data-avif="../../assets/img/gallery-07-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-07-400.avif">
-                <img src="../../assets/img/gallery-07-400.jpg" width="400" height="300" alt="Czysta listwa przypodłogowa obok zmiotki" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="details">
-            <a class="g-item" href="../../assets/img/gallery-08-1200.jpg" data-avif="../../assets/img/gallery-08-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-08-400.avif">
-                <img src="../../assets/img/gallery-08-400.jpg" width="400" height="300" alt="Czysty narożnik listwy na podłodze imitującej drewno" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="details">
-            <a class="g-item" href="../../assets/img/gallery-09-1200.jpg" data-avif="../../assets/img/gallery-09-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-09-400.avif">
-                <img src="../../assets/img/gallery-09-400.jpg" width="400" height="300" alt="Czysta biała listwa przypodłogowa w narożniku" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="details">
-            <a class="g-item" href="../../assets/img/gallery-10-1200.jpg" data-avif="../../assets/img/gallery-10-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-10-400.avif">
-                <img src="../../assets/img/gallery-10-400.jpg" width="400" height="533" alt="Czysta krawędź framugi i listwa" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="details">
-            <a class="g-item" href="../../assets/img/gallery-11-1200.jpg" data-avif="../../assets/img/gallery-11-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-11-400.avif">
-                <img src="../../assets/img/gallery-11-400.jpg" width="400" height="300" alt="Listwa przypodłogowa ze ściereczką i szczotką" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="details">
-            <a class="g-item" href="../../assets/img/gallery-52-1200.jpg" data-avif="../../assets/img/gallery-52-1200.avif" data-w="1200" data-h="900">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-52-400.avif">
-                <img src="../../assets/img/gallery-52-400.jpg" width="400" height="300" alt="Listwa przypodłogowa nad wzorzystymi płytkami" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="details">
-            <a class="g-item" href="../../assets/img/gallery-01-1200.jpg" data-avif="../../assets/img/gallery-01-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-01-400.avif">
-                <img src="../../assets/img/gallery-01-400.jpg" width="400" height="533" alt="Przetarty włącznik światła ze szczotkowanej stali" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-          <li data-cat="details">
-            <a class="g-item" href="../../assets/img/gallery-02-1200.jpg" data-avif="../../assets/img/gallery-02-1200.avif" data-w="1200" data-h="1600">
-              <picture>
-                <source type="image/avif" srcset="../../assets/img/gallery-02-400.avif">
-                <img src="../../assets/img/gallery-02-400.jpg" width="400" height="533" alt="Włącznik światła ze szczotkowanej stali" loading="lazy" decoding="async">
-              </picture>
-            </a>
-          </li>
-          
-        </ul>
+        <div class="gallery-groups">
+          
+          <section class="gallery-group" data-cat="ovens" aria-labelledby="g-ovens">
+            <h2 id="g-ovens">Piekarniki i okapy</h2>
+            <p>Przypalony tłuszcz na półkach i prowadnicach piekarnika, filtry okapu namoczone i odtłuszczone oraz okapy ze stali nierdzewnej wypolerowane bez smug. Czyszczenie wnętrza piekarnika to usługa dodatkowa, wyceniana osobno.</p>
+            <ul class="gallery-grid">
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-27-1200.jpg" data-avif="../../assets/img/gallery-27-1200.avif" data-w="1200" data-h="1200">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-27-400.avif">
+                    <img src="../../assets/img/gallery-27-400.jpg" width="400" height="400" alt="Piekarnik przed i po gruntownym czyszczeniu: usunięty przypalony tłuszcz z wnętrza i szyby drzwi" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-65-1200.jpg" data-avif="../../assets/img/gallery-65-1200.avif" data-w="1200" data-h="1081">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-65-400.avif">
+                    <img src="../../assets/img/gallery-65-400.jpg" width="400" height="360" alt="Filtr okapu zatkany tłuszczem przed czyszczeniem" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-66-1200.jpg" data-avif="../../assets/img/gallery-66-1200.avif" data-w="1200" data-h="1373">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-66-400.avif">
+                    <img src="../../assets/img/gallery-66-400.jpg" width="400" height="458" alt="Filtr okapu po odtłuszczeniu" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-44-1200.jpg" data-avif="../../assets/img/gallery-44-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-44-400.avif">
+                    <img src="../../assets/img/gallery-44-400.jpg" width="400" height="533" alt="Odtłuszczanie okapu ze stali nierdzewnej gąbką do szorowania" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-46-1200.jpg" data-avif="../../assets/img/gallery-46-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-46-400.avif">
+                    <img src="../../assets/img/gallery-46-400.jpg" width="400" height="300" alt="Wypolerowany okap ze stali nierdzewnej po czyszczeniu" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-60-1200.jpg" data-avif="../../assets/img/gallery-60-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-60-400.avif">
+                    <img src="../../assets/img/gallery-60-400.jpg" width="400" height="533" alt="Okap kominowy wypolerowany na wysoki połysk" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-61-1200.jpg" data-avif="../../assets/img/gallery-61-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-61-400.avif">
+                    <img src="../../assets/img/gallery-61-400.jpg" width="400" height="533" alt="Wypolerowany okap ze stali nierdzewnej widziany z boku" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-62-1200.jpg" data-avif="../../assets/img/gallery-62-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-62-400.avif">
+                    <img src="../../assets/img/gallery-62-400.jpg" width="400" height="533" alt="Czysty okap kominowy widziany od dołu" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-45-1200.jpg" data-avif="../../assets/img/gallery-45-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-45-400.avif">
+                    <img src="../../assets/img/gallery-45-400.jpg" width="400" height="533" alt="Czyszczenie okapu ze stali nierdzewnej, obok środki czyszczące" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-43-1200.jpg" data-avif="../../assets/img/gallery-43-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-43-400.avif">
+                    <img src="../../assets/img/gallery-43-400.jpg" width="400" height="533" alt="Górna część okapu podczas czyszczenia, obok płynu czyszczącego" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-42-1200.jpg" data-avif="../../assets/img/gallery-42-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-42-400.avif">
+                    <img src="../../assets/img/gallery-42-400.jpg" width="400" height="533" alt="Zbliżenie powierzchni ze stali nierdzewnej po czyszczeniu" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-48-1200.jpg" data-avif="../../assets/img/gallery-48-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-48-400.avif">
+                    <img src="../../assets/img/gallery-48-400.jpg" width="400" height="533" alt="Okap ze stali nierdzewnej nad ścianą z płytkami" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-47-1200.jpg" data-avif="../../assets/img/gallery-47-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-47-400.avif">
+                    <img src="../../assets/img/gallery-47-400.jpg" width="400" height="300" alt="Wyczyszczone filtry okapu nad zlewem kuchennym" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-49-1200.jpg" data-avif="../../assets/img/gallery-49-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-49-400.avif">
+                    <img src="../../assets/img/gallery-49-400.jpg" width="400" height="533" alt="Filtry okapu namaczane w gorącej wodzie z płynem" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-26-1200.jpg" data-avif="../../assets/img/gallery-26-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-26-400.avif">
+                    <img src="../../assets/img/gallery-26-400.jpg" width="400" height="533" alt="Filtry okapu: jeden wyczyszczony obok dwóch jeszcze zatłuszczonych" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-58-1200.jpg" data-avif="../../assets/img/gallery-58-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-58-400.avif">
+                    <img src="../../assets/img/gallery-58-400.jpg" width="400" height="300" alt="Para filtrów okapu po odtłuszczeniu" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-59-1200.jpg" data-avif="../../assets/img/gallery-59-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-59-400.avif">
+                    <img src="../../assets/img/gallery-59-400.jpg" width="400" height="300" alt="Czyste filtry okapu schnące na blacie" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-63-1200.jpg" data-avif="../../assets/img/gallery-63-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-63-400.avif">
+                    <img src="../../assets/img/gallery-63-400.jpg" width="400" height="533" alt="Czyste filtry okapu nad płytą gazową" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-64-1200.jpg" data-avif="../../assets/img/gallery-64-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-64-400.avif">
+                    <img src="../../assets/img/gallery-64-400.jpg" width="400" height="300" alt="Zbliżenie wyczyszczonych filtrów okapu" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-28-1200.jpg" data-avif="../../assets/img/gallery-28-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-28-400.avif">
+                    <img src="../../assets/img/gallery-28-400.jpg" width="400" height="533" alt="Prowadnice piekarnika pokryte przypalonym tłuszczem przed czyszczeniem" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-29-1200.jpg" data-avif="../../assets/img/gallery-29-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-29-400.avif">
+                    <img src="../../assets/img/gallery-29-400.jpg" width="400" height="533" alt="Zatłuszczone prowadnice piekarnika przed czyszczeniem" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-34-1200.jpg" data-avif="../../assets/img/gallery-34-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-34-400.avif">
+                    <img src="../../assets/img/gallery-34-400.jpg" width="400" height="533" alt="Zatłuszczona półka piekarnika przed czyszczeniem" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-30-1200.jpg" data-avif="../../assets/img/gallery-30-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-30-400.avif">
+                    <img src="../../assets/img/gallery-30-400.jpg" width="400" height="533" alt="Lśniące prowadnice piekarnika po czyszczeniu" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-31-1200.jpg" data-avif="../../assets/img/gallery-31-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-31-400.avif">
+                    <img src="../../assets/img/gallery-31-400.jpg" width="400" height="533" alt="Czyste chromowane prowadnice piekarnika" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-32-1200.jpg" data-avif="../../assets/img/gallery-32-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-32-400.avif">
+                    <img src="../../assets/img/gallery-32-400.jpg" width="400" height="533" alt="Półki piekarnika po czyszczeniu" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-33-1200.jpg" data-avif="../../assets/img/gallery-33-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-33-400.avif">
+                    <img src="../../assets/img/gallery-33-400.jpg" width="400" height="300" alt="Półki i prowadnice piekarnika po czyszczeniu" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+            </ul>
+          </section>
+          
+          <section class="gallery-group" data-cat="kitchens" aria-labelledby="g-kitchens">
+            <h2 id="g-kitchens">Kuchnie</h2>
+            <p>Ruszty kuchenki, szuflady lodówki, zlewy, odpływy i fronty szafek – miejsca, w których między sprzątaniami zbierają się plamy i odciski palców.</p>
+            <ul class="gallery-grid">
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-17-1200.jpg" data-avif="../../assets/img/gallery-17-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-17-400.avif">
+                    <img src="../../assets/img/gallery-17-400.jpg" width="400" height="533" alt="Płyta gazowa i ruszty przed czyszczeniem" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-19-1200.jpg" data-avif="../../assets/img/gallery-19-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-19-400.avif">
+                    <img src="../../assets/img/gallery-19-400.jpg" width="400" height="533" alt="Płyta gazowa i ruszty po czyszczeniu" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-36-1200.jpg" data-avif="../../assets/img/gallery-36-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-36-400.avif">
+                    <img src="../../assets/img/gallery-36-400.jpg" width="400" height="533" alt="Szuflada lodówki z zabrudzeniami i plamami przed czyszczeniem" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-35-1200.jpg" data-avif="../../assets/img/gallery-35-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-35-400.avif">
+                    <img src="../../assets/img/gallery-35-400.jpg" width="400" height="300" alt="Szuflada lodówki po czyszczeniu" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-18-1200.jpg" data-avif="../../assets/img/gallery-18-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-18-400.avif">
+                    <img src="../../assets/img/gallery-18-400.jpg" width="400" height="300" alt="Dwukomorowy zlew ze stali nierdzewnej z ociekaczem" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-20-1200.jpg" data-avif="../../assets/img/gallery-20-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-20-400.avif">
+                    <img src="../../assets/img/gallery-20-400.jpg" width="400" height="300" alt="Wyczyszczony, lśniący zlew ze stali nierdzewnej" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-03-1200.jpg" data-avif="../../assets/img/gallery-03-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-03-400.avif">
+                    <img src="../../assets/img/gallery-03-400.jpg" width="400" height="300" alt="Przetarte białe fronty szafek kuchennych i uchwyty" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-04-1200.jpg" data-avif="../../assets/img/gallery-04-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-04-400.avif">
+                    <img src="../../assets/img/gallery-04-400.jpg" width="400" height="300" alt="Czyste fronty i uchwyty szafek kuchennych" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-50-1200.jpg" data-avif="../../assets/img/gallery-50-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-50-400.avif">
+                    <img src="../../assets/img/gallery-50-400.jpg" width="400" height="533" alt="Biały ceramiczny zlew i odpływ po czyszczeniu" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-51-1200.jpg" data-avif="../../assets/img/gallery-51-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-51-400.avif">
+                    <img src="../../assets/img/gallery-51-400.jpg" width="400" height="533" alt="Zbliżenie odpływu zlewu po czyszczeniu" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+            </ul>
+          </section>
+          
+          <section class="gallery-group" data-cat="bathrooms" aria-labelledby="g-bathrooms">
+            <h2 id="g-bathrooms">Łazienki i umywalki</h2>
+            <p>Brodziki, szklane kabiny, odpływy, toalety i płytki, odkamienione i wyczyszczone środkami na bazie naturalnych składników. Także stanowisko do pedicure w salonie.</p>
+            <ul class="gallery-grid">
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-23-1200.jpg" data-avif="../../assets/img/gallery-23-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-23-400.avif">
+                    <img src="../../assets/img/gallery-23-400.jpg" width="400" height="533" alt="Prysznic z turkusowymi płytkami w jodełkę i czystą szklaną ścianką" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-24-1200.jpg" data-avif="../../assets/img/gallery-24-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-24-400.avif">
+                    <img src="../../assets/img/gallery-24-400.jpg" width="400" height="533" alt="Nieskazitelnie czysta, świeżo wyremontowana łazienka z turkusowymi płytkami, umywalką i drewnianą szafką" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-25-1200.jpg" data-avif="../../assets/img/gallery-25-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-25-400.avif">
+                    <img src="../../assets/img/gallery-25-400.jpg" width="400" height="533" alt="Wanna z lśniącą szklaną ścianką i turkusowymi płytkami w jodełkę" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-15-1200.jpg" data-avif="../../assets/img/gallery-15-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-15-400.avif">
+                    <img src="../../assets/img/gallery-15-400.jpg" width="400" height="300" alt="Lśniący biały brodzik i szklana kabina prysznicowa" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-16-1200.jpg" data-avif="../../assets/img/gallery-16-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-16-400.avif">
+                    <img src="../../assets/img/gallery-16-400.jpg" width="400" height="300" alt="Brodzik podczas czyszczenia, ze zdjętą pokrywą odpływu" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-13-1200.jpg" data-avif="../../assets/img/gallery-13-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-13-400.avif">
+                    <img src="../../assets/img/gallery-13-400.jpg" width="400" height="533" alt="Czyszczenie pokrywy odpływu prysznica" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-14-1200.jpg" data-avif="../../assets/img/gallery-14-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-14-400.avif">
+                    <img src="../../assets/img/gallery-14-400.jpg" width="400" height="300" alt="Brodzik w trakcie sprzątania, ze słuchawką prysznica i przyborami" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-21-1200.jpg" data-avif="../../assets/img/gallery-21-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-21-400.avif">
+                    <img src="../../assets/img/gallery-21-400.jpg" width="400" height="533" alt="Wyczyszczona i zdezynfekowana muszla toaletowa" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-22-1200.jpg" data-avif="../../assets/img/gallery-22-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-22-400.avif">
+                    <img src="../../assets/img/gallery-22-400.jpg" width="400" height="533" alt="Czysta biała toaleta na podłodze imitującej marmur" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-56-1200.jpg" data-avif="../../assets/img/gallery-56-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-56-400.avif">
+                    <img src="../../assets/img/gallery-56-400.jpg" width="400" height="533" alt="Czysta łazienka z umywalką na postumencie i wzorzystymi płytkami" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-55-1200.jpg" data-avif="../../assets/img/gallery-55-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-55-400.avif">
+                    <img src="../../assets/img/gallery-55-400.jpg" width="400" height="533" alt="Postument umywalki i listwy na wzorzystych płytkach" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-57-1200.jpg" data-avif="../../assets/img/gallery-57-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-57-400.avif">
+                    <img src="../../assets/img/gallery-57-400.jpg" width="400" height="533" alt="Kosz pedałowy i narożnik listwy w łazience" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-41-1200.jpg" data-avif="../../assets/img/gallery-41-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-41-400.avif">
+                    <img src="../../assets/img/gallery-41-400.jpg" width="400" height="300" alt="Brodzik do pedicure przed czyszczeniem" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-37-1200.jpg" data-avif="../../assets/img/gallery-37-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-37-400.avif">
+                    <img src="../../assets/img/gallery-37-400.jpg" width="400" height="533" alt="Czysty brodzik przy fotelu do pedicure w salonie" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-38-1200.jpg" data-avif="../../assets/img/gallery-38-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-38-400.avif">
+                    <img src="../../assets/img/gallery-38-400.jpg" width="400" height="533" alt="Fotel do pedicure i brodzik po czyszczeniu" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-39-1200.jpg" data-avif="../../assets/img/gallery-39-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-39-400.avif">
+                    <img src="../../assets/img/gallery-39-400.jpg" width="400" height="300" alt="Stopień stanowiska do pedicure przed czyszczeniem" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-40-1200.jpg" data-avif="../../assets/img/gallery-40-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-40-400.avif">
+                    <img src="../../assets/img/gallery-40-400.jpg" width="400" height="300" alt="Czyszczenie stanowiska do pedicure środkiem do wanien i płytek" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+            </ul>
+          </section>
+          
+          <section class="gallery-group" data-cat="details" aria-labelledby="g-details">
+            <h2 id="g-details">Listwy i detale</h2>
+            <p>Listwy przypodłogowe, włączniki światła i ościeżnice – często pierwsze miejsca, które sprawdza właściciel lub agencja, a ostatnie, do których dociera pośpieszne sprzątanie.</p>
+            <ul class="gallery-grid">
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-53-1200.jpg" data-avif="../../assets/img/gallery-53-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-53-400.avif">
+                    <img src="../../assets/img/gallery-53-400.jpg" width="400" height="300" alt="Listwa przypodłogowa obok włącznika światła przed czyszczeniem" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-54-1200.jpg" data-avif="../../assets/img/gallery-54-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-54-400.avif">
+                    <img src="../../assets/img/gallery-54-400.jpg" width="400" height="300" alt="Listwa przypodłogowa obok włącznika światła po czyszczeniu" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-12-1200.jpg" data-avif="../../assets/img/gallery-12-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-12-400.avif">
+                    <img src="../../assets/img/gallery-12-400.jpg" width="400" height="300" alt="Zakurzona listwa przypodłogowa nad wykładziną przed czyszczeniem" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-05-1200.jpg" data-avif="../../assets/img/gallery-05-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-05-400.avif">
+                    <img src="../../assets/img/gallery-05-400.jpg" width="400" height="300" alt="Listwa przypodłogowa nad wykładziną" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-06-1200.jpg" data-avif="../../assets/img/gallery-06-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-06-400.avif">
+                    <img src="../../assets/img/gallery-06-400.jpg" width="400" height="300" alt="Czysta biała listwa przypodłogowa" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-07-1200.jpg" data-avif="../../assets/img/gallery-07-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-07-400.avif">
+                    <img src="../../assets/img/gallery-07-400.jpg" width="400" height="300" alt="Czysta listwa przypodłogowa obok zmiotki" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-08-1200.jpg" data-avif="../../assets/img/gallery-08-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-08-400.avif">
+                    <img src="../../assets/img/gallery-08-400.jpg" width="400" height="300" alt="Czysty narożnik listwy na podłodze imitującej drewno" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-09-1200.jpg" data-avif="../../assets/img/gallery-09-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-09-400.avif">
+                    <img src="../../assets/img/gallery-09-400.jpg" width="400" height="300" alt="Czysta biała listwa przypodłogowa w narożniku" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-10-1200.jpg" data-avif="../../assets/img/gallery-10-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-10-400.avif">
+                    <img src="../../assets/img/gallery-10-400.jpg" width="400" height="533" alt="Czysta krawędź framugi i listwa" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-11-1200.jpg" data-avif="../../assets/img/gallery-11-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-11-400.avif">
+                    <img src="../../assets/img/gallery-11-400.jpg" width="400" height="300" alt="Listwa przypodłogowa ze ściereczką i szczotką" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-52-1200.jpg" data-avif="../../assets/img/gallery-52-1200.avif" data-w="1200" data-h="900">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-52-400.avif">
+                    <img src="../../assets/img/gallery-52-400.jpg" width="400" height="300" alt="Listwa przypodłogowa nad wzorzystymi płytkami" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-01-1200.jpg" data-avif="../../assets/img/gallery-01-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-01-400.avif">
+                    <img src="../../assets/img/gallery-01-400.jpg" width="400" height="533" alt="Przetarty włącznik światła ze szczotkowanej stali" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+              <li>
+                <a class="g-item" href="../../assets/img/gallery-02-1200.jpg" data-avif="../../assets/img/gallery-02-1200.avif" data-w="1200" data-h="1600">
+                  <picture>
+                    <source type="image/avif" srcset="../../assets/img/gallery-02-400.avif">
+                    <img src="../../assets/img/gallery-02-400.jpg" width="400" height="533" alt="Włącznik światła ze szczotkowanej stali" loading="lazy" decoding="async">
+                  </picture>
+                </a>
+              </li>
+              
+            </ul>
+          </section>
+          
+        </div>
       </div>
     </section>
   </main>
@@ -749,7 +796,7 @@
       <div class="footer-services">
         <h2 class="footer-title">Usługi</h2>
         <ul class="footer-list">
-          <li><a href="../#end-of-tenancy-cleaning">Sprzątanie po zakończeniu najmu</a></li><li><a href="../#post-renovation-cleaning">Sprzątanie po remoncie</a></li><li><a href="../#deep-cleaning">Jednorazowe sprzątanie gruntowne</a></li><li><a href="../#regular-cleaning">Regularne sprzątanie</a></li>
+          <li><a href="../end-of-tenancy-cleaning/">Sprzątanie po zakończeniu najmu</a></li><li><a href="../post-renovation-cleaning/">Sprzątanie po remoncie</a></li><li><a href="../deep-cleaning/">Jednorazowe sprzątanie gruntowne</a></li><li><a href="../regular-cleaning/">Regularne sprzątanie</a></li>
         </ul>
       </div>
       <div class="footer-info">
